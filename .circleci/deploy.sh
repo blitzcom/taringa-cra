@@ -2,13 +2,6 @@
 
 echo "Deploy to $APP_NAME app."
 
-# Install private ssh key
-which ssh-agent
-eval $(ssh-agent -s)
-echo "$SSH_HEROKU_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
-
 # Add heroku.com as known host
 ssh-keyscan heroku.com >> ~/.ssh/known_hosts
 chmod 644 ~/.ssh/known_hosts
