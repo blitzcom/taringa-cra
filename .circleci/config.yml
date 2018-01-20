@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - save_cache:
-          key: v2-code-{{ .Environment.CIRCLE_SHA1 }}
+          key: v3-code-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/repo
 
@@ -22,13 +22,13 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v2-packages-{{ checksum "yarn.lock" }}
+            - v3-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
-          key: v2-packages-{{ checksum "yarn.lock" }}
+          key: v3-packages-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
 
@@ -39,10 +39,10 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v2-packages-{{ checksum "yarn.lock" }}
+            - v3-packages-{{ checksum "yarn.lock" }}
       - run: yarn run build
 
   test:
@@ -52,10 +52,10 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v2-packages-{{ checksum "yarn.lock" }}
+            - v3-packages-{{ checksum "yarn.lock" }}
       - run: yarn test
 
   deploy:
@@ -67,7 +67,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
@@ -88,7 +88,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
