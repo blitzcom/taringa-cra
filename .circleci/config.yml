@@ -52,10 +52,10 @@ jobs:
             - v1-packages-{{ checksum "yarn.lock" }}
       - run: yarn test
 
-  deploy:
+  deploy-production:
     <<: *defaults
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa-plus.git
+        - HEROKU_GIT: https://git.heroku.com/taringa.git
     steps:
       - restore_cache:
           keys:
@@ -75,7 +75,7 @@ jobs:
   deploy-staging:
     <<: *defaults
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa-plus-staging.git
+        - HEROKU_GIT: https://git.heroku.com/taringa-staging.git
     steps:
       - restore_cache:
           keys:
@@ -126,7 +126,7 @@ workflows:
               ignore: /.*/
             branches:
               only: master
-      - deploy:
+      - deploy-production:
           requires:
             - build
             - test
