@@ -11,15 +11,9 @@ sudo mkdir -p /usr/local/lib /usr/local/bin
 sudo tar -xzf heroku-linux-amd64.tar.gz -C /usr/local/lib
 sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
 
-cat > ~/.netrc << EOF
-machine api.heroku.com
-  login $HEROKU_LOGIN
-  password $HEROKU_API_KEY
-EOF
-
 git remote -v
 
 ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
 
 # Deploy
-git push heroku master
+git push heroku $CIRCLE_SHA1:refs/heads/master
