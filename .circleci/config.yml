@@ -60,9 +60,15 @@ jobs:
       - restore_cache:
           keys:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - add_ssh_keys:
+          fingerprints:
+            - "fa:37:01:71:aa:80:92:16:9d:f5:69:a6:7a:90:8b:3b"
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
       - run:
           name: Deploy on production
-          command: bash .circleci/deploy.sh
+          command: git push heroku $CIRCLE_SHA1:refs/heads/master
 
   deploy-staging:
     <<: *defaults
@@ -76,8 +82,11 @@ jobs:
           fingerprints:
             - "fa:37:01:71:aa:80:92:16:9d:f5:69:a6:7a:90:8b:3b"
       - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+      - run:
           name: Deploy on staging
-          command: bash .circleci/deploy.sh
+          command: git push heroku $CIRCLE_SHA1:refs/heads/master
 
 workflows:
   version: 2
