@@ -2,9 +2,7 @@
 
 echo "Deploy to $APP_NAME app."
 
-# Add heroku.com as known host
-ssh-keyscan heroku.com >> ~/.ssh/known_hosts
-chmod 644 ~/.ssh/known_hosts
+git remote add heroku git@heroku.com:$APP_NAME.git
 
 # Install Heroku CLI
 echo "Install Heroku CLI"
@@ -19,8 +17,9 @@ machine api.heroku.com
   password $HEROKU_API_KEY
 EOF
 
-git remote add heroku git@heroku.com:$APP_NAME.git
 git remote -v
+
+ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
 
 # Deploy
 ssh git@heroku.com
