@@ -52,6 +52,7 @@ jobs:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
             - v1-setup-
+      - run: echo $CIRCLE_SHA1
       - run: yarn test
 
   deploy-production:
