@@ -10,7 +10,7 @@ mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 
 # Add heroku.com as known host
-echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+ssh-keyscan heroku.com >> ~/.ssh/known_hosts
 chmod 644 ~/.ssh/known_hosts
 
 # Install Heroku CLI
@@ -20,16 +20,8 @@ sudo mkdir -p /usr/local/lib /usr/local/bin
 sudo tar -xzf heroku-linux-amd64.tar.gz -C /usr/local/lib
 sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
 
-cat > ~/.netrc << EOF
-machine api.heroku.com
-  login $HEROKU_LOGIN
-  password $HEROKU_API_KEY
-EOF
-
 git remote add heroku git@heroku.com:$APP_NAME.git
 git remote -v
 
 # Deploy
-git push heroku $CIRCLE_SHA1:refs/heads/master
-
-heroku restart --app $APP_NAME
+ssh git@heroku.com
