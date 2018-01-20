@@ -1,18 +1,140 @@
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+      - image: circleci/node:latest
+
 version: 2
 
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest
+  checkout_code:
+    <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-          key: v1-packages-{{ checksum "package.json" }}
-      - run:
-          name: Install node packages
-          command: |
-            yarn install
       - save_cache:
-          key: v1-packages-{{ checksum "package.json" }}
+          key: v1-code-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/repo
+
+  setup:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-setup-{{ checksum "yarn.lock" }}
+      - run: yarn install
+      - save_cache:
+          key: v1-setup-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
+
+  build:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-setup-{{ checksum "yarn.lock" }}
+            - v1-setup-
+      - run: yarn run build
+
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-setup-{{ checksum "yarn.lock" }}
+            - v1-setup-
+      - run: yarn test
+
+  deploy-production:
+    <<: *defaults
+    environment:
+        - APP_NAME: taringa
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "34:ad:39:25:fb:e3:8e:3b:f4:83:7c:7e:fb:55:4c:19"
+      - run:
+          name: Deploy master to Heroku
+          command: |
+            git push heroku $CIRCLE_SHA1:refs/heads/master
+            heroku restart
+
+  deploy-staging:
+    <<: *defaults
+    environment:
+        - APP_NAME: taringa-staging
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "34:ad:39:25:fb:e3:8e:3b:f4:83:7c:7e:fb:55:4c:19"
+      - run:
+          name: Deploy staging to Heroku
+          command: |
+            git push heroku $CIRCLE_SHA1:refs/heads/master
+            heroku restart
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - checkout_code:
+          filters:
+            tags:
+              only: /.*/
+      - setup:
+          requires:
+            - checkout_code
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          requires:
+            - setup
+          filters:
+            tags:
+              only: /.*/
+      - test:
+          requires:
+            - setup
+          filters:
+            tags:
+              only: /.*/
+      - deploy-staging:
+          requires:
+            - build
+            - test
+          filters:
+            tags:
+              ignore: /.*/
+            # branches:
+            #   only: master
+      - deploy-production:
+          requires:
+            - build
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
