@@ -1,75 +1,67 @@
 defaults: &defaults
   working_directory: ~/repo
+  docker:
+      - image: circleci/node:latest
 
 version: 2
 
 jobs:
   checkout_code:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     steps:
       - checkout
       - save_cache:
-          key: v3-code-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-code-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/repo
 
-  packages:
+  setup:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v3-packages-{{ checksum "yarn.lock" }}
+            - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
-          key: v3-packages-{{ checksum "yarn.lock" }}
+          key: v1-setup-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
 
   build:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v3-packages-{{ checksum "yarn.lock" }}
-            - v3-packages-
+            - v1-setup-{{ checksum "yarn.lock" }}
+            - v1-setup-
       - run: yarn run build
 
   test:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v3-packages-{{ checksum "yarn.lock" }}
-            - v3-packages-
+            - v1-setup-{{ checksum "yarn.lock" }}
+            - v1-setup-
       - run: yarn test
 
-  deploy:
+  deploy-production:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa-plus.git
+        - HEROKU_GIT: https://git.heroku.com/taringa.git
     steps:
       - restore_cache:
           keys:
-            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
@@ -81,16 +73,15 @@ jobs:
           command: |
             git push heroku master
             heroku restart
+
   deploy-staging:
     <<: *defaults
-    docker:
-        - image: circleci/node:latest
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa-plus-staging.git
+        - HEROKU_GIT: https://git.heroku.com/taringa-staging.git
     steps:
       - restore_cache:
           keys:
-            - v3-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
@@ -98,19 +89,20 @@ jobs:
           fingerprints:
             - "99:ff:ca:84:c6:7b:d8:6c:e2:2a:a6:91:c4:e5:a0:2c"
       - run:
-          name: Deploy develop to Heroku
+          name: Deploy staging to Heroku
           command: |
             git push heroku master
             heroku restart
+
 workflows:
   version: 2
-  test-and-deploy:
+  pipeline:
     jobs:
       - checkout_code:
           filters:
             tags:
               only: /.*/
-      - packages:
+      - setup:
           requires:
             - checkout_code
           filters:
@@ -118,13 +110,13 @@ workflows:
               only: /.*/
       - build:
           requires:
-            - packages
+            - setup
           filters:
             tags:
               only: /.*/
       - test:
           requires:
-            - packages
+            - setup
           filters:
             tags:
               only: /.*/
@@ -137,7 +129,7 @@ workflows:
               ignore: /.*/
             branches:
               only: master
-      - deploy:
+      - deploy-production:
           requires:
             - build
             - test
