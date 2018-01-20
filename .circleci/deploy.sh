@@ -26,9 +26,8 @@ machine api.heroku.com
   password $HEROKU_API_KEY
 EOF
 
-git remote -v
-git remote rm heroku
 git remote add heroku git@heroku.com:$APP_NAME.git
+git remote -v
 
 # Deploy
 git push heroku $CIRCLE_SHA1:refs/heads/master
