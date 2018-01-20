@@ -22,4 +22,4 @@ git remote -v
 ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
 
 # Deploy
-ssh git@heroku.com
+git push heroku master
