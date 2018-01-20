@@ -13,7 +13,5 @@ sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
 
 git remote -v
 
-ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
-
 # Deploy
 git push heroku $CIRCLE_SHA1:refs/heads/master
