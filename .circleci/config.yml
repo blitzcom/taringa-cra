@@ -1,66 +1,73 @@
 defaults: &defaults
   working_directory: ~/repo
-  docker:
-      - image: circleci/node:latest
 
 version: 2
 
 jobs:
   checkout_code:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     steps:
       - checkout
       - save_cache:
-          key: v1-code-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-code-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/repo
 
   packages:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-packages-{{ checksum "yarn.lock" }}
+            - v2-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
-          key: v1-packages-{{ checksum "yarn.lock" }}
+          key: v2-packages-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
 
   build:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-packages-{{ checksum "yarn.lock" }}
-      - run: yarn install
+            - v2-packages-{{ checksum "yarn.lock" }}
       - run: yarn run build
 
   test:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     steps:
       - restore_cache:
           keys:
-            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-packages-{{ checksum "yarn.lock" }}
+            - v2-packages-{{ checksum "yarn.lock" }}
       - run: yarn test
 
-  deploy-production:
+  deploy:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa.git
+        - HEROKU_GIT: https://git.heroku.com/taringa-plus.git
     steps:
       - restore_cache:
           keys:
-            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
@@ -72,15 +79,16 @@ jobs:
           command: |
             git push heroku master
             heroku restart
-
   deploy-staging:
     <<: *defaults
+    docker:
+        - image: circleci/node:latest
     environment:
-        - HEROKU_GIT: https://git.heroku.com/taringa-staging.git
+        - HEROKU_GIT: https://git.heroku.com/taringa-plus-staging.git
     steps:
       - restore_cache:
           keys:
-            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+            - v2-code-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
@@ -127,7 +135,7 @@ workflows:
               ignore: /.*/
             branches:
               only: master
-      - deploy-production:
+      - deploy:
           requires:
             - build
             - test
