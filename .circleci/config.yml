@@ -72,6 +72,9 @@ jobs:
       - restore_cache:
           keys:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - add_ssh_keys:
+          fingerprints:
+            - "fa:37:01:71:aa:80:92:16:9d:f5:69:a6:7a:90:8b:3b"
       - run:
           name: Deploy on staging
           command: bash .circleci/deploy.sh
