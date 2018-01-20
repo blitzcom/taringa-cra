@@ -127,8 +127,8 @@ workflows:
           filters:
             tags:
               ignore: /.*/
-            branches:
-              only: master
+            # branches:
+            #   only: master
       - deploy-production:
           requires:
             - build
