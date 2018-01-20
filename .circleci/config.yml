@@ -86,6 +86,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "34:ad:39:25:fb:e3:8e:3b:f4:83:7c:7e:fb:55:4c:19"
+            - "8b:48:5e:67:0e:c9:16:47:32:f2:87:0c:1f:c8:60:ad"
       - run:
           name: Deploy staging to Heroku
           command: |
