@@ -13,6 +13,6 @@ jobs:
           command: |
             yarn install
       - save_cache:
-          key: v1-packages-{{ .Brach }}-{{ checksum "yarn.lock" }}
+          key: v1-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
