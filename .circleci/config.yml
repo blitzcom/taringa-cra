@@ -43,6 +43,7 @@ jobs:
       - restore_cache:
           keys:
             - v3-packages-{{ checksum "yarn.lock" }}
+            - v3-packages-
       - run: yarn run build
 
   test:
@@ -56,6 +57,7 @@ jobs:
       - restore_cache:
           keys:
             - v3-packages-{{ checksum "yarn.lock" }}
+            - v3-packages-
       - run: yarn test
 
   deploy:
