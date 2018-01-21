@@ -25,6 +25,7 @@ jobs:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn install
+      - run: yarn -v && node -v
       - save_cache:
           key: v1-setup-{{ checksum "yarn.lock" }}
           paths:
