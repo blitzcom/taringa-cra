@@ -39,7 +39,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
-            - v1-setup-
       - run: yarn run build
 
   test:
@@ -51,7 +50,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
-            - v1-setup-
       - run: yarn test
 
   deploy-production:
@@ -62,17 +60,15 @@ jobs:
       - restore_cache:
           keys:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - add_ssh_keys:
+          fingerprints:
+            - "fa:37:01:71:aa:80:92:16:9d:f5:69:a6:7a:90:8b:3b"
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "34:ad:39:25:fb:e3:8e:3b:f4:83:7c:7e:fb:55:4c:19"
       - run:
-          name: Deploy master to Heroku
-          command: |
-            git push heroku $CIRCLE_SHA1:refs/heads/master
-            heroku restart
+          name: Deploy on production
+          command: git push heroku $CIRCLE_SHA1:refs/heads/master
 
   deploy-staging:
     <<: *defaults
@@ -82,17 +78,15 @@ jobs:
       - restore_cache:
           keys:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - add_ssh_keys:
+          fingerprints:
+            - "fa:37:01:71:aa:80:92:16:9d:f5:69:a6:7a:90:8b:3b"
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "34:ad:39:25:fb:e3:8e:3b:f4:83:7c:7e:fb:55:4c:19"
       - run:
-          name: Deploy staging to Heroku
-          command: |
-            git push heroku $CIRCLE_SHA1:refs/heads/master
-            heroku restart
+          name: Deploy on staging
+          command: git push heroku $CIRCLE_SHA1:refs/heads/master
 
 workflows:
   version: 2
