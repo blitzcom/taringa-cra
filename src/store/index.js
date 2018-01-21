@@ -9,9 +9,8 @@ axios.defaults.baseURL = 'https://beta.taringa.net/api'
 
 const buildThunk = () => thunk.withExtraArgument(axios)
 
-const buildDevTools = () => window.devToolsExtension ?
-  window.devToolsExtension() :
-  f => f
+const buildDevTools = () =>
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 
 const globalState = {}
 
@@ -24,9 +23,7 @@ export const configure = (initialState = globalState) => {
       buildDevTools()
     )
   } else {
-    compose = redux.compose(
-      redux.applyMiddleware(buildThunk())
-    )
+    compose = redux.compose(redux.applyMiddleware(buildThunk()))
   }
 
   return redux.createStore(reducer, initialState, compose)
