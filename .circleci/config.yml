@@ -23,10 +23,10 @@ jobs:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-setup-{{ checksum "package.json" }}
+            - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
-          key: v1-setup-{{ checksum "package.json" }}
+          key: v1-setup-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
 
@@ -38,7 +38,7 @@ jobs:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-setup-{{ checksum "package.json" }}
+            - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn run build
 
   test:
@@ -49,7 +49,7 @@ jobs:
             - v1-code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - v1-setup-{{ checksum "package.json" }}
+            - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn test
 
   deploy-production:
