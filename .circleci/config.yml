@@ -24,7 +24,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
-      - run: yarn -v && node -v
       - run: yarn install
       - save_cache:
           key: v1-setup-{{ checksum "yarn.lock" }}
@@ -122,8 +121,8 @@ workflows:
           filters:
             tags:
               ignore: /.*/
-            # branches:
-            #   only: master
+            branches:
+              only: master
       - deploy-production:
           requires:
             - build
