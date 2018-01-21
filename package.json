@@ -20,5 +20,13 @@
   },
   "devDependencies": {
     "prettier": "1.10.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!<rootDir>/node_modules/"
+    ]
   }
 }
