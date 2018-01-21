@@ -136,6 +136,7 @@ workflows:
           requires:
             - build
             - test
+            - lint
           filters:
             tags:
               ignore: /.*/
@@ -145,6 +146,7 @@ workflows:
           requires:
             - build
             - test
+            - lint
           filters:
             tags:
               only: /^v.*/
