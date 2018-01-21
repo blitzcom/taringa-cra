@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-      - image: circleci/node:latest
+      - image: circleci/node:8.9.4
 
 version: 2
 
@@ -51,6 +51,18 @@ jobs:
           keys:
             - v1-setup-{{ checksum "yarn.lock" }}
       - run: yarn test
+
+  lint:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-setup-{{ checksum "yarn.lock" }}
+      - run: yarn run prettier
+
 
   deploy-production:
     <<: *defaults
@@ -109,6 +121,12 @@ workflows:
             tags:
               only: /.*/
       - test:
+          requires:
+            - setup
+          filters:
+            tags:
+              only: /.*/
+      - lint:
           requires:
             - setup
           filters:
