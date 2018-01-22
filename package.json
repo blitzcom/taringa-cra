@@ -27,13 +27,15 @@
     "yarn": "1.3.2"
   },
   "devDependencies": {
-    "prettier": "1.10.2",
-    "redux-immutable-state-invariant": "^2.1.0",
-    "@storybook/react": "^3.3.10",
     "@storybook/addon-actions": "^3.3.10",
     "@storybook/addon-links": "^3.3.10",
+    "@storybook/addon-storyshots": "^3.3.10",
     "@storybook/addons": "^3.3.10",
-    "babel-core": "^6.26.0"
+    "@storybook/react": "^3.3.10",
+    "babel-core": "^6.26.0",
+    "prettier": "1.10.2",
+    "react-test-renderer": "^16.2.0",
+    "redux-immutable-state-invariant": "^2.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
