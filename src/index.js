@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
+import './fontawesome-all.css'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
