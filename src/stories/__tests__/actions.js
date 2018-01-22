@@ -41,7 +41,7 @@ describe('Fetch stories async action', () => {
 
   it('fetches with success', () => {
     mock.onGet('/feed/global')
-      .reply(200, data)
+      .reply(200, { items: data })
 
     const store = mockStore({
       control: {
@@ -92,7 +92,7 @@ describe('Fetch stories async action', () => {
 
   it('skips if already fetching', () => {
     mock.onGet('/feed/global')
-      .reply(200, data)
+      .reply(200, { items: data })
 
     const store = mockStore({
       control: {

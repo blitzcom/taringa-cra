@@ -30,7 +30,7 @@ export const fetch = () => {
     dispatch(fetchRequest())
 
     return axios.get('/feed/global')
-      .then(response => response.data)
+      .then(response => response.data.items)
       .then(data => {
         const action = _.assign({}, normalize(data, [story]), fetchSuccess())
         return dispatch(action)

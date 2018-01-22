@@ -5,6 +5,17 @@ describe('Store', () => {
   it('return initial state', () => {
     const store = configure()
 
-    expect(store.getState()).toEqual({})
+    expect(store.getState()).toEqual({
+      control: {
+        storiesFetch: {
+          error: '',
+          ids: [],
+          status: 'success',
+        }
+      },
+      entities: {
+        stories: {}
+      }
+    })
   })
 })
