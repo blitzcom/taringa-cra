@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Nav default 1`] = `
+<div
+  className="navbar navbar-dark Nav"
+>
+  <a
+    className="navbar-brand font-weight-bold"
+    href="/"
+  >
+    TARINGA!
+  </a>
+</div>
+`;
