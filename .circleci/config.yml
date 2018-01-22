@@ -83,7 +83,7 @@ jobs:
           command: git push heroku $CIRCLE_SHA1:refs/heads/master
       - run:
           name: Notification
-          command: bash ./circleci/slack.sh
+          command: bash .circleci/slack.sh
           when: on_success
 
   deploy-staging:
@@ -105,7 +105,7 @@ jobs:
           command: git push heroku $CIRCLE_SHA1:refs/heads/master
       - run:
           name: Notification
-          command: bash ./circleci/slack.sh
+          command: bash .circleci/slack.sh
           when: on_success
 
 workflows:
