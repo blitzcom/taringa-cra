@@ -6,14 +6,17 @@ import { humanizeNum } from '../../Utils'
 
 const Score = props => {
   const classVoteUpButton = classNames('Score-vote', {
+    'Score-disabled': props.isVoting,
     'Score-up': props.voted > 0,
   })
 
   const classVoteDownButton = classNames('Score-vote', {
+    'Score-disabled': props.isVoting,
     'Score-down': props.voted < 0,
   })
 
   const classVotes = classNames('Score-votes', {
+    'Score-disabled': props.isVoting,
     'Score-down': props.voted < 0,
     'Score-up': props.voted > 0,
   })

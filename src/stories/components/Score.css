@@ -12,14 +12,14 @@
   cursor: pointer;
 }
 
-.Score-vote:disabled {
-  color: #f0f0f0;
-  cursor: default;
+.Score-disabled {
+  color: #f0f0f0 !important;
+  cursor: default !important;
 }
 
-.Score-vote:disabled:hover {
-  color: #f0f0f0;
-  cursor: default;
+.Score-disabled:hover {
+  color: #f0f0f0 !important;
+  cursor: default !important;
 }
 
 .Score-vote:focus,

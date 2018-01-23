@@ -2,7 +2,7 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text } from '@storybook/addon-knobs/react'
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../fontawesome-all.css'
@@ -16,21 +16,32 @@ import Score from '../stories/components/Score'
 
 storiesOf('Nav', module).add('default', () => <Nav />)
 
-storiesOf('Story', module).add('shout', () => {
-  return (
-    <Story
-      onVoteDown={action('onVoteDown')}
-      onVoteUp={action('onVoteUp')}
-      {...StoryShout}
-    />
-  )
-})
+storiesOf('Story', module)
+  .addDecorator(withKnobs)
+  .add('shout', () => {
+    const downvotes = number('Downvotes', 2500)
+    const upvotes = number('Upvotes', 5500)
+    const voted = number('Voted', 0)
+    const isVoting = boolean('Is Voting', false)
+
+    return (
+      <Story
+        downvotes={downvotes}
+        isVoting={isVoting}
+        onVoteDown={action('onVoteDown')}
+        onVoteUp={action('onVoteUp')}
+        upvotes={upvotes}
+        voted={voted}
+        {...StoryShout}
+      />
+    )
+  })
 
 storiesOf('Score', module)
   .addDecorator(withKnobs)
   .add('default', () => {
-    const downvotes = text('Downvotes', 2500)
-    const upvotes = text('Upvotes', 5500)
+    const downvotes = number('Downvotes', 2500)
+    const upvotes = number('Upvotes', 5500)
 
     return (
       <Score
@@ -45,8 +56,8 @@ storiesOf('Score', module)
 storiesOf('Score', module)
   .addDecorator(withKnobs)
   .add('voted up', () => {
-    const downvotes = text('Downvotes', 2500)
-    const upvotes = text('Upvotes', 5500)
+    const downvotes = number('Downvotes', 2500)
+    const upvotes = number('Upvotes', 5500)
 
     return (
       <Score
@@ -62,8 +73,8 @@ storiesOf('Score', module)
 storiesOf('Score', module)
   .addDecorator(withKnobs)
   .add('voted down', () => {
-    const downvotes = text('Downvotes', 2500)
-    const upvotes = text('Upvotes', 5500)
+    const downvotes = number('Downvotes', 2500)
+    const upvotes = number('Upvotes', 5500)
 
     return (
       <Score
@@ -79,8 +90,8 @@ storiesOf('Score', module)
 storiesOf('Score', module)
   .addDecorator(withKnobs)
   .add('is voting', () => {
-    const downvotes = text('Downvotes', 2500)
-    const upvotes = text('Upvotes', 5500)
+    const downvotes = number('Downvotes', 2500)
+    const upvotes = number('Upvotes', 5500)
 
     return (
       <Score

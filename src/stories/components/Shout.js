@@ -30,6 +30,8 @@ class Shout extends Component {
             onVoteDown={this.props.onVoteDown}
             onVoteUp={this.props.onVoteUp}
             upvotes={this.props.upvotes}
+            voted={this.props.voted}
+            isVoting={this.props.isVoting}
           />
 
           <a className="Shout-thumbnail" href="/">
