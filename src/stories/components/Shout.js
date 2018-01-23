@@ -3,6 +3,7 @@ import TimeAgo from 'react-timeago'
 
 import './Shout.css'
 import Score from './Score'
+import Action from '../../common/Action'
 import { humanizeNum, esFormatter } from '../../Utils'
 
 class Shout extends Component {
@@ -69,21 +70,13 @@ class Shout extends Component {
                 <i className="fa fa-expand"/>
               </button>
 
-              <button
-                className="btn btn-action"
-                title="Comentarios"
-              >
-                <i className="fa fa-comments"/>
-                {humanizeNum(this.props.comments)} comentarios
-              </button>
+              <Action icon="comments" title="Comentar">
+                { humanizeNum(this.props.comments) } comentarios
+              </Action>
 
-              <button
-                className="btn btn-action"
-                title="Compartir"
-              >
-                <i className="fa fa-retweet"/>
-                {humanizeNum(this.props.shares)}
-              </button>
+              <Action icon="retweet" title="Compartir">
+                { humanizeNum(this.props.shares) }
+              </Action>
             </div>
           </div>
         </div>

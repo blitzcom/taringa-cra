@@ -13,6 +13,7 @@ import { StoryShout } from './data'
 import Nav from '../common/Nav'
 import Story from '../stories/components/Story'
 import Score from '../stories/components/Score'
+import Action from '../common/Action'
 
 storiesOf('Nav', module).add('default', () => <Nav />)
 
@@ -101,5 +102,19 @@ storiesOf('Score', module)
         onVoteUp={action('onVoteUp')}
         upvotes={upvotes}
       />
+    )
+  })
+
+storiesOf('Action', module)
+  .addDecorator(withKnobs)
+  .add('default', () => {
+    const icon = text('Icon', 'comments')
+
+    return (
+      <Action
+        icon={icon}
+      >
+        comments
+      </Action>
     )
   })
