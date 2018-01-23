@@ -28,4 +28,5 @@
   color: rgba(150, 150, 150, 1);
   outline: none !important;
   text-decoration: none !important;
+  box-shadow: none;
 }
