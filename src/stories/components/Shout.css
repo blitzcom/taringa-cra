@@ -6,14 +6,15 @@
   height: 70px;
   margin-right: 16px;
   width: 70px;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
 }
 
 .Shout-thumbnail > img {
   border-radius: 3px;
-  max-height: 70px;
+  height: 100%;
   object-fit: cover;
-  border: 1px solid #f0f0f0;
-  width: 70px;
+  width: 68px;
 }
 
 .Shout-thumbnail:hover {
