@@ -12,12 +12,12 @@ export const fetchSuccess = () => ({
   type: types.FETCH_SUCCESS,
 })
 
-export const fetchFailure = (message) => ({
+export const fetchFailure = message => ({
   type: types.FETCH_FAILURE,
   message: message,
 })
 
-const canFetch = (state) => {
+const canFetch = state => {
   return state.control.storiesFetch.status !== 'fetching'
 }
 
@@ -29,7 +29,8 @@ export const fetch = () => {
 
     dispatch(fetchRequest())
 
-    return axios.get('/feed/global')
+    return axios
+      .get('/feed/global')
       .then(response => response.data.items)
       .then(data => {
         const action = _.assign({}, normalize(data, [story]), fetchSuccess())

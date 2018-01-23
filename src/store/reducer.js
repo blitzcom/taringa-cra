@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux'
 
-import {
-  storiesEntities,
-  storiesFetchControl,
-} from '../stories/reducers'
+import { storiesEntities, storiesFetchControl } from '../stories/reducers'
 
 const entities = combineReducers({
   stories: storiesEntities,

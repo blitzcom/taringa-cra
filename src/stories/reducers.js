@@ -15,7 +15,10 @@ const fetchControlInitialState = {
   status: 'success',
 }
 
-export const storiesFetchControl = (state = fetchControlInitialState, action) => {
+export const storiesFetchControl = (
+  state = fetchControlInitialState,
+  action
+) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
       return _.assign({}, state, { status: 'fetching', error: '' })

@@ -13,16 +13,14 @@ import Nav from '../common/Nav'
 import { StoryShout } from './data'
 import Story from '../stories/components/Story'
 
-
 storiesOf('Nav', module).add('default', () => <Nav />)
 
-storiesOf('Story', module)
-  .add('shout', () => {
-    return (
-      <Story
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        {...StoryShout}
-      />
-    )
-  })
+storiesOf('Story', module).add('shout', () => {
+  return (
+    <Story
+      onVoteDown={action('onVoteDown')}
+      onVoteUp={action('onVoteUp')}
+      {...StoryShout}
+    />
+  )
+})
