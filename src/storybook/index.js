@@ -8,25 +8,20 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '../fontawesome-all.css'
 
 import Nav from '../common/Nav'
+
+import { StoryShout } from './data'
 import Story from '../stories/components/Story'
+
 
 storiesOf('Nav', module).add('default', () => <Nav />)
 
 storiesOf('Story', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    const score = text('Score', '15.9k')
-    const title = text(
-      'Title',
-      'Spicy jalapeno bacon ipsum dolor amet kielbasa sausage meatloaf'
-    )
-
+  .add('shout', () => {
     return (
       <Story
         onVoteDown={action('onVoteDown')}
         onVoteUp={action('onVoteUp')}
-        score={score}
-        title={title}
+        {...StoryShout}
       />
     )
   })

@@ -2,6 +2,53 @@ import React from 'react'
 
 import './Story.css'
 
+const StoryShout = props => (
+  <div className="StoryShout">
+    <a className="StoryShout-thumbnail" href="/">
+      <img src={props.summary.images.slice[0].url}/>
+    </a>
+    <div className="StoryShout-info">
+      <a
+        className="StoryShout-title text-dark"
+        href={`/story/${props.slug}`}
+      >
+        { props.summary.excerpt }
+      </a>
+      <p className="StoryShout-meta">
+        Posteado por
+        <a href={`/user/${props.owner.username}`}>
+          {props.owner.username}
+        </a>
+        hace {props.created}
+      </p>
+      <div className="StoryShout-actions">
+        <button
+          className="btn StoryShout-action"
+          title="Expandir"
+        >
+          <i className="fa fa-expand"/>
+        </button>
+
+        <button
+          className="btn StoryShout-action"
+          title="Comentarios"
+        >
+          <i className="fa fa-comments"/>
+          {props.comments} comentarios
+        </button>
+
+        <button
+          className="btn StoryShout-action"
+          title="Compartir"
+        >
+          <i className="fa fa-retweet"/>
+          {props.shares}
+        </button>
+      </div>
+    </div>
+  </div>
+)
+
 const Story = props => (
   <div className="card Story">
     <div className="Story-score-display">
@@ -12,7 +59,7 @@ const Story = props => (
         <i className="fa fa-arrow-up"/>
       </button>
       <div className="Story-score">
-        { props.score }
+        { props.upvotes }
       </div>
       <button
         className="Story-vote"
@@ -21,17 +68,7 @@ const Story = props => (
         <i className="fa fa-arrow-down"/>
       </button>
     </div>
-
-    <a className="Story-thumbnail" href="/">
-      <div className="Story-type-post">
-        <i className="fa fa-file-alt fa-2x"/>
-      </div>
-    </a>
-    <div className="Story-info">
-      <a className="text-dark" href="/">
-        { props.title }
-      </a>
-    </div>
+    <StoryShout {...props}/>
   </div>
 )
 
