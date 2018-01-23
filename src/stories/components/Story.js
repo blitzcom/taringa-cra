@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './Story.css'
+import { humanizeNum } from '../../Utils'
 
 const StoryShout = props => (
   <div className="StoryShout">
@@ -59,7 +60,7 @@ const Story = props => (
         <i className="fa fa-arrow-up"/>
       </button>
       <div className="Story-score">
-        { props.upvotes }
+        { humanizeNum(props.upvotes - props.downvotes) }
       </div>
       <button
         className="Story-vote"
