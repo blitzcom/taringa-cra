@@ -1,0 +1,49 @@
+.Score-display {
+  border-right: 1px solid #f0f0f0;
+  padding-right: 8px;
+  text-align: center;
+  margin-right: 16px;
+}
+
+.Score-vote {
+  background: none;
+  border: none;
+  color: #b6b6b6;
+  cursor: pointer;
+}
+
+.Score-vote:disabled {
+  color: #f0f0f0;
+  cursor: default;
+}
+
+.Score-vote:disabled:hover {
+  color: #f0f0f0;
+  cursor: default;
+}
+
+.Score-vote:focus,
+.Score-vote:active,
+.Score-vote:hover {
+  outline: none;
+}
+
+.Score-vote:active,
+.Score-vote:hover {
+  color: #262626;
+}
+
+.Score-votes {
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.Score-up,
+div.Score-up {
+  color: #00e000;
+}
+
+.Score-down,
+div.Score-down {
+  color: #ff0000;
+}
