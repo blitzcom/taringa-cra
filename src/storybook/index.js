@@ -6,6 +6,7 @@ import { withKnobs, text } from '@storybook/addon-knobs/react'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../fontawesome-all.css'
+import '../css/action.css'
 
 import Nav from '../common/Nav'
 

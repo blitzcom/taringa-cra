@@ -1,0 +1,31 @@
+.Shout {
+  display: flex;
+}
+
+.Shout-thumbnail {
+  height: 70px;
+  margin-right: 16px;
+  width: 70px;
+}
+
+.Shout-thumbnail > img {
+  border-radius: 3px;
+  max-height: 70px;
+  object-fit: cover;
+  width: 70px;
+}
+
+.Shout-thumbnail:hover {
+  text-decoration: none;
+}
+
+.Shout-meta {
+  color: #b6b6b6;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.Shout-meta > a {
+  color: black;
+  margin: 0 3px;
+}

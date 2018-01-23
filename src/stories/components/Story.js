@@ -1,58 +1,8 @@
 import React from 'react'
-import TimeAgo from 'react-timeago'
 
 import './Story.css'
-import { humanizeNum, esFormatter } from '../../Utils'
-
-const StoryShout = props => (
-  <div className="StoryShout">
-    <a className="StoryShout-thumbnail" href="/">
-      <img src={props.summary.images.slice[0].url}/>
-    </a>
-    <div className="StoryShout-info">
-      <a
-        className="StoryShout-title text-dark"
-        href={`/story/${props.slug}`}
-      >
-        { props.summary.excerpt }
-      </a>
-      <p className="StoryShout-meta">
-        Posteado por
-        <a href={`/user/${props.owner.username}`}>
-          {props.owner.username}
-        </a>
-        <TimeAgo
-          date={props.created}
-          formatter={esFormatter}
-        />
-      </p>
-      <div className="StoryShout-actions">
-        <button
-          className="btn StoryShout-action"
-          title="Expandir"
-        >
-          <i className="fa fa-expand"/>
-        </button>
-
-        <button
-          className="btn StoryShout-action"
-          title="Comentarios"
-        >
-          <i className="fa fa-comments"/>
-          {humanizeNum(props.comments)} comentarios
-        </button>
-
-        <button
-          className="btn StoryShout-action"
-          title="Compartir"
-        >
-          <i className="fa fa-retweet"/>
-          {humanizeNum(props.shares)}
-        </button>
-      </div>
-    </div>
-  </div>
-)
+import Shout from './Shout'
+import { humanizeNum } from '../../Utils'
 
 const Story = props => (
   <div className="card Story">
@@ -73,15 +23,13 @@ const Story = props => (
         <i className="fa fa-arrow-down"/>
       </button>
     </div>
-    <StoryShout {...props}/>
+    { props.classic.type === 'shout' && <Shout {...props}/> }
   </div>
 )
 
 Story.defaultProps = {
   onVoteDown: () => {},
   onVoteUp: () => {},
-  score: 0,
-  title: '#TITLE'
 }
 
 export default Story
