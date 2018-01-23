@@ -79,10 +79,10 @@ export const StoryShout = {
     gender: "m",
     country: "AR"
   },
-  upvotes: 137,
-  downvotes: 0,
-  shares: 0,
-  comments: 8,
+  upvotes: 13799,
+  downvotes: 100,
+  shares: 4500,
+  comments: 8000,
   state: {
     voted: 0
   },

@@ -35,7 +35,7 @@ const StoryShout = props => (
           title="Comentarios"
         >
           <i className="fa fa-comments"/>
-          {props.comments} comentarios
+          {humanizeNum(props.comments)} comentarios
         </button>
 
         <button
@@ -43,7 +43,7 @@ const StoryShout = props => (
           title="Compartir"
         >
           <i className="fa fa-retweet"/>
-          {props.shares}
+          {humanizeNum(props.shares)}
         </button>
       </div>
     </div>
