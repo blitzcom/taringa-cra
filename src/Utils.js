@@ -1,5 +1,8 @@
+import buildFormatter from "react-timeago/lib/formatters/buildFormatter"
+
 export const humanizeNum = (number, decimals = 1) => {
   let original = number
+
   number = Math.abs(number)
   decimals = Math.pow(10, decimals)
 
@@ -28,3 +31,23 @@ export const humanizeNum = (number, decimals = 1) => {
 
   return number.toString()
 }
+
+const spanishStrings = {
+  prefixAgo: "hace",
+  prefixFromNow: "dentro de",
+  suffixAgo: "",
+  suffixFromNow: "justo ahora",
+  seconds: "%d segundos",
+  minute: "1 minuto",
+  minutes: "%d minutos",
+  hour: "1 hora",
+  hours: "%d horas",
+  day: "1 día",
+  days: "%d días",
+  month: "1 mes",
+  months: "%d meses",
+  year: "1 año",
+  years: "%d años"
+}
+
+export const esFormatter = buildFormatter(spanishStrings)

@@ -1,7 +1,8 @@
 import React from 'react'
+import TimeAgo from 'react-timeago'
 
 import './Story.css'
-import { humanizeNum } from '../../Utils'
+import { humanizeNum, esFormatter } from '../../Utils'
 
 const StoryShout = props => (
   <div className="StoryShout">
@@ -20,7 +21,10 @@ const StoryShout = props => (
         <a href={`/user/${props.owner.username}`}>
           {props.owner.username}
         </a>
-        hace {props.created}
+        <TimeAgo
+          date={props.created}
+          formatter={esFormatter}
+        />
       </p>
       <div className="StoryShout-actions">
         <button
