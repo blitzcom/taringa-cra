@@ -7,7 +7,10 @@ import { humanizeNum, esFormatter } from '../../Utils'
 const Shout = props => (
   <div className="Shout">
     <a className="Shout-thumbnail" href="/">
-      <img src={props.summary.images.slice[0].url}/>
+      <img
+        src={props.summary.images.slice[0].url}
+        alt="Thumbnail"
+      />
     </a>
     <div className="Shout-info">
       <a

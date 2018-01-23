@@ -2,10 +2,21 @@
   display: flex;
   flex-direction: row;
   padding: 8px;
+  border-radius: 0;
 }
 
-.Story {
-  margin-bottom: 15px;
+.Story ~ .Story {
+  border-top: none;
+}
+
+.Story:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.Story:last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 
 .Story-score-display {

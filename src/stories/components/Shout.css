@@ -12,6 +12,7 @@
   border-radius: 3px;
   max-height: 70px;
   object-fit: cover;
+  border: 1px solid #f0f0f0;
   width: 70px;
 }
 
