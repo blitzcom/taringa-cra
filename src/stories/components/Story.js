@@ -1,6 +1,8 @@
 import React from 'react'
 
 import './Story.css'
+import Shout from './Shout'
+import { humanizeNum } from '../../Utils'
 
 const Story = props => (
   <div className="card Story">
@@ -12,7 +14,7 @@ const Story = props => (
         <i className="fa fa-arrow-up"/>
       </button>
       <div className="Story-score">
-        { props.score }
+        { humanizeNum(props.upvotes - props.downvotes) }
       </div>
       <button
         className="Story-vote"
@@ -21,25 +23,13 @@ const Story = props => (
         <i className="fa fa-arrow-down"/>
       </button>
     </div>
-
-    <a className="Story-thumbnail" href="/">
-      <div className="Story-type-post">
-        <i className="fa fa-file-alt fa-2x"/>
-      </div>
-    </a>
-    <div className="Story-info">
-      <a className="text-dark" href="/">
-        { props.title }
-      </a>
-    </div>
+    { props.classic.type === 'shout' && <Shout {...props}/> }
   </div>
 )
 
 Story.defaultProps = {
   onVoteDown: () => {},
   onVoteUp: () => {},
-  score: 0,
-  title: '#TITLE'
 }
 
 export default Story

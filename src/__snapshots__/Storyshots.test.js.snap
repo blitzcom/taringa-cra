@@ -13,7 +13,7 @@ exports[`Storyshots Nav default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Story default 1`] = `
+exports[`Storyshots Story shout 1`] = `
 <div
   className="card Story"
 >
@@ -31,7 +31,7 @@ exports[`Storyshots Story default 1`] = `
     <div
       className="Story-score"
     >
-      15.9k
+      13.7k
     </div>
     <button
       className="Story-vote"
@@ -42,27 +42,75 @@ exports[`Storyshots Story default 1`] = `
       />
     </button>
   </div>
-  <a
-    className="Story-thumbnail"
-    href="/"
-  >
-    <div
-      className="Story-type-post"
-    >
-      <i
-        className="fa fa-file-alt fa-2x"
-      />
-    </div>
-  </a>
   <div
-    className="Story-info"
+    className="Shout"
   >
     <a
-      className="text-dark"
+      className="Shout-thumbnail"
       href="/"
     >
-      Spicy jalapeno bacon ipsum dolor amet kielbasa sausage meatloaf
+      <img
+        alt="Thumbnail"
+        src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+      />
     </a>
+    <div
+      className="Shout-info"
+    >
+      <a
+        className="Shout-title text-dark"
+        href="/story/tienen-que-shoutear-minas-asi_z50xj"
+      >
+        Tienen que shoutear minas asi
+      </a>
+      <p
+        className="Shout-meta"
+      >
+        Posteado por
+        <a
+          href="/user/F3D3_14"
+        >
+          F3D3_14
+        </a>
+        <time
+          dateTime="2018-01-22T19:27:56.000Z"
+          title="2018-01-22T19:27:56.000Z"
+        >
+          hace 6 horas
+        </time>
+      </p>
+      <div
+        className="Shout-actions"
+      >
+        <button
+          className="btn btn-action"
+          title="Expandir"
+        >
+          <i
+            className="fa fa-expand"
+          />
+        </button>
+        <button
+          className="btn btn-action"
+          title="Comentarios"
+        >
+          <i
+            className="fa fa-comments"
+          />
+          8k
+           comentarios
+        </button>
+        <button
+          className="btn btn-action"
+          title="Compartir"
+        >
+          <i
+            className="fa fa-retweet"
+          />
+          4.5k
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
