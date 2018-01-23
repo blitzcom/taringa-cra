@@ -4,6 +4,7 @@ import TimeAgo from 'react-timeago'
 import './Shout.css'
 import Score from './Score'
 import Action from '../../common/Action'
+import ToggleAction from '../../common/ToggleAction'
 import { humanizeNum, esFormatter } from '../../Utils'
 
 class Shout extends Component {
@@ -62,13 +63,13 @@ class Shout extends Component {
             </p>
 
             <div className="Shout-actions">
-              <button
-                className="btn btn-action"
+              <ToggleAction
+                activeIcon="compress"
+                inactiveIcon="expand"
+                isActive={previewIsOpen}
                 onClick={this.togglePreview.bind(this)}
-                title="Expandir"
-              >
-                <i className="fa fa-expand"/>
-              </button>
+                title="Vista previa"
+              />
 
               <Action icon="comments" title="Comentar">
                 { humanizeNum(this.props.comments) } comentarios

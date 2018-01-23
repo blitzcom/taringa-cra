@@ -14,6 +14,7 @@ import Nav from '../common/Nav'
 import Story from '../stories/components/Story'
 import Score from '../stories/components/Score'
 import Action from '../common/Action'
+import ToggleAction from '../common/ToggleAction'
 
 storiesOf('Nav', module).add('default', () => <Nav />)
 
@@ -116,5 +117,21 @@ storiesOf('Action', module)
       >
         comments
       </Action>
+    )
+  })
+
+storiesOf('ToggleAction', module)
+  .addDecorator(withKnobs)
+  .add('default', () => {
+    const props = {
+      activeIcon: text('Active Icon', 'compress'),
+      inactiveIcon: text('Inactive Icon', 'expand'),
+      isActive: boolean('Is Active', false),
+    }
+
+    return (
+      <ToggleAction {...props}>
+        { text('Children', '1 comment') }
+      </ToggleAction>
     )
   })
