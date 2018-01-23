@@ -43,27 +43,28 @@ exports[`Storyshots Story shout 1`] = `
     </button>
   </div>
   <div
-    className="StoryShout"
+    className="Shout"
   >
     <a
-      className="StoryShout-thumbnail"
+      className="Shout-thumbnail"
       href="/"
     >
       <img
+        alt="Thumbnail"
         src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
       />
     </a>
     <div
-      className="StoryShout-info"
+      className="Shout-info"
     >
       <a
-        className="StoryShout-title text-dark"
+        className="Shout-title text-dark"
         href="/story/tienen-que-shoutear-minas-asi_z50xj"
       >
         Tienen que shoutear minas asi
       </a>
       <p
-        className="StoryShout-meta"
+        className="Shout-meta"
       >
         Posteado por
         <a
@@ -71,14 +72,18 @@ exports[`Storyshots Story shout 1`] = `
         >
           F3D3_14
         </a>
-        hace 
-        2018-01-22T19:27:56.000Z
+        <time
+          dateTime="2018-01-22T19:27:56.000Z"
+          title="2018-01-22T19:27:56.000Z"
+        >
+          hace 6 horas
+        </time>
       </p>
       <div
-        className="StoryShout-actions"
+        className="Shout-actions"
       >
         <button
-          className="btn StoryShout-action"
+          className="btn btn-action"
           title="Expandir"
         >
           <i
@@ -86,7 +91,7 @@ exports[`Storyshots Story shout 1`] = `
           />
         </button>
         <button
-          className="btn StoryShout-action"
+          className="btn btn-action"
           title="Comentarios"
         >
           <i
@@ -96,7 +101,7 @@ exports[`Storyshots Story shout 1`] = `
            comentarios
         </button>
         <button
-          className="btn StoryShout-action"
+          className="btn btn-action"
           title="Compartir"
         >
           <i
