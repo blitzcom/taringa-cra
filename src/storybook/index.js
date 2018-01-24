@@ -18,6 +18,55 @@ import Story from '../stories/components/Story'
 import Score from '../stories/components/Score'
 import Action from '../common/Action'
 import ToggleAction from '../common/ToggleAction'
+import Paginator from '../common/Paginator'
+
+storiesOf('Paginator', module)
+  .addDecorator(withKnobs)
+  .add('default', () => {
+    const currentPage = number('Current Page', 2)
+    const isLastPage = boolean('Is Last Page', false)
+
+    return (
+      <Paginator
+        onClickNext={action('onClickNext')}
+        onClickPrevious={action('onClickPrevious')}
+        currentPage={currentPage}
+        isLastPage={isLastPage}
+      />
+    )
+  })
+
+storiesOf('Paginator', module)
+  .addDecorator(withKnobs)
+  .add('first page', () => {
+    const currentPage = number('Current Page', 1)
+    const isLastPage = boolean('Is Last Page', false)
+
+    return (
+      <Paginator
+        onClickNext={action('onClickNext')}
+        onClickPrevious={action('onClickPrevious')}
+        currentPage={currentPage}
+        isLastPage={isLastPage}
+      />
+    )
+  })
+
+storiesOf('Paginator', module)
+  .addDecorator(withKnobs)
+  .add('last page', () => {
+    const currentPage = number('Current Page', 1)
+    const isLastPage = boolean('Is Last Page', true)
+
+    return (
+      <Paginator
+        onClickNext={action('onClickNext')}
+        onClickPrevious={action('onClickPrevious')}
+        currentPage={currentPage}
+        isLastPage={isLastPage}
+      />
+    )
+  })
 
 storiesOf('Alert', module)
   .addDecorator(withKnobs)
