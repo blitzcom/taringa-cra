@@ -147,13 +147,13 @@ storiesOf('Story', module)
 
     return (
       <Story
+        {...StoryShout}
         downvotes={downvotes}
         isVoting={isVoting}
         onVoteDown={action('onVoteDown')}
         onVoteUp={action('onVoteUp')}
         upvotes={upvotes}
         voted={voted}
-        {...StoryShout}
       />
     )
   })

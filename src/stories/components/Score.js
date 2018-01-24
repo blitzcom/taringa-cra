@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 import './Score.css'
 import { humanizeNum } from '../../Utils'
@@ -32,7 +33,9 @@ const Score = props => {
       </button>
 
       <div className={classVotes}>
-        { humanizeNum(props.upvotes - props.downvotes) }
+        {(_.isInteger(props.upvotes) && _.isInteger(props.downvotes))
+          ? humanizeNum(props.upvotes - props.downvotes)
+          : 0}
       </div>
 
       <button
