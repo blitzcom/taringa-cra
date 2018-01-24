@@ -105,7 +105,47 @@ storiesOf('Alert', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     return (
+      <Alert type={text('Type', '')}>
+        {text('Children', 'I am an alert')}
+      </Alert>
+    )
+  })
+
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('success', () => {
+    return (
       <Alert type={text('Type', 'success')}>
+        {text('Children', 'I am an alert')}
+      </Alert>
+    )
+  })
+
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('danger', () => {
+    return (
+      <Alert type={text('Type', 'danger')}>
+        {text('Children', 'I am an alert')}
+      </Alert>
+    )
+  })
+
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('warning', () => {
+    return (
+      <Alert type={text('Type', 'warning')}>
+        {text('Children', 'I am an alert')}
+      </Alert>
+    )
+  })
+
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('info', () => {
+    return (
+      <Alert type={text('Type', 'info')}>
         {text('Children', 'I am an alert')}
       </Alert>
     )
