@@ -1,11 +1,18 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const ToggleAction = props => {
-  const icon = props.isActive ? props.activeIcon : props.inactiveIcon
+const ToggleAction = ({
+  activeIcon,
+  children,
+  className,
+  inactiveIcon,
+  isToggled,
+  ...props
+}) => {
+  const icon = isToggled ? activeIcon : inactiveIcon
   const iconClass = classNames('fa', `fa-${icon}`)
-  const buttonClass = classNames('btn btn-action', props.className, {
-    active: props.isActive,
+  const buttonClass = classNames('btn btn-action', className, {
+    active: isToggled,
   })
 
   return (
@@ -13,14 +20,16 @@ const ToggleAction = props => {
       {...props}
       className={buttonClass}
     >
-      <i className={iconClass}/>
-      {props.children}
+      { icon && <i className={iconClass}/> }
+      { children }
     </button>
   )
 }
 
 ToggleAction.defaultProps = {
-  isActive: false
+  activeIcon: '',
+  inactiveIcon: '',
+  isToggled: false,
 }
 
 export default ToggleAction

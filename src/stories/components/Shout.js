@@ -66,7 +66,7 @@ class Shout extends Component {
               <ToggleAction
                 activeIcon="compress"
                 inactiveIcon="expand"
-                isActive={previewIsOpen}
+                isToggled={previewIsOpen}
                 onClick={this.togglePreview.bind(this)}
                 title="Vista previa"
               />

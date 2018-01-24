@@ -162,12 +162,20 @@ storiesOf('Score', module)
 storiesOf('Action', module)
   .addDecorator(withKnobs)
   .add('default', () => {
+    return (
+      <Action>
+        comments
+      </Action>
+    )
+  })
+
+storiesOf('Action', module)
+  .addDecorator(withKnobs)
+  .add('with icon', () => {
     const icon = text('Icon', 'comments')
 
     return (
-      <Action
-        icon={icon}
-      >
+      <Action icon={icon}>
         comments
       </Action>
     )
@@ -176,14 +184,34 @@ storiesOf('Action', module)
 storiesOf('ToggleAction', module)
   .addDecorator(withKnobs)
   .add('default', () => {
-    const props = {
-      activeIcon: text('Active Icon', 'compress'),
-      inactiveIcon: text('Inactive Icon', 'expand'),
-      isActive: boolean('Is Active', false),
-    }
-
     return (
-      <ToggleAction {...props}>
+      <ToggleAction>
+        { text('Children', '1 comment') }
+      </ToggleAction>
+    )
+  })
+
+storiesOf('ToggleAction', module)
+  .addDecorator(withKnobs)
+  .add('toggled', () => {
+    return (
+      <ToggleAction
+        isToggled={boolean('Is Toggled', true)}
+      >
+        { text('Children', '1 comment') }
+      </ToggleAction>
+    )
+  })
+
+storiesOf('ToggleAction', module)
+  .addDecorator(withKnobs)
+  .add('toggled with icon', () => {
+    return (
+      <ToggleAction
+        activeIcon={text('Active Icon', 'compress')}
+        inactiveIcon={text('Inactive Icon', 'expand')}
+        isToggled={boolean('Is Toggled', true)}
+      >
         { text('Children', '1 comment') }
       </ToggleAction>
     )
