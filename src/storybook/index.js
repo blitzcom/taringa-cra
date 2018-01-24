@@ -24,7 +24,7 @@ storiesOf('Alert', module)
   .add('default', () => {
     return (
       <Alert type={text('Type', 'success')}>
-        { text('Children', 'I am an alert') }
+        {text('Children', 'I am an alert')}
       </Alert>
     )
   })
@@ -33,11 +33,8 @@ storiesOf('Alert', module)
   .addDecorator(withKnobs)
   .add('with Icon', () => {
     return (
-      <Alert
-        type={text('Type', 'success')}
-        icon={text('Icon', 'check')}
-      >
-        { text('Children', 'I am an alert') }
+      <Alert type={text('Type', 'success')} icon={text('Icon', 'check')}>
+        {text('Children', 'I am an alert')}
       </Alert>
     )
   })
@@ -45,30 +42,17 @@ storiesOf('Alert', module)
 storiesOf('Nav', module).add('default', () => <Nav />)
 
 storiesOf('Stories', module).add('loading', () => {
-  return (
-    <Stories
-      status="fetching"
-    />
-  )
+  return <Stories status="fetching" />
 })
 
 storiesOf('Stories', module).add('listing', () => {
   const items = _.times(10, i => _.assign({}, StoryShout, { id: i }))
 
-  return (
-    <Stories
-      stories={items}
-    />
-  )
+  return <Stories stories={items} />
 })
 
 storiesOf('Stories', module).add('with error', () => {
-  return (
-    <Stories
-      error="Network Error"
-      status="failure"
-    />
-  )
+  return <Stories error="Network Error" status="failure" />
 })
 
 storiesOf('Story', module)
@@ -162,11 +146,7 @@ storiesOf('Score', module)
 storiesOf('Action', module)
   .addDecorator(withKnobs)
   .add('default', () => {
-    return (
-      <Action>
-        comments
-      </Action>
-    )
+    return <Action onClick={action('onClick')}>comments</Action>
   })
 
 storiesOf('Action', module)
@@ -174,31 +154,21 @@ storiesOf('Action', module)
   .add('with icon', () => {
     const icon = text('Icon', 'comments')
 
-    return (
-      <Action icon={icon}>
-        comments
-      </Action>
-    )
+    return <Action icon={icon}>comments</Action>
   })
 
 storiesOf('ToggleAction', module)
   .addDecorator(withKnobs)
   .add('default', () => {
-    return (
-      <ToggleAction>
-        { text('Children', '1 comment') }
-      </ToggleAction>
-    )
+    return <ToggleAction>{text('Children', '1 comment')}</ToggleAction>
   })
 
 storiesOf('ToggleAction', module)
   .addDecorator(withKnobs)
   .add('toggled', () => {
     return (
-      <ToggleAction
-        isToggled={boolean('Is Toggled', true)}
-      >
-        { text('Children', '1 comment') }
+      <ToggleAction isToggled={boolean('Is Toggled', true)}>
+        {text('Children', '1 comment')}
       </ToggleAction>
     )
   })
@@ -212,7 +182,7 @@ storiesOf('ToggleAction', module)
         inactiveIcon={text('Inactive Icon', 'expand')}
         isToggled={boolean('Is Toggled', true)}
       >
-        { text('Children', '1 comment') }
+        {text('Children', '1 comment')}
       </ToggleAction>
     )
   })

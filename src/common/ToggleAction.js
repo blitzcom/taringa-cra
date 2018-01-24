@@ -16,12 +16,9 @@ const ToggleAction = ({
   })
 
   return (
-    <button
-      {...props}
-      className={buttonClass}
-    >
-      { icon && <i className={iconClass}/> }
-      { children }
+    <button {...props} className={buttonClass}>
+      {icon && <i className={iconClass} />}
+      {children}
     </button>
   )
 }

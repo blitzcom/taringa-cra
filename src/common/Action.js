@@ -1,13 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const Action = props => (
-  <button
-    {...props}
-    className={classNames('btn btn-action', props.className)}
-  >
-    { props.icon && <i className={`fa fa-${props.icon}`}/> }
-    {props.children}
+const Action = ({ icon, className, children, ...props }) => (
+  <button {...props} className={classNames('btn btn-action', className)}>
+    {icon && <i className={`fa fa-${icon}`} />}
+    {children}
   </button>
 )
 
