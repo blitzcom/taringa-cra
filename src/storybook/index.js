@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
@@ -10,13 +11,65 @@ import '../css/action.css'
 
 import { StoryShout } from './data'
 
+import Alert from '../common/Alert'
 import Nav from '../common/Nav'
+import { Stories } from '../stories/components/Stories'
 import Story from '../stories/components/Story'
 import Score from '../stories/components/Score'
 import Action from '../common/Action'
 import ToggleAction from '../common/ToggleAction'
 
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('default', () => {
+    return (
+      <Alert type={text('Type', 'success')}>
+        { text('Children', 'I am an alert') }
+      </Alert>
+    )
+  })
+
+storiesOf('Alert', module)
+  .addDecorator(withKnobs)
+  .add('with Icon', () => {
+    return (
+      <Alert
+        type={text('Type', 'success')}
+        icon={text('Icon', 'check')}
+      >
+        { text('Children', 'I am an alert') }
+      </Alert>
+    )
+  })
+
 storiesOf('Nav', module).add('default', () => <Nav />)
+
+storiesOf('Stories', module).add('loading', () => {
+  return (
+    <Stories
+      status="fetching"
+    />
+  )
+})
+
+storiesOf('Stories', module).add('listing', () => {
+  const items = _.times(10, i => _.assign({}, StoryShout, { id: i }))
+
+  return (
+    <Stories
+      stories={items}
+    />
+  )
+})
+
+storiesOf('Stories', module).add('with error', () => {
+  return (
+    <Stories
+      error="Network Error"
+      status="failure"
+    />
+  )
+})
 
 storiesOf('Story', module)
   .addDecorator(withKnobs)
