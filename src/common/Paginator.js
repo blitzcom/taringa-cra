@@ -3,9 +3,14 @@ import React from 'react'
 const Paginator = ({
   currentPage,
   isLastPage,
+  isLoading,
   onClickNext,
   onClickPrevious,
 }) => {
+  if (isLoading) {
+    return null
+  }
+
   return (
     <div className="Paginator">
       {currentPage > 1 && (

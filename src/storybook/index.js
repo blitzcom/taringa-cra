@@ -55,6 +55,22 @@ storiesOf('Paginator', module)
 storiesOf('Paginator', module)
   .addDecorator(withKnobs)
   .add('last page', () => {
+    const currentPage = number('Current Page', 2)
+    const isLastPage = boolean('Is Last Page', true)
+
+    return (
+      <Paginator
+        onClickNext={action('onClickNext')}
+        onClickPrevious={action('onClickPrevious')}
+        currentPage={currentPage}
+        isLastPage={isLastPage}
+      />
+    )
+  })
+
+storiesOf('Paginator', module)
+  .addDecorator(withKnobs)
+  .add('one page', () => {
     const currentPage = number('Current Page', 1)
     const isLastPage = boolean('Is Last Page', true)
 
@@ -64,6 +80,23 @@ storiesOf('Paginator', module)
         onClickPrevious={action('onClickPrevious')}
         currentPage={currentPage}
         isLastPage={isLastPage}
+      />
+    )
+  })
+
+storiesOf('Paginator', module)
+  .addDecorator(withKnobs)
+  .add('is loading', () => {
+    const currentPage = number('Current Page', 2)
+    const isLastPage = boolean('Is Last Page', false)
+
+    return (
+      <Paginator
+        onClickNext={action('onClickNext')}
+        onClickPrevious={action('onClickPrevious')}
+        currentPage={currentPage}
+        isLastPage={isLastPage}
+        isLoading
       />
     )
   })
