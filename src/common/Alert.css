@@ -1,0 +1,27 @@
+.alert {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.Alert-icon {
+  margin-right: 16px;
+}
+
+.alert-success {
+  background: #2fcb53;
+  color: #f8f9fa;
+}
+
+.alert-danger {
+  background: #ff3b30;
+  color: #f8f9fa;
+}
+
+.alert-warning {
+  background: #ffcc00;
+  color: #655404;
+}
+
+.alert-info {
+  background: #5ac8fa;
+}

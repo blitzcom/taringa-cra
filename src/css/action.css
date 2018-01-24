@@ -13,7 +13,8 @@
   margin-right: 4px;
 }
 
-.btn-action:hover {
+.btn-action:hover,
+.btn-action.active {
   color: rgb(0, 125, 255) !important;
   text-decoration: none;
 }
@@ -28,4 +29,5 @@
   color: rgba(150, 150, 150, 1);
   outline: none !important;
   text-decoration: none !important;
+  box-shadow: none;
 }

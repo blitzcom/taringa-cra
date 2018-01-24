@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
+import Alert from '../../common/Alert'
 import Story from './Story'
 import * as actions from '../actions'
 import { storiesSelector } from '../selectors'
@@ -10,12 +12,36 @@ export class Stories extends Component {
     this.props.fetchStories()
   }
 
+  renderContent () {
+    const { error, status, stories } = this.props
+
+    if (status === 'fetching') {
+      return (
+        <div className="my-5">
+          <i className="fa fa-spin fa-circle-notch fa-2x"/>
+        </div>
+      )
+    } else if (status === 'failure') {
+      return (
+        <Alert type="danger">
+          { error }
+        </Alert>
+      )
+    } else {
+      return stories.map(i => <Story key={i.id} {...i} />)
+    }
+  }
+
   render () {
-    const { stories } = this.props
+    const { status } = this.props
+
+    const storiesClass = classNames('Stories', {
+      'text-center': status === 'fetching',
+    })
 
     return (
-      <div className="Stories">
-        { stories.map(i => <Story key={i.id} {...i} />) }
+      <div className={storiesClass}>
+        { this.renderContent() }
       </div>
     )
   }
@@ -23,6 +49,7 @@ export class Stories extends Component {
 
 Stories.defaultProps = {
   fetchStories: () => {},
+  status: "success",
   stories: [],
 }
 
