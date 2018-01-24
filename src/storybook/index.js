@@ -105,9 +105,7 @@ storiesOf('Alert', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     return (
-      <Alert type={text('Type', '')}>
-        {text('Children', 'I am an alert')}
-      </Alert>
+      <Alert type={text('Type', '')}>{text('Children', 'I am an alert')}</Alert>
     )
   })
 

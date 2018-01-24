@@ -1,5 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Action default 1`] = `
+<button
+  className="btn btn-action"
+  onClick={[Function]}
+>
+  comments
+</button>
+`;
+
+exports[`Storyshots Action with icon 1`] = `
+<button
+  className="btn btn-action"
+>
+  <i
+    className="fa fa-comments"
+  />
+  comments
+</button>
+`;
+
+exports[`Storyshots Alert danger 1`] = `
+<div
+  className="alert alert-danger"
+  type="danger"
+>
+  I am an alert
+</div>
+`;
+
+exports[`Storyshots Alert default 1`] = `
+<div
+  className="alert alert-"
+  type=""
+>
+  I am an alert
+</div>
+`;
+
+exports[`Storyshots Alert info 1`] = `
+<div
+  className="alert alert-info"
+  type="info"
+>
+  I am an alert
+</div>
+`;
+
+exports[`Storyshots Alert success 1`] = `
+<div
+  className="alert alert-success"
+  type="success"
+>
+  I am an alert
+</div>
+`;
+
+exports[`Storyshots Alert warning 1`] = `
+<div
+  className="alert alert-warning"
+  type="warning"
+>
+  I am an alert
+</div>
+`;
+
+exports[`Storyshots Alert with Icon 1`] = `
+<div
+  className="alert alert-success"
+  icon="check"
+  type="success"
+>
+  <i
+    className="fa fa-check Alert-icon"
+  />
+  I am an alert
+</div>
+`;
+
 exports[`Storyshots Nav default 1`] = `
 <div
   className="navbar navbar-dark Nav"
@@ -13,104 +91,1412 @@ exports[`Storyshots Nav default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Story shout 1`] = `
+exports[`Storyshots Paginator default 1`] = `
 <div
-  className="card Story"
+  className="Paginator"
+>
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+  >
+    Anterior
+  </button>
+   
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+  >
+    Siguiente
+  </button>
+</div>
+`;
+
+exports[`Storyshots Paginator first page 1`] = `
+<div
+  className="Paginator"
+>
+   
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+  >
+    Siguiente
+  </button>
+</div>
+`;
+
+exports[`Storyshots Paginator is loading 1`] = `null`;
+
+exports[`Storyshots Paginator last page 1`] = `
+<div
+  className="Paginator"
+>
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+  >
+    Anterior
+  </button>
+   
+</div>
+`;
+
+exports[`Storyshots Paginator one page 1`] = `
+<div
+  className="Paginator"
+>
+   
+</div>
+`;
+
+exports[`Storyshots Score default 1`] = `
+<div
+  className="Score-display"
+>
+  <button
+    className="Score-vote"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-up"
+    />
+  </button>
+  <div
+    className="Score-votes"
+  >
+    3k
+  </div>
+  <button
+    className="Score-vote"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-down"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Score is voting 1`] = `
+<div
+  className="Score-display"
+>
+  <button
+    className="Score-vote Score-disabled"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-up"
+    />
+  </button>
+  <div
+    className="Score-votes Score-disabled"
+  >
+    3k
+  </div>
+  <button
+    className="Score-vote Score-disabled"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-down"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Score voted down 1`] = `
+<div
+  className="Score-display"
+>
+  <button
+    className="Score-vote"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-up"
+    />
+  </button>
+  <div
+    className="Score-votes Score-down"
+  >
+    3k
+  </div>
+  <button
+    className="Score-vote Score-down"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-down"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Score voted up 1`] = `
+<div
+  className="Score-display"
+>
+  <button
+    className="Score-vote Score-up"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-up"
+    />
+  </button>
+  <div
+    className="Score-votes Score-up"
+  >
+    3k
+  </div>
+  <button
+    className="Score-vote"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-down"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Stories listing 1`] = `
+<div
+  className="Stories"
 >
   <div
-    className="Story-score-display"
+    className="Story card"
   >
-    <button
-      className="Story-vote"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-arrow-up"
-      />
-    </button>
     <div
-      className="Story-score"
+      className="Shout"
     >
-      13.7k
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button
-      className="Story-vote"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-arrow-down"
-      />
-    </button>
   </div>
   <div
-    className="Shout"
+    className="Story card"
   >
-    <a
-      className="Shout-thumbnail"
-      href="/"
-    >
-      <img
-        alt="Thumbnail"
-        src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
-      />
-    </a>
     <div
-      className="Shout-info"
+      className="Shout"
     >
-      <a
-        className="Shout-title text-dark"
-        href="/story/tienen-que-shoutear-minas-asi_z50xj"
-      >
-        Tienen que shoutear minas asi
-      </a>
-      <p
-        className="Shout-meta"
-      >
-        Posteado por
-        <a
-          href="/user/F3D3_14"
-        >
-          F3D3_14
-        </a>
-        <time
-          dateTime="2017-12-22T05:28:22.005Z"
-          title="2017-12-22 05:28"
-        >
-          hace 1 hora
-        </time>
-      </p>
       <div
-        className="Shout-actions"
+        className="Shout-head"
       >
-        <button
-          className="btn btn-action"
-          title="Expandir"
+        <div
+          className="Score-display"
         >
-          <i
-            className="fa fa-expand"
-          />
-        </button>
-        <button
-          className="btn btn-action"
-          title="Comentarios"
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
         >
-          <i
-            className="fa fa-comments"
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
           />
-          8k
-           comentarios
-        </button>
-        <button
-          className="btn btn-action"
-          title="Compartir"
+        </a>
+        <div
+          className="Shout-info"
         >
-          <i
-            className="fa fa-retweet"
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
           />
-          4.5k
-        </button>
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Story card"
+  >
+    <div
+      className="Shout"
+    >
+      <div
+        className="Shout-head"
+      >
+        <div
+          className="Score-display"
+        >
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-up"
+            />
+          </button>
+          <div
+            className="Score-votes"
+          >
+            13.7k
+          </div>
+          <button
+            className="Score-vote"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-arrow-down"
+            />
+          </button>
+        </div>
+        <a
+          className="Shout-thumbnail"
+          href="/"
+        >
+          <img
+            alt="Thumbnail"
+            src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+          />
+        </a>
+        <div
+          className="Shout-info"
+        >
+          <a
+            className="Shout-title text-dark"
+            href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          >
+            Tienen que shoutear minas asi
+          </a>
+          <p
+            className="Shout-meta"
+          >
+            Posteado por
+            <a
+              href="/user/F3D3_14"
+            >
+              F3D3_14
+            </a>
+            <time
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </p>
+          <div
+            className="Shout-actions"
+          >
+            <button
+              className="btn btn-action"
+              onClick={[Function]}
+              title="Vista previa"
+            >
+              <i
+                className="fa fa-expand"
+              />
+            </button>
+            <button
+              className="btn btn-action"
+              title="Comentar"
+            >
+              <i
+                className="fa fa-comments"
+              />
+              8k
+               comentarios
+            </button>
+            <button
+              className="btn btn-action"
+              title="Compartir"
+            >
+              <i
+                className="fa fa-retweet"
+              />
+              4.5k
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+`;
+
+exports[`Storyshots Stories loading 1`] = `
+<div
+  className="Stories text-center"
+>
+  <div
+    className="my-5"
+  >
+    <i
+      className="fa fa-spin fa-circle-notch fa-2x"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Stories with error 1`] = `
+<div
+  className="Stories"
+>
+  <div
+    className="alert alert-danger"
+    type="danger"
+  >
+    Network Error
+  </div>
+</div>
+`;
+
+exports[`Storyshots Story shout 1`] = `
+<div
+  className="Story card"
+>
+  <div
+    className="Shout"
+  >
+    <div
+      className="Shout-head"
+    >
+      <div
+        className="Score-display"
+      >
+        <button
+          className="Score-vote"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-arrow-up"
+          />
+        </button>
+        <div
+          className="Score-votes"
+        >
+          3k
+        </div>
+        <button
+          className="Score-vote"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-arrow-down"
+          />
+        </button>
+      </div>
+      <a
+        className="Shout-thumbnail"
+        href="/"
+      >
+        <img
+          alt="Thumbnail"
+          src="https://k60.kn3.net/taringa/1/8/3/5/9/3/15/f3d3_14/61D.jpg"
+        />
+      </a>
+      <div
+        className="Shout-info"
+      >
+        <a
+          className="Shout-title text-dark"
+          href="/story/tienen-que-shoutear-minas-asi_z50xj"
+        >
+          Tienen que shoutear minas asi
+        </a>
+        <p
+          className="Shout-meta"
+        >
+          Posteado por
+          <a
+            href="/user/F3D3_14"
+          >
+            F3D3_14
+          </a>
+          <time
+            dateTime="2017-12-22T05:28:22.005Z"
+            title="2017-12-22 05:28"
+          >
+            hace 1 hora
+          </time>
+        </p>
+        <div
+          className="Shout-actions"
+        >
+          <button
+            className="btn btn-action"
+            onClick={[Function]}
+            title="Vista previa"
+          >
+            <i
+              className="fa fa-expand"
+            />
+          </button>
+          <button
+            className="btn btn-action"
+            title="Comentar"
+          >
+            <i
+              className="fa fa-comments"
+            />
+            8k
+             comentarios
+          </button>
+          <button
+            className="btn btn-action"
+            title="Compartir"
+          >
+            <i
+              className="fa fa-retweet"
+            />
+            4.5k
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ToggleAction default 1`] = `
+<button
+  className="btn btn-action"
+>
+  
+  1 comment
+</button>
+`;
+
+exports[`Storyshots ToggleAction toggled 1`] = `
+<button
+  className="btn btn-action active"
+>
+  
+  1 comment
+</button>
+`;
+
+exports[`Storyshots ToggleAction toggled with icon 1`] = `
+<button
+  className="btn btn-action active"
+>
+  <i
+    className="fa fa-compress"
+  />
+  1 comment
+</button>
 `;
