@@ -38,11 +38,13 @@ class Shout extends Component {
 
           <a className="Shout-thumbnail" href="/">
             {
-              this.props.summary.images.amount > 0 && (
+              this.props.summary.images.amount > 0 ? (
                 <img
                   src={this.props.summary.images.slice[0].url}
                   alt="Thumbnail"
                 />
+              ) : (
+                <i className="fa fa-comment fa-2x Shout-thumbnail-icon"/>
               )
             }
           </a>
