@@ -3,9 +3,9 @@ import classNames from 'classnames'
 
 import './Alert.css'
 
-const Alert = props => {
-  const wrapperClass = classNames('alert', props.classNames, {
-    [`alert-${props.type}`]: true,
+const Alert = ({ type, className, ...props }) => {
+  const wrapperClass = classNames('alert', className, {
+    [`alert-${type}`]: true,
   })
 
   return (

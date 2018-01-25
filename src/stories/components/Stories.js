@@ -48,19 +48,28 @@ export class Stories extends Component {
   }
 
   render () {
-    const { status, stories, error } = this.props
+    const { status, stories } = this.props
 
     return (
       <div className="Stories">
+        { stories.map(i => <Story key={i.id} {...i} />) }
+
         {
           status === 'failure' && (
-            <Alert type="danger">
-              { error }
-            </Alert>
+            <div className="my-4 text-center">
+              <Alert className="my-3 font-weight-bold" type="danger">
+                ¡Ratas! Parece que no estás conectado a internet.
+                Intenta refrescar la página o pulsa el siguiente botón.
+              </Alert>
+              <button
+                className="btn btn-outline-primary btn-sm"
+                onClick={this.props.fetchStories()}
+              >
+                Volver a intentar
+              </button>
+            </div>
           )
         }
-
-        { stories.map(i => <Story key={i.id} {...i} />) }
 
         {
           status === 'fetching' && (

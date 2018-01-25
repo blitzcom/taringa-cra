@@ -24,7 +24,6 @@ exports[`Alert renders with type 1`] = `
 <div
   className="alert alert-success"
   icon="check"
-  type="success"
 >
   <i
     className="fa fa-check Alert-icon"
