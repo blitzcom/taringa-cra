@@ -11,7 +11,7 @@ class Shout extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      previewIsOpen: false
+      previewIsOpen: props.previewIsOpen || false
     }
   }
 
@@ -69,13 +69,17 @@ class Shout extends Component {
             </p>
 
             <div className="Shout-actions">
-              <ToggleAction
-                activeIcon="compress"
-                inactiveIcon="expand"
-                isToggled={previewIsOpen}
-                onClick={this.togglePreview.bind(this)}
-                title="Vista previa"
-              />
+              {
+                this.props.summary.images.amount > 0 && (
+                  <ToggleAction
+                    activeIcon="compress"
+                    inactiveIcon="expand"
+                    isToggled={previewIsOpen}
+                    onClick={this.togglePreview.bind(this)}
+                    title="Vista previa"
+                  />
+                )
+              }
 
               <Action icon="comments" title="Comentar">
                 { humanizeNum(this.props.comments) } comentarios
