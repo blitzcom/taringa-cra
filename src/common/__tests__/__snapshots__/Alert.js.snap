@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders default 1`] = `
+<div
+  className="alert alert-undefined"
+>
+  I am an alert
+</div>
+`;
+
+exports[`Alert renders with icon 1`] = `
+<div
+  className="alert alert-undefined"
+  icon="check"
+>
+  <i
+    className="fa fa-check Alert-icon"
+  />
+  I am an alert
+</div>
+`;
+
+exports[`Alert renders with type 1`] = `
+<div
+  className="alert alert-success"
+  icon="check"
+  type="success"
+>
+  <i
+    className="fa fa-check Alert-icon"
+  />
+  I am an alert
+</div>
+`;
