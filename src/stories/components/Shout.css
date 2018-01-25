@@ -22,11 +22,12 @@
 }
 
 .Shout-thumbnail {
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
   height: 70px;
   margin-right: 16px;
+  min-width: 70px;
   width: 70px;
-  border: 1px solid #eaeaea;
-  border-radius: 3px;
 }
 
 .Shout-thumbnail > img {

@@ -37,10 +37,14 @@ class Shout extends Component {
           />
 
           <a className="Shout-thumbnail" href="/">
-            <img
-              src={this.props.summary.images.slice[0].url}
-              alt="Thumbnail"
-            />
+            {
+              this.props.summary.images.amount > 0 && (
+                <img
+                  src={this.props.summary.images.slice[0].url}
+                  alt="Thumbnail"
+                />
+              )
+            }
           </a>
 
           <div className="Shout-info">
