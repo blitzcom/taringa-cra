@@ -7,14 +7,11 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../fontawesome-all.css'
-import '../css/action.css'
 
 import { StoryShout } from './data'
 
 import { Stories } from '../stories/components/Stories'
 import Story from '../stories/components/Story'
-import Score from '../stories/components/Score'
-import ToggleAction from '../common/ToggleAction'
 
 storiesOf('Stories', module).add('loading', () => {
   return <Stories status="fetching" />
@@ -47,73 +44,6 @@ storiesOf('Story', module)
         onVoteUp={action('onVoteUp')}
         upvotes={upvotes}
         voted={voted}
-      />
-    )
-  })
-
-storiesOf('Score', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    const downvotes = number('Downvotes', 2500)
-    const upvotes = number('Upvotes', 5500)
-
-    return (
-      <Score
-        downvotes={downvotes}
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        upvotes={upvotes}
-      />
-    )
-  })
-
-storiesOf('Score', module)
-  .addDecorator(withKnobs)
-  .add('voted up', () => {
-    const downvotes = number('Downvotes', 2500)
-    const upvotes = number('Upvotes', 5500)
-
-    return (
-      <Score
-        downvotes={downvotes}
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        upvotes={upvotes}
-        voted={1}
-      />
-    )
-  })
-
-storiesOf('Score', module)
-  .addDecorator(withKnobs)
-  .add('voted down', () => {
-    const downvotes = number('Downvotes', 2500)
-    const upvotes = number('Upvotes', 5500)
-
-    return (
-      <Score
-        downvotes={downvotes}
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        upvotes={upvotes}
-        voted={-1}
-      />
-    )
-  })
-
-storiesOf('Score', module)
-  .addDecorator(withKnobs)
-  .add('is voting', () => {
-    const downvotes = number('Downvotes', 2500)
-    const upvotes = number('Upvotes', 5500)
-
-    return (
-      <Score
-        downvotes={downvotes}
-        isVoting
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        upvotes={upvotes}
       />
     )
   })

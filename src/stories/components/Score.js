@@ -27,7 +27,11 @@ const Score = props => {
       <button
         className={classVoteUpButton}
         disabled={props.isVoting}
-        onClick={() => props.onVoteUp()}
+        onClick={() => {
+          if (!props.isVoting) {
+            props.onVoteUp()
+          }
+        }}
       >
         <i className="fa fa-arrow-up"/>
       </button>
@@ -41,7 +45,11 @@ const Score = props => {
       <button
         className={classVoteDownButton}
         disabled={props.isVoting}
-        onClick={() => props.onVoteDown()}
+        onClick={() => {
+          if (!props.isVoting) {
+            props.onVoteDown()
+          }
+        }}
       >
         <i className="fa fa-arrow-down"/>
       </button>
