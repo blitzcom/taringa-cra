@@ -14,13 +14,19 @@ const Paginator = ({
   return (
     <div className="Paginator">
       {currentPage > 1 && (
-        <button className="btn btn-primary btn-sm" onClick={onClickNext}>
+        <button
+          className="btn btn-primary btn-sm Paginator-previous"
+          onClick={onClickPrevious}
+        >
           Anterior
         </button>
       )}
       &nbsp;
       {!isLastPage && (
-        <button className="btn btn-primary btn-sm" onClick={onClickPrevious}>
+        <button
+          className="btn btn-primary btn-sm Paginator-next"
+          onClick={onClickNext}
+        >
           Siguiente
         </button>
       )}
@@ -29,7 +35,7 @@ const Paginator = ({
 }
 
 Paginator.defaultProps = {
-  currentPage: 0,
+  currentPage: 1,
   isLastPage: false,
   onClickNext: () => {},
   onClickPrevious: () => {},

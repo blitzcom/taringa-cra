@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Action renders default 1`] = `
+<button
+  className="btn btn-action"
+>
+  
+  Fullscreen
+</button>
+`;
+
+exports[`Toggle Action renders toggled 1`] = `
+<button
+  className="btn btn-action active"
+>
+  
+  Fullscreen
+</button>
+`;
+
+exports[`Toggle Action renders toggled with icons 1`] = `
+<button
+  className="btn btn-action active"
+>
+  <i
+    className="fa fa-compress"
+  />
+  Fullscreen
+</button>
+`;
+
+exports[`Toggle Action renders with icons 1`] = `
+<button
+  className="btn btn-action"
+>
+  <i
+    className="fa fa-expand"
+  />
+  Fullscreen
+</button>
+`;

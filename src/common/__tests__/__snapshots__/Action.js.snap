@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action renders default 1`] = `
+<button
+  className="btn btn-action"
+>
+  click me
+</button>
+`;
+
+exports[`Action renders with icon 1`] = `
+<button
+  className="btn btn-action"
+>
+  <i
+    className="fa fa-comments"
+  />
+  click me
+</button>
+`;

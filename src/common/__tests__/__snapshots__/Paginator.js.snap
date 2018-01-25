@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator renders as first page 1`] = `
+<div
+  className="Paginator"
+>
+   
+  <button
+    className="btn btn-primary btn-sm Paginator-next"
+    onClick={[Function]}
+  >
+    Siguiente
+  </button>
+</div>
+`;
+
+exports[`Paginator renders as last page 1`] = `
+<div
+  className="Paginator"
+>
+  <button
+    className="btn btn-primary btn-sm Paginator-previous"
+    onClick={[Function]}
+  >
+    Anterior
+  </button>
+   
+</div>
+`;
+
+exports[`Paginator renders as loading 1`] = `null`;
+
+exports[`Paginator renders as one page 1`] = `
+<div
+  className="Paginator"
+>
+   
+</div>
+`;
+
+exports[`Paginator renders default 1`] = `
+<div
+  className="Paginator"
+>
+  <button
+    className="btn btn-primary btn-sm Paginator-previous"
+    onClick={[Function]}
+  >
+    Anterior
+  </button>
+   
+  <button
+    className="btn btn-primary btn-sm Paginator-next"
+    onClick={[Function]}
+  >
+    Siguiente
+  </button>
+</div>
+`;

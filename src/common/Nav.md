@@ -1,0 +1,5 @@
+Basic Nav
+
+```js
+<Nav />
+```
