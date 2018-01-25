@@ -1341,10 +1341,10 @@ exports[`Storyshots Stories loading 1`] = `
   className="Stories text-center"
 >
   <div
-    className="my-5"
+    className="my-0"
   >
     <i
-      className="fa fa-spin fa-circle-notch fa-2x"
+      className="fa fa-spin fa-spinner fa-2x"
     />
   </div>
 </div>

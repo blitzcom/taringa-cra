@@ -17,8 +17,8 @@ export class Stories extends Component {
 
     if (status === 'fetching') {
       return (
-        <div className="my-5">
-          <i className="fa fa-spin fa-circle-notch fa-2x"/>
+        <div className="my-0">
+          <i className="fa fa-spin fa-spinner fa-2x"/>
         </div>
       )
     } else if (status === 'failure') {
@@ -54,7 +54,9 @@ Stories.defaultProps = {
 }
 
 const mapStateToProps = state => ({
-  stories: storiesSelector(state)
+  error: state.control.storiesFetch.error,
+  status: state.control.storiesFetch.status,
+  stories: storiesSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({
