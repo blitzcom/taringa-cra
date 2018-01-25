@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import classNames from 'classnames'
 
 import Alert from '../../common/Alert'
 import Story from './Story'
@@ -12,36 +11,37 @@ export class Stories extends Component {
     this.props.fetchStories()
   }
 
-  renderContent () {
-    const { error, status, stories } = this.props
-
-    if (status === 'fetching') {
-      return (
-        <div className="my-0">
-          <i className="fa fa-spin fa-spinner fa-2x"/>
-        </div>
-      )
-    } else if (status === 'failure') {
-      return (
-        <Alert type="danger">
-          { error }
-        </Alert>
-      )
-    } else {
-      return stories.map(i => <Story key={i.id} {...i} />)
-    }
-  }
-
   render () {
-    const { status } = this.props
-
-    const storiesClass = classNames('Stories', {
-      'text-center': status === 'fetching',
-    })
+    const { fetchStories, status, stories, error } = this.props
 
     return (
-      <div className={storiesClass}>
-        { this.renderContent() }
+      <div className="Stories">
+        {
+          status === 'failure' && (
+            <Alert type="danger">
+              { error }
+            </Alert>
+          )
+        }
+
+        { stories.map(i => <Story key={i.id} {...i} />) }
+
+        {
+          status === 'fetching' ? (
+            <div className="my-4 text-center">
+              <i className="fa fa-spin fa-spinner fa-2x"/>
+            </div>
+          ) : (
+            <div className="Stories-load-more text-center my-4">
+              <button
+                className="btn btn-sm btn-outline-primary"
+                onClick={fetchStories}
+              >
+                Load more
+              </button>
+            </div>
+          )
+        }
       </div>
     )
   }
