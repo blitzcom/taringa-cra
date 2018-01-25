@@ -21,10 +21,10 @@ exports[`Stories renders error 1`] = `
 
 exports[`Stories renders loader 1`] = `
 <div
-  className="Stories text-center"
+  className="Stories"
 >
   <div
-    className="my-0"
+    className="my-4 text-center"
   >
     <i
       className="fa fa-spin fa-spinner fa-2x"

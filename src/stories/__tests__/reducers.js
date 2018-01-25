@@ -31,9 +31,12 @@ describe('Stories entities reducer', () => {
 describe('Stories fetch control reducer', () => {
   it('returns initial state', () => {
     expect(storiesFetchControl(undefined, {})).toEqual({
+      after: null,
+      before: null,
       error: '',
       ids: [],
       status: 'success',
+      totalCount: 0,
     })
   })
 
