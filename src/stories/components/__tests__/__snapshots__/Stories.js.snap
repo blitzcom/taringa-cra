@@ -11,20 +11,29 @@ exports[`Stories renders error 1`] = `
   className="Stories"
 >
   <div
-    className="alert alert-danger"
-    type="danger"
+    className="my-4 text-center"
   >
-    Network Error
+    <div
+      className="alert my-3 font-weight-bold alert-danger"
+    >
+      ¡Ratas! Parece que no estás conectado a internet. Intenta refrescar la página o pulsa el siguiente botón.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      onClick={undefined}
+    >
+      Volver a intentar
+    </button>
   </div>
 </div>
 `;
 
 exports[`Stories renders loader 1`] = `
 <div
-  className="Stories text-center"
+  className="Stories"
 >
   <div
-    className="my-0"
+    className="my-4 text-center"
   >
     <i
       className="fa fa-spin fa-spinner fa-2x"

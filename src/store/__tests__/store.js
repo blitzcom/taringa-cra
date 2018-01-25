@@ -8,9 +8,12 @@ describe('Store', () => {
     expect(store.getState()).toEqual({
       control: {
         storiesFetch: {
+          after: null,
+          before: null,
           error: '',
           ids: [],
           status: 'success',
+          totalCount: 0,
         }
       },
       entities: {
