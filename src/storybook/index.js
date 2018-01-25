@@ -26,24 +26,3 @@ storiesOf('Stories', module).add('listing', () => {
 storiesOf('Stories', module).add('with error', () => {
   return <Stories error="Network Error" status="failure" />
 })
-
-storiesOf('Story', module)
-  .addDecorator(withKnobs)
-  .add('shout', () => {
-    const downvotes = number('Downvotes', 2500)
-    const upvotes = number('Upvotes', 5500)
-    const voted = number('Voted', 0)
-    const isVoting = boolean('Is Voting', false)
-
-    return (
-      <Story
-        {...StoryShout}
-        downvotes={downvotes}
-        isVoting={isVoting}
-        onVoteDown={action('onVoteDown')}
-        onVoteUp={action('onVoteUp')}
-        upvotes={upvotes}
-        voted={voted}
-      />
-    )
-  })
