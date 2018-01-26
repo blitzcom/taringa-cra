@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 
 import { Summaries } from '../Summaries'
-import { StoryShout } from '../data'
+import { SummaryShout } from '../data'
 
 describe('Summaries', () => {
   it('renders default', () => {
@@ -26,18 +26,18 @@ describe('Summaries', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('renders stories', () => {
+  it('renders summaries', () => {
     const tree = renderer
-      .create(<Summaries stories={[StoryShout]} />)
+      .create(<Summaries summaries={[SummaryShout]} />)
       .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
-  it('fetches stories on mount', () => {
+  it('fetches summaries on mount', () => {
     const mock = jest.fn()
 
-    mount(<Summaries fetchStories={mock}/>)
+    mount(<Summaries fetchSummaries={mock}/>)
 
     expect(mock).toBeCalled()
   })

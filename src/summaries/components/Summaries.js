@@ -34,13 +34,13 @@ export class Summaries extends Component {
       ) >= scrollHeight
 
     if (scrolledToBottom) {
-      this.props.fetchStories()
+      this.props.fetchSummaries()
     }
   }
 
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
-    this.props.fetchStories()
+    this.props.fetchSummaries()
   }
 
   componentWillUnmount () {
@@ -63,7 +63,7 @@ export class Summaries extends Component {
               </Alert>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.fetchStories()}
+                onClick={this.props.fetchSummaries()}
               >
                 Volver a intentar
               </button>
@@ -84,7 +84,7 @@ export class Summaries extends Component {
 }
 
 Summaries.defaultProps = {
-  fetchStories: () => {},
+  fetchSummaries: () => {},
   status: "success",
   summaries: [],
 }
@@ -96,7 +96,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStories: () => dispatch(actions.fetch())
+  fetchSummaries: () => dispatch(actions.fetch())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Summaries)
