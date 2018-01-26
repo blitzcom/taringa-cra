@@ -40,11 +40,16 @@ export const fetch = () => {
       .get('/feed/global', { params })
       .then(response => response.data)
       .then(({ after, before, totalCount, items }) => {
-        const action = _.assign({}, normalize(items, [summary]), fetchSuccess(), {
-          after,
-          before,
-          totalCount,
-        })
+        const action = _.assign(
+          {},
+          normalize(items, [summary]),
+          fetchSuccess(),
+          {
+            after,
+            before,
+            totalCount,
+          }
+        )
 
         return dispatch(action)
       })
