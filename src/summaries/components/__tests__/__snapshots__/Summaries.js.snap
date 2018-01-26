@@ -20,7 +20,7 @@ exports[`Summaries renders error 1`] = `
     </div>
     <button
       className="btn btn-outline-primary btn-sm"
-      onClick={undefined}
+      onClick={[Function]}
     >
       Volver a intentar
     </button>
