@@ -8,30 +8,38 @@ const Summaries = require('./Summaries').Summaries;
 Listing Summaries
 
 ```js
+const { MemoryRouter } = require('react-router-dom')
 const Summaries = require('./Summaries').Summaries;
 const shout = require('./data').SummaryShout;
-<Summaries summaries={[shout]} />
+<MemoryRouter>
+  <Summaries summaries={[shout]} />
+</MemoryRouter>
 ```
 
 Infinite loading
 
 ```js
+const { MemoryRouter } = require('react-router-dom')
 const Summaries = require('./Summaries').Summaries;
 const shout = require('./data').SummaryShout;
-<Summaries status="fetching" summaries={[shout]} />
+<MemoryRouter>
+  <Summaries status="fetching" summaries={[shout]} />
+</MemoryRouter>
 ```
 
 With error
 
 ```js
-
+const { MemoryRouter } = require('react-router-dom')
 const Summaries = require('./Summaries').Summaries;
 const shout = require('./data').SummaryShout;
-<Summaries
-  status="failure"
-  summaries={[shout]}
-  error="Network Error"
-/>
+<MemoryRouter>
+  <Summaries
+    status="failure"
+    summaries={[shout]}
+    error="Network Error"
+  />
+</MemoryRouter>
 ```
 
 With error and no summaries
