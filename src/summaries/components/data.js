@@ -1,4 +1,4 @@
-export const StoryShout = {
+export const SummaryShout = {
   id: "z50xj",
   created: 1513920502005,
   edited: null,

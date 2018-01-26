@@ -6,20 +6,20 @@ import thunk from 'redux-thunk'
 import * as types from '../types'
 import * as actions from '../actions'
 
-describe('Stories actions', () => {
-  it('creates an action to start fetching stories', () => {
+describe('Summaries actions', () => {
+  it('creates an action to start fetching summaries', () => {
     expect(actions.fetchRequest()).toEqual({
       type: types.FETCH_REQUEST,
     })
   })
 
-  it('creates an action to finish fetching stories with success', () => {
+  it('creates an action to finish fetching summaries with success', () => {
     expect(actions.fetchSuccess()).toEqual({
       type: types.FETCH_SUCCESS,
     })
   })
 
-  it('creates an action to finish fetching stories with failure', () => {
+  it('creates an action to finish fetching summaries with failure', () => {
     expect(actions.fetchFailure('Network Error')).toEqual({
       type: types.FETCH_FAILURE,
       message: 'Network Error',
@@ -27,7 +27,7 @@ describe('Stories actions', () => {
   })
 })
 
-describe('Fetch stories async action', () => {
+describe('Fetch summaries async action', () => {
   const data = [
     { id: 1, foo: 'foo'},
     { id: 2, foo: 'foo'},
@@ -45,7 +45,7 @@ describe('Fetch stories async action', () => {
 
     const store = mockStore({
       control: {
-        storiesFetch: {
+        summariesFetch: {
           error: '',
           ids: [],
           status: 'success',
@@ -54,7 +54,7 @@ describe('Fetch stories async action', () => {
     })
 
     const entities = {
-      stories: {
+      summaries: {
         1: { id: 1, foo: 'foo'},
         2: { id: 2, foo: 'foo'},
       }
@@ -74,7 +74,7 @@ describe('Fetch stories async action', () => {
 
     const store = mockStore({
       control: {
-        storiesFetch: {
+        summariesFetch: {
           error: '',
           ids: [],
           status: 'success',
@@ -96,7 +96,7 @@ describe('Fetch stories async action', () => {
 
     const store = mockStore({
       control: {
-        storiesFetch: {
+        summariesFetch: {
           error: '',
           ids: [],
           status: 'fetching',

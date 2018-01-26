@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { StoryShout } from '../data'
+import { SummaryShout } from '../data'
 import Shout from '../Shout'
 
 describe('Shout', () => {
@@ -10,29 +10,29 @@ describe('Shout', () => {
   })
 
   it('renders default', () => {
-    const data = StoryShout
+    const data = SummaryShout
     data.summary.images.amount = 0
 
-    const tree = renderer.create(<Shout {...StoryShout} />).toJSON()
+    const tree = renderer.create(<Shout {...SummaryShout} />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders with image thumbnail', () => {
-    const data = StoryShout
+    const data = SummaryShout
     data.summary.images.amount = 1
 
-    const tree = renderer.create(<Shout {...StoryShout} />).toJSON()
+    const tree = renderer.create(<Shout {...SummaryShout} />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders with image thumbnail and preview', () => {
-    const data = StoryShout
+    const data = SummaryShout
     data.summary.images.amount = 1
 
     const tree = renderer
-      .create(<Shout {...StoryShout} previewIsOpen />)
+      .create(<Shout {...SummaryShout} previewIsOpen />)
       .toJSON()
 
     expect(tree).toMatchSnapshot()

@@ -1,27 +1,27 @@
 import {
-  storiesEntities,
-  storiesFetchControl,
+  summariesEntities,
+  summariesFetchControl,
 } from '../reducers'
 
 import * as types from '../types'
 
 describe('Stories entities reducer', () => {
   it('returns initial state', () => {
-    expect(storiesEntities(undefined,{})).toEqual({})
+    expect(summariesEntities(undefined,{})).toEqual({})
   })
 
-  it('merges stories', () => {
+  it('merges summaries', () => {
     const action = {
       type: 'any',
       entities: {
-        stories: {
+        summaries: {
           1: { bar: false, foo: true, id: 1 },
           2: { bar: false, foo: true, id: 2 },
         }
       }
     }
 
-    expect(storiesEntities(undefined, action)).toEqual({
+    expect(summariesEntities(undefined, action)).toEqual({
       1: { bar: false, foo: true, id: 1 },
       2: { bar: false, foo: true, id: 2 },
     })
@@ -30,7 +30,7 @@ describe('Stories entities reducer', () => {
 
 describe('Stories fetch control reducer', () => {
   it('returns initial state', () => {
-    expect(storiesFetchControl(undefined, {})).toEqual({
+    expect(summariesFetchControl(undefined, {})).toEqual({
       after: null,
       before: null,
       error: '',
@@ -51,7 +51,7 @@ describe('Stories fetch control reducer', () => {
       status: 'failure',
     }
 
-    expect(storiesFetchControl(state, action)).toEqual({
+    expect(summariesFetchControl(state, action)).toEqual({
       error: '',
       ids: [],
       status: 'fetching',
@@ -70,7 +70,7 @@ describe('Stories fetch control reducer', () => {
       status: 'fetching',
     }
 
-    expect(storiesFetchControl(state, action)).toEqual({
+    expect(summariesFetchControl(state, action)).toEqual({
       error: '',
       ids: [1, 2, 3, 4, 5],
       status: 'success',
@@ -89,7 +89,7 @@ describe('Stories fetch control reducer', () => {
       status: 'fetching',
     }
 
-    expect(storiesFetchControl(state, action)).toEqual({
+    expect(summariesFetchControl(state, action)).toEqual({
       error: 'Network Error',
       ids: [],
       status: 'failure',

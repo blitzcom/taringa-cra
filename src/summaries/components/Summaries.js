@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Alert from '../../common/Alert'
-import Story from './Story'
+import Summary from './Summary'
 import * as actions from '../actions'
-import { storiesSelector } from '../selectors'
+import { summariesSelector } from '../selectors'
 
-export class Stories extends Component {
+export class Summaries extends Component {
   constructor(props) {
     super(props)
     this.handleScroll = _.debounce(this.handleScroll.bind(this), 150)
@@ -34,13 +34,13 @@ export class Stories extends Component {
       ) >= scrollHeight
 
     if (scrolledToBottom) {
-      this.props.fetchStories()
+      this.props.fetchSummaries()
     }
   }
 
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
-    this.props.fetchStories()
+    this.props.fetchSummaries()
   }
 
   componentWillUnmount () {
@@ -48,11 +48,11 @@ export class Stories extends Component {
   }
 
   render () {
-    const { status, stories } = this.props
+    const { status, summaries } = this.props
 
     return (
-      <div className="Stories">
-        { stories.map(i => <Story key={i.id} {...i} />) }
+      <div className="Summaries">
+        { summaries.map(i => <Summary key={i.id} {...i} />) }
 
         {
           status === 'failure' && (
@@ -63,7 +63,7 @@ export class Stories extends Component {
               </Alert>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.fetchStories()}
+                onClick={this.props.fetchSummaries()}
               >
                 Volver a intentar
               </button>
@@ -83,20 +83,20 @@ export class Stories extends Component {
   }
 }
 
-Stories.defaultProps = {
-  fetchStories: () => {},
+Summaries.defaultProps = {
+  fetchSummaries: () => {},
   status: "success",
-  stories: [],
+  summaries: [],
 }
 
 const mapStateToProps = state => ({
-  error: state.control.storiesFetch.error,
-  status: state.control.storiesFetch.status,
-  stories: storiesSelector(state),
+  error: state.control.summariesFetch.error,
+  status: state.control.summariesFetch.status,
+  summaries: summariesSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStories: () => dispatch(actions.fetch())
+  fetchSummaries: () => dispatch(actions.fetch())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stories)
+export default connect(mapStateToProps, mapDispatchToProps)(Summaries)

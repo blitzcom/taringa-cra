@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stories renders default 1`] = `
+exports[`Summaries renders default 1`] = `
 <div
-  className="Stories"
+  className="Summaries"
 />
 `;
 
-exports[`Stories renders error 1`] = `
+exports[`Summaries renders error 1`] = `
 <div
-  className="Stories"
+  className="Summaries"
 >
   <div
     className="my-4 text-center"
@@ -28,9 +28,9 @@ exports[`Stories renders error 1`] = `
 </div>
 `;
 
-exports[`Stories renders loader 1`] = `
+exports[`Summaries renders loader 1`] = `
 <div
-  className="Stories"
+  className="Summaries"
 >
   <div
     className="my-4 text-center"
@@ -42,12 +42,12 @@ exports[`Stories renders loader 1`] = `
 </div>
 `;
 
-exports[`Stories renders stories 1`] = `
+exports[`Summaries renders summaries 1`] = `
 <div
-  className="Stories"
+  className="Summaries"
 >
   <div
-    className="Story card"
+    className="Summary card"
   >
     <div
       className="Shout"

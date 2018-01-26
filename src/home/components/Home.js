@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Stories from '../../stories/components/Stories'
+import Summaries from '../../summaries/components/Summaries'
 
 const Home = props => (
   <div className="row">
     <div className="col-9">
-      <Stories/>
+      <Summaries/>
     </div>
   </div>
 )
