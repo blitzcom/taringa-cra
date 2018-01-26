@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
+import { MemoryRouter } from 'react-router-dom'
 
 import { Summaries } from '../Summaries'
 import { SummaryShout } from '../data'
@@ -28,7 +29,11 @@ describe('Summaries', () => {
 
   it('renders summaries', () => {
     const tree = renderer
-      .create(<Summaries summaries={[SummaryShout]} />)
+      .create(
+        <MemoryRouter>
+          <Summaries summaries={[SummaryShout]} />
+        </MemoryRouter>
+      )
       .toJSON()
 
     expect(tree).toMatchSnapshot()

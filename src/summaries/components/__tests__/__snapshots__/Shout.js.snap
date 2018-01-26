@@ -36,7 +36,8 @@ exports[`Shout renders default 1`] = `
     </div>
     <a
       className="Shout-thumbnail"
-      href="/"
+      href="/story/tienen-que-shoutear-minas-asi_z50xj"
+      onClick={[Function]}
     >
       <i
         className="fa fa-comment fa-2x Shout-thumbnail-icon"
@@ -48,6 +49,7 @@ exports[`Shout renders default 1`] = `
       <a
         className="Shout-title text-dark"
         href="/story/tienen-que-shoutear-minas-asi_z50xj"
+        onClick={[Function]}
       >
         Tienen que shoutear minas asi
       </a>
@@ -131,7 +133,8 @@ exports[`Shout renders with image thumbnail 1`] = `
     </div>
     <a
       className="Shout-thumbnail"
-      href="/"
+      href="/story/tienen-que-shoutear-minas-asi_z50xj"
+      onClick={[Function]}
     >
       <img
         alt="Thumbnail"
@@ -144,6 +147,7 @@ exports[`Shout renders with image thumbnail 1`] = `
       <a
         className="Shout-title text-dark"
         href="/story/tienen-que-shoutear-minas-asi_z50xj"
+        onClick={[Function]}
       >
         Tienen que shoutear minas asi
       </a>
@@ -236,7 +240,8 @@ exports[`Shout renders with image thumbnail and preview 1`] = `
     </div>
     <a
       className="Shout-thumbnail"
-      href="/"
+      href="/story/tienen-que-shoutear-minas-asi_z50xj"
+      onClick={[Function]}
     >
       <img
         alt="Thumbnail"
@@ -249,6 +254,7 @@ exports[`Shout renders with image thumbnail and preview 1`] = `
       <a
         className="Shout-title text-dark"
         href="/story/tienen-que-shoutear-minas-asi_z50xj"
+        onClick={[Function]}
       >
         Tienen que shoutear minas asi
       </a>

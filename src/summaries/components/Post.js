@@ -1,5 +1,6 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
+import { Link } from 'react-router-dom'
 
 import './Shout.css'
 import Score from './Score'
@@ -19,7 +20,7 @@ const Post = props => {
           isVoting={props.isVoting}
         />
 
-        <a className="Shout-thumbnail" href="/">
+        <Link className="Shout-thumbnail" to={`/story/${props.slug}`}>
           {
             props.classic.images && (
               <img
@@ -28,15 +29,15 @@ const Post = props => {
               />
             )
           }
-        </a>
+        </Link>
 
         <div className="Shout-info">
-          <a
+          <Link
             className="Shout-title text-dark"
-            href={`/story/${props.slug}`}
+            to={`/story/${props.slug}`}
           >
             { props.title }
-          </a>
+          </Link>
 
           <p className="Shout-meta">
             Posteado por

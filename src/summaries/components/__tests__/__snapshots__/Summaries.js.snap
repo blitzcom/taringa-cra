@@ -84,7 +84,8 @@ exports[`Summaries renders summaries 1`] = `
         </div>
         <a
           className="Shout-thumbnail"
-          href="/"
+          href="/story/tienen-que-shoutear-minas-asi_z50xj"
+          onClick={[Function]}
         >
           <img
             alt="Thumbnail"
@@ -97,6 +98,7 @@ exports[`Summaries renders summaries 1`] = `
           <a
             className="Shout-title text-dark"
             href="/story/tienen-que-shoutear-minas-asi_z50xj"
+            onClick={[Function]}
           >
             Tienen que shoutear minas asi
           </a>
