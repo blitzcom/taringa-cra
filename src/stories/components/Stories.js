@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Alert from '../../common/Alert'
 import Story from './Story'
 import * as actions from '../actions'
-import { storiesSelector } from '../selectors'
+import { summariesSelector } from '../selectors'
 
 export class Stories extends Component {
   constructor(props) {
@@ -48,11 +48,11 @@ export class Stories extends Component {
   }
 
   render () {
-    const { status, stories } = this.props
+    const { status, summaries } = this.props
 
     return (
       <div className="Stories">
-        { stories.map(i => <Story key={i.id} {...i} />) }
+        { summaries.map(i => <Story key={i.id} {...i} />) }
 
         {
           status === 'failure' && (
@@ -86,13 +86,13 @@ export class Stories extends Component {
 Stories.defaultProps = {
   fetchStories: () => {},
   status: "success",
-  stories: [],
+  summaries: [],
 }
 
 const mapStateToProps = state => ({
-  error: state.control.storiesFetch.error,
-  status: state.control.storiesFetch.status,
-  stories: storiesSelector(state),
+  error: state.control.summariesFetch.error,
+  status: state.control.summariesFetch.status,
+  summaries: summariesSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({

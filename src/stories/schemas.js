@@ -1,3 +1,3 @@
 import { schema } from 'normalizr'
 
-export const story = new schema.Entity('stories')
+export const summary = new schema.Entity('summaries')

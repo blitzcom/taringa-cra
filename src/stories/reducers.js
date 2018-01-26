@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import * as types from './types'
 
-export const storiesEntities = (state = {}, action) => {
-  if (action.entities && action.entities.stories) {
-    return _.merge({}, state, action.entities.stories)
+export const summariesEntities = (state = {}, action) => {
+  if (action.entities && action.entities.summaries) {
+    return _.merge({}, state, action.entities.summaries)
   }
 
   return state
@@ -18,7 +18,7 @@ const fetchControlInitialState = {
   totalCount: 0,
 }
 
-export const storiesFetchControl = (
+export const summariesFetchControl = (
   state = fetchControlInitialState,
   action
 ) => {

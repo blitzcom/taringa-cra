@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { normalize } from 'normalizr'
 
 import * as types from './types'
-import { story } from './schemas'
+import { summary } from './schemas'
 
 export const fetchRequest = () => ({
   type: types.FETCH_REQUEST,
@@ -18,7 +18,7 @@ export const fetchFailure = message => ({
 })
 
 const canFetch = state => {
-  return state.control.storiesFetch.status !== 'fetching'
+  return state.control.summariesFetch.status !== 'fetching'
 }
 
 export const fetch = () => {
@@ -27,10 +27,10 @@ export const fetch = () => {
       return Promise.resolve()
     }
 
-    const { storiesFetch } = getState().control
+    const { summariesFetch } = getState().control
 
     const params = {
-      after: storiesFetch.after,
+      after: summariesFetch.after,
       count: 25,
     }
 
@@ -40,7 +40,7 @@ export const fetch = () => {
       .get('/feed/global', { params })
       .then(response => response.data)
       .then(({ after, before, totalCount, items }) => {
-        const action = _.assign({}, normalize(items, [story]), fetchSuccess(), {
+        const action = _.assign({}, normalize(items, [summary]), fetchSuccess(), {
           after,
           before,
           totalCount,
