@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Summaries renders default 1`] = `
+<div
+  className="Summaries"
+/>
+`;
+
+exports[`Summaries renders error 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="my-4 text-center"
+  >
+    <div
+      className="alert my-3 font-weight-bold alert-danger"
+    >
+      ¡Ratas! Parece que no estás conectado a internet. Intenta refrescar la página o pulsa el siguiente botón.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      onClick={undefined}
+    >
+      Volver a intentar
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Summaries renders loader 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="my-4 text-center"
+  >
+    <i
+      className="fa fa-spin fa-spinner fa-2x"
+    />
+  </div>
+</div>
+`;
+
+exports[`Summaries renders stories 1`] = `
+<div
+  className="Summaries"
+/>
+`;

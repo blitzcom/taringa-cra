@@ -1,17 +1,17 @@
-.Story {
+.Summary {
   border-radius: 0;
 }
 
-.Story ~ .Story {
+.Summary ~ .Summary {
   border-top: none;
 }
 
-.Story:first-child {
+.Summary:first-child {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 
-.Story:last-child {
+.Summary:last-child {
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }

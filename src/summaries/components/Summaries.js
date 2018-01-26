@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Alert from '../../common/Alert'
-import Story from './Story'
+import Summary from './Summary'
 import * as actions from '../actions'
 import { summariesSelector } from '../selectors'
 
-export class Stories extends Component {
+export class Summaries extends Component {
   constructor(props) {
     super(props)
     this.handleScroll = _.debounce(this.handleScroll.bind(this), 150)
@@ -51,8 +51,8 @@ export class Stories extends Component {
     const { status, summaries } = this.props
 
     return (
-      <div className="Stories">
-        { summaries.map(i => <Story key={i.id} {...i} />) }
+      <div className="Summaries">
+        { summaries.map(i => <Summary key={i.id} {...i} />) }
 
         {
           status === 'failure' && (
@@ -83,7 +83,7 @@ export class Stories extends Component {
   }
 }
 
-Stories.defaultProps = {
+Summaries.defaultProps = {
   fetchStories: () => {},
   status: "success",
   summaries: [],
@@ -99,4 +99,4 @@ const mapDispatchToProps = dispatch => ({
   fetchStories: () => dispatch(actions.fetch())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stories)
+export default connect(mapStateToProps, mapDispatchToProps)(Summaries)
