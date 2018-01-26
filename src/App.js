@@ -7,6 +7,7 @@ import {
 import './App.css'
 import Nav from './common/Nav'
 import Home from './home/components/Home'
+import Story from './story/components/Story'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
 
           <div className="container">
             <Route exact path="/" component={Home} />
+            <Route path="/story/:slug" component={Story} />
           </div>
         </div>
       </Router>
