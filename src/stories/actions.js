@@ -20,13 +20,37 @@ export const fetchFailure = (id, message) => ({
   message: message,
 })
 
+export const createFetchControl = id => ({
+  type: types.CREATE_FETCH_CONTROL,
+  id: id,
+})
+
 const canFetchStory = (state, id) => {
   return state.control.storiesFetch[id].status !== 'fetching'
 }
 
+export const createStoryFetchControl = id => {
+  return (dispatch, getState) => {
+    const state = getState()
+
+    if (id in state.control.storiesFetch) {
+      return Promise.resolve()
+    }
+
+    dispatch(createFetchControl(id))
+    return Promise.resolve()
+  }
+}
+
 export const fetch = id => {
   return (dispatch, getState, axios) => {
-    if (!canFetchStory(getState(), id)) {
+    dispatch(createStoryFetchControl(id))
+
+    try {
+      if (!canFetchStory(getState(), id)) {
+        return Promise.resolve()
+      }
+    } catch (e) {
       return Promise.resolve()
     }
 

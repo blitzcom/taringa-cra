@@ -6,6 +6,10 @@ import thunk from 'redux-thunk'
 import * as types from '../types'
 import * as actions from '../actions'
 
+  const middlewares = [thunk.withExtraArgument(axios)]
+  const mockStore = configureMockStore(middlewares)
+  const mock = new MockAdapter(axios)
+
 describe('Stories actions', () => {
   it('creates an action to start fetching a story', () => {
     expect(actions.fetchRequest(1)).toEqual({
@@ -35,10 +39,6 @@ describe('Fetch stories async action', () => {
     id: 'z6bk5',
     title: 'Amnesia Collection',
   }
-
-  const middlewares = [thunk.withExtraArgument(axios)]
-  const mockStore = configureMockStore(middlewares)
-  const mock = new MockAdapter(axios)
 
   afterEach(() => mock.reset())
 
@@ -88,6 +88,20 @@ describe('Fetch stories async action', () => {
     })
   })
 
+  it('creates story fetch control', () => {
+    const store = mockStore({
+      control: {
+        storiesFetch: {}
+      }
+    })
+
+    return store.dispatch(actions.fetch('z6bk5')).then(() => {
+      expect(store.getActions()).toEqual([
+        { type: types.CREATE_FETCH_CONTROL, id: 'z6bk5' }
+      ])
+    })
+  })
+
   it('skips if already fetching a certain story', () => {
     mock.onGet('story/z6bk5')
       .reply(200, data)
@@ -101,6 +115,36 @@ describe('Fetch stories async action', () => {
     })
 
     return store.dispatch(actions.fetch('z6bk5')).then(() => {
+      expect(store.getActions()).toEqual([])
+    })
+  })
+})
+
+describe('Create story fetch control', () => {
+  it('creates control if does not exist', () => {
+    const store = mockStore({
+      control: {
+        storiesFetch: {}
+      }
+    })
+
+    return store.dispatch(actions.createStoryFetchControl(1)).then(() => {
+      expect(store.getActions()).toEqual([
+        { type: types.CREATE_FETCH_CONTROL, id: 1 }
+      ])
+    })
+  })
+
+  it('skips if fetch control already exists', () => {
+    const store = mockStore({
+      control: {
+        storiesFetch: {
+          1: { error: '', success: '' }
+        }
+      }
+    })
+
+    return store.dispatch(actions.createStoryFetchControl(1)).then(() => {
       expect(store.getActions()).toEqual([])
     })
   })

@@ -33,15 +33,11 @@ export const storiesFetchControl = (state = {}, action) => {
       return _.assign({}, state, {
         [action.id]: storyFetchControl(state[action.id], action),
       })
+    case types.CREATE_FETCH_CONTROL:
+      return _.assign({}, state, {
+        [action.id]: storyFetchControl(undefined, {}),
+      })
     default:
-      if (action.entities && action.entities.summaries) {
-        const entities = _.mapValues(action.entities.summaries, i =>
-          storyFetchControl(undefined, {})
-        )
-
-        return _.assign({}, state, entities)
-      }
-
       return state
   }
 }
