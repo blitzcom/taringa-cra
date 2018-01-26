@@ -10,6 +10,7 @@ import { summariesSelector } from '../selectors'
 export class Summaries extends Component {
   constructor(props) {
     super(props)
+    this.hasScrollEventAttached = false
     this.handleScroll = _.debounce(this.handleScroll.bind(this), 150)
   }
 
@@ -39,12 +40,30 @@ export class Summaries extends Component {
   }
 
   componentDidMount () {
+    this.hasScrollEventAttached = true
     window.addEventListener('scroll', this.handleScroll)
     this.props.fetchSummaries()
   }
 
   componentWillUnmount () {
     window.removeEventListener('scroll', this.handleScroll)
+    this.hasScrollEventAttached = false
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (
+      this.hasScrollEventAttached &&
+      this.props.status === 'fetching' &&
+      nextProps.status === 'failure'
+    ) {
+      window.removeEventListener('scroll', this.handleScroll)
+      this.hasScrollEventAttached = false
+    }
+
+    if (!this.hasScrollEventAttached && nextProps.status === 'success') {
+      this.hasScrollEventAttached = true
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
 
   render () {
@@ -63,7 +82,7 @@ export class Summaries extends Component {
               </Alert>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.fetchSummaries()}
+                onClick={this.props.fetchSummaries}
               >
                 Volver a intentar
               </button>
