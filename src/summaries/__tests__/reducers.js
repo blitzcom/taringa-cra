@@ -5,7 +5,7 @@ import {
 
 import * as types from '../types'
 
-describe('Stories entities reducer', () => {
+describe('Summaries entities reducer', () => {
   it('returns initial state', () => {
     expect(summariesEntities(undefined,{})).toEqual({})
   })
@@ -28,7 +28,7 @@ describe('Stories entities reducer', () => {
   })
 })
 
-describe('Stories fetch control reducer', () => {
+describe('Summaries fetch control reducer', () => {
   it('returns initial state', () => {
     expect(summariesFetchControl(undefined, {})).toEqual({
       after: null,
