@@ -7,7 +7,7 @@ import {
 import './App.css'
 import Nav from './common/Nav'
 import Home from './home/components/Home'
-import Story from './story/components/Story'
+import Story from './stories/components/Story'
 
 class App extends Component {
   render() {

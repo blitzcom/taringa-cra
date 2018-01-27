@@ -1,23 +1,32 @@
 Shout
 
 ```js
+const { MemoryRouter } = require('react-router-dom')
 const shout = require('./data').SummaryShout;
 shout.summary.images.amount = 0;
-<Summary {...shout}/>
+<MemoryRouter>
+  <Summary {...shout}/>
+</MemoryRouter>
 ```
 
 Shout with image thumbnail
 
 ```js
+const { MemoryRouter } = require('react-router-dom')
 const shout = require('./data').SummaryShout;
 shout.summary.images.amount = 1;
-<Summary {...shout}/>
+<MemoryRouter>
+  <Summary {...shout}/>
+</MemoryRouter>
 ```
 
 Shout with image thumbnail and preview
 
 ```js
+const { MemoryRouter } = require('react-router-dom')
 const shout = require('./data').SummaryShout;
 shout.summary.images.amount = 1;
-<Summary {...shout} previewIsOpen/>
+<MemoryRouter>
+  <Summary {...shout} previewIsOpen/>
+</MemoryRouter>
 ```

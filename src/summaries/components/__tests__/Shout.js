@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { MemoryRouter } from 'react-router-dom'
 
 import { SummaryShout } from '../data'
 import Shout from '../Shout'
@@ -13,7 +14,13 @@ describe('Shout', () => {
     const data = SummaryShout
     data.summary.images.amount = 0
 
-    const tree = renderer.create(<Shout {...SummaryShout} />).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Shout {...SummaryShout} />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -22,7 +29,13 @@ describe('Shout', () => {
     const data = SummaryShout
     data.summary.images.amount = 1
 
-    const tree = renderer.create(<Shout {...SummaryShout} />).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Shout {...SummaryShout} />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -32,7 +45,11 @@ describe('Shout', () => {
     data.summary.images.amount = 1
 
     const tree = renderer
-      .create(<Shout {...SummaryShout} previewIsOpen />)
+      .create(
+        <MemoryRouter>
+          <Shout {...SummaryShout} previewIsOpen />
+        </MemoryRouter>
+      )
       .toJSON()
 
     expect(tree).toMatchSnapshot()

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TimeAgo from 'react-timeago'
+import { Link } from 'react-router-dom'
 
 import './Shout.css'
 import Score from './Score'
@@ -36,7 +37,7 @@ class Shout extends Component {
             isVoting={this.props.isVoting}
           />
 
-          <a className="Shout-thumbnail" href="/">
+          <Link className="Shout-thumbnail" to={`/story/${this.props.slug}`}>
             {
               this.props.summary.images.amount > 0 ? (
                 <img
@@ -47,15 +48,15 @@ class Shout extends Component {
                 <i className="fa fa-comment fa-2x Shout-thumbnail-icon"/>
               )
             }
-          </a>
+          </Link>
 
           <div className="Shout-info">
-            <a
+            <Link
               className="Shout-title text-dark"
-              href={`/story/${this.props.slug}`}
+              to={`/story/${this.props.slug}`}
             >
               { this.props.summary.excerpt }
-            </a>
+            </Link>
 
             <p className="Shout-meta">
               Posteado por
