@@ -2,12 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 
 export const MDHeader = item => {
-  if (
-    item &&
-    item.type &&
-    item.type === 'markdown' &&
-    item.body
-  ) {
+  if (item && item.type && item.type === 'markdown' && item.body) {
     const matches = item.body.match(/^(#+)\s(.*)$/)
     if (matches) {
       const headerLevel = matches[1].length
@@ -22,18 +17,17 @@ export const MDHeader = item => {
 }
 
 export const MDLink = item => {
-  if (
-    item &&
-    item.type &&
-    item.type === 'markdown' &&
-    item.body
-  ) {
+  if (item && item.type && item.type === 'markdown' && item.body) {
     const matches = item.body.match(/\[(.+)\]\((.+)\)/)
     if (matches) {
       const label = matches[1]
       const url = matches[2]
 
-      return <a key={item.key} href={url}>{label}</a>
+      return (
+        <a key={item.key} href={url}>
+          {label}
+        </a>
+      )
     }
   }
 
@@ -41,12 +35,7 @@ export const MDLink = item => {
 }
 
 export const MDFallback = item => {
-  if (
-    item &&
-    item.type &&
-    item.type === 'markdown' &&
-    item.body
-  ) {
+  if (item && item.type && item.type === 'markdown' && item.body) {
     return item.body
   }
 
@@ -54,19 +43,9 @@ export const MDFallback = item => {
 }
 
 export const Image = item => {
-  if (
-    item &&
-    item.type &&
-    item.type === 'image' &&
-    item.url
-  ) {
+  if (item && item.type && item.type === 'image' && item.url) {
     return (
-      <img
-        className="Story-img"
-        key={item.key}
-        alt={item.url}
-        src={item.url}
-      />
+      <img className="Story-img" key={item.key} alt={item.url} src={item.url} />
     )
   }
 
@@ -74,12 +53,7 @@ export const Image = item => {
 }
 
 export const Link = item => {
-  if (
-    item &&
-    item.type &&
-    item.type === 'link' &&
-    item.url
-  ) {
+  if (item && item.type && item.type === 'link' && item.url) {
     return <a href={item.url}>{item.url}</a>
   }
 
@@ -87,11 +61,11 @@ export const Link = item => {
 }
 
 export class StoryParserEngine {
-  constructor (processors) {
+  constructor(processors) {
     this.processors = processors || []
   }
 
-  reducer (existing, processor) {
+  reducer(existing, processor) {
     if (processor) {
       return processor(existing || '')
     }
@@ -99,8 +73,12 @@ export class StoryParserEngine {
     return existing
   }
 
-  processItem (item, index) {
-    return _.reduce(this.processors, this.reducer, _.assign({}, item, { key: index }))
+  processItem(item, index) {
+    return _.reduce(
+      this.processors,
+      this.reducer,
+      _.assign({}, item, { key: index })
+    )
   }
 
   process(content) {
@@ -108,16 +86,10 @@ export class StoryParserEngine {
   }
 }
 
-const tags = [
-  MDHeader,
-  MDLink,
-  Image,
-  Link,
-  MDFallback,
-]
+const tags = [MDHeader, MDLink, Image, Link, MDFallback]
 
 const parserEngine = content => {
-  return (new StoryParserEngine(tags)).process(content)
+  return new StoryParserEngine(tags).process(content)
 }
 
 export default parserEngine

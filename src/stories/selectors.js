@@ -23,7 +23,7 @@ export const storySelector = createSelector(
 
       if (story) {
         data = _.assign({}, story, {
-          content: parserEngine(story.content )
+          content: parserEngine(story.content),
         })
       }
 
