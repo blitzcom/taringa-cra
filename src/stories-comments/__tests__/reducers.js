@@ -1,17 +1,17 @@
 import {
-  commentsEntities,
-  commentsFetchControl,
+  storiesCommentsEntities,
+  storiesCommentsFetchControl,
 } from '../reducers'
 
 import * as types from '../types'
 
-describe('Comments entities reducers', () => {
+describe('Stories comments entities reducers', () => {
   it('exists', () => {
-    expect(commentsEntities).toBeDefined()
+    expect(storiesCommentsEntities).toBeDefined()
   })
 
   it('returns initial state', () => {
-    expect(commentsEntities(undefined, {})).toEqual({})
+    expect(storiesCommentsEntities(undefined, {})).toEqual({})
   })
 
   it('merges comments', () => {
@@ -25,20 +25,20 @@ describe('Comments entities reducers', () => {
       }
     }
 
-    expect(commentsEntities(undefined, action)).toEqual({
+    expect(storiesCommentsEntities(undefined, action)).toEqual({
       1: { bar: false, foo: true, id: 1 },
       2: { bar: false, foo: true, id: 2 },
     })
   })
 })
 
-describe('Comments control reducer', () => {
+describe('Stories comments control reducer', () => {
   it('exists', () => {
-    expect(commentsFetchControl).toBeDefined()
+    expect(storiesCommentsFetchControl).toBeDefined()
   })
 
   it('returns initial state', () => {
-    expect(commentsFetchControl(undefined, {})).toEqual({})
+    expect(storiesCommentsFetchControl(undefined, {})).toEqual({})
   })
 
   it('handles CREATE_FETCH_CONTROl', () => {
@@ -47,7 +47,7 @@ describe('Comments control reducer', () => {
       id: 1,
     }
 
-    expect(commentsFetchControl({}, action)).toEqual({
+    expect(storiesCommentsFetchControl({}, action)).toEqual({
       1: { error: '', ids: [], status: 'success' },
     })
   })
@@ -63,7 +63,7 @@ describe('Comments control reducer', () => {
       2: { error: '', ids: [], status: 'success' },
     }
 
-    expect(commentsFetchControl(state, action)).toEqual({
+    expect(storiesCommentsFetchControl(state, action)).toEqual({
       1: { error: '', ids: [], status: 'fetching' },
       2: { error: '', ids: [], status: 'success' },
     })
@@ -80,7 +80,7 @@ describe('Comments control reducer', () => {
       2: { error: '', ids: [], status: 'success' },
     }
 
-    expect(commentsFetchControl(state, action)).toEqual({
+    expect(storiesCommentsFetchControl(state, action)).toEqual({
       1: { error: '', ids: [], status: 'fetching' },
       2: { error: '', ids: [], status: 'success' },
     })
@@ -97,7 +97,7 @@ describe('Comments control reducer', () => {
       2: { error: '', ids: [], status: 'success' },
     }
 
-    expect(commentsFetchControl(state, action)).toEqual({
+    expect(storiesCommentsFetchControl(state, action)).toEqual({
       1: { error: '', ids: [], status: 'fetching' },
       2: { error: '', ids: [], status: 'success' },
     })
@@ -115,7 +115,7 @@ describe('Comments control reducer', () => {
       2: { error: '', ids: [], status: 'success' },
     }
 
-    expect(commentsFetchControl(state, action)).toEqual({
+    expect(storiesCommentsFetchControl(state, action)).toEqual({
       1: { error: '', ids: [1, 2, 3, 4, 5], status: 'success' },
       2: { error: '', ids: [], status: 'success' },
     })
@@ -133,7 +133,7 @@ describe('Comments control reducer', () => {
       2: { error: '', ids: [], status: 'success' },
     }
 
-    expect(commentsFetchControl(state, action)).toEqual({
+    expect(storiesCommentsFetchControl(state, action)).toEqual({
       1: { error: 'Network Error', ids: [], status: 'failure' },
       2: { error: '', ids: [], status: 'success' },
     })
