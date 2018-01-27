@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Nav.css'
 
 const Nav = props => (
   <div className="navbar navbar-dark Nav">
-    <a className="navbar-brand font-weight-bold" href="/">
+    <Link className="navbar-brand font-weight-bold" to="/">
       TARINGA!
-    </a>
+    </Link>
   </div>
 )
 
