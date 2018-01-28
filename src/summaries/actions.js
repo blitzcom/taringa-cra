@@ -18,7 +18,7 @@ export const fetchFailure = message => ({
 })
 
 export const invalidate = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: types.INVALIDATE })
     return Promise.resolve()
   }
