@@ -1,5 +1,5 @@
 .Comment:last-child {
-  margin-bottom: 0 !important; 
+  margin-bottom: 0 !important;
 }
 
 .Comment-avatar {
@@ -14,4 +14,17 @@
   font-size: .85rem;
   font-weight: normal;
   margin-left: 10px;
+}
+
+.Comment-body img {
+  max-width: 100%;
+}
+
+.Comment-body {
+  word-break: break-all;
+}
+
+.Comment-body span[style^='position:relative'] {
+  overflow: hidden;
+  height: 16px;
 }
