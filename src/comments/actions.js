@@ -39,15 +39,12 @@ export const createCommentsControl = id => {
 }
 
 const canFetchComment = (state, id) => {
-  console.log(state.control.commentsFetch[id])
   return state.control.commentsFetch[id].status !== 'fetching'
 }
 
 export const fetch = id => {
   return (dispatch, getState, axios) => {
     dispatch(createCommentsControl(id))
-
-    console.log('canFetchComment %s', canFetchComment(getState(), id))
 
     if (!canFetchComment(getState(), id)) {
       return Promise.resolve()
@@ -59,11 +56,8 @@ export const fetch = id => {
       .get(`/story/${id}/comments`)
       .then(response => response.data)
       .then(data => {
-        const action = _.assign(
-          {},
-          normalize(data.items, [comment]),
-          fetchSuccess(id)
-        )
+        const normalizedEntities = normalize(data.items, [comment])
+        const action = _.assign({}, normalizedEntities, fetchSuccess(id))
 
         return dispatch(action)
       })

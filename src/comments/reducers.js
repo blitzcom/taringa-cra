@@ -2,8 +2,11 @@ import _ from 'lodash'
 import * as types from './types'
 
 export const commentsEntities = (state = {}, action) => {
-  if (action.entities && action.entities.comments) {
-    return _.merge({}, state, action.entities.comments)
+  if (
+    action.entities &&
+    (action.entities.comments || action.entities.replies)
+  ) {
+    return _.merge({}, state, action.entities.comments, action.entities.replies)
   }
 
   return state
