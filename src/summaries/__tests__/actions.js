@@ -6,6 +6,10 @@ import thunk from 'redux-thunk'
 import * as types from '../types'
 import * as actions from '../actions'
 
+const middlewares = [thunk.withExtraArgument(axios)]
+const mockStore = configureMockStore(middlewares)
+const mock = new MockAdapter(axios)
+
 describe('Summaries actions', () => {
   it('creates an action to start fetching summaries', () => {
     expect(actions.fetchRequest()).toEqual({
@@ -27,15 +31,24 @@ describe('Summaries actions', () => {
   })
 })
 
+describe('Invalidates', () => {
+  it('creates an action to invalidate', () => {
+    const store = mockStore({})
+
+    return store.dispatch(actions.invalidate()).then(() => {
+      expect(store.getActions()).toEqual([
+        { type: types.INVALIDATE },
+      ])
+    })
+
+  })
+})
+
 describe('Fetch summaries async action', () => {
   const data = [
     { id: 1, foo: 'foo'},
     { id: 2, foo: 'foo'},
   ]
-
-  const middlewares = [thunk.withExtraArgument(axios)]
-  const mockStore = configureMockStore(middlewares)
-  const mock = new MockAdapter(axios)
 
   afterEach(() => mock.reset())
 
