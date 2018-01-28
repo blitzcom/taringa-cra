@@ -11,11 +11,28 @@ export const commentControlSelector = createSelector(
 )
 
 export const commentsSelector = createSelector(
-  commentsState,
   commentsFetchState,
-  (comments, control) => {
+  commentsState,
+  (control, comments) => {
     if (control) {
-      return _.map(control.ids, i => comments[i])
+      const denormalizedComments = _.map(control.ids, i => {
+        const currentComment = comments[i]
+
+        const denormalizedReplies = _.map(
+          currentComment.replies.items,
+          r => comments[r]
+        )
+
+        const mergedDenormalizedReplies = _.assign({}, currentComment, {
+          replies: _.assign({}, currentComment.replies, {
+            items: denormalizedReplies,
+          }),
+        })
+
+        return mergedDenormalizedReplies
+      })
+
+      return denormalizedComments
     }
 
     return null

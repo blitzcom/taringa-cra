@@ -30,6 +30,17 @@ const Comment = props => {
           className="Comment-body"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
+        {
+          (
+            props.replies &&
+            props.replies.items &&
+            props.replies.items.length > 0
+          ) && (
+            <div className="Comment-replies mt-4">
+              {props.replies.items.map(r => <Comment key={r.id} {...r} />)}
+            </div>
+          )
+        }
       </div>
     </div>
   )
