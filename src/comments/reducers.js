@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import * as types from './types'
 
-export const storiesCommentsEntities = (state = {}, action) => {
+export const commentsEntities = (state = {}, action) => {
   if (action.entities && action.entities.comments) {
     return _.merge({}, state, action.entities.comments)
   }
@@ -9,7 +9,7 @@ export const storiesCommentsEntities = (state = {}, action) => {
   return state
 }
 
-const storyCommentsFetchControl = (
+const commentFetchControl = (
   state = { error: '', ids: [], status: 'success' },
   action
 ) => {
@@ -24,18 +24,17 @@ const storyCommentsFetchControl = (
       return state
   }
 }
-
-export const storiesCommentsFetchControl = (state = {}, action) => {
+export const commentsFetchControl = (state = {}, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
     case types.FETCH_SUCCESS:
     case types.FETCH_FAILURE:
       return _.assign({}, state, {
-        [action.id]: storyCommentsFetchControl(state[action.id], action),
+        [action.id]: commentFetchControl(state[action.id], action),
       })
-    case types.CREATE_FETCH_CONTROl:
+    case types.CREATE_FETCH_CONTROL:
       return _.assign({}, state, {
-        [action.id]: storyCommentsFetchControl(state[action.id], action),
+        [action.id]: commentFetchControl(undefined, {}),
       })
     default:
       return state

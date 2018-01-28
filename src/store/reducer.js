@@ -2,19 +2,16 @@ import { combineReducers } from 'redux'
 
 import { summariesEntities, summariesFetchControl } from '../summaries/reducers'
 import { storiesEntities, storiesFetchControl } from '../stories/reducers'
-import {
-  storiesCommentsEntities,
-  storiesCommentsFetchControl,
-} from '../stories-comments/reducers'
+import { commentsEntities, commentsFetchControl } from '../comments/reducers'
 
 const entities = combineReducers({
+  comments: commentsEntities,
   stories: storiesEntities,
-  storiesComments: storiesCommentsEntities,
   summaries: summariesEntities,
 })
 
 const control = combineReducers({
-  storiesCommentsFetch: storiesCommentsFetchControl,
+  commentsFetch: commentsFetchControl,
   storiesFetch: storiesFetchControl,
   summariesFetch: summariesFetchControl,
 })

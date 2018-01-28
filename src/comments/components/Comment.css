@@ -1,0 +1,17 @@
+.Comment:last-child {
+  margin-bottom: 0 !important; 
+}
+
+.Comment-avatar {
+  max-width: 40px;
+  max-height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.Comment-meta-created {
+  color: #a6a6a6;
+  font-size: .85rem;
+  font-weight: normal;
+  margin-left: 10px;
+}
