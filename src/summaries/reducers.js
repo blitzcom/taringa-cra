@@ -2,11 +2,16 @@ import _ from 'lodash'
 import * as types from './types'
 
 export const summariesEntities = (state = {}, action) => {
-  if (action.entities && action.entities.summaries) {
-    return _.merge({}, state, action.entities.summaries)
-  }
+  switch (action.type) {
+    case types.INVALIDATE:
+      return {}
+    default:
+      if (action.entities && action.entities.summaries) {
+        return _.merge({}, state, action.entities.summaries)
+      }
 
-  return state
+      return state
+  }
 }
 
 const fetchControlInitialState = {
@@ -35,6 +40,8 @@ export const summariesFetchControl = (
       })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
+    case types.INVALIDATE:
+      return fetchControlInitialState
     default:
       return state
   }

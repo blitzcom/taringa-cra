@@ -26,6 +26,19 @@ describe('Summaries entities reducer', () => {
       2: { bar: false, foo: true, id: 2 },
     })
   })
+
+  it('handles INVALIDATE', () => {
+    const action = {
+      type: types.INVALIDATE
+    }
+
+    const state = {
+      1: { bar: false, foo: true, id: 1 },
+      2: { bar: false, foo: true, id: 2 },
+    }
+
+    expect(summariesEntities(state, action)).toEqual({})
+  })
 })
 
 describe('Summaries fetch control reducer', () => {
@@ -93,6 +106,30 @@ describe('Summaries fetch control reducer', () => {
       error: 'Network Error',
       ids: [],
       status: 'failure',
+    })
+  })
+
+  it('handles INVALIDATE', () => {
+    const action = {
+      type: types.INVALIDATE
+    }
+
+    const state = {
+      after: 30,
+      before: 32,
+      error: 'Network Error',
+      ids: [1, 2, 3, 4, 5],
+      status: 'failure',
+      totalCount: 500,
+    }
+
+    expect(summariesFetchControl(state, action)).toEqual({
+      after: null,
+      before: null,
+      error: '',
+      ids: [],
+      status: 'success',
+      totalCount: 0,
     })
   })
 })

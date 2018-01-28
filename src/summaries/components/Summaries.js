@@ -42,7 +42,7 @@ export class Summaries extends Component {
   componentDidMount () {
     this.hasScrollEventAttached = true
     window.addEventListener('scroll', this.handleScroll)
-    this.props.fetchSummaries()
+    this.props.invalidate().then(() => this.props.fetchSummaries())
   }
 
   componentWillUnmount () {
@@ -104,6 +104,7 @@ export class Summaries extends Component {
 
 Summaries.defaultProps = {
   fetchSummaries: () => {},
+  invalidate: () => Promise.resolve(),
   status: "success",
   summaries: [],
 }
@@ -115,7 +116,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchSummaries: () => dispatch(actions.fetch())
+  fetchSummaries: () => dispatch(actions.fetch()),
+  invalidate: () => dispatch(actions.invalidate()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Summaries)

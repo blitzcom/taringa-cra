@@ -17,6 +17,13 @@ export const fetchFailure = message => ({
   message: message,
 })
 
+export const invalidate = () => {
+  return (dispatch) => {
+    dispatch({ type: types.INVALIDATE })
+    return Promise.resolve()
+  }
+}
+
 const canFetch = state => {
   return state.control.summariesFetch.status !== 'fetching'
 }
