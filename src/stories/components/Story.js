@@ -3,15 +3,18 @@ import { connect } from 'react-redux'
 
 import './Story.css'
 
+import Comments from '../../comments/components/Comments'
+import { fetch as fetchComments } from '../../comments/actions'
 import * as actions from '../actions'
 import { slugToId }  from '../../utils/slug'
 import { storySelector } from '../selectors'
 
 class Story extends Component {
   componentDidMount () {
-    const { match, fetchStory } = this.props
+    const { match, fetchStory, fetchComments } = this.props
     const id = slugToId(match.params.slug)
     fetchStory(id)
+    fetchComments(id)
   }
 
   render () {
@@ -41,6 +44,12 @@ class Story extends Component {
               </div>
             )
           }
+
+          {
+            control.status === 'success' && (
+              <Comments story={data.id} />
+            )
+          }
         </div>
       </div>
     )
@@ -53,6 +62,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchStory: id => dispatch(actions.fetch(id)),
+  fetchComments: id => dispatch(fetchComments(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Story)

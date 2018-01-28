@@ -7,6 +7,7 @@ describe('Store', () => {
 
     expect(store.getState()).toEqual({
       control: {
+        commentsFetch: {},
         storiesFetch: {},
         summariesFetch: {
           after: null,
@@ -18,8 +19,9 @@ describe('Store', () => {
         }
       },
       entities: {
+        comments: {},
         stories: {},
-        summaries: {}
+        summaries: {},
       }
     })
   })
