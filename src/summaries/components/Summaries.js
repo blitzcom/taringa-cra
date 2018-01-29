@@ -2,68 +2,15 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import infiniteScroll from '../../HOC/InfiniteScroll'
 import Alert from '../../common/Alert'
 import Summary from './Summary'
 import * as actions from '../actions'
 import { summariesSelector } from '../selectors'
 
 export class Summaries extends Component {
-  constructor(props) {
-    super(props)
-    this.hasScrollEventAttached = false
-    this.handleScroll = _.debounce(this.handleScroll.bind(this), 150)
-  }
-
-  handleScroll () {
-    const threshold = 260
-
-    const scrollTop = (
-      document.documentElement &&
-      document.documentElement.scrollTop) ||
-      document.body.scrollTop
-
-    const scrollHeight = (
-      document.documentElement &&
-      document.documentElement.scrollHeight) ||
-      document.body.scrollHeight
-
-    const clientHeight = document.documentElement.clientHeight ||
-      window.innerHeight
-
-    const scrolledToBottom = Math.ceil(
-        scrollTop + (clientHeight + threshold)
-      ) >= scrollHeight
-
-    if (scrolledToBottom) {
-      this.props.fetchSummaries()
-    }
-  }
-
   componentDidMount () {
-    this.hasScrollEventAttached = true
-    window.addEventListener('scroll', this.handleScroll)
-    this.props.invalidate().then(() => this.props.fetchSummaries())
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-    this.hasScrollEventAttached = false
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (
-      this.hasScrollEventAttached &&
-      this.props.status === 'fetching' &&
-      nextProps.status === 'failure'
-    ) {
-      window.removeEventListener('scroll', this.handleScroll)
-      this.hasScrollEventAttached = false
-    }
-
-    if (!this.hasScrollEventAttached && nextProps.status === 'success') {
-      this.hasScrollEventAttached = true
-      window.addEventListener('scroll', this.handleScroll)
-    }
+    this.props.invalidate().then(() => this.props.loadMore())
   }
 
   render () {
@@ -82,7 +29,7 @@ export class Summaries extends Component {
               </Alert>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.fetchSummaries}
+                onClick={this.props.loadMore}
               >
                 Volver a intentar
               </button>
@@ -103,7 +50,7 @@ export class Summaries extends Component {
 }
 
 Summaries.defaultProps = {
-  fetchSummaries: () => {},
+  loadMore: () => {},
   invalidate: () => Promise.resolve(),
   status: "success",
   summaries: [],
@@ -116,8 +63,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchSummaries: () => dispatch(actions.fetch()),
+  loadMore: () => dispatch(actions.fetch()),
   invalidate: () => dispatch(actions.invalidate()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Summaries)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  infiniteScroll()(Summaries)
+)
