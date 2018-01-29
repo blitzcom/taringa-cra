@@ -18,9 +18,16 @@ const commentFetchControl = (
 ) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
-      return _.assign({}, state, { error: '', ids: [], status: 'fetching' })
+      return _.assign({}, state, { error: '', status: 'fetching' })
     case types.FETCH_SUCCESS:
-      return _.assign({}, state, { ids: action.result, status: 'success' })
+      return _.assign({}, state, {
+        after: action.after,
+        before: action.before,
+        count: action.count,
+        ids: _.union(state.ids, action.result),
+        status: 'success',
+        totalCount: action.totalCount,
+      })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { error: action.message, status: 'failure' })
     default:
