@@ -50,14 +50,26 @@ export const fetch = id => {
       return Promise.resolve()
     }
 
+    const commentsControl = getState().control.commentsFetch[id]
+
+    const params = {
+      after: commentsControl.after || '',
+      count: 25,
+    }
+
     dispatch(fetchRequest(id))
 
     return axios
-      .get(`/story/${id}/comments`)
+      .get(`/story/${id}/comments`, { params })
       .then(response => response.data)
-      .then(data => {
-        const normalizedEntities = normalize(data.items, [comment])
-        const action = _.assign({}, normalizedEntities, fetchSuccess(id))
+      .then(({ after, before, totalCount, count, items }) => {
+        const normalizedEntities = normalize(items, [comment])
+        const action = _.assign({}, normalizedEntities, fetchSuccess(id), {
+          after,
+          before,
+          count,
+          totalCount,
+        })
 
         return dispatch(action)
       })

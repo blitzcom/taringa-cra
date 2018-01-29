@@ -7,6 +7,10 @@ import Comment from '../Comment'
 import { comment, commentWithReply, commentWithReplies } from '../comment.data'
 
 describe('Comment', () => {
+  beforeEach(() => {
+    Date.now = jest.fn(() => 1513924592705)
+  })
+
   it('exists', () => {
     expect(Comment).toBeDefined()
   })

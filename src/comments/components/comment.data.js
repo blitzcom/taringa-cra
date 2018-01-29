@@ -1,7 +1,7 @@
 const reply1 = {
   attachment: null,
   body: "I am a reply comment",
-  created: "2018-01-27T23:04:29.000Z",
+  created: 1513920502005,
   downvotes: 0,
   id: "53675147",
   owner: {
@@ -20,7 +20,7 @@ const reply1 = {
 const reply2 = {
   attachment: null,
   body: "I am a reply comment",
-  created: "2018-01-27T23:04:29.000Z",
+  created: 1513920502005,
   downvotes: 0,
   id: "53675146",
   owner: {
@@ -39,7 +39,7 @@ const reply2 = {
 export const comment = {
   attachment: null,
   body: "I am a text comment",
-  created: "2018-01-27T23:04:29.000Z",
+  created: 1513920502005,
   downvotes: 0,
   id: "87782388.53675146",
   owner: {
@@ -65,7 +65,7 @@ export const comment = {
 export const commentWithReply = {
   attachment: null,
   body: "I am a text comment",
-  created: "2018-01-27T23:04:29.000Z",
+  created: 1513920502005,
   downvotes: 0,
   id: "87782388.53675146",
   owner: {
@@ -91,7 +91,7 @@ export const commentWithReply = {
 export const commentWithReplies = {
   attachment: null,
   body: "I am a text comment",
-  created: "2018-01-27T23:04:29.000Z",
+  created: 1513920502005,
   downvotes: 0,
   id: "87782388.53675146",
   owner: {

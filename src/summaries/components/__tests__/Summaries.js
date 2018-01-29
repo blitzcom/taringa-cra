@@ -44,7 +44,7 @@ describe('Summaries', () => {
     const mock = jest.fn(() => promise)
     const mockFetch = jest.fn()
 
-    mount(<Summaries invalidate={mock} fetchSummaries={mockFetch} />)
+    mount(<Summaries invalidate={mock} loadMore={mockFetch} />)
 
     await promise
 

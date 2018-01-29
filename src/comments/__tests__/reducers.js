@@ -145,7 +145,7 @@ describe('Comments fetch control reducer', () => {
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', ids: [], status: 'fetching' },
+      1: { error: '', ids: [1, 2, 3, 4, 5], status: 'fetching' },
       2: { error: '', ids: [], status: 'success' }
     })
   })

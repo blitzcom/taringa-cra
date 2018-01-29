@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -56,8 +55,14 @@ Summaries.defaultProps = {
   summaries: [],
 }
 
+const checkForMoreContent = (state) => {
+  const control = state.control.summariesFetch
+  return control.ids.length < control.totalCount
+}
+
 const mapStateToProps = state => ({
   error: state.control.summariesFetch.error,
+  hasMoreContent: checkForMoreContent(state),
   status: state.control.summariesFetch.status,
   summaries: summariesSelector(state),
 })
