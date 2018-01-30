@@ -3,6 +3,17 @@ import React from 'react'
 import './Card.css'
 
 const Card = props => {
+  if (props.status === 'fetching') {
+    return (
+      <div className="Card card">
+        <div className="Card-animated-background">
+          <div className="Card-ph-body"/>
+          <div className="Card-ph-avatar rounded"/>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="Card card">
       <img
