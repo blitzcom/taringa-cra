@@ -20,7 +20,7 @@ const Comments = props => {
           {
             props.status === 'fetching' && (
               <div className="mt-4 text-center">
-                <i className="fa fa-spinner fa-spin"/>
+                <i className="fa fa-circle-notch fa-spin"/>
               </div>
             )
           }

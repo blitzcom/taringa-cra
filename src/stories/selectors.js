@@ -14,22 +14,15 @@ const storyFetchState = (state, props) => {
   return state.control.storiesFetch[id]
 }
 
-export const storySelector = createSelector(
-  storyState,
+export const storyStateSelector = createSelector(
   storyFetchState,
-  (story, control) => {
-    if (control) {
-      let data = {}
-
-      if (story) {
-        data = _.assign({}, story, {
-          content: parserEngine(story.content),
-        })
-      }
-
-      return _.assign({}, { control, data })
-    }
-
-    return null
-  }
+  state => (state ? state : { status: 'fetching', error: '' })
 )
+
+export const storySelector = createSelector(storyState, story => {
+  if (story) {
+    return _.assign({}, story, { content: parserEngine(story.content) })
+  }
+
+  return null
+})
