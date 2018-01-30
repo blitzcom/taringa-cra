@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import './Story.css'
 
+import Card from '../../users/components/Card'
 import Comments from '../../comments/components/Comments'
 import { fetch as fetchComments } from '../../comments/actions'
 import * as actions from '../actions'
@@ -26,7 +27,7 @@ class Story extends Component {
 
     return (
       <div className="row">
-        <div className="col-9">
+        <div className="col-8">
           {
             control.status === 'fetching' && (
               <div className="my-4 text-center">
@@ -50,6 +51,10 @@ class Story extends Component {
               <Comments story={data.id} />
             )
           }
+        </div>
+
+        <div className="col-4">
+          <Card {...data.owner} />
         </div>
       </div>
     )

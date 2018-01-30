@@ -1,0 +1,33 @@
+.Card {
+  position: relative;
+}
+
+.Card .card-body {
+  padding-top: 2.2rem !important;
+}
+
+.Card .card-title {
+  font-size: 1.2rem;
+}
+
+.Card .card-subtitle {
+  font-size: .9rem;
+}
+
+.Card-cover {
+  height: 100px;
+  max-height: 100px;
+  max-width: 100%;
+  min-width: 100%;
+  min-width: 100px;
+  width: 100%;
+}
+
+.Card-avatar {
+  position: absolute;
+  top: calc(100px - (64px - 24px));
+  left: 1.25rem;
+  width: 64px;
+  height: 64px;
+  background: #dee2e6;
+}
