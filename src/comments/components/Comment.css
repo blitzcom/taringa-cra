@@ -20,6 +20,10 @@
   max-width: 100%;
 }
 
+.Comment iframe {
+  max-width: 100%;
+}
+
 .Comment-body {
   word-break: break-word;
 }
