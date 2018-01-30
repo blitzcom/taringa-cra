@@ -54,7 +54,7 @@ class Story extends Component {
         </div>
 
         <div className="col-4">
-          <Card {...data.owner} />
+          <Card {...data.owner} status={control.status}/>
         </div>
       </div>
     )
