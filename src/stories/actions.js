@@ -3,6 +3,7 @@ import { normalize } from 'normalizr'
 
 import * as types from './types'
 import { story } from './schemas'
+import { fetch as fetchComments } from '../comments/actions'
 
 export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
@@ -20,37 +21,14 @@ export const fetchFailure = (id, message) => ({
   message: message,
 })
 
-export const createFetchControl = id => ({
-  type: types.CREATE_FETCH_CONTROL,
-  id: id,
-})
-
 const canFetchStory = (state, id) => {
-  return state.control.storiesFetch[id].status !== 'fetching'
-}
-
-export const createStoryFetchControl = id => {
-  return (dispatch, getState) => {
-    const state = getState()
-
-    if (id in state.control.storiesFetch) {
-      return Promise.resolve()
-    }
-
-    dispatch(createFetchControl(id))
-    return Promise.resolve()
-  }
+  const control = state.control.storiesFetch[id]
+  return !control || control.status !== 'fetching'
 }
 
 export const fetch = id => {
   return (dispatch, getState, axios) => {
-    dispatch(createStoryFetchControl(id))
-
-    try {
-      if (!canFetchStory(getState(), id)) {
-        return Promise.resolve()
-      }
-    } catch (e) {
+    if (!canFetchStory(getState(), id) || !id) {
       return Promise.resolve()
     }
 
@@ -64,5 +42,17 @@ export const fetch = id => {
         return dispatch(action)
       })
       .catch(error => dispatch(fetchFailure(id, error.message)))
+  }
+}
+
+export const fetchWithComments = (id) => {
+  return (dispatch, getState) => {
+    return dispatch(fetch(id)).then(result => {
+      if (!result || (result.type === types.FETCH_FAILURE)) {
+        return Promise.resolve()
+      }
+
+      return dispatch(fetchComments(id))
+    })
   }
 }
