@@ -10,6 +10,11 @@ export const commentControlSelector = createSelector(
   control => control
 )
 
+export const commentsFetchSelector = createSelector(
+  commentsFetchState,
+  state => (state ? state : { status: 'fetching', error: '' })
+)
+
 export const commentsSelector = createSelector(
   commentsFetchState,
   commentsState,
