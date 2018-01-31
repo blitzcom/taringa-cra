@@ -25,36 +25,22 @@ export const createFetchControl = id => ({
   id: id,
 })
 
-export const createCommentsControl = id => {
-  return (dispatch, getState, axios) => {
-    const control = getState().control.commentsFetch[id]
-
-    if (control) {
-      return Promise.resolve()
-    }
-
-    dispatch(createFetchControl(id))
-    return Promise.resolve()
-  }
-}
-
 const canFetchComment = (state, id) => {
-  return state.control.commentsFetch[id].status !== 'fetching'
+  const control = state.control.commentsFetch[id]
+  return !control || control.status !== 'fetching'
 }
 
 export const fetch = id => {
   return (dispatch, getState, axios) => {
-    dispatch(createCommentsControl(id))
-
-    if (!canFetchComment(getState(), id)) {
+    if (!canFetchComment(getState(), id) || !id) {
       return Promise.resolve()
     }
 
-    const commentsControl = getState().control.commentsFetch[id]
+    const control = getState().control.commentsFetch[id]
+    let params = { count: 25 }
 
-    const params = {
-      after: commentsControl.after || '',
-      count: 25,
+    if (control && control.after) {
+      _.assign({}, params, { after: control.after })
     }
 
     dispatch(fetchRequest(id))
