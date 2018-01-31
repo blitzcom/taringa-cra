@@ -1,5 +1,9 @@
 Basic Nav
 
 ```js
-<Nav />
+const { MemoryRouter } = require('react-router-dom');
+
+<MemoryRouter>
+  <Nav />
+</MemoryRouter>
 ```
