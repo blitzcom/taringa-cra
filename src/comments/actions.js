@@ -27,7 +27,7 @@ export const createFetchControl = id => ({
 
 const canFetchComment = (state, id) => {
   const control = state.control.commentsFetch[id]
-  return (!control || control.status !== 'fetching')
+  return !control || control.status !== 'fetching'
 }
 
 export const fetch = id => {
