@@ -2,17 +2,12 @@ import _ from 'lodash'
 import { createSelector } from 'reselect'
 
 const commentsState = state => state.entities.comments
-const commentsFetchState = (state, props) =>
-  state.control.commentsFetch[props.story]
+const commentsFetchState = (state, storyId) =>
+  state.control.commentsFetch[storyId]
 
-export const commentControlSelector = createSelector(
+export const commentsStatusSelector = createSelector(
   commentsFetchState,
-  control => control
-)
-
-export const commentsFetchSelector = createSelector(
-  commentsFetchState,
-  state => (state ? state : { status: 'fetching', error: '' })
+  state => state || { status: 'fetching', error: '' }
 )
 
 export const commentsSelector = createSelector(

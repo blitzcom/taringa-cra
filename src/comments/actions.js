@@ -40,7 +40,7 @@ export const fetch = id => {
     let params = { count: 25 }
 
     if (control && control.after) {
-      _.assign({}, params, { after: control.after })
+      params = _.assign({}, params, { after: control.after })
     }
 
     dispatch(fetchRequest(id))

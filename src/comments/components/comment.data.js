@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const reply1 = {
   attachment: null,
   body: "I am a reply comment",
@@ -41,7 +43,7 @@ export const comment = {
   body: "I am a text comment",
   created: 1513920502005,
   downvotes: 0,
-  id: "87782388.53675146",
+  id: "53675146",
   owner: {
     avatar: "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
     firstname: "Foo",
@@ -61,6 +63,11 @@ export const comment = {
   type: "comment",
   upvotes: 0,
 }
+
+export const comments = [
+  _.assign({}, comment, { id: 1 }),
+  _.assign({}, comment, { id: 2 })
+]
 
 export const commentWithReply = {
   attachment: null,

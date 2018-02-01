@@ -8,7 +8,7 @@ exports[`Comment renders default 1`] = `
     className="Comment-avatar mr-3"
   >
     <img
-      alt={undefined}
+      alt="Foobar"
       className="rounded Comment-avatar"
       src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
     />
@@ -52,7 +52,7 @@ exports[`Comment renders with replies 1`] = `
     className="Comment-avatar mr-3"
   >
     <img
-      alt={undefined}
+      alt="Foobar"
       className="rounded Comment-avatar"
       src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
     />
@@ -108,7 +108,7 @@ exports[`Comment renders with reply 1`] = `
     className="Comment-avatar mr-3"
   >
     <img
-      alt={undefined}
+      alt="Foobar"
       className="rounded Comment-avatar"
       src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
     />
@@ -164,7 +164,7 @@ exports[`Comment renders with visible replies 1`] = `
     className="Comment-avatar mr-3"
   >
     <img
-      alt={undefined}
+      alt="Foobar"
       className="rounded Comment-avatar"
       src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
     />
@@ -217,7 +217,7 @@ exports[`Comment renders with visible replies 1`] = `
           className="Comment-avatar mr-3"
         >
           <img
-            alt={undefined}
+            alt="Foobar"
             className="rounded Comment-avatar"
             src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
           />
@@ -258,7 +258,7 @@ exports[`Comment renders with visible replies 1`] = `
           className="Comment-avatar mr-3"
         >
           <img
-            alt={undefined}
+            alt="Foobar"
             className="rounded Comment-avatar"
             src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
           />

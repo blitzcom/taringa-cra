@@ -55,7 +55,7 @@ class Comment extends Component {
           <img
             src={owner.avatar}
             className="rounded Comment-avatar"
-            alt={owner.nickname}
+            alt={owner.username}
           />
         </div>
         <div className="Comment-content">

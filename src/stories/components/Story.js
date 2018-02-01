@@ -7,30 +7,49 @@ import Card from '../../users/components/Card'
 import StoryContent from './StoryContent'
 import Comments from '../../comments/components/Comments'
 import * as actions from '../actions'
+import { fetch as fetchComments } from '../../comments/actions'
 import { slugToId }  from '../../utils/slug'
 import { storySelector, storyStateSelector } from '../selectors'
+import {
+  commentsStatusSelector,
+  commentsSelector,
+} from '../../comments/selectors'
 
 export class Story extends Component {
   componentDidMount () {
-    const { match, fetchStory } = this.props
-    const id = slugToId(match.params.slug)
-    fetchStory(id)
+    this.props.fetchStoryWithComments()
   }
 
   render () {
-    const { status, story } = this.props
-    const owner = story ? story.owner : null
-    const storyId = story ? story.id : null
+    const {
+      comments,
+      commentsStatus,
+      fetchComments,
+      story,
+      storyStatus: { status },
+    } = this.props
+
+    const hasMoreContent = (
+      comments !== null &&
+      ('totalCount' in commentsStatus) &&
+      comments.length < commentsStatus.totalCount
+    )
 
     return (
       <div className="row">
         <div className="col-8">
           <StoryContent {...story} status={status} />
-          <Comments story={storyId} storyStatus={status} />
+          <Comments
+            canRender={status === 'success'}
+            comments={comments}
+            loadMore={fetchComments}
+            hasMoreContent={hasMoreContent}
+            {...commentsStatus}
+          />
         </div>
 
         <div className="col-4">
-          <Card {...owner} status={status}/>
+          <Card {...story.owner} status={status}/>
         </div>
       </div>
     )
@@ -43,19 +62,38 @@ Story.defaultProps = {
       slug: ''
     }
   },
-  error: '',
-  fetchStory: () => {},
-  status: 'fetching',
-  story: null,
+  storyStatus: {
+    error: '',
+    status: 'fetching',
+  },
+  commentsStatus: {
+    error: '',
+    status: 'fetching',
+  },
+  fetchStoryWithComments: () => {},
+  story: {},
 }
 
-const mapStateToProps = (state, props) => ({
-  story: storySelector(state, props),
-  ...storyStateSelector(state, props),
-})
+const getStoryId = props => slugToId(props.match.params.slug)
 
-const mapDispatchToProps = dispatch => ({
-  fetchStory: id => dispatch(actions.fetch(id)),
-})
+const mapStateToProps = (state, props) => {
+  const storyId = getStoryId(props)
+
+  return {
+    story: storySelector(state, storyId),
+    storyStatus: storyStateSelector(state, storyId),
+    commentsStatus: commentsStatusSelector(state, storyId),
+    comments: commentsSelector(state, storyId),
+  }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+  const storyId = getStoryId(props)
+
+  return {
+    fetchComments: () => dispatch(fetchComments(storyId)),
+    fetchStoryWithComments: () => dispatch(actions.fetchWithComments(storyId)),
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Story)
