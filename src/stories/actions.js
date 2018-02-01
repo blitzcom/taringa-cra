@@ -45,10 +45,10 @@ export const fetch = id => {
   }
 }
 
-export const fetchWithComments = (id) => {
+export const fetchWithComments = id => {
   return (dispatch, getState) => {
     return dispatch(fetch(id)).then(result => {
-      if (!result || (result.type === types.FETCH_FAILURE)) {
+      if (!result || result.type === types.FETCH_FAILURE) {
         return Promise.resolve()
       }
 

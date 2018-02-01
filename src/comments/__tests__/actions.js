@@ -84,6 +84,50 @@ describe('Fetch comments async action', () => {
     })
   })
 
+  it('fetches with success next cursor', () => {
+    const response = {
+      after: 2,
+      before: 1,
+      count: 2,
+      items: data,
+      totalCount: 2,
+    }
+
+    mock.onGet('/story/1/comments', { params: { after: 2, count: 25 } })
+      .reply(200, response)
+
+    const store = mockStore({
+      control: {
+        commentsFetch: {
+          1: { after: 2, status: 'success' }
+        }
+      }
+    })
+
+    const entities = {
+      comments: {
+        1: { id: 1, foo: 'foo' },
+        2: { id: 2, foo: 'foo' }
+      }
+    }
+
+    return store.dispatch(actions.fetch(1)).then(() => {
+      expect(store.getActions()).toEqual([
+        { type: types.FETCH_REQUEST, id: 1 },
+        {
+          type: types.FETCH_SUCCESS,
+          id: 1,
+          result: [1, 2],
+          before: 1,
+          after: 2,
+          count: 2,
+          totalCount: 2,
+          entities: entities
+        }
+      ])
+    })
+  })
+
   it('fetches with failure', () => {
     mock.onGet('/story/1/comments')
       .networkError()

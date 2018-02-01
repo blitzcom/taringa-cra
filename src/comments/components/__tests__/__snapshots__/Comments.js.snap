@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments renders empty 1`] = `
+<div
+  className="Comments mt-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h6
+        className="card-title mb-0"
+      >
+        No hay comentarios
+      </h6>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comments renders idle 1`] = `null`;
+
+exports[`Comments renders listing 1`] = `
+<div
+  className="Comments mt-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h6
+        className="card-title mb-0"
+      >
+        1 comentario
+      </h6>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="Comment mb-4 d-flex"
+      >
+        <div
+          className="Comment-avatar mr-3"
+        >
+          <img
+            alt="Foobar"
+            className="rounded Comment-avatar"
+            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
+          />
+        </div>
+        <div
+          className="Comment-content"
+        >
+          <h6
+            className="Comment-author"
+          >
+            <a
+              href="/"
+            >
+              Foobar
+            </a>
+            <time
+              className="Comment-meta-created"
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </h6>
+          <div
+            className="Comment-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "I am a text comment",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <p
+        className="text-secondary"
+      >
+        No hay más comentarios
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comments renders listing with error 1`] = `
+<div
+  className="Comments mt-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h6
+        className="card-title mb-0"
+      >
+        1 comentario
+      </h6>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="Comment mb-4 d-flex"
+      >
+        <div
+          className="Comment-avatar mr-3"
+        >
+          <img
+            alt="Foobar"
+            className="rounded Comment-avatar"
+            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
+          />
+        </div>
+        <div
+          className="Comment-content"
+        >
+          <h6
+            className="Comment-author"
+          >
+            <a
+              href="/"
+            >
+              Foobar
+            </a>
+            <time
+              className="Comment-meta-created"
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </h6>
+          <div
+            className="Comment-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "I am a text comment",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <p
+        className="text-danger"
+      >
+        ¡Ratas! Algo salío mal. Refresca la página o haz clic 
+        <a
+          href="/retry"
+          onClick={[Function]}
+        >
+          aquí
+        </a>
+         para volver a intentar.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comments renders listing with loading more 1`] = `
+<div
+  className="Comments mt-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h6
+        className="card-title mb-0"
+      >
+        2 comentarios
+      </h6>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="Comment mb-4 d-flex"
+      >
+        <div
+          className="Comment-avatar mr-3"
+        >
+          <img
+            alt="Foobar"
+            className="rounded Comment-avatar"
+            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
+          />
+        </div>
+        <div
+          className="Comment-content"
+        >
+          <h6
+            className="Comment-author"
+          >
+            <a
+              href="/"
+            >
+              Foobar
+            </a>
+            <time
+              className="Comment-meta-created"
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </h6>
+          <div
+            className="Comment-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "I am a text comment",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="text-center"
+      >
+        <i
+          className="fa fa-circle-notch fa-spin"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comments renders listing with more than one 1`] = `
+<div
+  className="Comments mt-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h6
+        className="card-title mb-0"
+      >
+        2 comentarios
+      </h6>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="Comment mb-4 d-flex"
+      >
+        <div
+          className="Comment-avatar mr-3"
+        >
+          <img
+            alt="Foobar"
+            className="rounded Comment-avatar"
+            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
+          />
+        </div>
+        <div
+          className="Comment-content"
+        >
+          <h6
+            className="Comment-author"
+          >
+            <a
+              href="/"
+            >
+              Foobar
+            </a>
+            <time
+              className="Comment-meta-created"
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </h6>
+          <div
+            className="Comment-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "I am a text comment",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="Comment mb-4 d-flex"
+      >
+        <div
+          className="Comment-avatar mr-3"
+        >
+          <img
+            alt="Foobar"
+            className="rounded Comment-avatar"
+            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
+          />
+        </div>
+        <div
+          className="Comment-content"
+        >
+          <h6
+            className="Comment-author"
+          >
+            <a
+              href="/"
+            >
+              Foobar
+            </a>
+            <time
+              className="Comment-meta-created"
+              dateTime="2017-12-22T05:28:22.005Z"
+              title="2017-12-22 05:28"
+            >
+              hace 1 hora
+            </time>
+          </h6>
+          <div
+            className="Comment-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "I am a text comment",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <p
+        className="text-secondary"
+      >
+        No hay más comentarios
+      </p>
+    </div>
+  </div>
+</div>
+`;

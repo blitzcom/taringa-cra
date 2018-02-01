@@ -1,22 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Comment from './Comment'
-import { fetch as loadMore } from '../actions'
-import { commentsSelector, commentsFetchSelector } from '../selectors'
 
 export class Comments extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (
-      this.props.storyStatus === 'fetching' &&
-      nextProps.storyStatus === 'success' &&
-      nextProps.story
-    ) {
-      this.props.loadMore(nextProps.story)
-    }
-  }
-
   renderCommentsLabel() {
     const { totalCount } = this.props
 
@@ -32,14 +19,19 @@ export class Comments extends Component {
   handleRetryLoadMore(e) {
     e.preventDefault()
 
-    if (this.props.status !== 'fetching' && this.props.story) {
+    if (this.props.status !== 'fetching') {
       this.props.loadMore()
     }
   }
 
   render() {
-    const { storyStatus, status, comments, totalCount } = this.props
-    const canRenderCommentsCount = comments && totalCount
+    const { canRender, comments, status, totalCount } = this.props
+
+    if (!canRender) {
+      return null
+    }
+
+    const canRenderCommentsCount = ('comments' in this.props) && ('totalCount' in this.props)
     const canRenderComments = comments && comments.length > 0
     const canRenderSpinner = status === 'fetching'
     const hasError = status === 'failure'
@@ -49,10 +41,6 @@ export class Comments extends Component {
       comments.length !== 0 &&
       status === 'success'
     )
-
-    if (storyStatus !== 'success') {
-      return null
-    }
 
     return (
       <div className="Comments mt-4">
@@ -114,33 +102,10 @@ export class Comments extends Component {
 }
 
 Comments.defaultProps = {
+  canRender: true,
   comments: [],
-  status: 'fetching',
-  story: null,
-  storyStatus: 'fetching',
   loadMore: () => {},
+  status: 'fetching',
 }
 
-const hasMoreContent = (state, props) => {
-  const control = state.control.commentsFetch[props.story]
-
-  if (!control) {
-    return true
-  }
-
-  return control.ids.length < control.totalCount
-}
-
-const mapStateToProps = (state, props) => ({
-  comments: commentsSelector(state, props),
-  hasMoreContent: hasMoreContent(state, props),
-  ...commentsFetchSelector(state, props),
-})
-
-const mapDispatchToProps = (dispatch, props) => ({
-  loadMore: (id) => dispatch(loadMore(id || props.story))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  infiniteScroll()(Comments)
-)
+export default infiniteScroll()(Comments)

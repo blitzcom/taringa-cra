@@ -3,7 +3,7 @@ Comments idle
 ```js
 const Comments = require('./Comments').Comments;
 
-<Comments />
+<Comments canRender={false} />
 ```
 
 Comments empty
@@ -14,8 +14,6 @@ const Comments = require('./Comments').Comments;
 <Comments
   totalCount={0}
   status="success"
-  story="1"
-  storyStatus="success"
 />
 ```
 
@@ -29,8 +27,19 @@ const Comments = require('./Comments').Comments;
   totalCount={1}
   status="success"
   comments={[comment]}
-  story="1"
-  storyStatus="success"
+/>
+```
+
+Comments listing more than one
+
+```js
+const comments = require('./comment.data').comments;
+const Comments = require('./Comments').Comments;
+
+<Comments
+  totalCount={2}
+  status="success"
+  comments={comments}
 />
 ```
 
@@ -44,8 +53,6 @@ const Comments = require('./Comments').Comments;
   totalCount={1}
   status="fetching"
   comments={[comment]}
-  story="1"
-  storyStatus="success"
 />
 ```
 
@@ -59,7 +66,5 @@ const Comments = require('./Comments').Comments;
   totalCount={1}
   status="failure"
   comments={[comment]}
-  story="1"
-  storyStatus="success"
 />
 ```

@@ -10,4 +10,12 @@ describe('Story', () => {
   it('exists', () => {
     expect(Story).toBeDefined()
   })
+
+  it('calls fetchStoryWithComments on mount', () => {
+    const mock = jest.fn()
+
+    mount(<Story fetchStoryWithComments={mock} />)
+
+    expect(mock).toBeCalled()
+  })
 })
