@@ -2,7 +2,10 @@ Initial Loading
 
 ```js
 const Summaries = require('./Summaries').Summaries;
-<Summaries status="fetching" />
+<Summaries
+  status="fetching"
+  placeholderCount={2}
+/>
 ```
 
 Listing Summaries

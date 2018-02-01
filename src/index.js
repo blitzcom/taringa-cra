@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './fontawesome-all.css'
 import './index.css'
 import './css/action.css'
+import './css/placeholder.css'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'

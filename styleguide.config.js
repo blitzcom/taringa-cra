@@ -5,5 +5,6 @@ module.exports = {
     'bootstrap/dist/css/bootstrap.css',
     './src/fontawesome-all.css',
     './src/css/action.css',
+    './src/css/placeholder.css'
   ]
 }
