@@ -15,3 +15,72 @@
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
+
+@keyframes summaryPlaceholderShimmer {
+  0% {
+    background-position: -823px 0;
+  }
+
+  100% {
+    background-position: 832px 0;
+  }
+}
+
+.Summary-animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: storyContentPlaceholderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1646px 71px;
+  height: 71px;
+  position: relative;
+}
+
+.Summary-ph {
+  padding: 8px;
+}
+
+.Summary-score-gap {
+  top: 0;
+  left: 33px;
+  height: 100%;
+  width: 18px;
+}
+
+.Summary-thumbnail-gap {
+  top: 0;
+  left: 119px;
+  height: 100%;
+  width: 16px;
+}
+
+.Summary-title-gap {
+  top: 24px;
+  left: 135px;
+  height: 8px;
+  right: 0;
+}
+
+.Summary-title-extra {
+  top: 0;
+  right: 0;
+  height: 24px;
+  width: 20%;
+}
+
+.Summary-subtitle-gap {
+  bottom: 0;
+  left: 135px;
+  height: 22px;
+  right: 0;
+}
+
+.Summary-subtitle-extra {
+  bottom: 22px;
+  right: 0;
+  height: 17px;
+  width: 50%;
+}

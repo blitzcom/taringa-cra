@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -8,12 +9,24 @@ import * as actions from '../actions'
 import { summariesSelector } from '../selectors'
 
 export class Summaries extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      placeholderCount: props.placeholderCount || 8
+    }
+  }
+
   componentDidMount () {
     this.props.invalidate().then(() => this.props.loadMore())
   }
 
+  renderPlaceholder () {
+    return _.times(this.state.placeholderCount, i => <Summary key={i} isPlaceholder />)
+  }
+
   render () {
     const { status, summaries } = this.props
+    const isFetching = status === 'fetching'
 
     return (
       <div className="Summaries">
@@ -37,11 +50,7 @@ export class Summaries extends Component {
         }
 
         {
-          status === 'fetching' && (
-            <div className="my-4 text-center">
-              <i className="fa fa-spin fa-spinner fa-2x"/>
-            </div>
-          )
+          isFetching && this.renderPlaceholder()
         }
       </div>
     )

@@ -3,6 +3,7 @@
   padding-right: 8px;
   text-align: center;
   margin-right: 16px;
+  min-width: 35px;
 }
 
 .Score-vote {

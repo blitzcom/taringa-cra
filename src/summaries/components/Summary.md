@@ -1,3 +1,12 @@
+Shout placeholder
+
+```js
+const { MemoryRouter } = require('react-router-dom');
+<MemoryRouter>
+  <Summary isPlaceholder />
+</MemoryRouter>
+```
+
 Shout
 
 ```js
