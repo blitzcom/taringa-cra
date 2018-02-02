@@ -6,6 +6,7 @@ import {
 
 import './App.css'
 import Nav from './common/Nav'
+import SecondaryNav from './common/SecondaryNav'
 import Home from './home/components/Home'
 import Story from './stories/components/Story'
 
@@ -15,6 +16,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav/>
+          <SecondaryNav/>
 
           <div className="container">
             <Route exact path="/" component={Home} />

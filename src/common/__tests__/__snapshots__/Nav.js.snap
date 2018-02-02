@@ -4,12 +4,16 @@ exports[`Nav renders default 1`] = `
 <div
   className="navbar navbar-dark Nav"
 >
-  <a
-    className="navbar-brand font-weight-bold"
-    href="/"
-    onClick={[Function]}
+  <div
+    className="container"
   >
-    TARINGA!
-  </a>
+    <a
+      className="navbar-brand font-weight-bold"
+      href="/"
+      onClick={[Function]}
+    >
+      TARINGA!
+    </a>
+  </div>
 </div>
 `;
