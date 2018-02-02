@@ -9,3 +9,9 @@
 .btn-create-post:focus {
   background: rgb(46, 190, 70);
 }
+
+.SecondaryNav-active-item,
+.SecondaryNav-active-item:active,
+.SecondaryNav-active-item:focus {
+  font-weight: bold;
+}
