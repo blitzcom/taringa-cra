@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './SecondaryNav.css'
 
@@ -10,21 +11,34 @@ const SecondaryNav = props => {
           <div className="col-6">
             <ul className="nav">
               <li className="nav-item">
-                <a href="/" className="nav-link text-secondary">
+                <NavLink
+                  activeClassName="SecondaryNav-active-item"
+                  className="nav-link text-secondary"
+                  exact
+                  to="/"
+                >
                   Destacados
-                </a>
+                </NavLink>
               </li>
 
               <li className="nav-item">
-                <a href="/" className="nav-link text-secondary">
+                <NavLink
+                  activeClassName="SecondaryNav-active-item"
+                  className="nav-link text-secondary"
+                  to="/recents"
+                >
                   Recientes
-                </a>
+                </NavLink>
               </li>
 
               <li className="nav-item">
-                <a href="/" className="nav-link text-secondary">
+                <NavLink
+                  activeClassName="SecondaryNav-active-item"
+                  className="nav-link text-secondary"
+                  to="/tops"
+                >
                   Tops
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
