@@ -1,0 +1,11 @@
+.btn-create-post {
+  background: rgb(76, 217, 100);
+  border: none;
+  font-weight: bold;
+}
+
+.btn-create-post:hover,
+.btn-create-post:active,
+.btn-create-post:focus {
+  background: rgb(46, 190, 70);
+}
