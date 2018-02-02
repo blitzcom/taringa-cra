@@ -21,7 +21,14 @@ export class Summaries extends Component {
   }
 
   renderPlaceholder () {
-    return _.times(this.state.placeholderCount, i => <Summary key={i} isPlaceholder />)
+    let count = 1
+    const { summaries } = this.props
+
+    if (summaries.length === 0) {
+      count = this.state.placeholderCount
+    }
+
+    return _.times(count, i => <Summary key={i} isPlaceholder />)
   }
 
   render () {
