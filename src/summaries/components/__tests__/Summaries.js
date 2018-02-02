@@ -39,16 +39,11 @@ describe('Summaries', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('fetches summaries on mount', async () => {
-    const promise = Promise.resolve()
-    const mock = jest.fn(() => promise)
+  it('fetches summaries on mount', () => {
     const mockFetch = jest.fn()
 
-    mount(<Summaries invalidate={mock} loadMore={mockFetch} />)
+    mount(<Summaries loadMore={mockFetch} />)
 
-    await promise
-
-    expect(mock).toBeCalled()
     expect(mockFetch).toBeCalled()
   })
 })

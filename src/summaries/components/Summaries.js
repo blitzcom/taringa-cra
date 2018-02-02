@@ -17,7 +17,7 @@ export class Summaries extends Component {
   }
 
   componentDidMount () {
-    this.props.invalidate().then(() => this.props.loadMore())
+    this.props.loadMore(true)
   }
 
   renderPlaceholder () {
@@ -84,7 +84,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loadMore: () => dispatch(actions.fetch()),
+  loadMore: (c) => dispatch(actions.fetch(c)),
   invalidate: () => dispatch(actions.invalidate()),
 })
 

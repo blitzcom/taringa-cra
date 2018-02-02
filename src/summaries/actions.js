@@ -28,9 +28,17 @@ const canFetch = state => {
   return state.control.summariesFetch.status !== 'fetching'
 }
 
-export const fetch = () => {
+const hasSummaries = state => {
+  return state.control.summariesFetch.ids.length > 0
+}
+
+export const fetch = (checkState = false) => {
   return (dispatch, getState, axios) => {
     if (!canFetch(getState())) {
+      return Promise.resolve()
+    }
+
+    if (checkState && hasSummaries(getState())) {
       return Promise.resolve()
     }
 
