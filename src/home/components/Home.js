@@ -3,14 +3,11 @@ import { Route } from 'react-router-dom'
 
 import Card from '../../users/components/Card'
 import Summaries from '../../summaries/components/Summaries'
-import * as actions from '../../summaries/actions'
 
-const ListingRoute = ({ component: Component, loadMore, ...rest }) => (
+const ListingRoute = ({ component: Component, id, url, ...rest }) => (
   <Route
     {...rest}
-    render={props => (
-      <Component {...props} loadMore={loadMore} />
-    )}
+    render={props => <Component {...props} url={url} id={id} />}
   />
 )
 
@@ -20,18 +17,21 @@ const Home = props => (
       <ListingRoute
         component={Summaries}
         exact
-        loadMore={actions.fetch}
+        id="trending"
         path="/"
+        url="/feed/global"
       />
       <ListingRoute
+        component={Summaries}
+        id="recents"
         path="/recents"
-        component={Summaries}
-        loadMore={actions.fetch}
+        url="/feed"
       />
       <ListingRoute
-        path="/tops"
         component={Summaries}
-        loadMore={actions.fetch}
+        id="tops"
+        path="/tops"
+        url="/feed/global/tops/week"
       />
     </div>
 

@@ -3,8 +3,6 @@ import * as types from './types'
 
 export const summariesEntities = (state = {}, action) => {
   switch (action.type) {
-    case types.INVALIDATE:
-      return {}
     default:
       if (action.entities && action.entities.summaries) {
         return _.merge({}, state, action.entities.summaries)
@@ -23,10 +21,7 @@ const fetchControlInitialState = {
   totalCount: 0,
 }
 
-export const summariesFetchControl = (
-  state = fetchControlInitialState,
-  action
-) => {
+const fetchingControl = (state = fetchControlInitialState, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
       return _.assign({}, state, { status: 'fetching', error: '' })
@@ -40,8 +35,19 @@ export const summariesFetchControl = (
       })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
-    case types.INVALIDATE:
-      return fetchControlInitialState
+    default:
+      return state
+  }
+}
+
+export const summariesFetchControl = (state = {}, action) => {
+  switch (action.type) {
+    case types.FETCH_REQUEST:
+    case types.FETCH_SUCCESS:
+    case types.FETCH_FAILURE:
+      return _.assign({}, state, {
+        [action.id]: fetchingControl(state[action.id], action),
+      })
     default:
       return state
   }

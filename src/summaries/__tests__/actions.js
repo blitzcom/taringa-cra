@@ -12,35 +12,25 @@ const mock = new MockAdapter(axios)
 
 describe('Summaries actions', () => {
   it('creates an action to start fetching summaries', () => {
-    expect(actions.fetchRequest()).toEqual({
+    expect(actions.fetchRequest(1)).toEqual({
       type: types.FETCH_REQUEST,
+      id: 1
     })
   })
 
   it('creates an action to finish fetching summaries with success', () => {
-    expect(actions.fetchSuccess()).toEqual({
+    expect(actions.fetchSuccess(1)).toEqual({
       type: types.FETCH_SUCCESS,
+      id: 1
     })
   })
 
   it('creates an action to finish fetching summaries with failure', () => {
-    expect(actions.fetchFailure('Network Error')).toEqual({
+    expect(actions.fetchFailure(1, 'Network Error')).toEqual({
       type: types.FETCH_FAILURE,
       message: 'Network Error',
+      id: 1
     })
-  })
-})
-
-describe('Invalidates', () => {
-  it('creates an action to invalidate', () => {
-    const store = mockStore({})
-
-    return store.dispatch(actions.invalidate()).then(() => {
-      expect(store.getActions()).toEqual([
-        { type: types.INVALIDATE },
-      ])
-    })
-
   })
 })
 
@@ -53,15 +43,17 @@ describe('Fetch summaries async action', () => {
   afterEach(() => mock.reset())
 
   it('fetches with success', () => {
-    mock.onGet('/feed/global')
+    mock.onGet('/feed')
       .reply(200, { items: data })
 
     const store = mockStore({
       control: {
         summariesFetch: {
-          error: '',
-          ids: [],
-          status: 'success',
+          1: {
+            error: '',
+            ids: [],
+            status: 'success',
+          }
         }
       }
     })
@@ -73,51 +65,76 @@ describe('Fetch summaries async action', () => {
       }
     }
 
-    return store.dispatch(actions.fetch()).then(() => {
+    return store.dispatch(actions.fetch(1, '/feed')).then(() => {
       expect(store.getActions()).toEqual([
-        { type: types.FETCH_REQUEST },
-        { type: types.FETCH_SUCCESS, result: [1, 2], entities: entities },
+        { type: types.FETCH_REQUEST, id: 1 },
+        { type: types.FETCH_SUCCESS, id: 1, result: [1, 2], entities: entities },
       ])
     })
   })
 
   it('fetches with failure', () => {
-    mock.onGet('/feed/global')
+    mock.onGet('/feed')
       .networkError()
 
     const store = mockStore({
       control: {
         summariesFetch: {
-          error: '',
-          ids: [],
-          status: 'success',
+          1: {
+            error: '',
+            ids: [],
+            status: 'success',
+          }
         }
       }
     })
 
-    return store.dispatch(actions.fetch()).then(() => {
+    return store.dispatch(actions.fetch(1, '/feed')).then(() => {
       expect(store.getActions()).toEqual([
-        { type: types.FETCH_REQUEST },
-        { type: types.FETCH_FAILURE, message: 'Network Error' },
+        { type: types.FETCH_REQUEST, id: 1 },
+        { type: types.FETCH_FAILURE, id: 1, message: 'Network Error' },
       ])
     })
   })
 
   it('skips if already fetching', () => {
-    mock.onGet('/feed/global')
+    mock.onGet('/feed')
       .reply(200, { items: data })
 
     const store = mockStore({
       control: {
         summariesFetch: {
-          error: '',
-          ids: [],
-          status: 'fetching',
+          1: {
+            error: '',
+            ids: [],
+            status: 'fetching',
+          }
         }
       }
     })
 
-    return store.dispatch(actions.fetch()).then(() => {
+    return store.dispatch(actions.fetch(1, '/feed')).then(() => {
+      expect(store.getActions()).toEqual([])
+    })
+  })
+
+  it('skips if keepLoading is false', () => {
+    mock.onGet('/feed')
+      .reply(200, { items: data })
+
+    const store = mockStore({
+      control: {
+        summariesFetch: {
+          1: {
+            error: '',
+            ids: [1, 2, 3, 4],
+            status: 'success',
+          }
+        }
+      }
+    })
+
+    return store.dispatch(actions.fetch(1, '/feed', false)).then(() => {
       expect(store.getActions()).toEqual([])
     })
   })
