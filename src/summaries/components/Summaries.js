@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Alert from '../../common/Alert'
 import Summary from './Summary'
-import * as actions from '../actions'
 import { summariesSelector } from '../selectors'
 
 export class Summaries extends Component {
@@ -17,7 +16,7 @@ export class Summaries extends Component {
   }
 
   componentDidMount () {
-    this.props.loadMore(true)
+    this.props.loadMore()
   }
 
   renderPlaceholder () {
@@ -83,9 +82,8 @@ const mapStateToProps = state => ({
   summaries: summariesSelector(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-  loadMore: (c) => dispatch(actions.fetch(c)),
-  invalidate: () => dispatch(actions.invalidate()),
+const mapDispatchToProps = (dispatch, props) => ({
+  loadMore: () => dispatch(props.loadMore()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

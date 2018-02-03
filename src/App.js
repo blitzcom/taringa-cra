@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch,
 } from 'react-router-dom'
 
 import './App.css'
@@ -19,10 +20,10 @@ class App extends Component {
           <SecondaryNav/>
 
           <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route path="/recents" component={Home} />
-            <Route path="/tops" component={Home} />
-            <Route path="/story/:slug" component={Story} />
+            <Switch>
+              <Route path="/story/:slug" component={Story} />
+              <Route path="/" component={Home} />
+            </Switch>
           </div>
         </div>
       </Router>
