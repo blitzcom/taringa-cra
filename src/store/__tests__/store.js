@@ -9,14 +9,7 @@ describe('Store', () => {
       control: {
         commentsFetch: {},
         storiesFetch: {},
-        summariesFetch: {
-          after: null,
-          before: null,
-          error: '',
-          ids: [],
-          status: 'success',
-          totalCount: 0,
-        }
+        summariesFetch: {},
       },
       entities: {
         comments: {},

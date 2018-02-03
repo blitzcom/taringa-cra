@@ -20,6 +20,10 @@ const Summary = props => {
     )
   }
 
+  if ('classic' in props === false) {
+    return null
+  }
+
   return (
     <div className="Summary card">
       { props.classic.type === 'shout' && <Shout {...props}/> }

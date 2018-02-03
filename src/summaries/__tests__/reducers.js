@@ -26,110 +26,87 @@ describe('Summaries entities reducer', () => {
       2: { bar: false, foo: true, id: 2 },
     })
   })
-
-  it('handles INVALIDATE', () => {
-    const action = {
-      type: types.INVALIDATE
-    }
-
-    const state = {
-      1: { bar: false, foo: true, id: 1 },
-      2: { bar: false, foo: true, id: 2 },
-    }
-
-    expect(summariesEntities(state, action)).toEqual({})
-  })
 })
 
 describe('Summaries fetch control reducer', () => {
   it('returns initial state', () => {
-    expect(summariesFetchControl(undefined, {})).toEqual({
-      after: null,
-      before: null,
-      error: '',
-      ids: [],
-      status: 'success',
-      totalCount: 0,
-    })
+    expect(summariesFetchControl(undefined, {})).toEqual({})
   })
 
   it('handles FETCH_REQUEST', () => {
     const action = {
       type: types.FETCH_REQUEST,
+      id: 1
     }
 
-    const state = {
-      error: 'Network Error',
-      ids: [],
-      status: 'failure',
-    }
+    const state = {}
 
     expect(summariesFetchControl(state, action)).toEqual({
-      error: '',
-      ids: [],
-      status: 'fetching',
+      1: {
+        after: null,
+        before: null,
+        error: '',
+        ids: [],
+        status: 'fetching',
+        totalCount: 0,
+      }
     })
   })
 
   it('handles FETCH_SUCCESS', () => {
     const action = {
       type: types.FETCH_SUCCESS,
-      result: [1, 2, 3, 4, 5]
+      result: [1, 2, 3, 4, 5],
+      id: 1
     }
 
     const state = {
-      error: '',
-      ids: [],
-      status: 'fetching',
+      1: {
+        after: null,
+        before: null,
+        error: '',
+        ids: [],
+        status: 'fetching',
+        totalCount: 0,
+      }
     }
 
     expect(summariesFetchControl(state, action)).toEqual({
-      error: '',
-      ids: [1, 2, 3, 4, 5],
-      status: 'success',
+      1: {
+        error: '',
+        ids: [1, 2, 3, 4, 5],
+        status: 'success',
+      }
     })
   })
 
   it('handles FETCH_FAILURE', () => {
     const action = {
       type: types.FETCH_FAILURE,
-      message: 'Network Error'
+      message: 'Network Error',
+      id: 1
     }
 
     const state = {
-      error: '',
-      ids: [],
-      status: 'fetching',
+      1: {
+        after: null,
+        before: null,
+        error: '',
+        ids: [],
+        status: 'fetching',
+        totalCount: 0,
+      }
     }
 
     expect(summariesFetchControl(state, action)).toEqual({
-      error: 'Network Error',
-      ids: [],
-      status: 'failure',
-    })
-  })
-
-  it('handles INVALIDATE', () => {
-    const action = {
-      type: types.INVALIDATE
-    }
-
-    const state = {
-      after: 30,
-      before: 32,
-      error: 'Network Error',
-      ids: [1, 2, 3, 4, 5],
-      status: 'failure',
-      totalCount: 500,
-    }
-
-    expect(summariesFetchControl(state, action)).toEqual({
-      after: null,
-      before: null,
-      error: '',
-      ids: [],
-      status: 'success',
-      totalCount: 0,
+      1: {
+        after: null,
+        before: null,
+        error: 'Network Error',
+        ids: [],
+        status: 'failure',
+        totalCount: 0,
+      }
     })
   })
 })

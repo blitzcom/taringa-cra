@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Alert from '../../common/Alert'
 import Summary from './Summary'
-import * as actions from '../actions'
-import { summariesSelector } from '../selectors'
+import { fetch as fetchSummaries } from '../actions'
+import { summariesSelector, summariesStatusSelector } from '../selectors'
 
 export class Summaries extends Component {
   constructor (props) {
@@ -17,7 +17,7 @@ export class Summaries extends Component {
   }
 
   componentDidMount () {
-    this.props.loadMore(true)
+    this.props.loadMore(false)
   }
 
   renderPlaceholder () {
@@ -66,26 +66,17 @@ export class Summaries extends Component {
 
 Summaries.defaultProps = {
   loadMore: () => {},
-  invalidate: () => Promise.resolve(),
   status: "success",
   summaries: [],
 }
 
-const checkForMoreContent = (state) => {
-  const control = state.control.summariesFetch
-  return control.ids.length < control.totalCount
-}
-
-const mapStateToProps = state => ({
-  error: state.control.summariesFetch.error,
-  hasMoreContent: checkForMoreContent(state),
-  status: state.control.summariesFetch.status,
-  summaries: summariesSelector(state),
+const mapStateToProps = (state, props) => ({
+  summaries: summariesSelector(state, props),
+  ...summariesStatusSelector(state, props)
 })
 
-const mapDispatchToProps = dispatch => ({
-  loadMore: (c) => dispatch(actions.fetch(c)),
-  invalidate: () => dispatch(actions.invalidate()),
+const mapDispatchToProps = (dispatch, { id, url }) => ({
+  loadMore: (keepLoading) => dispatch(fetchSummaries(id, url, keepLoading)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

@@ -4,61 +4,59 @@ import { normalize } from 'normalizr'
 import * as types from './types'
 import { summary } from './schemas'
 
-export const fetchRequest = () => ({
+export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
+  id: id,
 })
 
-export const fetchSuccess = () => ({
+export const fetchSuccess = id => ({
   type: types.FETCH_SUCCESS,
+  id: id,
 })
 
-export const fetchFailure = message => ({
+export const fetchFailure = (id, message) => ({
   type: types.FETCH_FAILURE,
   message: message,
+  id: id,
 })
 
-export const invalidate = () => {
-  return dispatch => {
-    dispatch({ type: types.INVALIDATE })
-    return Promise.resolve()
-  }
+const canFetch = (state, id) => {
+  const control = state.control.summariesFetch[id]
+  return !control || control.status !== 'fetching'
 }
 
-const canFetch = state => {
-  return state.control.summariesFetch.status !== 'fetching'
+const hasItems = (state, id) => {
+  const control = state.control.summariesFetch[id]
+  return control && control.ids.length > 0
 }
 
-const hasSummaries = state => {
-  return state.control.summariesFetch.ids.length > 0
-}
-
-export const fetch = (checkState = false) => {
+export const fetch = (id, url, keepLoading = true) => {
   return (dispatch, getState, axios) => {
-    if (!canFetch(getState())) {
+    if (!canFetch(getState(), id)) {
       return Promise.resolve()
     }
 
-    if (checkState && hasSummaries(getState())) {
+    if (!keepLoading && hasItems(getState(), id)) {
       return Promise.resolve()
     }
 
-    const { summariesFetch } = getState().control
+    const control = getState().control.summariesFetch[id]
+    let params = { count: 25 }
 
-    const params = {
-      after: summariesFetch.after,
-      count: 25,
+    if (control && 'after' in control) {
+      params = _.assign({}, params, { after: control.after })
     }
 
-    dispatch(fetchRequest())
+    dispatch(fetchRequest(id))
 
     return axios
-      .get('/feed/global', { params })
+      .get(url, { params })
       .then(response => response.data)
       .then(({ after, before, totalCount, items }) => {
         const action = _.assign(
           {},
           normalize(items, [summary]),
-          fetchSuccess(),
+          fetchSuccess(id),
           {
             after,
             before,
@@ -68,6 +66,6 @@ export const fetch = (checkState = false) => {
 
         return dispatch(action)
       })
-      .catch(error => dispatch(fetchFailure(error.message)))
+      .catch(error => dispatch(fetchFailure(id, error.message)))
   }
 }
