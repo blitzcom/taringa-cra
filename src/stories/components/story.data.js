@@ -1,4 +1,4 @@
-import parserEngine from '../../utils/StoryParserEngine'
+import MarkdownEngine from '../../utils/MarkdownEngine'
 
 export const story = {
   id: "z810j",
@@ -17,7 +17,7 @@ export const story = {
   slug: "barbarapalvin-es-perfecta-mira-esos-ojos_z810j",
   type: "story",
   active: true,
-  content: parserEngine([
+  content: MarkdownEngine.Render([
     {
       type: "markdown",
       body: "<hashtag tag=\"BarbaraPalvin\" /> Es perfecta, mira esos ojos 💙"

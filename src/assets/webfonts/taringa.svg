@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
+<defs>
+<font id="taringa" horiz-adv-x="1000" >
+<font-face font-family="taringa" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="items-big" unicode="&#xe800;" d="M63 303h875v-391h-875z m0 485h875v-391h-875z" horiz-adv-x="1000" />
+
+<glyph glyph-name="items-medium" unicode="&#xe801;" d="M63 788h875v-231h-875z m0-323h875v-230h-875z m0-322h875v-231h-875z" horiz-adv-x="1000" />
+
+<glyph glyph-name="items-small" unicode="&#xe802;" d="M63 788h875v-160h-875z m0-478h875v-159h-875z m0-238h875v-160h-875z m0 477h875v-159h-875z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>
