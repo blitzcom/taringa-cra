@@ -7,6 +7,10 @@ import { Summaries } from '../Summaries'
 import { SummaryShout } from '../data'
 
 describe('Summaries', () => {
+  beforeEach(() => {
+    Date.now = jest.fn(() => 1513924592705)
+  })
+
   it('renders default', () => {
     const tree = renderer.create(<Summaries/>).toJSON()
 

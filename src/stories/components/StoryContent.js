@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 import './StoryContent.css'
 
@@ -27,7 +28,7 @@ const StoryContent = props => {
           )
         }
 
-        {props.content}
+        <ReactMarkdown source={props.content} />
       </div>
     </div>
   )
