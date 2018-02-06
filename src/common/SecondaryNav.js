@@ -11,9 +11,25 @@ const SecondaryNav = props => {
           <div className="col-6">
             <ul className="nav">
               <li className="nav-item">
+                <button className="btn btn-toggler">
+                  <i className="ta-items-big" />
+                </button>
+              </li>
+              <li className="nav-item">
+                <button className="btn btn-toggler">
+                  <i className="ta-items-medium" />
+                </button>
+              </li>
+              <li className="nav-item">
+                <button className="btn btn-toggler">
+                  <i className="ta-items-small" />
+                </button>
+              </li>
+              <li className="nav-item SecondaryNav-divider" />
+              <li className="nav-item">
                 <NavLink
-                  activeClassName="SecondaryNav-active-item"
-                  className="nav-link text-secondary"
+                  activeClassName="active"
+                  className="nav-link SecondaryNav-item"
                   exact
                   to="/"
                 >
@@ -21,10 +37,10 @@ const SecondaryNav = props => {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item" style={{ minWidth: 104 }}>
                 <NavLink
-                  activeClassName="SecondaryNav-active-item"
-                  className="nav-link text-secondary"
+                  activeClassName="active"
+                  className="nav-link SecondaryNav-item"
                   to="/recents"
                 >
                   Recientes
@@ -33,8 +49,8 @@ const SecondaryNav = props => {
 
               <li className="nav-item">
                 <NavLink
-                  activeClassName="SecondaryNav-active-item"
-                  className="nav-link text-secondary"
+                  activeClassName="active"
+                  className="nav-link SecondaryNav-item"
                   to="/tops"
                 >
                   Tops
