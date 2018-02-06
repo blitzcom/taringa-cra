@@ -20,6 +20,7 @@
   max-width: 100%;
   min-width: 100%;
   min-width: 100px;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -30,6 +31,7 @@
   width: 64px;
   height: 64px;
   background: #dee2e6;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes cardPlaceholderShimmer{
@@ -40,6 +42,7 @@
       background-position: 348px 0
   }
 }
+
 .Card-animated-background {
   animation-duration: 1s;
   animation-fill-mode: forwards;

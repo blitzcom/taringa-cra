@@ -23,7 +23,7 @@ const Card = props => {
       />
       <img
         className="Card-cover card-img-top"
-        src="https://placehold.it/300x100"
+        src="https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png"
         alt="Cover"
       />
       <div className="card-body">
