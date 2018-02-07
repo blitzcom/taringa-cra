@@ -15,6 +15,9 @@ describe('Store', () => {
         comments: {},
         stories: {},
         summaries: {},
+      },
+      settings: {
+        itemSize: 'settings/ITEM_MEDIUM'
       }
     })
   })

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import { summariesEntities, summariesFetchControl } from '../summaries/reducers'
 import { storiesEntities, storiesFetchControl } from '../stories/reducers'
 import { commentsEntities, commentsFetchControl } from '../comments/reducers'
+import { itemSize } from '../settings/reducers'
 
 const entities = combineReducers({
   comments: commentsEntities,
@@ -16,7 +17,12 @@ const control = combineReducers({
   summariesFetch: summariesFetchControl,
 })
 
+const settings = combineReducers({
+  itemSize,
+})
+
 export default combineReducers({
   control,
   entities,
+  settings,
 })
