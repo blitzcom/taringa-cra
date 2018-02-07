@@ -1,50 +1,13 @@
-.btn-create-post {
-  background: rgb(76, 217, 100);
-  border: none;
-  font-weight: bold;
+.SecondaryNav .navbar-text.divider {
+  background: rgba(0, 0, 0, 0.3);
+  width: 1px;
+  margin: 0 14px 0 18px;
 }
 
-.btn-create-post:hover,
-.btn-create-post:active,
-.btn-create-post:focus {
-  background: rgb(46, 190, 70);
+.SecondaryNav .btn-light {
+  color: rgba(0, 0, 0, 0.3);
 }
 
-.SecondaryNav-item {
-  color: #6c757d;
-}
-
-.SecondaryNav-item:hover,
-.SecondaryNav-item:active,
-.SecondaryNav-item:focus {
-  color: #545b62;
-}
-
-.SecondaryNav-item.active {
-  color: #323232;
-  font-weight: bold;
-}
-
-.SecondaryNav-divider {
-  border-right: 1px solid #d6d6d6;
-  margin: 0.6rem 0.2rem 0.6rem 0.8rem;
-}
-
-.btn-toggler {
-  background: none;
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
-  color: #b6b6b6;
-}
-
-.btn-toggler:hover {
-  color: #969696;
-}
-
-.btn-toggler.active {
-  color: #005dab;
-}
-
-.SecondaryNav .nav .nav-item:first-child .btn {
-  padding-left: 0;
+.SecondaryNav .nav-link.active {
+  color: rgba(0, 0, 0, 1) !important;
 }
