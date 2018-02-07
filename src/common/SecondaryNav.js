@@ -5,7 +5,7 @@ import './SecondaryNav.css'
 
 const SecondaryNav = props => {
   return (
-    <div className="SecondaryNav bg-light mb-4">
+    <div className="SecondaryNav bg-light mb-4 border-bottom">
       <div className="container">
         <div className="row">
           <div className="col-8">
@@ -23,7 +23,7 @@ const SecondaryNav = props => {
                   </button>
                 </div>
 
-                <span class="navbar-text divider" />
+                <span className="navbar-text divider" />
 
                 <div className="navbar-nav mr-auto">
                   <NavLink
