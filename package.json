@@ -26,7 +26,8 @@
     "eject": "react-scripts eject",
     "prettier": "prettier -l src/**/*.js",
     "prettier-check": "prettier",
-    "styleguide": "styleguidist server"
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "engines": {
     "node": "8.9.4",
@@ -38,10 +39,13 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "prettier": "1.10.2",
-    "react-styleguidist": "^6.2.0",
     "react-test-renderer": "^16.2.0",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-mock-store": "^1.4.0"
+    "redux-mock-store": "^1.4.0",
+    "@storybook/react": "^3.3.12",
+    "@storybook/addon-actions": "^3.3.12",
+    "@storybook/addon-links": "^3.3.12",
+    "@storybook/addons": "^3.3.12"
   },
   "jest": {
     "collectCoverageFrom": [

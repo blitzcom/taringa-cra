@@ -3,7 +3,216 @@
 exports[`Summaries renders default 1`] = `
 <div
   className="Summaries"
-/>
+>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+  <div
+    className="Summary Summary-ph card"
+  >
+    <div
+      className="Summary-animated-background"
+    >
+      <div
+        className="Summary-score-gap ph"
+      />
+      <div
+        className="Summary-thumbnail-gap ph"
+      />
+      <div
+        className="Summary-title-gap ph"
+      />
+      <div
+        className="Summary-title-extra ph"
+      />
+      <div
+        className="Summary-subtitle-gap ph"
+      />
+      <div
+        className="Summary-subtitle-extra ph"
+      />
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Summaries renders error 1`] = `
