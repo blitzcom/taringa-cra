@@ -1,9 +1,24 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import classNames from 'classnames'
+
 
 import './SecondaryNav.css'
+import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
+import * as actions from '../settings/actions'
 
-const SecondaryNav = props => {
+export const SecondaryNav = ({itemSize, changeItemSize }) => {
+  const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
+    active: itemSize === ITEM_BIG,
+  })
+  const mediumButtonClass = classNames('btn px-1 py-0 btn-light', {
+    active: itemSize === ITEM_MEDIUM,
+  })
+  const smallButtonClass = classNames('btn px-1 py-0 btn-light', {
+    active: itemSize === ITEM_SMALL,
+  })
+
   return (
     <div className="SecondaryNav bg-light mb-4 border-bottom">
       <div className="container">
@@ -12,13 +27,23 @@ const SecondaryNav = props => {
             <nav className="navbar navbar-light navbar-expand-lg p-0">
               <div className="collapse navbar-collapse">
                 <div className="form-inline">
-                  <button className="btn px-1 py-0 btn-light">
+                  <button
+                    className={bigButtonClass}
+                    onClick={() => changeItemSize(ITEM_BIG)}
+                  >
                     <i className="ta-items-big" />
                   </button>
-                  <button className="btn px-1 py-0 btn-light">
+
+                  <button
+                    className={mediumButtonClass}
+                    onClick={() => changeItemSize(ITEM_MEDIUM)}
+                  >
                     <i className="ta-items-medium" />
                   </button>
-                  <button className="btn px-1 py-0 btn-light">
+
+                  <button className={smallButtonClass}
+                    onClick={() => changeItemSize(ITEM_SMALL)}
+                  >
                     <i className="fa fa-align-justify" />
                   </button>
                 </div>
@@ -66,4 +91,10 @@ const SecondaryNav = props => {
   )
 }
 
-export default SecondaryNav
+const mapStateToProps = state => ({
+  itemSize: state.settings.itemSize
+})
+
+export default withRouter(
+  connect(mapStateToProps, actions)(SecondaryNav)
+)

@@ -1,7 +1,7 @@
 .SecondaryNav .navbar-text.divider {
   background: rgba(0, 0, 0, 0.3);
-  width: 1px;
   margin: 0 14px 0 18px;
+  width: 1px;
 }
 
 .SecondaryNav .btn-light {
@@ -10,4 +10,10 @@
 
 .SecondaryNav .nav-link.active {
   color: rgba(0, 0, 0, 1) !important;
+}
+
+.SecondaryNav .btn-light.active {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #6cb7f4 !important;
 }

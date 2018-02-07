@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Secondary Nav renders 1`] = `
+<div
+  className="SecondaryNav bg-light mb-4 border-bottom"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-8"
+      >
+        <nav
+          className="navbar navbar-light navbar-expand-lg p-0"
+        >
+          <div
+            className="collapse navbar-collapse"
+          >
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-big"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-medium"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-align-justify"
+                />
+              </button>
+            </div>
+            <span
+              className="navbar-text divider"
+            />
+            <div
+              className="navbar-nav mr-auto"
+            >
+              <a
+                aria-current="true"
+                className="nav-item nav-link active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Destacados
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/recents"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Recientes
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/tops"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Tops
+              </a>
+            </div>
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn btn-sm btn-outline-success"
+              >
+                Crear Post
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Secondary Nav renders active on ITEM_BIG 1`] = `
+<div
+  className="SecondaryNav bg-light mb-4 border-bottom"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-8"
+      >
+        <nav
+          className="navbar navbar-light navbar-expand-lg p-0"
+        >
+          <div
+            className="collapse navbar-collapse"
+          >
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn px-1 py-0 btn-light active"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-big"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-medium"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-align-justify"
+                />
+              </button>
+            </div>
+            <span
+              className="navbar-text divider"
+            />
+            <div
+              className="navbar-nav mr-auto"
+            >
+              <a
+                aria-current="true"
+                className="nav-item nav-link active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Destacados
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/recents"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Recientes
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/tops"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Tops
+              </a>
+            </div>
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn btn-sm btn-outline-success"
+              >
+                Crear Post
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Secondary Nav renders active on ITEM_MEDIUM 1`] = `
+<div
+  className="SecondaryNav bg-light mb-4 border-bottom"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-8"
+      >
+        <nav
+          className="navbar navbar-light navbar-expand-lg p-0"
+        >
+          <div
+            className="collapse navbar-collapse"
+          >
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-big"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light active"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-medium"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-align-justify"
+                />
+              </button>
+            </div>
+            <span
+              className="navbar-text divider"
+            />
+            <div
+              className="navbar-nav mr-auto"
+            >
+              <a
+                aria-current="true"
+                className="nav-item nav-link active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Destacados
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/recents"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Recientes
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/tops"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Tops
+              </a>
+            </div>
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn btn-sm btn-outline-success"
+              >
+                Crear Post
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Secondary Nav renders active on ITEM_SMALL 1`] = `
+<div
+  className="SecondaryNav bg-light mb-4 border-bottom"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-8"
+      >
+        <nav
+          className="navbar navbar-light navbar-expand-lg p-0"
+        >
+          <div
+            className="collapse navbar-collapse"
+          >
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-big"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light"
+                onClick={[Function]}
+              >
+                <i
+                  className="ta-items-medium"
+                />
+              </button>
+              <button
+                className="btn px-1 py-0 btn-light active"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-align-justify"
+                />
+              </button>
+            </div>
+            <span
+              className="navbar-text divider"
+            />
+            <div
+              className="navbar-nav mr-auto"
+            >
+              <a
+                aria-current="true"
+                className="nav-item nav-link active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Destacados
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/recents"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Recientes
+              </a>
+              <a
+                aria-current={false}
+                className="nav-item nav-link"
+                href="/tops"
+                onClick={[Function]}
+                style={undefined}
+              >
+                Tops
+              </a>
+            </div>
+            <div
+              className="form-inline"
+            >
+              <button
+                className="btn btn-sm btn-outline-success"
+              >
+                Crear Post
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;
