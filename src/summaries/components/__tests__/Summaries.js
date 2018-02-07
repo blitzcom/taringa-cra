@@ -35,7 +35,7 @@ describe('Summaries', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <Summaries summaries={[SummaryShout]} />
+          <Summaries status="success" summaries={[SummaryShout]} />
         </MemoryRouter>
       )
       .toJSON()

@@ -66,7 +66,7 @@ export class Summaries extends Component {
 
 Summaries.defaultProps = {
   loadMore: () => {},
-  status: "success",
+  status: "fetching",
   summaries: [],
 }
 
