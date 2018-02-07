@@ -3,12 +3,11 @@ import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
-
 import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
 
-export const SecondaryNav = ({itemSize, changeItemSize }) => {
+export const SecondaryNav = ({ itemSize, changeItemSize }) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -41,7 +40,8 @@ export const SecondaryNav = ({itemSize, changeItemSize }) => {
                     <i className="ta-items-medium" />
                   </button>
 
-                  <button className={smallButtonClass}
+                  <button
+                    className={smallButtonClass}
                     onClick={() => changeItemSize(ITEM_SMALL)}
                   >
                     <i className="fa fa-align-justify" />
@@ -92,9 +92,7 @@ export const SecondaryNav = ({itemSize, changeItemSize }) => {
 }
 
 const mapStateToProps = state => ({
-  itemSize: state.settings.itemSize
+  itemSize: state.settings.itemSize,
 })
 
-export default withRouter(
-  connect(mapStateToProps, actions)(SecondaryNav)
-)
+export default withRouter(connect(mapStateToProps, actions)(SecondaryNav))

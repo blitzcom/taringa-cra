@@ -93,7 +93,7 @@ class Shout extends Component {
           </div>
         </div>
         {
-          previewIsOpen && (
+          (previewIsOpen || (this.props.itemSize === 'settings/ITEM_BIG' && this.props.summary.images.amount > 0)) && (
             <div className="Shout-preview">
               <img
                 src={this.props.summary.images.slice[0].url}

@@ -32,12 +32,12 @@ export class Summaries extends Component {
   }
 
   render () {
-    const { status, summaries } = this.props
+    const { status, summaries, itemSize } = this.props
     const isFetching = status === 'fetching'
 
     return (
       <div className="Summaries">
-        { summaries.map(i => <Summary key={i.id} {...i} />) }
+        { summaries.map(i => <Summary key={i.id} itemSize={itemSize} {...i} />) }
 
         {
           status === 'failure' && (
@@ -71,6 +71,7 @@ Summaries.defaultProps = {
 }
 
 const mapStateToProps = (state, props) => ({
+  itemSize: state.settings.itemSize,
   summaries: summariesSelector(state, props),
   ...summariesStatusSelector(state, props)
 })
