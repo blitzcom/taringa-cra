@@ -3,16 +3,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
-import Alert from '../../common/Alert'
 import Summary from './Summary'
 import { fetch as fetchSummaries } from '../actions'
 import { summariesSelector, summariesStatusSelector } from '../selectors'
+import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
 
 export class Summaries extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      placeholderCount: props.placeholderCount || 8
+      placeholderCount: props.placeholderCount
     }
   }
 
@@ -20,15 +20,29 @@ export class Summaries extends Component {
     this.props.loadMore(false)
   }
 
+  getPlaceholderCount (size) {
+    switch (size) {
+      case ITEM_SMALL:
+        return 19
+      case ITEM_MEDIUM:
+        return 9
+      case ITEM_BIG:
+      default:
+        return 3
+    }
+  }
+
   renderPlaceholder () {
     let count = 1
-    const { summaries } = this.props
+    const { summaries, itemSize } = this.props
 
     if (summaries.length === 0) {
-      count = this.state.placeholderCount
+      count = this.state.placeholderCount || this.getPlaceholderCount(itemSize)
     }
 
-    return _.times(count, i => <Summary key={i} isPlaceholder />)
+    return _.times(count,
+      i => <Summary key={i} size={itemSize} isPlaceholder />
+    )
   }
 
   render () {
@@ -37,15 +51,20 @@ export class Summaries extends Component {
 
     return (
       <div className="Summaries">
-        { summaries.map(i => <Summary key={i.id} itemSize={itemSize} {...i} />) }
+        <div className="card">
+          <ul className="list-group list-group-flush">
+            {summaries.map(i => <Summary key={i.id} size={itemSize} {...i} />)}
+            {isFetching && this.renderPlaceholder()}
+          </ul>
+        </div>
 
         {
           status === 'failure' && (
             <div className="my-4 text-center">
-              <Alert className="my-3 font-weight-bold" type="danger">
+              <div className="my-3 text-danger">
                 ¡Ratas! Parece que no estás conectado a internet.
-                Intenta refrescar la página o pulsa el siguiente botón.
-              </Alert>
+                Refresca la página o pulsa el siguiente botón.
+              </div>
               <button
                 className="btn btn-outline-primary btn-sm"
                 onClick={this.props.loadMore}
@@ -54,10 +73,6 @@ export class Summaries extends Component {
               </button>
             </div>
           )
-        }
-
-        {
-          isFetching && this.renderPlaceholder()
         }
       </div>
     )

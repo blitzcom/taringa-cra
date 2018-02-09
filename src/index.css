@@ -2,3 +2,7 @@ body {
   background-color: #eef2f5;
   overflow-y: scroll;
 }
+
+.no-decoration:hover {
+  text-decoration: none;
+}

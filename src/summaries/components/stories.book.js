@@ -4,21 +4,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import Score from './Score'
 import { Summaries } from './Summaries'
 import Summary from './Summary'
 
-import { SummaryShout } from './data'
-
-storiesOf('Score', module)
-  .add('default', () => <Score />)
-  .add('with votes', () => <Score downvotes={2500} upvotes={5500}/>)
-  .add('with vote up', () => <Score downvotes={2500} upvotes={5500} voted={1}/>)
-  .add(
-    'with vote down',
-    () => <Score downvotes={2500} upvotes={5500} voted={-1}/>
-  )
-  .add('voting',() => <Score downvotes={2500} upvotes={5500} isVoting/>)
+import { normalizeStory } from '../utils'
+import { image, text, link, article } from './data'
 
 storiesOf('Summaries', module)
   .addDecorator(story => (
@@ -33,15 +23,31 @@ storiesOf('Summaries', module)
   .add('default', () => <Summaries />)
   .add(
     'listing',
-    () => <Summaries status="success" summaries={[SummaryShout]} />
+    () => (
+      <Summaries
+        status="success"
+        summaries={[
+          normalizeStory(image),
+          normalizeStory(text),
+          normalizeStory(link),
+          normalizeStory(article),
+        ]}
+      />
+    )
   )
   .add(
     'loading',
-    () => <Summaries status="fetching" summaries={[SummaryShout]} />
+    () => <Summaries
+      status="fetching"
+      summaries={[normalizeStory(image)]}
+    />
   )
   .add(
     'with error',
-    () => <Summaries status="failure" summaries={[SummaryShout]} />
+    () => <Summaries
+      status="failure"
+      summaries={[normalizeStory(image)]}
+    />
   )
   .add(
     'with error and no summaries',
@@ -59,6 +65,34 @@ storiesOf('Summary', module)
       </div>
     </div>
   ))
-  .add('with placeholder', () => <Summary isPlaceholder />)
-  .add('shout', () => <Summary {...SummaryShout} />)
-  .add('shout with preview', () => <Summary {...SummaryShout} previewIsOpen />)
+  .add('all default', () => (
+    <div>
+      <Summary size="settings/ITEM_SMALL" />
+      <Summary size="settings/ITEM_MEDIUM" />
+      <Summary size="settings/ITEM_BIG" />
+    </div>
+  ))
+  .add(
+    'small',
+    () => <Summary {...normalizeStory(image)} size="settings/ITEM_SMALL" />
+  )
+  .add(
+    'small with placeholder',
+    () => <Summary size="settings/ITEM_SMALL" isPlaceholder />
+  )
+  .add(
+    'medium',
+    () => <Summary {...normalizeStory(image)} size="settings/ITEM_MEDIUM" />
+  )
+  .add(
+    'medium with placeholder',
+    () => <Summary size="settings/ITEM_MEDIUM" isPlaceholder />
+  )
+  .add(
+    'big',
+    () => <Summary {...normalizeStory(image)} size="settings/ITEM_BIG" />
+  )
+  .add(
+    'big with placeholder',
+    () => <Summary size="settings/ITEM_BIG" isPlaceholder />
+  )

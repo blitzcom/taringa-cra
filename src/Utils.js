@@ -32,7 +32,7 @@ export const humanizeNum = (number, decimals = 1) => {
   return number.toString()
 }
 
-const spanishStrings = {
+export const esFormatter = buildFormatter({
   prefixAgo: "hace",
   prefixFromNow: "dentro de",
   suffixAgo: "",
@@ -48,6 +48,22 @@ const spanishStrings = {
   months: "%d meses",
   year: "1 año",
   years: "%d años"
-}
+})
 
-export const esFormatter = buildFormatter(spanishStrings)
+export const shortESFormatter = buildFormatter({
+  prefixAgo: "\u2219",
+  prefixFromNow: "",
+  suffixAgo: "",
+  suffixFromNow: "",
+  seconds: "%d s",
+  minute: "1 m",
+  minutes: "%d m",
+  hour: "1 h",
+  hours: "%d h",
+  day: "1 d",
+  days: "%d d",
+  month: "1 m",
+  months: "%d m",
+  year: "1 a",
+  years: "%d a"
+})

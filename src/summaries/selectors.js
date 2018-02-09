@@ -1,6 +1,8 @@
 import _ from 'lodash'
 import { createSelector } from 'reselect'
 
+import { normalizeStory } from './utils'
+
 const summariesState = state => state.entities.summaries
 const summariesFetchState = (state, props) =>
   state.control.summariesFetch[props.id]
@@ -21,8 +23,8 @@ export const summariesStatusSelector = createSelector(
 )
 
 export const summariesSelector = createSelector(
-  summariesState,
   summariesFetchState,
-  (summaries, control) =>
-    control ? _.map(control.ids, id => summaries[id]) : []
+  summariesState,
+  (control, summaries) =>
+    control ? _.map(control.ids, id => normalizeStory(summaries[id])) : []
 )
