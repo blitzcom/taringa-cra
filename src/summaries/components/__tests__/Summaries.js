@@ -4,7 +4,8 @@ import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 
 import { Summaries } from '../Summaries'
-import { SummaryShout } from '../data'
+import { image } from '../data'
+import { normalizeStory } from '../../utils'
 
 describe('Summaries', () => {
   beforeEach(() => {
@@ -12,21 +13,29 @@ describe('Summaries', () => {
   })
 
   it('renders default', () => {
-    const tree = renderer.create(<Summaries/>).toJSON()
+    const tree = renderer.create(
+      <MemoryRouter>
+        <Summaries />
+      </MemoryRouter>
+    ).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders loader', () => {
-    const tree = renderer.create(<Summaries status="fetching"/>).toJSON()
+    const tree = renderer.create(
+      <MemoryRouter>
+        <Summaries status="fetching" />
+      </MemoryRouter>
+    ).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders error', () => {
-    const tree = renderer
-      .create(<Summaries status="failure" error="Network Error" />)
-      .toJSON()
+    const tree = renderer.create(
+      <Summaries status="failure" error="Network Error" />
+    ).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -35,7 +44,7 @@ describe('Summaries', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <Summaries status="success" summaries={[SummaryShout]} />
+          <Summaries status="success" summaries={[normalizeStory(image)]} />
         </MemoryRouter>
       )
       .toJSON()
@@ -46,7 +55,11 @@ describe('Summaries', () => {
   it('fetches summaries on mount', () => {
     const mockFetch = jest.fn()
 
-    mount(<Summaries loadMore={mockFetch} />)
+    mount(
+      <MemoryRouter>
+        <Summaries loadMore={mockFetch} />
+      </MemoryRouter>
+    )
 
     expect(mockFetch).toBeCalled()
   })
