@@ -1,16 +1,42 @@
 import { humanizeNum } from '../Utils'
 
+const scaleThumbnail = image => {
+  if (!image) {
+    return null
+  }
+
+  const { height, url, width } = image
+  const minSize = 78
+  let nextSize = ''
+
+  if (width < height) {
+    nextSize = `${minSize}x${minSize * 2}`
+  } else if (height < width) {
+    nextSize = `${minSize * 2}x${minSize}`
+  } else {
+    nextSize = `${minSize}x${minSize}`
+  }
+
+  if (url.indexOf('kn3') === -1) {
+    return url
+  }
+
+  return url.replace(/(\w+?)(\.\w+?)$/g, `${nextSize}_$1$2`)
+}
+
 const getThumbnail = (story = {}) => {
+  let image = null
+
   if (story.summary.images.amount > 0) {
-    return story.summary.images.slice[0].url
+    image = story.summary.images.slice[0]
   } else if (
     story.summary.link !== null &&
     story.summary.link.images.length > 0
   ) {
-    return story.summary.link.images[0].url
-  } else {
-    return null
+    image = story.summary.link.images[0]
   }
+
+  return scaleThumbnail(image)
 }
 
 const getTitle = (story = {}) => {
