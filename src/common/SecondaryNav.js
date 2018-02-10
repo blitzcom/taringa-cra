@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
+import { animateScroll as scroll } from 'react-scroll'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
@@ -7,7 +8,17 @@ import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
 
-export const SecondaryNav = ({ itemSize, changeItemSize }) => {
+const goTop = (e, location) => {
+  const pathname = e.currentTarget.getAttribute('href')
+
+  if (pathname === location.pathname) {
+    scroll.scrollToTop({ duration: 500 })
+  } else {
+    window.scrollTo(0, 0)
+  }
+}
+
+export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -55,6 +66,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize }) => {
                     activeClassName="active"
                     className="nav-item nav-link"
                     exact
+                    onClick={e => goTop(e, location)}
                     to="/"
                   >
                     Destacados
@@ -63,6 +75,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
+                    onClick={e => goTop(e, location)}
                     to="/recents"
                   >
                     Recientes
@@ -71,6 +84,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
+                    onClick={e => goTop(e, location)}
                     to="/tops"
                   >
                     Tops
