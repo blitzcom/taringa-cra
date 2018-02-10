@@ -1,17 +1,27 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
 import './StoryButton.css'
 
-const StoryButton = ({ className, wrapperStyle, count, icon, ...props }) => {
+const StoryButton = ({
+  className,
+  count,
+  icon,
+  isLink,
+  wrapperStyle,
+  ...props,
+}) => {
+  const Component = isLink ? Link : 'button'
+
   return (
     <span className="StoryButton" style={wrapperStyle}>
-      <button
+      <Component
         {...props}
         className={['btn btn-story', className].join(' ')}
       >
         <i className={icon} />
         {count !== 0 && count}
-      </button>
+      </Component>
     </span>
   )
 }

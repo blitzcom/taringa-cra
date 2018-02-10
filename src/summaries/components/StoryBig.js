@@ -98,8 +98,10 @@ const StoryBig = ({
 
           <p className="m-0">
             <StoryButton
-              icon="fa fa-comments"
               count={comments}
+              icon="fa fa-comments"
+              isLink
+              to={`/story/${slug}`}
             />
             <StoryButton
               icon="fa fa-retweet"
