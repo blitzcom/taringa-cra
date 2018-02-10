@@ -10,7 +10,7 @@ const StoryButton = ({ className, wrapperStyle, count, icon, ...props }) => {
         className={['btn btn-story', className].join(' ')}
       >
         <i className={icon} />
-        {count}
+        {count !== 0 && count}
       </button>
     </span>
   )
