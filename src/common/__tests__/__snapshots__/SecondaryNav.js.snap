@@ -2,7 +2,7 @@
 
 exports[`Secondary Nav renders 1`] = `
 <div
-  className="SecondaryNav bg-light mb-4 border-bottom"
+  className="SecondaryNav bg-light border-bottom"
 >
   <div
     className="container"
@@ -100,7 +100,7 @@ exports[`Secondary Nav renders 1`] = `
 
 exports[`Secondary Nav renders active on ITEM_BIG 1`] = `
 <div
-  className="SecondaryNav bg-light mb-4 border-bottom"
+  className="SecondaryNav bg-light border-bottom"
 >
   <div
     className="container"
@@ -198,7 +198,7 @@ exports[`Secondary Nav renders active on ITEM_BIG 1`] = `
 
 exports[`Secondary Nav renders active on ITEM_MEDIUM 1`] = `
 <div
-  className="SecondaryNav bg-light mb-4 border-bottom"
+  className="SecondaryNav bg-light border-bottom"
 >
   <div
     className="container"
@@ -296,7 +296,7 @@ exports[`Secondary Nav renders active on ITEM_MEDIUM 1`] = `
 
 exports[`Secondary Nav renders active on ITEM_SMALL 1`] = `
 <div
-  className="SecondaryNav bg-light mb-4 border-bottom"
+  className="SecondaryNav bg-light border-bottom"
 >
   <div
     className="container"

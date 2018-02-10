@@ -6,3 +6,8 @@ body {
 .no-decoration:hover {
   text-decoration: none;
 }
+
+.alert {
+  border-radius: 0;
+  border: none;
+}

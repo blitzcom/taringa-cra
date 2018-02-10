@@ -13,6 +13,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import configure from './store'
 import { restoreItemSize } from './settings/actions'
+import { add as addFlash } from './flash/actions'
 
 const store = configure()
 restoreItemSize(store)
@@ -24,4 +25,10 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-registerServiceWorker()
+const onNewUpdate = () => {
+  store.dispatch(
+    addFlash('Hay una nueva versión de Taringa disponible, por favor recarga la página.')
+  )
+}
+
+registerServiceWorker(onNewUpdate)

@@ -10,6 +10,7 @@ import Nav from './common/Nav'
 import SecondaryNav from './common/SecondaryNav'
 import Home from './home/components/Home'
 import Story from './stories/components/Story'
+import Flashing from './flash/components/Flashing'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Nav/>
             <SecondaryNav/>
           </div>
+          <Flashing />
 
           <div className="container">
             <Switch>
