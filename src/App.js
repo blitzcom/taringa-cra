@@ -8,9 +8,10 @@ import {
 import './App.css'
 import Nav from './common/Nav'
 import SecondaryNav from './common/SecondaryNav'
+import Flashing from './flash/components/Flashing'
 import Home from './home/components/Home'
 import Story from './stories/components/Story'
-import Flashing from './flash/components/Flashing'
+import Feed from './users/components/Feed'
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
 
           <div className="container">
             <Switch>
+              <Route path="/u/:user" component={Feed} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/" component={Home} />
             </Switch>
