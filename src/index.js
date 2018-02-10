@@ -12,8 +12,10 @@ import './css/taringa.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import configure from './store'
+import { restoreItemSize } from './settings/actions'
 
 const store = configure()
+restoreItemSize(store)
 
 ReactDOM.render(
   <Provider store={store}>
