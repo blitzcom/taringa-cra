@@ -338,14 +338,16 @@ exports[`Summaries renders summaries 1`] = `
                 className="StoryButton"
                 style={undefined}
               >
-                <button
+                <a
                   className="btn btn-story "
+                  href="/story/si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+                  onClick={[Function]}
                 >
                   <i
                     className="fa fa-comments"
                   />
                   78
-                </button>
+                </a>
               </span>
               <span
                 className="StoryButton"

@@ -82,6 +82,8 @@ const StorySmall = ({
           className="btn-story-compact"
           count={comments}
           icon="fa fa-comments"
+          isLink
+          to={`/story/${slug}`}
           wrapperStyle={{ minWidth: 50 }}
         />
       </div>
