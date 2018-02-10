@@ -16,8 +16,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav/>
-          <SecondaryNav/>
+          <div className="sticky-top">
+            <Nav/>
+            <SecondaryNav/>
+          </div>
 
           <div className="container">
             <Switch>
