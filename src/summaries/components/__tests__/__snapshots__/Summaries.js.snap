@@ -98,13 +98,6 @@ exports[`Summaries renders error 1`] = `
   className="Summaries"
 >
   <div
-    className="card"
-  >
-    <ul
-      className="list-group list-group-flush"
-    />
-  </div>
-  <div
     className="my-4 text-center"
   >
     <div

@@ -51,12 +51,16 @@ export class Summaries extends Component {
 
     return (
       <div className="Summaries">
-        <div className="card">
-          <ul className="list-group list-group-flush">
-            {summaries.map(i => <Summary key={i.id} size={itemSize} {...i} />)}
-            {isFetching && this.renderPlaceholder()}
-          </ul>
-        </div>
+        {
+          (status !== 'failure' || summaries.length > 0) && (
+            <div className="card">
+              <ul className="list-group list-group-flush">
+                {summaries.map(i => <Summary key={i.id} size={itemSize} {...i} />)}
+                {isFetching && this.renderPlaceholder()}
+              </ul>
+            </div>
+          )
+        }
 
         {
           status === 'failure' && (
