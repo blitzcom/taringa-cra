@@ -30,7 +30,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
   })
 
   return (
-    <div className="SecondaryNav bg-light mb-4 border-bottom">
+    <div className="SecondaryNav bg-light border-bottom">
       <div className="container">
         <div className="row">
           <div className="col-8">
