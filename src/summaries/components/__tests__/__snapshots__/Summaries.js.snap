@@ -311,7 +311,7 @@ exports[`Summaries renders summaries 1`] = `
               Posteado por
                
               <a
-                href="/user/Fraudier"
+                href="/u/Fraudier"
                 onClick={[Function]}
               >
                 Fraudier

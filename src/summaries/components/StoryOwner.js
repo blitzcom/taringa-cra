@@ -12,7 +12,7 @@ const StoryOwner = ({
   return (
     <p {...props}>
       {children}&nbsp;
-      <Link to={`/user/${owner}`}>{owner}</Link>&nbsp;
+      <Link to={`/u/${owner}`}>{owner}</Link>&nbsp;
       <TimeAgo
         date={created}
         formatter={formatter}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Card.css'
 
@@ -28,13 +29,19 @@ const Card = props => {
       />
       <div className="card-body">
         <h5 className="card-title">{props.firstname} {props.lastname}</h5>
-        <h6 className="card-subtitle">@{props.username}</h6>
+
+        <Link to={`/u/${props.username}`}>
+          <h6 className="card-subtitle">@{props.username}</h6>
+        </Link>
+
         <p className="card-text mt-3 mb-4">{props.message}</p>
+
         <button
           className="btn btn-primary btn-block font-weight-bold mb-3"
         >
           SEGUIR
         </button>
+
         <p className="text-muted small mb-0">
           Siguiendo a este usuario podrás ver sus publicaciones en tu página de inicio
         </p>
