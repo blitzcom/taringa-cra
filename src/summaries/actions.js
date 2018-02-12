@@ -21,12 +21,12 @@ export const fetchFailure = (id, message) => ({
 })
 
 const canFetch = (state, id) => {
-  const control = state.control.summariesFetch[id]
+  const control = state.feed[id]
   return !control || control.status !== 'fetching'
 }
 
 const hasItems = (state, id) => {
-  const control = state.control.summariesFetch[id]
+  const control = state.feed[id]
   return control && control.ids.length > 0
 }
 
@@ -40,7 +40,7 @@ export const fetch = (id, url, keepLoading = true) => {
       return Promise.resolve()
     }
 
-    const control = getState().control.summariesFetch[id]
+    const control = getState().feed[id]
     let params = { count: 25 }
 
     if (control && 'after' in control) {

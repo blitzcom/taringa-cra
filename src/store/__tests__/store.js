@@ -9,13 +9,13 @@ describe('Store', () => {
       control: {
         commentsFetch: {},
         storiesFetch: {},
-        summariesFetch: {},
       },
       entities: {
         comments: {},
         stories: {},
         summaries: {},
       },
+      feed: {},
       flash: {},
       settings: {
         itemSize: 'settings/ITEM_MEDIUM'

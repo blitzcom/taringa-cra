@@ -47,13 +47,11 @@ describe('Fetch summaries async action', () => {
       .reply(200, { items: data })
 
     const store = mockStore({
-      control: {
-        summariesFetch: {
-          1: {
-            error: '',
-            ids: [],
-            status: 'success',
-          }
+      feed: {
+        1: {
+          error: '',
+          ids: [],
+          status: 'success',
         }
       }
     })
@@ -78,13 +76,11 @@ describe('Fetch summaries async action', () => {
       .networkError()
 
     const store = mockStore({
-      control: {
-        summariesFetch: {
-          1: {
-            error: '',
-            ids: [],
-            status: 'success',
-          }
+      feed: {
+        1: {
+          error: '',
+          ids: [],
+          status: 'success',
         }
       }
     })
@@ -102,13 +98,11 @@ describe('Fetch summaries async action', () => {
       .reply(200, { items: data })
 
     const store = mockStore({
-      control: {
-        summariesFetch: {
-          1: {
-            error: '',
-            ids: [],
-            status: 'fetching',
-          }
+      feed: {
+        1: {
+          error: '',
+          ids: [],
+          status: 'fetching',
         }
       }
     })
@@ -123,13 +117,11 @@ describe('Fetch summaries async action', () => {
       .reply(200, { items: data })
 
     const store = mockStore({
-      control: {
-        summariesFetch: {
-          1: {
-            error: '',
-            ids: [1, 2, 3, 4],
-            status: 'success',
-          }
+      feed: {
+        1: {
+          error: '',
+          ids: [1, 2, 3, 4],
+          status: 'success',
         }
       }
     })

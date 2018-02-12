@@ -15,7 +15,6 @@ const entities = combineReducers({
 const control = combineReducers({
   commentsFetch: commentsFetchControl,
   storiesFetch: storiesFetchControl,
-  summariesFetch: summariesFetchControl,
 })
 
 const settings = combineReducers({
@@ -25,6 +24,7 @@ const settings = combineReducers({
 export default combineReducers({
   control,
   entities,
+  feed: summariesFetchControl,
   flash,
   settings,
 })

@@ -4,8 +4,7 @@ import { createSelector } from 'reselect'
 import { normalizeStory } from './utils'
 
 const summariesState = state => state.entities.summaries
-const summariesFetchState = (state, props) =>
-  state.control.summariesFetch[props.id]
+const summariesFetchState = (state, props) => state.feed[props.id]
 
 export const summariesStatusSelector = createSelector(
   summariesFetchState,
