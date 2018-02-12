@@ -95,9 +95,11 @@ const mapStateToProps = (state, props) => ({
   ...summariesStatusSelector(state, props)
 })
 
-const mapDispatchToProps = (dispatch, { id, url }) => ({
-  loadMore: (keepLoading) => dispatch(fetchSummaries(id, url, keepLoading)),
-})
+const mapDispatchToProps = (dispatch, { id, url }) => {
+  return {
+    loadMore: (keepLoading) => dispatch(fetchSummaries(id, url, keepLoading)),
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   infiniteScroll()(Summaries)

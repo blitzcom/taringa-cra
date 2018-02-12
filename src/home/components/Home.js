@@ -4,31 +4,40 @@ import { Route } from 'react-router-dom'
 import Card from '../../users/components/Card'
 import Summaries from '../../summaries/components/Summaries'
 
-const ListingRoute = ({ component: Component, id, url, ...rest }) => (
+const SummariesRoute = ({ id: providedId, url, ...rest }) => (
   <Route
     {...rest}
-    render={props => <Component {...props} url={url} id={id} />}
+    render={props => {
+      let id = providedId
+
+      if (!providedId && 'id' in props.match.params) {
+        id = props.match.params.id
+      }
+
+      return (
+        <Summaries {...props} url={url} id={id} />
+      )
+    }}
   />
 )
 
 const Home = props => (
   <div className="row">
     <div className="col-8">
-      <ListingRoute
-        component={Summaries}
+      <SummariesRoute
         exact
         id="trending"
         path="/"
         url="/feed/global"
       />
-      <ListingRoute
-        component={Summaries}
+
+      <SummariesRoute
         id="recents"
         path="/recents"
         url="/feed"
       />
-      <ListingRoute
-        component={Summaries}
+
+      <SummariesRoute
         id="tops"
         path="/tops"
         url="/feed/global/tops/week"
