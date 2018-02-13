@@ -6,9 +6,9 @@ import { call, put, select } from 'redux-saga/effects'
 import * as actions from './actions'
 import { summary } from './schemas'
 
-const getFeed = (state, id) => state.feed[id]
+export const getFeed = (state, id) => state.feed[id]
 
-const fetchFeed = (url, params = {}) => {
+export const fetchFeed = (url, params = {}) => {
   return axios.get(url, params).then(response => response.data)
 }
 
@@ -64,7 +64,7 @@ export function* loadFeedTail({ id, url, after: afterCursor }) {
   }
 }
 
-const getId = pathname => {
+export const getId = pathname => {
   switch (pathname) {
     case '/tops':
       return 'tops'
@@ -75,18 +75,12 @@ const getId = pathname => {
   }
 }
 
-const getFeeds = state => state.feed
+export const getFeeds = state => state.feed
 
-export function* clearFeedTail({ pathname }) {
-  const id = yield call(getId, pathname)
-  const feed = yield select(getFeed, id)
-  if (feed.ids.length <= 20) {
-    return
-  }
+export const calculateEntitiesToRemove = (feed, idsToRemove, feeds) => {
+  const { id } = feed
 
-  const feeds = yield select(getFeeds)
-
-  const totalIds = _.reduce(
+  const totalEntitiesIds = _.reduce(
     feeds,
     (result, value, key) => {
       if (key === id) {
@@ -97,9 +91,29 @@ export function* clearFeedTail({ pathname }) {
     []
   )
 
-  const ids = yield call(_.take, feed.ids, 20)
-  yield put(actions.clearTailIds(id, ids))
-  const idsToRemoveFromFeed = yield call(_.difference, feed.ids, ids)
-  const totalIdsToRemove = _.difference(idsToRemoveFromFeed, totalIds)
+  return _.difference(idsToRemove, totalEntitiesIds)
+}
+
+export function* clearFeedTail({ pathname }) {
+  const id = yield call(getId, pathname)
+  const feed = yield select(getFeed, id)
+
+  if (feed && 'ids' in feed && feed.ids.length <= 20) {
+    return
+  }
+
+  const mantainIds = yield call(_.take, feed.ids, 20)
+  yield put(actions.clearTailIds(id, mantainIds))
+
+  const idsToRemoveFromFeed = yield call(_.difference, feed.ids, mantainIds)
+  const feeds = yield select(getFeeds)
+
+  const totalIdsToRemove = yield call(
+    calculateEntitiesToRemove,
+    feed,
+    idsToRemoveFromFeed,
+    feeds
+  )
+
   yield put(actions.remove(totalIdsToRemove))
 }
