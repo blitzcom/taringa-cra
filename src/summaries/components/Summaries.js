@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Summary from './Summary'
-import { fetch as fetchSummaries } from '../actions'
 import { summariesSelector, summariesStatusSelector } from '../selectors'
 import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
+import { load, loadTail } from '../actions'
 
 export class Summaries extends Component {
   constructor (props) {
@@ -17,7 +17,7 @@ export class Summaries extends Component {
   }
 
   componentDidMount () {
-    this.props.loadMore(false)
+    this.props.loadFeed()
   }
 
   getPlaceholderCount (size) {
@@ -71,7 +71,7 @@ export class Summaries extends Component {
               </div>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.loadMore}
+                onClick={this.props.loadFeed}
               >
                 Volver a intentar
               </button>
@@ -84,6 +84,7 @@ export class Summaries extends Component {
 }
 
 Summaries.defaultProps = {
+  loadFeed: () => {},
   loadMore: () => {},
   status: "fetching",
   summaries: [],
@@ -95,12 +96,19 @@ const mapStateToProps = (state, props) => ({
   ...summariesStatusSelector(state, props)
 })
 
-const mapDispatchToProps = (dispatch, { id, url }) => {
+const mapDispatchToProps = (dispatch, props) => ({
+  loadFeed: () => dispatch(load(props.id, props.url)),
+  loadMore: (after) => dispatch(loadTail(props.id, after, props.url)),
+})
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
-    loadMore: (keepLoading) => dispatch(fetchSummaries(id, url, keepLoading)),
+    ...stateProps,
+    ...dispatchProps,
+    loadMore: () => dispatchProps.loadMore(stateProps.after),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
   infiniteScroll()(Summaries)
 )

@@ -7,18 +7,14 @@ import classNames from 'classnames'
 import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
+import { clearTail } from '../summaries/actions'
 
-const goTop = (e, location) => {
-  const pathname = e.currentTarget.getAttribute('href')
-
-  if (pathname === location.pathname) {
-    scroll.scrollToTop({ duration: 500 })
-  } else {
-    window.scrollTo(0, 0)
-  }
-}
-
-export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
+export const SecondaryNav = ({
+  changeItemSize,
+  clearTail,
+  itemSize,
+  location,
+}) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -28,6 +24,17 @@ export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
   const smallButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_SMALL,
   })
+
+  const goTop = e => {
+    const pathname = e.currentTarget.getAttribute('href')
+
+    if (pathname === location.pathname) {
+      scroll.scrollToTop({ duration: 500 })
+    } else {
+      clearTail(location.pathname)
+      window.scrollTo(0, 0)
+    }
+  }
 
   return (
     <div className="SecondaryNav bg-light border-bottom">
@@ -66,7 +73,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
                     activeClassName="active"
                     className="nav-item nav-link"
                     exact
-                    onClick={e => goTop(e, location)}
+                    onClick={e => goTop(e, 'trending')}
                     to="/"
                   >
                     Destacados
@@ -75,7 +82,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    onClick={e => goTop(e, location)}
+                    onClick={e => goTop(e, 'recents')}
                     to="/recents"
                   >
                     Recientes
@@ -84,7 +91,7 @@ export const SecondaryNav = ({ itemSize, changeItemSize, location }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    onClick={e => goTop(e, location)}
+                    onClick={e => goTop(e, 'tops')}
                     to="/tops"
                   >
                     Tops
@@ -109,4 +116,11 @@ const mapStateToProps = state => ({
   itemSize: state.settings.itemSize,
 })
 
-export default withRouter(connect(mapStateToProps, actions)(SecondaryNav))
+const mapDispatchToProps = dispatch => ({
+  changeItemSize: size => dispatch(actions.changeItemSize(size)),
+  clearTail: pathname => dispatch(clearTail(pathname)),
+})
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SecondaryNav)
+)

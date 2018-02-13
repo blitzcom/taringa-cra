@@ -1,8 +1,15 @@
-import _ from 'lodash'
-import { normalize } from 'normalizr'
-
 import * as types from './types'
-import { summary } from './schemas'
+
+export const remove = ids => ({
+  type: types.REMOVE,
+  ids: ids,
+})
+
+export const load = (id, url) => ({
+  type: types.LOAD,
+  id: id,
+  url: url,
+})
 
 export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
@@ -20,52 +27,36 @@ export const fetchFailure = (id, message) => ({
   id: id,
 })
 
-const canFetch = (state, id) => {
-  const control = state.feed[id]
-  return !control || control.status !== 'fetching'
-}
+export const loadTail = (id, after, url) => ({
+  type: types.LOAD_TAIL,
+  after: after,
+  id: id,
+  url: url,
+})
 
-const hasItems = (state, id) => {
-  const control = state.feed[id]
-  return control && control.ids.length > 0
-}
+export const fetchTailRequest = id => ({
+  type: types.FETCH_TAIL_REQUEST,
+  id: id,
+})
 
-export const fetch = (id, url, keepLoading = true) => {
-  return (dispatch, getState, axios) => {
-    if (!canFetch(getState(), id)) {
-      return Promise.resolve()
-    }
+export const fetchTailSuccess = id => ({
+  type: types.FETCH_TAIL_SUCCESS,
+  id: id,
+})
 
-    if (!keepLoading && hasItems(getState(), id)) {
-      return Promise.resolve()
-    }
+export const fetchTailFailure = (id, message) => ({
+  type: types.FETCH_TAIL_FAILURE,
+  id: id,
+  message: message,
+})
 
-    const control = getState().feed[id]
-    let params = { count: 25 }
+export const clearTail = pathname => ({
+  type: types.CLEAR_TAIL,
+  pathname: pathname,
+})
 
-    if (control && 'after' in control) {
-      params = _.assign({}, params, { after: control.after })
-    }
-
-    dispatch(fetchRequest(id))
-
-    return axios
-      .get(url, { params })
-      .then(response => response.data)
-      .then(({ after, before, totalCount, items }) => {
-        const action = _.assign(
-          {},
-          normalize(items, [summary]),
-          fetchSuccess(id),
-          {
-            after,
-            before,
-            totalCount,
-          }
-        )
-
-        return dispatch(action)
-      })
-      .catch(error => dispatch(fetchFailure(id, error.message)))
-  }
-}
+export const clearTailIds = (id, ids) => ({
+  type: types.CLEAR_TAIL_IDS,
+  id: id,
+  ids: ids,
+})
