@@ -14,6 +14,7 @@ export const summariesStatusSelector = createSelector(
     }
 
     return {
+      after: control.after,
       error: control.error,
       hasMoreContent: control.ids.length < control.totalCount,
       status: control.status,

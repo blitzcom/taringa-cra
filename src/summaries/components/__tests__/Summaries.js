@@ -57,7 +57,7 @@ describe('Summaries', () => {
 
     mount(
       <MemoryRouter>
-        <Summaries loadMore={mockFetch} />
+        <Summaries loadFeed={mockFetch} />
       </MemoryRouter>
     )
 
