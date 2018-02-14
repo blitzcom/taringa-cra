@@ -1,5 +1,4 @@
 import * as redux from 'redux'
-import thunk from 'redux-thunk'
 import reduxImmutable from 'redux-immutable-state-invariant'
 import axios from 'axios'
 import createSagaMiddleware from 'redux-saga'
@@ -11,7 +10,6 @@ import rootSaga from './sagas'
 axios.defaults.baseURL = '/api'
 
 const sagaMiddleware = createSagaMiddleware()
-const buildThunk = () => thunk.withExtraArgument(axios)
 
 const buildDevTools = () =>
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -25,7 +23,6 @@ const configure = (initialState = globalState) => {
     compose = redux.compose(
       redux.applyMiddleware(
         sagaMiddleware,
-        buildThunk(),
         StorageMiddleware,
         reduxImmutable()
       ),
@@ -33,7 +30,7 @@ const configure = (initialState = globalState) => {
     )
   } else {
     compose = redux.compose(
-      redux.applyMiddleware(sagaMiddleware, buildThunk(), StorageMiddleware)
+      redux.applyMiddleware(sagaMiddleware, StorageMiddleware)
     )
   }
 
