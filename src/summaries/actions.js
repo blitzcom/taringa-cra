@@ -27,9 +27,8 @@ export const fetchFailure = (id, message) => ({
   id: id,
 })
 
-export const loadTail = (id, after, url) => ({
+export const loadTail = (id, url) => ({
   type: types.LOAD_TAIL,
-  after: after,
   id: id,
   url: url,
 })

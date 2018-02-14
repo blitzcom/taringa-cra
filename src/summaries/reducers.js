@@ -31,6 +31,7 @@ const fetchingControl = (state = fetchControlInitialState, action) => {
       return _.assign({}, state, {
         after: action.after,
         before: action.before,
+        count: action.count,
         ids: _.union(state.ids, action.result),
         status: 'success',
         totalCount: action.totalCount,

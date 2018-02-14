@@ -4,21 +4,22 @@ import { createSelector } from 'reselect'
 import { normalizeStory } from './utils'
 
 const summariesState = state => state.entities.summaries
-const summariesFetchState = (state, props) => state.feed[props.id]
+const summariesFetchState = (state, id) => state.feed[id]
 
 export const summariesStatusSelector = createSelector(
   summariesFetchState,
   control => {
-    if (!control) {
-      return { error: '', status: 'fetching', hasMoreContent: true }
+    let hasMoreContent = true
+
+    if (control && control.totalCount && control.ids) {
+      hasMoreContent = control.ids.length < control.totalCount
+    } else if (control && control.count) {
+      hasMoreContent = control.count < 500
     }
 
-    return {
-      after: control.after,
-      error: control.error,
-      hasMoreContent: control.ids.length < control.totalCount,
-      status: control.status,
-    }
+    return _.assign({}, { error: '', status: 'fetching' }, control, {
+      hasMoreContent,
+    })
   }
 )
 
