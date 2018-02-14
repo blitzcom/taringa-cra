@@ -107,7 +107,7 @@ describe('Load feed tail saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', { params: { after: 'a' } }))
+      expect(result).toEqual(call(Taringa.url, '/', { after: 'a' }))
 
       return { after: 'd', before: 'a', items: [], totalCount: 0 }
     })
@@ -157,7 +157,7 @@ describe('Load feed tail saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', { params: { after: 'a' } }))
+      expect(result).toEqual(call(Taringa.url, '/', { after: 'a' }))
 
       return new Error('Network Error')
     })

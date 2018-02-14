@@ -44,7 +44,7 @@ export function* loadFeedTail({ id, url, after: afterCursor }) {
     yield put(actions.fetchTailRequest(id))
 
     const { after, before, items, totalCount } = yield call(Taringa.url, url, {
-      params: { after: afterCursor },
+      after: afterCursor,
     })
 
     const action = _.assign(
