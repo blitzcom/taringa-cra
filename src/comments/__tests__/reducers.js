@@ -88,17 +88,6 @@ describe('Comments fetch control reducer', () => {
     expect(commentsFetchControl(undefined, {})).toEqual({})
   })
 
-  it('handles CREATE_FETCH_CONTROL', () => {
-    const action = {
-      type: types.CREATE_FETCH_CONTROL,
-      id: 1
-    }
-
-    expect(commentsFetchControl(undefined, action)).toEqual({
-      1: { error: '', ids: [], status: 'success' }
-    })
-  })
-
   it('handles FETCH_REQUEST', () => {
     const action = {
       type: types.FETCH_REQUEST,

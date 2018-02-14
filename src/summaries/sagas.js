@@ -66,8 +66,10 @@ export const getId = pathname => {
       return 'tops'
     case '/recents':
       return 'recents'
-    default:
+    case '/':
       return 'trending'
+    default:
+      return null
   }
 }
 
@@ -92,6 +94,11 @@ export const calculateEntitiesToRemove = (feed, idsToRemove, feeds) => {
 
 export function* clearFeedTail({ pathname }) {
   const id = yield call(getId, pathname)
+
+  if (!id) {
+    return
+  }
+
   const feed = yield select(getFeed, id)
 
   if (feed && 'ids' in feed && feed.ids.length <= 20) {

@@ -38,7 +38,7 @@ describe('Load story saga', () => {
     })
 
     it('forks to load comments', result => {
-      expect(result).toEqual(fork(loadComments, id))
+      expect(result).toEqual(fork(loadComments, { id }))
     })
 
     it('ends', result => {
