@@ -26,7 +26,7 @@ class App extends Component {
 
           <div className="container">
             <Switch>
-              <Route path="/u/:user" component={Feed} />
+              <Route path="/u/:username" component={Feed} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/" component={Home} />
             </Switch>
