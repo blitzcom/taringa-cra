@@ -11,20 +11,20 @@ export const getFeed = (state, id) => state.feed[id]
 export function* loadFeed({ id, url }) {
   const feed = yield select(getFeed, id)
 
-  if (feed && 'ids' in feed && feed.ids.length > 20) {
+  if (feed && feed.ids && feed.ids.length >= 20) {
     return
   }
 
   try {
     yield put(actions.fetchRequest(id))
 
-    const { after, before, totalCount, items } = yield call(Taringa.url, url)
+    const { items, ...rest } = yield call(Taringa.url, url)
 
     const action = _.assign(
       {},
       normalize(items, [summary]),
       actions.fetchSuccess(id),
-      { after, before, totalCount }
+      rest
     )
 
     yield put(action)
