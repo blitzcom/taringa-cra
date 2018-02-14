@@ -1,7 +1,8 @@
 import _ from 'lodash'
 import sagaHelper from 'redux-saga-testing'
-import { call, put, select } from 'redux-saga/effects'
+import { call, put, select, fork } from 'redux-saga/effects'
 
+import { loadComments } from '../../comments/sagas'
 import { loadStory, getStory } from '../sagas'
 import Taringa from '../../api'
 
@@ -34,6 +35,10 @@ describe('Load story saga', () => {
         id,
         result: 1,
       }))
+    })
+
+    it('forks to load comments', result => {
+      expect(result).toEqual(fork(loadComments, id))
     })
 
     it('ends', result => {
@@ -79,7 +84,7 @@ describe('Load story saga', () => {
       return new Error('Network Error')
     })
 
-    it('puts fetch success action', result => {
+    it('puts fetch failure action', result => {
       expect(result).toEqual(put({
         type: 'stories/FETCH_FAILURE',
         id,
