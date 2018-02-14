@@ -33,18 +33,6 @@ describe('Stories fetch control reducer', () => {
     expect(storiesFetchControl(undefined, {})).toEqual({})
   })
 
-  it('handles CREATE_FETCH_CONTROL', () => {
-    const action = {
-      type: types.CREATE_FETCH_CONTROL,
-      id: 1,
-    }
-
-    expect(storiesFetchControl({}, action)).toEqual({
-      1: { error: '', status: 'success' },
-    })
-  })
-
-
   it('handles FETCH_REQUEST', () => {
     const action = {
       type: types.FETCH_REQUEST,

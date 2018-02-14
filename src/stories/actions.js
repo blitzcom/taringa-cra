@@ -3,7 +3,6 @@ import { normalize } from 'normalizr'
 
 import * as types from './types'
 import { story } from './schemas'
-import { fetch as fetchComments } from '../comments/actions'
 
 export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
@@ -45,14 +44,7 @@ export const fetch = id => {
   }
 }
 
-export const fetchWithComments = id => {
-  return (dispatch, getState) => {
-    return dispatch(fetch(id)).then(result => {
-      if (!result || result.type === types.FETCH_FAILURE) {
-        return Promise.resolve()
-      }
-
-      return dispatch(fetchComments(id))
-    })
-  }
-}
+export const fetchWithComments = id => ({
+  type: types.LOAD,
+  id: id,
+})

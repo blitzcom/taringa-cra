@@ -33,10 +33,6 @@ export const storiesFetchControl = (state = {}, action) => {
       return _.assign({}, state, {
         [action.id]: storyFetchControl(state[action.id], action),
       })
-    case types.CREATE_FETCH_CONTROL:
-      return _.assign({}, state, {
-        [action.id]: storyFetchControl(undefined, {}),
-      })
     default:
       return state
   }
