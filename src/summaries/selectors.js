@@ -17,11 +17,9 @@ export const summariesStatusSelector = createSelector(
       hasMoreContent = control.count < 500
     }
 
-    return _.assign({},
-      { error: '', status: 'fetching' },
-      control,
-      { hasMoreContent }
-    )
+    return _.assign({}, { error: '', status: 'fetching' }, control, {
+      hasMoreContent,
+    })
   }
 )
 

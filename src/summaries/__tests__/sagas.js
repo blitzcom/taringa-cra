@@ -92,12 +92,12 @@ describe('Load feed saga', () => {
 
 describe('Load feed tail saga', () => {
   describe('(a) loads feed tail', () => {
-    const it = sagaHelper(loadFeedTail({ id: 1, url: '/', after: 'a' }))
+    const it = sagaHelper(loadFeedTail({ id: 1, url: '/' }))
 
     it('selects feed', result => {
       expect(result).toEqual(select(getFeed, 1))
 
-      return { status: 'success' }
+      return { status: 'success', after: 'a' }
     })
 
     it('puts fetch request action', result => {
@@ -149,7 +149,7 @@ describe('Load feed tail saga', () => {
     it('selects feed', result => {
       expect(result).toEqual(select(getFeed, 1))
 
-      return { status: 'success' }
+      return { status: 'success', after: 'a' }
     })
 
     it('puts fetch request action', result => {

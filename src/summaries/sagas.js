@@ -33,25 +33,25 @@ export function* loadFeed({ id, url }) {
   }
 }
 
-export function* loadFeedTail({ id, url, after: afterCursor }) {
+export function* loadFeedTail({ id, url }) {
   const feed = yield select(getFeed, id)
 
   if (feed.status === 'fetching') {
     return
   }
 
+  const params = { after: feed.after }
+
   try {
     yield put(actions.fetchTailRequest(id))
 
-    const { after, before, items, totalCount } = yield call(Taringa.url, url, {
-      after: afterCursor,
-    })
+    const { items, ...rest } = yield call(Taringa.url, url, params)
 
     const action = _.assign(
       {},
       normalize(items, [summary]),
       actions.fetchTailSuccess(id),
-      { after, before, totalCount }
+      rest
     )
 
     yield put(action)

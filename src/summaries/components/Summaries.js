@@ -71,7 +71,7 @@ export class Summaries extends Component {
               </div>
               <button
                 className="btn btn-outline-primary btn-sm"
-                onClick={this.props.loadFeed}
+                onClick={this.props.loadMore}
               >
                 Volver a intentar
               </button>
@@ -92,23 +92,15 @@ Summaries.defaultProps = {
 
 const mapStateToProps = (state, props) => ({
   itemSize: state.settings.itemSize,
-  summaries: summariesSelector(state, props),
-  ...summariesStatusSelector(state, props)
+  summaries: summariesSelector(state, props.id),
+  ...summariesStatusSelector(state, props.id)
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
   loadFeed: () => dispatch(load(props.id, props.url)),
-  loadMore: (after) => dispatch(loadTail(props.id, after, props.url)),
+  loadMore: () => dispatch(loadTail(props.id, props.url)),
 })
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return {
-    ...stateProps,
-    ...dispatchProps,
-    loadMore: () => dispatchProps.loadMore(stateProps.after),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+export default connect(mapStateToProps, mapDispatchToProps)(
   infiniteScroll()(Summaries)
 )
