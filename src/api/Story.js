@@ -5,8 +5,8 @@ class Story extends APIBase {
     return super.execute(`/story/${id}`)
   }
 
-  comments(id, after = '') {
-    return super.execute(`/story/${id}/comments`, { after })
+  comments(id, params = {}) {
+    return super.execute(`/story/${id}/comments`, params)
   }
 }
 

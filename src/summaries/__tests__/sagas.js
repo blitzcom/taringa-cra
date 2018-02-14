@@ -260,7 +260,7 @@ describe('clear feed tail saga', () => {
     })
   })
 
-  describe('(a) skips if has no tail', () => {
+  describe('(b) skips if has no tail', () => {
     const it = sagaHelper(clearFeedTail({ pathname: '/' }))
     const feed = {
       id: 'trending',
@@ -277,6 +277,24 @@ describe('clear feed tail saga', () => {
       expect(result).toEqual(select(getFeed, 'trending'))
 
       return feed
+    })
+
+    it('ends', result => {
+      expect(result).toBeUndefined()
+    })
+  })
+
+  describe('(c) skips if null id', () => {
+    const it = sagaHelper(clearFeedTail({ pathname: '/' }))
+    const feed = {
+      id: 'trending',
+      ids: _.times(20)
+    }
+
+    it('parses id from pathname', result => {
+      expect(result).toEqual(call(getId, '/'))
+
+      return null
     })
 
     it('ends', result => {

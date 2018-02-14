@@ -7,7 +7,7 @@ import Card from '../../users/components/Card'
 import StoryContent from './StoryContent'
 import Comments from '../../comments/components/Comments'
 import * as actions from '../actions'
-import { fetch as fetchComments } from '../../comments/actions'
+import { load as loadComments } from '../../comments/actions'
 import { slugToId }  from '../../utils/slug'
 import { storySelector, storyStateSelector } from '../selectors'
 import {
@@ -24,7 +24,7 @@ export class Story extends Component {
     const {
       comments,
       commentsStatus,
-      fetchComments,
+      loadComments,
       story,
       storyStatus: { status },
     } = this.props
@@ -42,7 +42,7 @@ export class Story extends Component {
           <Comments
             canRender={status === 'success'}
             comments={comments}
-            loadMore={fetchComments}
+            loadMore={loadComments}
             hasMoreContent={hasMoreContent}
             {...commentsStatus}
           />
@@ -91,7 +91,7 @@ const mapDispatchToProps = (dispatch, props) => {
   const storyId = getStoryId(props)
 
   return {
-    fetchComments: () => dispatch(fetchComments(storyId)),
+    loadComments: () => dispatch(loadComments(storyId)),
     fetchStoryWithComments: () => dispatch(actions.fetchWithComments(storyId)),
   }
 }

@@ -28,7 +28,7 @@ export function* loadStory({ id }) {
     )
 
     yield put(action)
-    yield fork(loadComments, id)
+    yield fork(loadComments, { id })
   } catch (e) {
     yield put(actions.fetchFailure(id, e.message))
   }
