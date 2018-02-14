@@ -14,6 +14,7 @@ describe('Store', () => {
         comments: {},
         stories: {},
         summaries: {},
+        users: {},
       },
       feed: {},
       flash: {},
