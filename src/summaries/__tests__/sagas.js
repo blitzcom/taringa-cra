@@ -4,7 +4,6 @@ import sagaHelper from 'redux-saga-testing'
 import {
   calculateEntitiesToRemove,
   clearFeedTail,
-  fetchFeed,
   getFeed,
   getFeeds,
   getId,
@@ -12,6 +11,7 @@ import {
   loadFeedTail,
  } from '../sagas'
 import { call, put, select } from 'redux-saga/effects'
+import Taringa from '../../api'
 
 describe('Load feed saga', () => {
   describe('(a) loads initial feed', () => {
@@ -26,7 +26,7 @@ describe('Load feed saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(fetchFeed, '/'))
+      expect(result).toEqual(call(Taringa.url, '/'))
       return { after: 'd', before: 'a', items: [], totalCount: 0 }
     })
 
@@ -72,7 +72,7 @@ describe('Load feed saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(fetchFeed, '/'))
+      expect(result).toEqual(call(Taringa.url, '/'))
       return new Error('Network Error')
     })
 
@@ -107,7 +107,7 @@ describe('Load feed tail saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(fetchFeed, '/', { params: { after: 'a' } }))
+      expect(result).toEqual(call(Taringa.url, '/', { params: { after: 'a' } }))
 
       return { after: 'd', before: 'a', items: [], totalCount: 0 }
     })
@@ -157,7 +157,7 @@ describe('Load feed tail saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(fetchFeed, '/', { params: { after: 'a' } }))
+      expect(result).toEqual(call(Taringa.url, '/', { params: { after: 'a' } }))
 
       return new Error('Network Error')
     })

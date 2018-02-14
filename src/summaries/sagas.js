@@ -1,16 +1,12 @@
 import _ from 'lodash'
-import axios from 'axios'
 import { normalize } from 'normalizr'
 import { call, put, select } from 'redux-saga/effects'
 
 import * as actions from './actions'
 import { summary } from './schemas'
+import Taringa from '../api'
 
 export const getFeed = (state, id) => state.feed[id]
-
-export const fetchFeed = (url, params = {}) => {
-  return axios.get(url, params).then(response => response.data)
-}
 
 export function* loadFeed({ id, url }) {
   const feed = yield select(getFeed, id)
@@ -22,7 +18,7 @@ export function* loadFeed({ id, url }) {
   try {
     yield put(actions.fetchRequest(id))
 
-    const { after, before, totalCount, items } = yield call(fetchFeed, url)
+    const { after, before, totalCount, items } = yield call(Taringa.url, url)
 
     const action = _.assign(
       {},
@@ -47,7 +43,7 @@ export function* loadFeedTail({ id, url, after: afterCursor }) {
   try {
     yield put(actions.fetchTailRequest(id))
 
-    const { after, before, items, totalCount } = yield call(fetchFeed, url, {
+    const { after, before, items, totalCount } = yield call(Taringa.url, url, {
       params: { after: afterCursor },
     })
 
