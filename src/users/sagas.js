@@ -1,17 +1,16 @@
 import { call, put } from 'redux-saga/effects'
 
-export const fetchUser = username => {
-  return axios.get(`/user/${username}/about`).then(response => response.data)
-}
+import Taringa from '../api'
+import * as actions from './actions'
 
-export function* loadUser(username) {
+export function* fetch({ username }) {
   try {
-    yield put({ type: 'users/FETCH_REQUEST' })
+    yield put(actions.fetchRequest(username))
 
-    const user = yield call(fetchUser, username)
+    const user = yield call(Taringa.user.about, username)
 
-    yield put({ type: 'users/FETCH_SUCCESS' })
+    yield put(actions.fetchSuccess(username, user))
   } catch (e) {
-    yield put({ type: 'users/FETCH_FAILURE' })
+    yield put(actions.fetchFailure(username, e.message))
   }
 }

@@ -4,6 +4,7 @@ import { call, put, select, fork } from 'redux-saga/effects'
 
 import { loadComments } from '../../comments/sagas'
 import { loadStory, getStory } from '../sagas'
+import { fetch as fetchUser } from '../../users/sagas'
 import Taringa from '../../api'
 
 describe('Load story saga', () => {
@@ -25,13 +26,13 @@ describe('Load story saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.story.byId, id))
 
-      return { id }
+      return { id, owner: { username: 'foo' } }
     })
 
     it('puts fetch success action', result => {
       expect(result).toEqual(put({
         type: 'stories/FETCH_SUCCESS',
-        entities: { stories: { [id]: { id } } },
+        entities: { stories: { [id]: { id, owner: { username: 'foo' } } } },
         id,
         result: 1,
       }))
@@ -39,6 +40,10 @@ describe('Load story saga', () => {
 
     it('forks to load comments', result => {
       expect(result).toEqual(fork(loadComments, { id }))
+    })
+
+    it('forks to load user', result => {
+      expect(result).toEqual(fork(fetchUser, { username: 'foo' }))
     })
 
     it('ends', result => {
