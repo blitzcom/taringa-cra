@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SearchInput from '../SearchInput'
+import { SearchInput } from '../SearchInput'
 
 jest.useFakeTimers()
 
@@ -28,7 +28,16 @@ describe('Search Input', () => {
   it('handles input with 250ms debounce', () => {
     const mock = jest.fn()
 
-    const wrapper = mount(<SearchInput onChange={mock} />)
+    const props = {
+      location: {
+        pathname: '/search'
+      },
+      history: {
+        push: () => {}
+      }
+    }
+
+    const wrapper = mount(<SearchInput onChange={mock} {...props} />)
     const event = { target: { value: 'foo' } }
 
     wrapper.find('input').simulate('change', event)
@@ -55,5 +64,59 @@ describe('Search Input', () => {
     expect(wrapper).toMatchSnapshot()
     wrapper.find('button').at(1).simulate('click')
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('redirect to search page', () => {
+    describe('when is on search route', () => {
+      it('ignores redirect', () => {
+        const mock = jest.fn()
+
+        const props = {
+          location: {
+            pathname: '/search'
+          },
+          history: {
+            push: mock
+          }
+        }
+
+        const wrapper = mount(<SearchInput {...props} />)
+        const event = { target: { value: 'foo' } }
+
+        wrapper.find('input').simulate('change', event)
+
+        expect(setTimeout).toBeCalledWith(expect.any(Function), 250)
+
+        jest.runAllTimers()
+
+        expect(mock).not.toBeCalled()
+      })
+    })
+
+    describe('when is on any other route', () => {
+      it('redirects to /search', () => {
+        const mock = jest.fn()
+
+        const props = {
+          location: {
+            pathname: '/'
+          },
+          history: {
+            push: mock
+          }
+        }
+
+        const wrapper = mount(<SearchInput {...props} />)
+        const event = { target: { value: 'foo' } }
+
+        wrapper.find('input').simulate('change', event)
+
+        expect(setTimeout).toBeCalledWith(expect.any(Function), 250)
+
+        jest.runAllTimers()
+
+        expect(mock).toBeCalledWith('/search')
+      })
+    })
   })
 })
