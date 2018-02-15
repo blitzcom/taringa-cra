@@ -9,7 +9,7 @@ import {
   summariesStatusSelector,
 } from '../../summaries/selectors'
 import infiniteScroll from '../../HOC/InfiniteScroll'
-import { load, loadTail } from '../../summaries/actions'
+import { load, loadTail, clearTail } from '../../summaries/actions'
 
 const mapStateToProps = (state, props) => {
   const username = props.match.params.username
@@ -27,8 +27,9 @@ const mapDispatchToProps = (dispatch, props) => {
   const url = `/user/${username}/feed`
 
   return {
+    clearTail: () => dispatch(clearTail(username)),
     loadFeed: () => dispatch(load(username, url)),
-    loadMore: () => dispatch(loadTail(username, url))
+    loadMore: () => dispatch(loadTail(username, url)),
   }
 }
 
