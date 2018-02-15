@@ -5,9 +5,10 @@ export const remove = ids => ({
   ids: ids,
 })
 
-export const load = (id, url) => ({
+export const load = (id, url, includeUser = false) => ({
   type: types.LOAD,
   id: id,
+  includeUser: includeUser,
   url: url,
 })
 
