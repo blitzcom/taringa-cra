@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Serach Group renders 1`] = `
+<div
+  className="bar"
+>
+  <h6
+    className="text-secondary"
+  >
+    foo
+  </h6>
+  baz
+</div>
+`;
+
+exports[`Serach Group wrapper renders 1`] = `
+<div
+  className="bar"
+>
+  <h6
+    className="text-secondary"
+  >
+    foo
+  </h6>
+  <div
+    className="row"
+  >
+    baz
+  </div>
+</div>
+`;

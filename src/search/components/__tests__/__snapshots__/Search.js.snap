@@ -5,9 +5,618 @@ exports[`Search renders 1`] = `
   className="row"
 >
   <div
-    className="col-12"
+    className="col-8"
   >
-    Search
+    <h5
+      className="mb-4"
+    >
+      Resultados de búsqueda
+    </h5>
+    <div
+      className="mb-4"
+    >
+      <h6
+        className="text-secondary"
+      >
+        Posts
+      </h6>
+      <div
+        className="Summaries"
+      >
+        <div
+          className="card"
+        >
+          <ul
+            className="list-group list-group-flush"
+          >
+            <div
+              className="list-group-item p-2"
+            >
+              <div
+                className="StorySmall-animated-background"
+              >
+                <div
+                  className="StorySmall-thumbnail-gap ph"
+                />
+                <div
+                  className="StorySmall-top-gap ph"
+                />
+                <div
+                  className="StorySmall-bottom-gap ph"
+                />
+              </div>
+            </div>
+            <div
+              className="list-group-item p-2"
+            >
+              <div
+                className="StorySmall-animated-background"
+              >
+                <div
+                  className="StorySmall-thumbnail-gap ph"
+                />
+                <div
+                  className="StorySmall-top-gap ph"
+                />
+                <div
+                  className="StorySmall-bottom-gap ph"
+                />
+              </div>
+            </div>
+            <div
+              className="list-group-item p-2"
+            >
+              <div
+                className="StorySmall-animated-background"
+              >
+                <div
+                  className="StorySmall-thumbnail-gap ph"
+                />
+                <div
+                  className="StorySmall-top-gap ph"
+                />
+                <div
+                  className="StorySmall-bottom-gap ph"
+                />
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h6
+        className="text-secondary"
+      >
+        Usuarios
+      </h6>
+      <div
+        className="row"
+      >
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-6 mb-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-body p-3 d-flex"
+            >
+              <img
+                alt={undefined}
+                className="rounded mr-3"
+                src={undefined}
+                style={
+                  Object {
+                    "height": 68,
+                    "maxHeight": 68,
+                    "maxWidth": 68,
+                    "minHeight": 68,
+                    "minWidth": 68,
+                    "width": 68,
+                  }
+                }
+              />
+              <div>
+                <h6
+                  className="m-0"
+                >
+                   
+                </h6>
+                <a
+                  href="/u/undefined"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontSize": "90%",
+                    }
+                  }
+                >
+                  @
+                </a>
+                <p
+                  className="mb-0 mt-1 text-muted small"
+                >
+                   seguidores  
+                   siguiendo  
+                   posts
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
