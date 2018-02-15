@@ -39,7 +39,6 @@ const UserFeed = withRouter(connect(mapStateToProps, mapDispatchToProps)(
 ))
 
 const Feed = props => {
-  console.log(props)
   return (
     <div className="row">
       <div className="col-8">

@@ -14,7 +14,7 @@ export const summariesStatusSelector = createSelector(
     if (control && control.totalCount && control.ids) {
       hasMoreContent = control.ids.length < control.totalCount
     } else if (control && control.count) {
-      hasMoreContent = control.count < 500
+      hasMoreContent = control.count >= 20
     }
 
     return _.assign({}, { error: '', status: 'fetching' }, control, {
