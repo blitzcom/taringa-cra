@@ -1,10 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import classNames from 'classnames'
+import { withRouter } from 'react-router-dom'
 
 import './SearchInput.css'
 
-class SearchInput extends Component {
+export class SearchInput extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +14,7 @@ class SearchInput extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClear = this.handleClear.bind(this)
+    this.redirect = this.redirect.bind(this)
     this.emitChangeDebounced = _.debounce(this.emitChange, 250)
   }
 
@@ -33,7 +35,16 @@ class SearchInput extends Component {
     })
   }
 
+  redirect() {
+    const { pathname } = this.props.location
+
+    if (pathname !== '/search') {
+      this.props.history.push('/search')
+    }
+  }
+
   emitChange(value) {
+    this.redirect()
     this.props.onChange(value)
   }
 
@@ -87,4 +98,4 @@ SearchInput.defaultProps = {
   onClear: () => {},
 }
 
-export default SearchInput
+export default withRouter(SearchInput)
