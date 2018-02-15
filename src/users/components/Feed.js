@@ -8,6 +8,7 @@ import {
   summariesSelector,
   summariesStatusSelector,
 } from '../../summaries/selectors'
+import { userSelector } from '../selectors'
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import { load, loadTail, clearTail } from '../../summaries/actions'
 
@@ -28,7 +29,7 @@ const mapDispatchToProps = (dispatch, props) => {
 
   return {
     clearTail: () => dispatch(clearTail(username)),
-    loadFeed: () => dispatch(load(username, url)),
+    loadFeed: () => dispatch(load(username, url, true)),
     loadMore: () => dispatch(loadTail(username, url)),
   }
 }
@@ -38,16 +39,21 @@ const UserFeed = withRouter(connect(mapStateToProps, mapDispatchToProps)(
 ))
 
 const Feed = props => {
+  console.log(props)
   return (
     <div className="row">
       <div className="col-8">
         <UserFeed />
       </div>
       <div className="col-4">
-        <Card status="fetching" />
+        <Card {...props.user} />
       </div>
     </div>
   )
 }
 
-export default Feed
+export default connect((state, props) => {
+  return {
+    user: userSelector(state, props),
+  }
+})(Feed)
