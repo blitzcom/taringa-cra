@@ -1,4 +1,5 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 
 import Search from '../Search'
 
@@ -8,7 +9,11 @@ describe('Search', () => {
   })
 
   it('renders', () => {
-    const tree = renderer.create(<Search />).toJSON()
+    const tree = renderer.create(
+      <MemoryRouter>
+        <Search />
+      </MemoryRouter>
+    ).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
