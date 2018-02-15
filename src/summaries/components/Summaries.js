@@ -23,7 +23,9 @@ export class Summaries extends Component {
       if (this.props.match.path === location.pathname) {
         scroll.scrollToTop({ duration: 500 })
       } else {
-        this.props.clearTail(this.props.id)
+        if (location.state && location.state.clear && action === 'PUSH') {
+          this.props.clearTail(this.props.id)
+        }
         window.scrollTo(0, 0)
       }
     })

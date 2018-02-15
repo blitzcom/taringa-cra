@@ -55,7 +55,10 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
                     activeClassName="active"
                     className="nav-item nav-link"
                     exact
-                    to="/"
+                    to={{
+                      pathname: '/',
+                      state: { clear: true },
+                    }}
                   >
                     Destacados
                   </NavLink>
@@ -63,7 +66,10 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    to="/recents"
+                    to={{
+                      pathname: '/recents',
+                      state: { clear: true },
+                    }}
                   >
                     Recientes
                   </NavLink>
@@ -71,7 +77,10 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    to="/tops"
+                    to={{
+                      pathname: '/tops',
+                      state: { clear: true },
+                    }}
                   >
                     Tops
                   </NavLink>
