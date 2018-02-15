@@ -49,9 +49,9 @@ export const fetchTailFailure = (id, message) => ({
   message: message,
 })
 
-export const clearTail = pathname => ({
+export const clearTail = id => ({
   type: types.CLEAR_TAIL,
-  pathname: pathname,
+  id: id,
 })
 
 export const clearTailIds = (id, ids) => ({

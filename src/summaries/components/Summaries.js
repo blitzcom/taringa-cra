@@ -1,12 +1,13 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
+import { animateScroll as scroll } from 'react-scroll'
 import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Summary from './Summary'
 import { summariesSelector, summariesStatusSelector } from '../selectors'
 import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
-import { load, loadTail } from '../actions'
+import { load, loadTail, clearTail } from '../actions'
 
 export class Summaries extends Component {
   constructor (props) {
@@ -18,6 +19,18 @@ export class Summaries extends Component {
 
   componentDidMount () {
     this.props.loadFeed()
+    this.unlisten = this.props.history.listen((location, action) => {
+      if (this.props.match.path === location.pathname) {
+        scroll.scrollToTop({ duration: 500 })
+      } else {
+        this.props.clearTail(this.props.id)
+        window.scrollTo(0, 0)
+      }
+    })
+  }
+
+  componentWillUnmount () {
+    this.unlisten()
   }
 
   getPlaceholderCount (size) {
@@ -88,6 +101,9 @@ Summaries.defaultProps = {
   loadMore: () => {},
   status: "fetching",
   summaries: [],
+  history: {
+    listen: () => () => {}
+  }
 }
 
 const mapStateToProps = (state, props) => ({
@@ -97,6 +113,7 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
+  clearTail: (id) => dispatch(clearTail(id)),
   loadFeed: () => dispatch(load(props.id, props.url)),
   loadMore: () => dispatch(loadTail(props.id, props.url)),
 })

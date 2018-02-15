@@ -60,19 +60,6 @@ export function* loadFeedTail({ id, url }) {
   }
 }
 
-export const getId = pathname => {
-  switch (pathname) {
-    case '/tops':
-      return 'tops'
-    case '/recents':
-      return 'recents'
-    case '/':
-      return 'trending'
-    default:
-      return null
-  }
-}
-
 export const getFeeds = state => state.feed
 
 export const calculateEntitiesToRemove = (feed, idsToRemove, feeds) => {
@@ -92,16 +79,14 @@ export const calculateEntitiesToRemove = (feed, idsToRemove, feeds) => {
   return _.difference(idsToRemove, totalEntitiesIds)
 }
 
-export function* clearFeedTail({ pathname }) {
-  const id = yield call(getId, pathname)
+export function* clearFeedTail({ id }) {
+  const feed = yield select(getFeed, id)
 
-  if (!id) {
+  if (!feed) {
     return
   }
 
-  const feed = yield select(getFeed, id)
-
-  if (feed && 'ids' in feed && feed.ids.length <= 20) {
+  if (feed.ids && feed.ids.length <= 20) {
     return
   }
 

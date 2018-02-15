@@ -1,20 +1,13 @@
 import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-import { animateScroll as scroll } from 'react-scroll'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
 import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
-import { clearTail } from '../summaries/actions'
 
-export const SecondaryNav = ({
-  changeItemSize,
-  clearTail,
-  itemSize,
-  location,
-}) => {
+export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -24,17 +17,6 @@ export const SecondaryNav = ({
   const smallButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_SMALL,
   })
-
-  const goTop = e => {
-    const pathname = e.currentTarget.getAttribute('href')
-
-    if (pathname === location.pathname) {
-      scroll.scrollToTop({ duration: 500 })
-    } else {
-      clearTail(location.pathname)
-      window.scrollTo(0, 0)
-    }
-  }
 
   return (
     <div className="SecondaryNav bg-light border-bottom">
@@ -73,7 +55,6 @@ export const SecondaryNav = ({
                     activeClassName="active"
                     className="nav-item nav-link"
                     exact
-                    onClick={e => goTop(e, 'trending')}
                     to="/"
                   >
                     Destacados
@@ -82,7 +63,6 @@ export const SecondaryNav = ({
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    onClick={e => goTop(e, 'recents')}
                     to="/recents"
                   >
                     Recientes
@@ -91,7 +71,6 @@ export const SecondaryNav = ({
                   <NavLink
                     activeClassName="active"
                     className="nav-item nav-link"
-                    onClick={e => goTop(e, 'tops')}
                     to="/tops"
                   >
                     Tops
@@ -118,7 +97,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeItemSize: size => dispatch(actions.changeItemSize(size)),
-  clearTail: pathname => dispatch(clearTail(pathname)),
 })
 
 export default withRouter(
