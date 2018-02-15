@@ -1,0 +1,34 @@
+.SearchInput .btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  border: none;
+}
+
+.SearchInput .input-group-prepend {
+  margin-right: 0;
+}
+
+.SearchInput .input-group-append {
+  margin-left: 0;
+}
+
+.SearchInput .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.SearchInput .form-control {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 0;
+  color: white;
+}
+
+.SearchInput .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.SearchInput .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}

@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Input clears search input 1`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value="foo"
+  />
+  <div
+    className="input-group-append"
+  >
+    <button
+      className="btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fa fa-times"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Search Input clears search input 2`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Search Input renders 1`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Search Input renders spinner 1`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-circle-notch fa-spin"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Search Input shows clear button 1`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Search Input shows clear button 2`] = `
+<div
+  className="SearchInput input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <button
+      className="btn"
+      type="button"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </button>
+  </div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Buscar canal, post o usuario"
+    type="text"
+    value="foo"
+  />
+  <div
+    className="input-group-append"
+  >
+    <button
+      className="btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fa fa-times"
+      />
+    </button>
+  </div>
+</div>
+`;
