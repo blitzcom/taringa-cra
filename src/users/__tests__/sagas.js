@@ -26,8 +26,8 @@ describe('Fetch user saga', () => {
     it('puts fetch success action', result => {
       expect(result).toEqual(put({
         type: 'users/FETCH_SUCCESS',
-        entities: { users: { 1: { id: 1, username: 'foo', message: 'bar' } } },
-        result: 1,
+        entities: { users: { foo: { id: 1, username: 'foo', message: 'bar' } } },
+        result: 'foo',
         username: username,
       }))
     })

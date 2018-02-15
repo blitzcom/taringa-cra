@@ -19,10 +19,10 @@ describe('Users actions', () => {
     expect(actions.fetchSuccess('foo', user)).toEqual({
       type: types.FETCH_SUCCESS,
       username: 'foo',
-      result: 1,
+      result: 'foo',
       entities: {
         users: {
-          1:  { id: 1, username: 'foo', message: 'bar' }
+          foo:  { id: 1, username: 'foo', message: 'bar' }
         }
       }
     })
