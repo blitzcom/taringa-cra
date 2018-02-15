@@ -97,6 +97,7 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
+  clearTail: (id) => dispatch(clearTail(id)),
   loadFeed: () => dispatch(load(props.id, props.url)),
   loadMore: () => dispatch(loadTail(props.id, props.url)),
 })

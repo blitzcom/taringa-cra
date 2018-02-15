@@ -6,7 +6,6 @@ import {
   clearFeedTail,
   getFeed,
   getFeeds,
-  getId,
   loadFeed,
   loadFeedTail,
  } from '../sagas'
@@ -178,7 +177,7 @@ describe('Load feed tail saga', () => {
 
 describe('clear feed tail saga', () => {
   describe('(a) removes tail', () => {
-    const it = sagaHelper(clearFeedTail({ pathname: '/' }))
+    const it = sagaHelper(clearFeedTail({ id: 'trending' }))
     const feed = {
       id: 'trending',
       ids: _.times(30)
@@ -194,12 +193,6 @@ describe('clear feed tail saga', () => {
         ids: [24, 25, 26, 27, 28]
       }
     }
-
-    it('parses id from pathname', result => {
-      expect(result).toEqual(call(getId, '/'))
-
-      return 'trending'
-    })
 
     it('selects feed', result => {
       expect(result).toEqual(select(getFeed, 'trending'))
@@ -261,17 +254,11 @@ describe('clear feed tail saga', () => {
   })
 
   describe('(b) skips if has no tail', () => {
-    const it = sagaHelper(clearFeedTail({ pathname: '/' }))
+    const it = sagaHelper(clearFeedTail({ id: 'trending' }))
     const feed = {
       id: 'trending',
       ids: _.times(20)
     }
-
-    it('parses id from pathname', result => {
-      expect(result).toEqual(call(getId, '/'))
-
-      return 'trending'
-    })
 
     it('selects feed', result => {
       expect(result).toEqual(select(getFeed, 'trending'))
@@ -285,16 +272,10 @@ describe('clear feed tail saga', () => {
   })
 
   describe('(c) skips if null id', () => {
-    const it = sagaHelper(clearFeedTail({ pathname: '/' }))
-    const feed = {
-      id: 'trending',
-      ids: _.times(20)
-    }
+    const it = sagaHelper(clearFeedTail({ id: 'trending' }))
 
-    it('parses id from pathname', result => {
-      expect(result).toEqual(call(getId, '/'))
-
-      return null
+    it('selects feed', result => {
+      expect(result).toEqual(select(getFeed, 'trending'))
     })
 
     it('ends', result => {
