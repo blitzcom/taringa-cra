@@ -18,7 +18,7 @@ export const storySelector = createSelector(
   (story, userState) => {
     if (story) {
       const content = MarkdownEngine.Render(story.content)
-      const user = userState[story.owner.id]
+      const user = userState[story.owner.username]
 
       return _.assign({}, story, {
         content: content,
