@@ -5,9 +5,7 @@ const Flash = props => {
     <div className={`alert alert-${props.kind}`}>
       <div className="container">
         <div className="row">
-          <div className="col">
-            {props.flash}
-          </div>
+          <div className="col">{props.flash}</div>
         </div>
       </div>
     </div>

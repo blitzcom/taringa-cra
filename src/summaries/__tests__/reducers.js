@@ -1,13 +1,10 @@
-import {
-  summariesEntities,
-  summariesFetchControl,
-} from '../reducers'
+import { summariesEntities, summariesFetchControl } from '../reducers'
 
 import * as types from '../types'
 
 describe('Summaries entities reducer', () => {
   it('returns initial state', () => {
-    expect(summariesEntities(undefined,{})).toEqual({})
+    expect(summariesEntities(undefined, {})).toEqual({})
   })
 
   it('merges summaries', () => {
@@ -17,8 +14,8 @@ describe('Summaries entities reducer', () => {
         summaries: {
           1: { bar: false, foo: true, id: 1 },
           2: { bar: false, foo: true, id: 2 },
-        }
-      }
+        },
+      },
     }
 
     expect(summariesEntities(undefined, action)).toEqual({
@@ -36,7 +33,7 @@ describe('Summaries fetch control reducer', () => {
   it('handles FETCH_REQUEST', () => {
     const action = {
       type: types.FETCH_REQUEST,
-      id: 1
+      id: 1,
     }
 
     const state = {}
@@ -49,7 +46,7 @@ describe('Summaries fetch control reducer', () => {
         ids: [],
         status: 'fetching',
         totalCount: 0,
-      }
+      },
     })
   })
 
@@ -57,7 +54,7 @@ describe('Summaries fetch control reducer', () => {
     const action = {
       type: types.FETCH_SUCCESS,
       result: [1, 2, 3, 4, 5],
-      id: 1
+      id: 1,
     }
 
     const state = {
@@ -68,7 +65,7 @@ describe('Summaries fetch control reducer', () => {
         ids: [],
         status: 'fetching',
         totalCount: 0,
-      }
+      },
     }
 
     expect(summariesFetchControl(state, action)).toEqual({
@@ -76,7 +73,7 @@ describe('Summaries fetch control reducer', () => {
         error: '',
         ids: [1, 2, 3, 4, 5],
         status: 'success',
-      }
+      },
     })
   })
 
@@ -84,7 +81,7 @@ describe('Summaries fetch control reducer', () => {
     const action = {
       type: types.FETCH_FAILURE,
       message: 'Network Error',
-      id: 1
+      id: 1,
     }
 
     const state = {
@@ -95,7 +92,7 @@ describe('Summaries fetch control reducer', () => {
         ids: [],
         status: 'fetching',
         totalCount: 0,
-      }
+      },
     }
 
     expect(summariesFetchControl(state, action)).toEqual({
@@ -106,7 +103,7 @@ describe('Summaries fetch control reducer', () => {
         ids: [],
         status: 'failure',
         totalCount: 0,
-      }
+      },
     })
   })
 })

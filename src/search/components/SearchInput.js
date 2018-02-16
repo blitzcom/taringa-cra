@@ -9,7 +9,7 @@ export class SearchInput extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: ''
+      value: '',
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -74,19 +74,13 @@ export class SearchInput extends Component {
           type="text"
           value={value}
         />
-        {
-          hasContent && (
-            <div className="input-group-append">
-              <button
-                className="btn"
-                type="button"
-                onClick={this.handleClear}
-              >
-                <i className="fa fa-times" />
-              </button>
-            </div>
-          )
-        }
+        {hasContent && (
+          <div className="input-group-append">
+            <button className="btn" type="button" onClick={this.handleClear}>
+              <i className="fa fa-times" />
+            </button>
+          </div>
+        )}
       </div>
     )
   }

@@ -12,7 +12,7 @@ const Flashing = props => {
 }
 
 const mapStateToProps = state => ({
-  items: _.values(state.flash)
+  items: _.values(state.flash),
 })
 
 export default connect(mapStateToProps)(Flashing)

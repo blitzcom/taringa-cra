@@ -27,7 +27,9 @@ ReactDOM.render(
 
 const onNewUpdate = () => {
   store.dispatch(
-    addFlash('Hay una nueva versión de Taringa disponible, por favor recarga la página.')
+    addFlash(
+      'Hay una nueva versión de Taringa disponible, por favor recarga la página.'
+    )
   )
 }
 

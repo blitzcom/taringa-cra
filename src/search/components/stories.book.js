@@ -11,9 +11,7 @@ storiesOf('Search Input', module)
   .addDecorator(story => (
     <div className="container bg-dark">
       <div className="row">
-        <div className="col-8 my-4">
-          {story()}
-        </div>
+        <div className="col-8 my-4">{story()}</div>
       </div>
     </div>
   ))
@@ -27,11 +25,7 @@ storiesOf('Search User', module)
     <div className="container">
       <div className="row">
         <div className="col-8">
-          <div className="row">
-            <div className="col-6">
-              {story()}
-            </div>
-          </div>
+          <div className="row">{story()}</div>
         </div>
       </div>
     </div>

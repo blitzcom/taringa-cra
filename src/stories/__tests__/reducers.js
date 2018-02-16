@@ -1,7 +1,4 @@
-import {
-  storiesEntities,
-  storiesFetchControl,
-} from '../reducers'
+import { storiesEntities, storiesFetchControl } from '../reducers'
 
 import * as types from '../types'
 
@@ -17,8 +14,8 @@ describe('Stories entities reducer', () => {
         stories: {
           1: { bar: false, foo: true, id: 1 },
           2: { bar: false, foo: true, id: 2 },
-        }
-      }
+        },
+      },
     }
 
     expect(storiesEntities(undefined, action)).toEqual({

@@ -18,7 +18,6 @@ const StoryBig = ({
   thumbnail,
   title,
 }) => {
-
   if (isPlaceholder) {
     return (
       <div className="list-group-item p-2">
@@ -36,13 +35,8 @@ const StoryBig = ({
   return (
     <div className="list-group-item p-2">
       <div className="d-flex">
-        <div
-          className="text-center"
-          style={{ lineHeight: 1.1 }}
-        >
-          <button
-            className="btn btn-score btn-score-big"
-          >
+        <div className="text-center" style={{ lineHeight: 1.1 }}>
+          <button className="btn btn-score btn-score-big">
             <i className="fa fa-chevron-up" />
           </button>
 
@@ -55,9 +49,7 @@ const StoryBig = ({
             {score}
           </div>
 
-          <button
-            className="btn btn-score btn-score-big"
-          >
+          <button className="btn btn-score btn-score-big">
             <i className="fa fa-chevron-down" />
           </button>
         </div>
@@ -86,7 +78,7 @@ const StoryBig = ({
               {preview.kind === 'image' && (
                 <img
                   style={{
-                    maxWidth: '100%'
+                    maxWidth: '100%',
                   }}
                   src={preview.content}
                   alt={title}
@@ -103,10 +95,7 @@ const StoryBig = ({
               isLink
               to={`/story/${slug}`}
             />
-            <StoryButton
-              icon="fa fa-retweet"
-              count={shares}
-            />
+            <StoryButton icon="fa fa-retweet" count={shares} />
           </p>
         </div>
       </div>
@@ -125,7 +114,8 @@ StoryBig.defaultProps = {
   title: 'Taringa Story Big',
   preview: {
     kind: 'text',
-    content: 'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.'
+    content:
+      'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.',
   },
   slug: '#',
 }

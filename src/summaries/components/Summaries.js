@@ -10,14 +10,14 @@ import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
 import { load, loadTail, clearTail } from '../actions'
 
 export class Summaries extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-      placeholderCount: props.placeholderCount
+      placeholderCount: props.placeholderCount,
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.loadFeed()
     this.unlisten = this.props.history.listen((location, action) => {
       if (this.props.match.path === location.pathname) {
@@ -31,11 +31,11 @@ export class Summaries extends Component {
     })
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.unlisten()
   }
 
-  getPlaceholderCount (size) {
+  getPlaceholderCount(size) {
     switch (size) {
       case ITEM_SMALL:
         return 19
@@ -47,7 +47,7 @@ export class Summaries extends Component {
     }
   }
 
-  renderPlaceholder () {
+  renderPlaceholder() {
     let count = 1
     const { summaries, itemSize } = this.props
 
@@ -55,44 +55,42 @@ export class Summaries extends Component {
       count = this.state.placeholderCount || this.getPlaceholderCount(itemSize)
     }
 
-    return _.times(count,
-      i => <Summary key={i} size={itemSize} isPlaceholder />
-    )
+    return _.times(count, i => (
+      <Summary key={i} size={itemSize} isPlaceholder />
+    ))
   }
 
-  render () {
+  render() {
     const { status, summaries, itemSize } = this.props
     const isFetching = status === 'fetching'
 
     return (
       <div className="Summaries">
-        {
-          (status !== 'failure' || summaries.length > 0) && (
-            <div className="card">
-              <ul className="list-group list-group-flush">
-                {summaries.map(i => <Summary key={i.id} size={itemSize} {...i} />)}
-                {isFetching && this.renderPlaceholder()}
-              </ul>
-            </div>
-          )
-        }
+        {(status !== 'failure' || summaries.length > 0) && (
+          <div className="card">
+            <ul className="list-group list-group-flush">
+              {summaries.map(i => (
+                <Summary key={i.id} size={itemSize} {...i} />
+              ))}
+              {isFetching && this.renderPlaceholder()}
+            </ul>
+          </div>
+        )}
 
-        {
-          status === 'failure' && (
-            <div className="my-4 text-center">
-              <div className="my-3 text-danger">
-                ¡Ratas! Parece que no estás conectado a internet.
-                Refresca la página o pulsa el siguiente botón.
-              </div>
-              <button
-                className="btn btn-outline-primary btn-sm"
-                onClick={this.props.loadMore}
-              >
-                Volver a intentar
-              </button>
+        {status === 'failure' && (
+          <div className="my-4 text-center">
+            <div className="my-3 text-danger">
+              ¡Ratas! Parece que no estás conectado a internet. Refresca la
+              página o pulsa el siguiente botón.
             </div>
-          )
-        }
+            <button
+              className="btn btn-outline-primary btn-sm"
+              onClick={this.props.loadMore}
+            >
+              Volver a intentar
+            </button>
+          </div>
+        )}
       </div>
     )
   }
@@ -101,21 +99,21 @@ export class Summaries extends Component {
 Summaries.defaultProps = {
   loadFeed: () => {},
   loadMore: () => {},
-  status: "fetching",
+  status: 'fetching',
   summaries: [],
   history: {
-    listen: () => () => {}
-  }
+    listen: () => () => {},
+  },
 }
 
 const mapStateToProps = (state, props) => ({
   itemSize: state.settings.itemSize,
   summaries: summariesSelector(state, props.id),
-  ...summariesStatusSelector(state, props.id)
+  ...summariesStatusSelector(state, props.id),
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  clearTail: (id) => dispatch(clearTail(id)),
+  clearTail: id => dispatch(clearTail(id)),
   loadFeed: () => dispatch(load(props.id, props.url)),
   loadMore: () => dispatch(loadTail(props.id, props.url)),
 })

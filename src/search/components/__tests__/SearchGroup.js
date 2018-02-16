@@ -13,7 +13,8 @@ describe('Serach Group', () => {
         <SearchGroup title="foo" className="bar">
           baz
         </SearchGroup>
-      ).toJSON()
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -25,7 +26,8 @@ describe('Serach Group', () => {
           <SearchGroup title="foo" className="bar" wrapper>
             baz
           </SearchGroup>
-        ).toJSON()
+        )
+        .toJSON()
 
       expect(tree).toMatchSnapshot()
     })

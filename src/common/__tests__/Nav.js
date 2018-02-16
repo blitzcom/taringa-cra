@@ -6,11 +6,13 @@ import Nav from '../Nav'
 
 describe('Nav', () => {
   it('renders default', () => {
-    const tree = renderer.create(
+    const tree = renderer
+      .create(
         <MemoryRouter>
-          <Nav/>
+          <Nav />
         </MemoryRouter>
-      ).toJSON()
+      )
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
