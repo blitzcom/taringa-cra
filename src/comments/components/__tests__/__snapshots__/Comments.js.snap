@@ -163,14 +163,16 @@ exports[`Comments renders listing with error 1`] = `
       <p
         className="text-danger"
       >
-        ¡Ratas! Algo salío mal. Refresca la página o haz clic 
+        ¡Ratas! Algo salío mal. Refresca la página o haz clic
+         
         <a
           href="/retry"
           onClick={[Function]}
         >
           aquí
         </a>
-         para volver a intentar.
+         
+        para volver a intentar.
       </p>
     </div>
   </div>

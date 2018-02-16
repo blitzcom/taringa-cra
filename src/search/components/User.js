@@ -28,10 +28,8 @@ const User = props => {
             </Link>
 
             <p className="mb-0 mt-1 text-muted small">
-              {props.followers} seguidores
-              &nbsp;
-              {props.following} siguiendo
-              &nbsp;
+              {props.followers} seguidores &nbsp;
+              {props.following} siguiendo &nbsp;
               {props.stories} posts
             </p>
           </div>

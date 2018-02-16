@@ -14,9 +14,7 @@ const SummariesRoute = ({ id: providedId, url, ...rest }) => (
         id = props.match.params.id
       }
 
-      return (
-        <Summaries {...props} url={url} id={id} />
-      )
+      return <Summaries {...props} url={url} id={id} />
     }}
   />
 )
@@ -24,24 +22,11 @@ const SummariesRoute = ({ id: providedId, url, ...rest }) => (
 const Home = props => (
   <div className="row">
     <div className="col-8">
-      <SummariesRoute
-        exact
-        id="trending"
-        path="/"
-        url="/feed/global"
-      />
+      <SummariesRoute exact id="trending" path="/" url="/feed/global" />
 
-      <SummariesRoute
-        id="recents"
-        path="/recents"
-        url="/feed"
-      />
+      <SummariesRoute id="recents" path="/recents" url="/feed" />
 
-      <SummariesRoute
-        id="tops"
-        path="/tops"
-        url="/feed/global/tops/week"
-      />
+      <SummariesRoute id="tops" path="/tops" url="/feed/global/tops/week" />
     </div>
 
     <div className="col-4">

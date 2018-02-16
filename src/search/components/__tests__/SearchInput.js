@@ -10,17 +10,13 @@ describe('Search Input', () => {
   })
 
   it('renders', () => {
-    const tree = renderer
-      .create(<SearchInput/>)
-      .toJSON()
+    const tree = renderer.create(<SearchInput />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders spinner', () => {
-    const tree = renderer
-      .create(<SearchInput isSearching/>)
-      .toJSON()
+    const tree = renderer.create(<SearchInput isSearching />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -30,11 +26,11 @@ describe('Search Input', () => {
 
     const props = {
       location: {
-        pathname: '/search'
+        pathname: '/search',
       },
       history: {
-        push: () => {}
-      }
+        push: () => {},
+      },
     }
 
     const wrapper = mount(<SearchInput onChange={mock} {...props} />)
@@ -62,7 +58,10 @@ describe('Search Input', () => {
     const wrapper = shallow(<SearchInput onClear={mock} />)
     wrapper.setState({ value: 'foo' })
     expect(wrapper).toMatchSnapshot()
-    wrapper.find('button').at(1).simulate('click')
+    wrapper
+      .find('button')
+      .at(1)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -73,11 +72,11 @@ describe('Search Input', () => {
 
         const props = {
           location: {
-            pathname: '/search'
+            pathname: '/search',
           },
           history: {
-            push: mock
-          }
+            push: mock,
+          },
         }
 
         const wrapper = mount(<SearchInput {...props} />)
@@ -99,11 +98,11 @@ describe('Search Input', () => {
 
         const props = {
           location: {
-            pathname: '/'
+            pathname: '/',
           },
           history: {
-            push: mock
-          }
+            push: mock,
+          },
         }
 
         const wrapper = mount(<SearchInput {...props} />)

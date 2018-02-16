@@ -6,8 +6,7 @@ import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
 
-
-const Summary = ({ size, ...props}) => {
+const Summary = ({ size, ...props }) => {
   switch (size) {
     case ITEM_BIG:
       return <StoryBig {...props} />

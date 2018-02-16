@@ -12,41 +12,49 @@ describe('Secondary Nav', () => {
   })
 
   it('renders', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <SecondaryNav />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <SecondaryNav />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_BIG', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <SecondaryNav itemSize={ITEM_BIG} />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <SecondaryNav itemSize={ITEM_BIG} />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_MEDIUM', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <SecondaryNav itemSize={ITEM_MEDIUM} />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <SecondaryNav itemSize={ITEM_MEDIUM} />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_SMALL', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <SecondaryNav itemSize={ITEM_SMALL} />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <SecondaryNav itemSize={ITEM_SMALL} />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
@@ -56,7 +64,10 @@ describe('Secondary Nav', () => {
 
     const wrapper = shallow(<SecondaryNav changeItemSize={mock} />)
 
-    wrapper.find('button').at(0).simulate('click')
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click')
     expect(mock).toBeCalledWith(ITEM_BIG)
   })
 
@@ -65,7 +76,10 @@ describe('Secondary Nav', () => {
 
     const wrapper = shallow(<SecondaryNav changeItemSize={mock} />)
 
-    wrapper.find('button').at(1).simulate('click')
+    wrapper
+      .find('button')
+      .at(1)
+      .simulate('click')
     expect(mock).toBeCalledWith(ITEM_MEDIUM)
   })
 
@@ -74,7 +88,10 @@ describe('Secondary Nav', () => {
 
     const wrapper = shallow(<SecondaryNav changeItemSize={mock} />)
 
-    wrapper.find('button').at(2).simulate('click')
+    wrapper
+      .find('button')
+      .at(2)
+      .simulate('click')
     expect(mock).toBeCalledWith(ITEM_SMALL)
   })
 })

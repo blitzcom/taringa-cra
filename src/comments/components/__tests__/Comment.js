@@ -35,7 +35,8 @@ describe('Comment', () => {
 
   it('renders with visible replies', () => {
     const tree = renderer
-      .create(<Comment {...commentWithReplies} showReplies />).toJSON()
+      .create(<Comment {...commentWithReplies} showReplies />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })

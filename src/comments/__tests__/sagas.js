@@ -15,10 +15,12 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_REQUEST',
-        id: id
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_REQUEST',
+          id: id,
+        })
+      )
     })
 
     it('calls api', result => {
@@ -28,13 +30,15 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_SUCCESS',
-        before: 2,
-        entities: { comments: { 2: { id: 2 } } },
-        id: id,
-        result: [2]
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_SUCCESS',
+          before: 2,
+          entities: { comments: { 2: { id: 2 } } },
+          id: id,
+          result: [2],
+        })
+      )
     })
 
     it('ends', result => {
@@ -51,10 +55,12 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_REQUEST',
-        id: id
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_REQUEST',
+          id: id,
+        })
+      )
     })
 
     it('calls api', result => {
@@ -64,11 +70,13 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch failure action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_FAILURE',
-        id: id,
-        message: 'Network Error'
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_FAILURE',
+          id: id,
+          message: 'Network Error',
+        })
+      )
     })
   })
 
@@ -83,10 +91,12 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_REQUEST',
-        id: id
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_REQUEST',
+          id: id,
+        })
+      )
     })
 
     it('calls api', result => {
@@ -96,13 +106,15 @@ describe('Load comments saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        type: 'comments/FETCH_SUCCESS',
-        before: 2,
-        entities: { comments: { 2: { id: 2 } } },
-        id: id,
-        result: [2]
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'comments/FETCH_SUCCESS',
+          before: 2,
+          entities: { comments: { 2: { id: 2 } } },
+          id: id,
+          result: [2],
+        })
+      )
     })
 
     it('ends', result => {

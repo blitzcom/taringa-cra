@@ -22,60 +22,43 @@ describe('Comments', () => {
   })
 
   it('renders empty', () => {
-    const tree = renderer.create(
-      <Comments
-        totalCount={0}
-        status="success"
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(<Comments totalCount={0} status="success" />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders listing', () => {
-    const tree = renderer.create(
-      <Comments
-        totalCount={1}
-        status="success"
-        comments={[comment]}
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(<Comments totalCount={1} status="success" comments={[comment]} />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders listing with more than one', () => {
-    const tree = renderer.create(
-      <Comments
-        totalCount={2}
-        status="success"
-        comments={comments}
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(<Comments totalCount={2} status="success" comments={comments} />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders listing with loading more', () => {
-    const tree = renderer.create(
-      <Comments
-        totalCount={2}
-        status="fetching"
-        comments={[comment]}
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <Comments totalCount={2} status="fetching" comments={[comment]} />
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders listing with error', () => {
-    const tree = renderer.create(
-      <Comments
-        totalCount={1}
-        status="failure"
-        comments={[comment]}
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(<Comments totalCount={1} status="failure" comments={[comment]} />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })

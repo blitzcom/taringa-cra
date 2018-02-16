@@ -19,7 +19,6 @@ const StoryMedium = ({
   thumbnail,
   title,
 }) => {
-
   if (isPlaceholder) {
     return (
       <div className="list-group-item p-2">
@@ -42,24 +41,20 @@ const StoryMedium = ({
           className="text-center border-right pr-2"
           style={{ padding: '1px 0' }}
         >
-          <button
-            className="btn btn-score"
-          >
+          <button className="btn btn-score">
             <i className="fa fa-chevron-up" />
           </button>
 
           <div
             className="my-0 small font-weight-bold"
             style={{
-              minWidth: 28
+              minWidth: 28,
             }}
           >
             {score}
           </div>
 
-          <button
-            className="btn btn-score"
-          >
+          <button className="btn btn-score">
             <i className="fa fa-chevron-down" />
           </button>
         </div>
@@ -73,10 +68,7 @@ const StoryMedium = ({
         />
 
         <div>
-          <StoryTitle
-            slug={slug}
-            className="m-0"
-          >
+          <StoryTitle slug={slug} className="m-0">
             {title}
           </StoryTitle>
 
@@ -96,10 +88,7 @@ const StoryMedium = ({
               isLink
               to={`/story/${slug}`}
             />
-            <StoryButton
-              icon="fa fa-retweet"
-              count={shares}
-            />
+            <StoryButton icon="fa fa-retweet" count={shares} />
           </p>
         </div>
       </div>
@@ -118,7 +107,8 @@ StoryMedium.defaultProps = {
   title: 'Taringa Story Medium',
   preview: {
     kind: 'text',
-    content: 'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.'
+    content:
+      'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.',
   },
   slug: '#',
 }

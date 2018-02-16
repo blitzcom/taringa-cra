@@ -14,11 +14,11 @@ const Search = props => {
         <h5 className="mb-4">Resultados de búsqueda</h5>
 
         <SearchGroup title="Posts" className="mb-4">
-          <Summaries itemSize={ITEM_SMALL} placeholderCount={3}/>
+          <Summaries itemSize={ITEM_SMALL} placeholderCount={3} />
         </SearchGroup>
 
         <SearchGroup title="Usuarios" wrapper>
-          {_.times(10, i => <User key={i} />) }
+          {_.times(10, i => <User key={i} />)}
         </SearchGroup>
       </div>
     </div>

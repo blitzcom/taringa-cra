@@ -19,8 +19,8 @@ describe('Store', () => {
       feed: {},
       flash: {},
       settings: {
-        itemSize: 'settings/ITEM_MEDIUM'
-      }
+        itemSize: 'settings/ITEM_MEDIUM',
+      },
     })
   })
 })

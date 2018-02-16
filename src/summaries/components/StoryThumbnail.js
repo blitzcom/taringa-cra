@@ -32,22 +32,19 @@ const StoryThumbnail = ({ className, icon, size, slug, style, thumbnail }) => {
 
   return (
     <Link to={`/story/${slug}`} className="no-decoration">
-      <div
-        className={wrapperClass}
-        style={wrapperStyle}
-      >
-        {
-          !thumbnail
-          ? <i className={icon} />
-          : <img style={imgStyle} src={thumbnail} alt="Thumbnail" />
-        }
+      <div className={wrapperClass} style={wrapperStyle}>
+        {!thumbnail ? (
+          <i className={icon} />
+        ) : (
+          <img style={imgStyle} src={thumbnail} alt="Thumbnail" />
+        )}
       </div>
     </Link>
   )
 }
 
 StoryThumbnail.defaultProps = {
-  thumbnail: null
+  thumbnail: null,
 }
 
 export default StoryThumbnail

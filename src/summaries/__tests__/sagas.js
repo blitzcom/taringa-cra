@@ -8,7 +8,7 @@ import {
   getFeeds,
   loadFeed,
   loadFeedTail,
- } from '../sagas'
+} from '../sagas'
 import { call, put, select } from 'redux-saga/effects'
 import Taringa from '../../api'
 
@@ -30,15 +30,17 @@ describe('Load feed saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        after: 'd',
-        before: 'a',
-        entities: {},
-        id: 1,
-        result: [],
-        totalCount: 0,
-        type: 'summaries/FETCH_SUCCESS',
-      }))
+      expect(result).toEqual(
+        put({
+          after: 'd',
+          before: 'a',
+          entities: {},
+          id: 1,
+          result: [],
+          totalCount: 0,
+          type: 'summaries/FETCH_SUCCESS',
+        })
+      )
     })
 
     it('ends', result => {
@@ -76,11 +78,13 @@ describe('Load feed saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        id: 1,
-        message: 'Network Error',
-        type: 'summaries/FETCH_FAILURE',
-      }))
+      expect(result).toEqual(
+        put({
+          id: 1,
+          message: 'Network Error',
+          type: 'summaries/FETCH_FAILURE',
+        })
+      )
     })
 
     it('ends', result => {
@@ -112,15 +116,17 @@ describe('Load feed tail saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        after: 'd',
-        before: 'a',
-        entities: {},
-        id: 1,
-        result: [],
-        totalCount: 0,
-        type: 'summaries/FETCH_TAIL_SUCCESS',
-      }))
+      expect(result).toEqual(
+        put({
+          after: 'd',
+          before: 'a',
+          entities: {},
+          id: 1,
+          result: [],
+          totalCount: 0,
+          type: 'summaries/FETCH_TAIL_SUCCESS',
+        })
+      )
     })
 
     it('ends', result => {
@@ -152,7 +158,9 @@ describe('Load feed tail saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({ type: 'summaries/FETCH_TAIL_REQUEST', id: 1 }))
+      expect(result).toEqual(
+        put({ type: 'summaries/FETCH_TAIL_REQUEST', id: 1 })
+      )
     })
 
     it('calls api', result => {
@@ -162,11 +170,13 @@ describe('Load feed tail saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        id: 1,
-        message: 'Network Error',
-        type: 'summaries/FETCH_TAIL_FAILURE',
-      }))
+      expect(result).toEqual(
+        put({
+          id: 1,
+          message: 'Network Error',
+          type: 'summaries/FETCH_TAIL_FAILURE',
+        })
+      )
     })
 
     it('ends', result => {
@@ -180,7 +190,7 @@ describe('clear feed tail saga', () => {
     const it = sagaHelper(clearFeedTail({ id: 'trending' }))
     const feed = {
       id: 'trending',
-      ids: _.times(30)
+      ids: _.times(30),
     }
     const feeds = {
       trending: feed,
@@ -190,8 +200,8 @@ describe('clear feed tail saga', () => {
       },
       1: {
         id: 1,
-        ids: [24, 25, 26, 27, 28]
-      }
+        ids: [24, 25, 26, 27, 28],
+      },
     }
 
     it('selects feed', result => {
@@ -207,11 +217,13 @@ describe('clear feed tail saga', () => {
     })
 
     it('puts an action to reset feed ids', result => {
-      expect(result).toEqual(put({
-        type: 'summaries/CLEAR_TAIL_IDS',
-        id: 'trending',
-        ids: _.take(feed.ids, 20)
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'summaries/CLEAR_TAIL_IDS',
+          id: 'trending',
+          ids: _.take(feed.ids, 20),
+        })
+      )
     })
 
     it('get ids to be removed', result => {
@@ -227,12 +239,14 @@ describe('clear feed tail saga', () => {
     })
 
     it('calculates entities to remove', result => {
-      expect(result).toEqual(call(
-        calculateEntitiesToRemove,
-        feed,
-        [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
-        feeds
-      ))
+      expect(result).toEqual(
+        call(
+          calculateEntitiesToRemove,
+          feed,
+          [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          feeds
+        )
+      )
 
       return calculateEntitiesToRemove(
         feed,
@@ -242,10 +256,12 @@ describe('clear feed tail saga', () => {
     })
 
     it('puts an action to remove entities', result => {
-      expect(result).toEqual(put({
-        ids: [20, 21, 22, 29],
-        type: 'summaries/REMOVE',
-      }))
+      expect(result).toEqual(
+        put({
+          ids: [20, 21, 22, 29],
+          type: 'summaries/REMOVE',
+        })
+      )
     })
 
     it('ends', result => {
@@ -257,7 +273,7 @@ describe('clear feed tail saga', () => {
     const it = sagaHelper(clearFeedTail({ id: 'trending' }))
     const feed = {
       id: 'trending',
-      ids: _.times(20)
+      ids: _.times(20),
     }
 
     it('selects feed', result => {

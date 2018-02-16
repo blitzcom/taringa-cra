@@ -2,21 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TimeAgo from 'react-timeago'
 
-const StoryOwner = ({
-  children,
-  created,
-  formatter,
-  owner,
-  ...props
-}) => {
+const StoryOwner = ({ children, created, formatter, owner, ...props }) => {
   return (
     <p {...props}>
       {children}&nbsp;
       <Link to={`/u/${owner}`}>{owner}</Link>&nbsp;
-      <TimeAgo
-        date={created}
-        formatter={formatter}
-      />
+      <TimeAgo date={created} formatter={formatter} />
     </p>
   )
 }

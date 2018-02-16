@@ -15,14 +15,14 @@ describe('Users entities', () => {
       entities: {
         users: {
           1: { id: 1, foo: 'foo', bar: 'bar' },
-          2: { id: 2, foo: 'foo', bar: 'bar' }
-        }
-      }
+          2: { id: 2, foo: 'foo', bar: 'bar' },
+        },
+      },
     }
 
     expect(usersEntities(undefined, action)).toEqual({
       1: { id: 1, foo: 'foo', bar: 'bar' },
-      2: { id: 2, foo: 'foo', bar: 'bar' }
+      2: { id: 2, foo: 'foo', bar: 'bar' },
     })
   })
 })

@@ -8,10 +8,10 @@ const StoryContent = props => {
     return (
       <div className="StoryContent-ph card">
         <div className="StoryContent-animated-background">
-          <div className="StoryContent-title-gap ph"/>
-          <div className="StoryContent-subtitle-gap ph"/>
-          <div className="StoryContent-content-gap ph"/>
-          <div className="StoryContent-meta-extra ph"/>
+          <div className="StoryContent-title-gap ph" />
+          <div className="StoryContent-subtitle-gap ph" />
+          <div className="StoryContent-content-gap ph" />
+          <div className="StoryContent-meta-extra ph" />
         </div>
       </div>
     )
@@ -20,13 +20,7 @@ const StoryContent = props => {
   return (
     <div className="card Story-body">
       <div className="card-body">
-        {
-          props.title && (
-            <h4 className="card-title ">
-              {props.title}
-            </h4>
-          )
-        }
+        {props.title && <h4 className="card-title ">{props.title}</h4>}
 
         <ReactMarkdown source={props.content} />
       </div>

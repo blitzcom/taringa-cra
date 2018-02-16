@@ -13,29 +13,33 @@ describe('Summaries', () => {
   })
 
   it('renders default', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <Summaries />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Summaries />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders loader', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <Summaries status="fetching" />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Summaries status="fetching" />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders error', () => {
-    const tree = renderer.create(
-      <Summaries status="failure" error="Network Error" />
-    ).toJSON()
+    const tree = renderer
+      .create(<Summaries status="failure" error="Network Error" />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })

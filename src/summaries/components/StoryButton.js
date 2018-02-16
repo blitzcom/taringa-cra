@@ -9,16 +9,13 @@ const StoryButton = ({
   icon,
   isLink,
   wrapperStyle,
-  ...props,
+  ...props
 }) => {
   const Component = isLink ? Link : 'button'
 
   return (
     <span className="StoryButton" style={wrapperStyle}>
-      <Component
-        {...props}
-        className={['btn btn-story', className].join(' ')}
-      >
+      <Component {...props} className={['btn btn-story', className].join(' ')}>
         <i className={icon} />
         {count !== 0 && count}
       </Component>

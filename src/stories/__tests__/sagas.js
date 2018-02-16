@@ -17,10 +17,12 @@ describe('Load story saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({
-        type: 'stories/FETCH_REQUEST',
-        id
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'stories/FETCH_REQUEST',
+          id,
+        })
+      )
     })
 
     it('calls api', result => {
@@ -30,12 +32,14 @@ describe('Load story saga', () => {
     })
 
     it('puts fetch success action', result => {
-      expect(result).toEqual(put({
-        type: 'stories/FETCH_SUCCESS',
-        entities: { stories: { [id]: { id, owner: { username: 'foo' } } } },
-        id,
-        result: 1,
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'stories/FETCH_SUCCESS',
+          entities: { stories: { [id]: { id, owner: { username: 'foo' } } } },
+          id,
+          result: 1,
+        })
+      )
     })
 
     it('forks to load comments', result => {
@@ -77,10 +81,12 @@ describe('Load story saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({
-        type: 'stories/FETCH_REQUEST',
-        id
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'stories/FETCH_REQUEST',
+          id,
+        })
+      )
     })
 
     it('calls api', result => {
@@ -90,11 +96,13 @@ describe('Load story saga', () => {
     })
 
     it('puts fetch failure action', result => {
-      expect(result).toEqual(put({
-        type: 'stories/FETCH_FAILURE',
-        id,
-        message: 'Network Error',
-      }))
+      expect(result).toEqual(
+        put({
+          type: 'stories/FETCH_FAILURE',
+          id,
+          message: 'Network Error',
+        })
+      )
     })
 
     it('ends', result => {

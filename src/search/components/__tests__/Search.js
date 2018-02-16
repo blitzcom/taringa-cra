@@ -9,11 +9,13 @@ describe('Search', () => {
   })
 
   it('renders', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <Search />
-      </MemoryRouter>
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Search />
+        </MemoryRouter>
+      )
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })

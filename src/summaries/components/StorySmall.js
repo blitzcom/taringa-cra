@@ -17,7 +17,6 @@ const StorySmall = ({
   slug,
   title,
 }) => {
-
   if (isPlaceholder) {
     return (
       <div className="list-group-item p-2">
@@ -41,9 +40,7 @@ const StorySmall = ({
           style={{ fontSize: '70%' }}
         />
 
-        <button
-          className="btn btn-score"
-        >
+        <button className="btn btn-score">
           <i className="fa fa-chevron-up" />
         </button>
 
@@ -54,9 +51,7 @@ const StorySmall = ({
           {score}
         </div>
 
-        <button
-          className="btn btn-score mr-4"
-        >
+        <button className="btn btn-score mr-4">
           <i className="fa fa-chevron-down" />
         </button>
 
@@ -102,7 +97,8 @@ StorySmall.defaultProps = {
   title: 'Taringa Small Story',
   preview: {
     kind: 'text',
-    content: 'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.'
+    content:
+      'Spicy jalapeno bacon ipsum dolor amet shankle tongue brisket, picanha flank hamburger bresaola frankfurter chicken pork andouille swine. Biltong andouille flank short loin jowl sausage pork loin drumstick ham spare ribs pig turducken chicken ribeye.',
   },
   slug: '#',
 }

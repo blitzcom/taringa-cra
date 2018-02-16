@@ -5,7 +5,7 @@ describe('Users actions', () => {
   it('creates an action to start a fetching request', () => {
     expect(actions.fetchRequest('foo')).toEqual({
       type: types.FETCH_REQUEST,
-      username: 'foo'
+      username: 'foo',
     })
   })
 
@@ -13,7 +13,7 @@ describe('Users actions', () => {
     const user = {
       id: 1,
       username: 'foo',
-      message: 'bar'
+      message: 'bar',
     }
 
     expect(actions.fetchSuccess('foo', user)).toEqual({
@@ -22,9 +22,9 @@ describe('Users actions', () => {
       result: 'foo',
       entities: {
         users: {
-          foo:  { id: 1, username: 'foo', message: 'bar' }
-        }
-      }
+          foo: { id: 1, username: 'foo', message: 'bar' },
+        },
+      },
     })
   })
 
@@ -32,7 +32,7 @@ describe('Users actions', () => {
     expect(actions.fetchFailure('foo', 'bar')).toEqual({
       type: types.FETCH_FAILURE,
       username: 'foo',
-      message: 'bar'
+      message: 'bar',
     })
   })
 })

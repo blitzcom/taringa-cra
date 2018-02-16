@@ -13,7 +13,7 @@ describe('Item size reducer', () => {
   it('handles CHANGE_ITEM_SIZE', () => {
     const action = {
       type: CHANGE_ITEM_SIZE,
-      size: ITEM_BIG
+      size: ITEM_BIG,
     }
 
     expect(itemSize(undefined, action)).toEqual(ITEM_BIG)

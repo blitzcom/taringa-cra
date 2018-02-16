@@ -8,7 +8,7 @@ import StoryContent from './StoryContent'
 import Comments from '../../comments/components/Comments'
 import * as actions from '../actions'
 import { load as loadComments } from '../../comments/actions'
-import { slugToId }  from '../../utils/slug'
+import { slugToId } from '../../utils/slug'
 import { storySelector, storyStateSelector } from '../selectors'
 import {
   commentsStatusSelector,
@@ -16,11 +16,11 @@ import {
 } from '../../comments/selectors'
 
 export class Story extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchStoryWithComments()
   }
 
-  render () {
+  render() {
     const {
       comments,
       commentsStatus,
@@ -29,11 +29,10 @@ export class Story extends Component {
       storyStatus: { status },
     } = this.props
 
-    const hasMoreContent = (
+    const hasMoreContent =
       comments !== null &&
-      ('totalCount' in commentsStatus) &&
+      'totalCount' in commentsStatus &&
       comments.length < commentsStatus.totalCount
-    )
 
     return (
       <div className="row">
@@ -49,7 +48,7 @@ export class Story extends Component {
         </div>
 
         <div className="col-4">
-          <Card {...story.owner} status={status}/>
+          <Card {...story.owner} status={status} />
         </div>
       </div>
     )
@@ -59,8 +58,8 @@ export class Story extends Component {
 Story.defaultProps = {
   match: {
     params: {
-      slug: ''
-    }
+      slug: '',
+    },
   },
   storyStatus: {
     error: '',

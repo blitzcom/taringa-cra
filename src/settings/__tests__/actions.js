@@ -8,8 +8,8 @@ describe('Item size action', () => {
       size: ITEM_BIG,
       storage: {
         key: 'type',
-        value: 'size'
-      }
+        value: 'size',
+      },
     })
   })
 })

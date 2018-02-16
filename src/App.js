@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './App.css'
 import Nav from './common/Nav'
@@ -20,8 +16,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="sticky-top">
-            <Nav/>
-            <SecondaryNav/>
+            <Nav />
+            <SecondaryNav />
           </div>
           <Flashing />
 

@@ -19,7 +19,7 @@ const mapStateToProps = (state, props) => {
   return {
     itemSize: state.settings.itemSize,
     summaries: summariesSelector(state, username),
-    ...status
+    ...status,
   }
 }
 
@@ -34,9 +34,9 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 }
 
-const UserFeed = withRouter(connect(mapStateToProps, mapDispatchToProps)(
-  infiniteScroll()(Summaries)
-))
+const UserFeed = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(infiniteScroll()(Summaries))
+)
 
 const Feed = props => {
   return (

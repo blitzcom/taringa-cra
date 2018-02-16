@@ -26,8 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prettier": "prettier -l src/**/*.js",
-    "prettier-check": "prettier",
+    "prettier": "prettier -l \"src/**/*.js\"",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
