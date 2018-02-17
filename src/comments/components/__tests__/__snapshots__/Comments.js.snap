@@ -20,7 +20,7 @@ exports[`Comments renders empty 1`] = `
 </div>
 `;
 
-exports[`Comments renders idle 1`] = `null`;
+exports[`Comments renders idle 1`] = `""`;
 
 exports[`Comments renders listing 1`] = `
 <div
@@ -41,47 +41,36 @@ exports[`Comments renders listing 1`] = `
     <div
       className="card-body"
     >
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a text comment",
-              }
-            }
-          />
-        </div>
-      </div>
+      <Comment
+        attachment={null}
+        body="I am a text comment"
+        created={1513920502005}
+        downvotes={0}
+        id="53675146"
+        key="53675146"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        replies={
+          Object {
+            "after": "",
+            "before": "",
+            "count": 0,
+            "items": Array [],
+            "totalCount": 0,
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
     </div>
     <div
       className="text-center"
@@ -115,47 +104,36 @@ exports[`Comments renders listing with error 1`] = `
     <div
       className="card-body"
     >
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a text comment",
-              }
-            }
-          />
-        </div>
-      </div>
+      <Comment
+        attachment={null}
+        body="I am a text comment"
+        created={1513920502005}
+        downvotes={0}
+        id="53675146"
+        key="53675146"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        replies={
+          Object {
+            "after": "",
+            "before": "",
+            "count": 0,
+            "items": Array [],
+            "totalCount": 0,
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
     </div>
     <div
       className="text-center"
@@ -198,47 +176,36 @@ exports[`Comments renders listing with loading more 1`] = `
     <div
       className="card-body"
     >
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a text comment",
-              }
-            }
-          />
-        </div>
-      </div>
+      <Comment
+        attachment={null}
+        body="I am a text comment"
+        created={1513920502005}
+        downvotes={0}
+        id="53675146"
+        key="53675146"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        replies={
+          Object {
+            "after": "",
+            "before": "",
+            "count": 0,
+            "items": Array [],
+            "totalCount": 0,
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
     </div>
     <div
       className="card-body"
@@ -274,88 +241,66 @@ exports[`Comments renders listing with more than one 1`] = `
     <div
       className="card-body"
     >
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a text comment",
-              }
-            }
-          />
-        </div>
-      </div>
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a text comment",
-              }
-            }
-          />
-        </div>
-      </div>
+      <Comment
+        attachment={null}
+        body="I am a text comment"
+        created={1513920502005}
+        downvotes={0}
+        id={1}
+        key="1"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        replies={
+          Object {
+            "after": "",
+            "before": "",
+            "count": 0,
+            "items": Array [],
+            "totalCount": 0,
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
+      <Comment
+        attachment={null}
+        body="I am a text comment"
+        created={1513920502005}
+        downvotes={0}
+        id={2}
+        key="2"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        replies={
+          Object {
+            "after": "",
+            "before": "",
+            "count": 0,
+            "items": Array [],
+            "totalCount": 0,
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
     </div>
     <div
       className="text-center"

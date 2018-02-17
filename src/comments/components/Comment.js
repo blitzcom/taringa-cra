@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TimeAgo from 'react-timeago'
+import { Link } from 'react-router-dom'
 
 import './Comment.css'
 import { esFormatter } from '../../Utils'
@@ -7,9 +8,14 @@ import { esFormatter } from '../../Utils'
 class Comment extends Component {
   constructor(props) {
     super(props)
+    this.handleOnClik = this.handleOnClik.bind(this)
     this.state = {
       showReplies: props.showReplies || false,
     }
+  }
+
+  handleOnClik() {
+    window.scrollTo(0, 0)
   }
 
   toggleRepliesVisibility(e) {
@@ -62,7 +68,10 @@ class Comment extends Component {
         </div>
         <div className="Comment-content">
           <h6 className="Comment-author">
-            <a href="/">{owner.username}</a>
+            <Link to={`/u/${owner.username}`} onClick={this.handleOnClik}>
+              {owner.username}
+            </Link>
+
             <TimeAgo
               date={created}
               formatter={esFormatter}
