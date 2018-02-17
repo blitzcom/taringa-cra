@@ -41,6 +41,7 @@ export const searchStoriesSuccess = payload => ({
 
 export const searchStoriesFailure = message => ({
   type: types.SEARCH_STORIES_FAILURE,
+  message: message,
 })
 
 export const searchClear = () => ({
