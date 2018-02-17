@@ -16,6 +16,7 @@ export class SearchInput extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClear = this.handleClear.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.redirect = this.redirect.bind(this)
     this.emitChangeDebounced = _.debounce(this.emitChange, 250)
   }
@@ -34,6 +35,7 @@ export class SearchInput extends Component {
   handleClear() {
     this.setState({ value: '' }, () => {
       this.props.onClear()
+      this.input && this.input.focus()
     })
   }
 
@@ -47,6 +49,11 @@ export class SearchInput extends Component {
 
   emitChange(value) {
     this.redirect()
+    this.props.onChange(value)
+  }
+
+  handleClick() {
+    const { value } = this.state
     this.props.onChange(value)
   }
 
@@ -65,7 +72,7 @@ export class SearchInput extends Component {
     return (
       <div className="SearchInput input-group">
         <div className="input-group-prepend">
-          <button className="btn" type="button">
+          <button className="btn" type="button" onClick={this.handleClick}>
             <i className={iconClass} />
           </button>
         </div>
@@ -73,6 +80,7 @@ export class SearchInput extends Component {
           className="form-control"
           onChange={this.handleChange}
           placeholder="Buscar canal, post o usuario"
+          ref={i => (this.input = i)}
           type="text"
           value={value}
         />
