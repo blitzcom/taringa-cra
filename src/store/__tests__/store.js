@@ -9,6 +9,22 @@ describe('Store', () => {
       control: {
         commentsFetch: {},
         storiesFetch: {},
+        searchFetch: {
+          q: '',
+          status: 'success',
+        },
+      },
+      search: {
+        stories: {
+          error: '',
+          q: '',
+          status: 'success',
+        },
+        users: {
+          error: '',
+          q: '',
+          status: 'success',
+        },
       },
       entities: {
         comments: {},

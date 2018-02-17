@@ -1,9 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { withRouter } from 'react-router-dom'
 
 import './SearchInput.css'
+import { searchTrigger, searchClear } from '../actions'
 
 export class SearchInput extends Component {
   constructor(props) {
@@ -92,4 +94,22 @@ SearchInput.defaultProps = {
   onClear: () => {},
 }
 
-export default withRouter(SearchInput)
+const mapStateToProps = state => {
+  return {
+    isSearching: state.control.searchFetch.status === 'fetching',
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onChange: value =>
+      value.length > 0
+        ? dispatch(searchTrigger(value))
+        : dispatch(searchClear()),
+    onClear: value => dispatch(searchClear()),
+  }
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SearchInput)
+)

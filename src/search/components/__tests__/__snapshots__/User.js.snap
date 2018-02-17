@@ -8,7 +8,7 @@ exports[`Search User renders 1`] = `
     className="card"
   >
     <div
-      className="card-body p-3 d-flex"
+      className="card-body p-2 d-flex"
     >
       <img
         alt="supr159"
@@ -25,13 +25,18 @@ exports[`Search User renders 1`] = `
           }
         }
       />
-      <div>
+      <div
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
         <h6
-          className="m-0"
+          className="m-0 text-truncate"
+          title="Diego Lopez"
         >
-          Diego
-           
-          Lopez
+          Diego Lopez
         </h6>
         <a
           href="/u/supr159"

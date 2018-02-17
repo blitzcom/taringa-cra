@@ -2,12 +2,18 @@ import APIBase from './APIBase'
 
 import Story from './Story'
 import User from './User'
+import Search from './Search'
 
 class API extends APIBase {
   constructor() {
     super()
+    this._search = new Search()
     this._story = new Story()
     this._user = new User()
+  }
+
+  get search() {
+    return this._search
   }
 
   get story() {

@@ -5,14 +5,12 @@ import { MemoryRouter } from 'react-router-dom'
 import Nav from '../Nav'
 
 describe('Nav', () => {
+  it('exists', () => {
+    expect(Nav).toBeDefined()
+  })
+
   it('renders default', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <Nav />
-        </MemoryRouter>
-      )
-      .toJSON()
+    const tree = shallow(<Nav />)
     expect(tree).toMatchSnapshot()
   })
 })

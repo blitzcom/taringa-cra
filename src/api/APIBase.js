@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 class APIBase {
-  execute(url, params = {}, method = 'get', data = {}) {
+  execute(url, params = {}, cancelToken = null, method = 'get', data = {}) {
     return axios({
+      cancelToken,
       data,
       method,
       params,

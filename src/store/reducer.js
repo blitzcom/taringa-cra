@@ -6,6 +6,7 @@ import { commentsEntities, commentsFetchControl } from '../comments/reducers'
 import { itemSize } from '../settings/reducers'
 import { flash } from '../flash/reducers'
 import { usersEntities } from '../users/reducers'
+import { searchEntities, searchControl } from '../search/reducers'
 
 const entities = combineReducers({
   comments: commentsEntities,
@@ -16,6 +17,7 @@ const entities = combineReducers({
 
 const control = combineReducers({
   commentsFetch: commentsFetchControl,
+  searchFetch: searchControl,
   storiesFetch: storiesFetchControl,
 })
 
@@ -28,5 +30,6 @@ export default combineReducers({
   entities,
   feed: summariesFetchControl,
   flash,
+  search: searchEntities,
   settings,
 })

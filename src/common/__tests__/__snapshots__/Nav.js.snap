@@ -7,42 +7,20 @@ exports[`Nav renders default 1`] = `
   <div
     className="container"
   >
-    <a
+    <Link
       className="navbar-brand font-weight-bold"
-      href="/"
-      onClick={[Function]}
+      replace={false}
+      to="/"
     >
       TARINGA!
-    </a>
+    </Link>
     <div
       className="collapse navbar-collapse"
     >
       <div
         className="form-inline"
       >
-        <div
-          className="SearchInput input-group"
-        >
-          <div
-            className="input-group-prepend"
-          >
-            <button
-              className="btn"
-              type="button"
-            >
-              <i
-                className="fa fa-search"
-              />
-            </button>
-          </div>
-          <input
-            className="form-control"
-            onChange={[Function]}
-            placeholder="Buscar canal, post o usuario"
-            type="text"
-            value=""
-          />
-        </div>
+        <withRouter(Connect(SearchInput)) />
       </div>
     </div>
   </div>
