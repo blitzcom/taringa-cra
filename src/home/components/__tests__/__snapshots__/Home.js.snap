@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <SummariesRoute
+      exact={true}
+      id="trending"
+      path="/"
+      url="/feed/global"
+    />
+    <SummariesRoute
+      id="recents"
+      path="/recents"
+      url="/feed"
+    />
+    <SummariesRoute
+      id="tops"
+      path="/tops"
+      url="/feed/global/tops/week"
+    />
+  </div>
+  <div
+    className="col-4"
+  >
+    <Ad />
+  </div>
+</div>
+`;
