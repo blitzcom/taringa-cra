@@ -12,7 +12,7 @@ describe('Store', () => {
         searchFetch: {
           q: '',
           status: 'success',
-        }
+        },
       },
       search: {
         stories: {
@@ -24,7 +24,7 @@ describe('Store', () => {
           error: '',
           q: '',
           status: 'success',
-        }
+        },
       },
       entities: {
         comments: {},
