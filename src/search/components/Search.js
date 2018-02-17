@@ -19,22 +19,21 @@ export class Search extends Component {
 
     const searchTitle = () => {
       const { status } = search
-      if (status === 'failure') {
-        return 'No se ha podido buscar'
-      } else if (status === 'fetching') {
+      if (status === 'fetching') {
         return 'Buscando...'
       } else if (
         status === 'success' &&
-        (users.items &&
-          users.items.length > 0 &&
-          stories.items &&
-          stories.items.length > 0)
+        ((users.items && users.items.length > 0) ||
+          (stories.items && stories.items.length > 0))
       ) {
         return 'Resultados de búsqueda'
       } else {
         return 'Buscar'
       }
     }
+
+    const hasFailure =
+      users.status === 'failure' && stories.status === 'failure'
 
     const hideStoriesGroup =
       'items' in stories === false || stories.items.length <= 0
@@ -44,6 +43,12 @@ export class Search extends Component {
       <div className="row">
         <div className="col-8">
           <h5 className="mb-4">{searchTitle()}</h5>
+
+          {hasFailure && (
+            <p className="text-danger">
+              ¡Ratas! Algo salío mal, vuelve a intentar.
+            </p>
+          )}
 
           <SearchGroup title="Posts" className="mb-4" hide={hideStoriesGroup}>
             {stories.items && (
@@ -69,8 +74,8 @@ export class Search extends Component {
 
 Search.defaultProps = {
   search: { q: '', status: 'success' },
-  stories: { items: [] },
-  users: { items: [] },
+  stories: { items: [], status: 'success' },
+  users: { items: [], status: 'success' },
 }
 
 const mapStateToProps = state => ({
