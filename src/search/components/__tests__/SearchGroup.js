@@ -7,10 +7,10 @@ describe('Serach Group', () => {
     expect(SearchGroup).toBeDefined()
   })
 
-  it('renders', () => {
+  it('renders nothing when has no matches', () => {
     const tree = renderer
       .create(
-        <SearchGroup title="foo" className="bar">
+        <SearchGroup>
           baz
         </SearchGroup>
       )
@@ -19,17 +19,15 @@ describe('Serach Group', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  describe('wrapper', () => {
-    it('renders', () => {
-      const tree = renderer
-        .create(
-          <SearchGroup title="foo" className="bar" wrapper>
-            baz
-          </SearchGroup>
-        )
-        .toJSON()
+  it('renders when has matches', () => {
+    const tree = renderer
+      .create(
+        <SearchGroup matches={5} title="foo" className="bar">
+          baz
+        </SearchGroup>
+      )
+      .toJSON()
 
-      expect(tree).toMatchSnapshot()
-    })
+    expect(tree).toMatchSnapshot()
   })
 })
