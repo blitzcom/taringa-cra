@@ -54,6 +54,7 @@ export class SearchInput extends Component {
 
   handleClick() {
     const { value } = this.state
+    this.redirect()
     this.props.onChange(value)
   }
 

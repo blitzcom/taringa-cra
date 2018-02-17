@@ -73,8 +73,18 @@ describe('Search Input', () => {
 
   it('handles search on click', () => {
     const mock = jest.fn()
+    const mockRedirect = jest.fn()
 
-    const wrapper = shallow(<SearchInput onChange={mock} />)
+    const props = {
+      location: {
+        pathname: '/',
+      },
+      history: {
+        push: mockRedirect,
+      },
+    }
+
+    const wrapper = shallow(<SearchInput onChange={mock} {...props} />)
 
     wrapper.setState({ value: 'foo' })
     wrapper
@@ -83,6 +93,7 @@ describe('Search Input', () => {
       .simulate('click')
 
     expect(mock).toBeCalledWith('foo')
+    expect(mockRedirect).toBeCalled()
   })
 
   describe('redirect to search page', () => {
