@@ -15,34 +15,55 @@ export class Search extends Component {
   }
 
   render() {
-    const { users, stories, search } = this.props
+    const { users, stories, search: { status } } = this.props
+
+    const hasItems =
+      (users.items && users.items.length > 0) ||
+      (stories.items && stories.items.length > 0)
 
     const searchTitle = () => {
-      const { status } = search
       if (status === 'fetching') {
         return 'Buscando...'
-      } else if (
-        status === 'success' &&
-        ((users.items && users.items.length > 0) ||
-          (stories.items && stories.items.length > 0))
-      ) {
+      } else if (status === 'success' && hasItems) {
         return 'Resultados de búsqueda'
       } else {
         return 'Buscar'
       }
     }
 
+    const searchMeta = () => {
+      if (!hasItems) {
+        return ''
+      }
+
+      const meta = []
+
+      if (stories.totalCount) {
+        meta.push(
+          `${stories.totalCount} ${stories.totalCount === 1 ? 'post' : 'posts'}`
+        )
+      }
+
+      if (users.totalCount) {
+        meta.push(
+          `${users.totalCount} ${
+            users.totalCount === 1 ? 'usuario' : 'usuarios'
+          }`
+        )
+      }
+
+      return <small className="text-muted">({meta.join(', ')})</small>
+    }
+
     const hasFailure =
       users.status === 'failure' && stories.status === 'failure'
-
-    const hideStoriesGroup =
-      'items' in stories === false || stories.items.length <= 0
-    const hideUserGroup = 'items' in users === false || users.items.length <= 0
 
     return (
       <div className="row">
         <div className="col-8">
-          <h5 className="mb-4">{searchTitle()}</h5>
+          <h5 className="mb-4">
+            {searchTitle()} {searchMeta()}
+          </h5>
 
           {hasFailure && (
             <p className="text-danger">
@@ -50,7 +71,11 @@ export class Search extends Component {
             </p>
           )}
 
-          <SearchGroup title="Posts" className="mb-4" hide={hideStoriesGroup}>
+          <SearchGroup
+            className="mb-4"
+            matches={stories.totalCount}
+            title="Posts"
+          >
             {stories.items && (
               <Summaries
                 itemSize={ITEM_SMALL}
@@ -61,7 +86,7 @@ export class Search extends Component {
             )}
           </SearchGroup>
 
-          <SearchGroup title="Usuarios" hide={hideUserGroup}>
+          <SearchGroup matches={users.totalCount} title="Usuarios">
             <div className="row">
               {users.items && users.items.map(i => <User key={i.id} {...i} />)}
             </div>

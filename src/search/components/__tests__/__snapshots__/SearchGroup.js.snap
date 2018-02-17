@@ -1,27 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Serach Group renders 1`] = `
-<div
-  className="bar"
->
-  <h6
-    className="text-secondary"
-  >
-    foo
-  </h6>
-  baz
-</div>
-`;
+exports[`Serach Group renders nothing when has no matches 1`] = `null`;
 
-exports[`Serach Group wrapper renders 1`] = `
+exports[`Serach Group renders when has matches 1`] = `
 <div
   className="bar"
-  wrapper={true}
 >
   <h6
     className="text-secondary"
   >
     foo
+     
+    <small>
+      (
+      5
+       resultados)
+    </small>
   </h6>
   baz
 </div>

@@ -1,13 +1,15 @@
 import React from 'react'
 
-const SearchGroup = ({ hide, title, children, ...props }) => {
-  if (hide) {
+const SearchGroup = ({ title, matches, children, ...props }) => {
+  if (!matches) {
     return null
   }
 
   return (
     <div {...props}>
-      <h6 className="text-secondary">{title}</h6>
+      <h6 className="text-secondary">
+        {title} <small>({matches || 0} resultados)</small>
+      </h6>
       {children}
     </div>
   )

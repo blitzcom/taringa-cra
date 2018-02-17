@@ -11,6 +11,7 @@ exports[`Search Title when has failure renders message 1`] = `
       className="mb-4"
     >
       Buscar
+       
     </h5>
     <p
       className="text-danger"
@@ -19,11 +20,9 @@ exports[`Search Title when has failure renders message 1`] = `
     </p>
     <SearchGroup
       className="mb-4"
-      hide={true}
       title="Posts"
     />
     <SearchGroup
-      hide={true}
       title="Usuarios"
     >
       <div
@@ -34,7 +33,7 @@ exports[`Search Title when has failure renders message 1`] = `
 </div>
 `;
 
-exports[`Search Title when has items stories renders message 1`] = `
+exports[`Search Title when has stories renders message 1`] = `
 <div
   className="row"
 >
@@ -45,14 +44,21 @@ exports[`Search Title when has items stories renders message 1`] = `
       className="mb-4"
     >
       Resultados de búsqueda
+       
+      <small
+        className="text-muted"
+      >
+        (
+        1 usuario
+        )
+      </small>
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={true}
       title="Posts"
     />
     <SearchGroup
-      hide={false}
+      matches={1}
       title="Usuarios"
     >
       <div
@@ -103,10 +109,18 @@ exports[`Search Title when has users and stories and is fetching renders message
       className="mb-4"
     >
       Buscando...
+       
+      <small
+        className="text-muted"
+      >
+        (
+        1 post, 1 usuario
+        )
+      </small>
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={false}
+      matches={1}
       title="Posts"
     >
       <Summaries
@@ -143,7 +157,7 @@ exports[`Search Title when has users and stories and is fetching renders message
       />
     </SearchGroup>
     <SearchGroup
-      hide={false}
+      matches={1}
       title="Usuarios"
     >
       <div
@@ -194,10 +208,18 @@ exports[`Search Title when has users and stories renders message 1`] = `
       className="mb-4"
     >
       Resultados de búsqueda
+       
+      <small
+        className="text-muted"
+      >
+        (
+        1 post, 1 usuario
+        )
+      </small>
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={false}
+      matches={1}
       title="Posts"
     >
       <Summaries
@@ -234,7 +256,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
       />
     </SearchGroup>
     <SearchGroup
-      hide={false}
+      matches={1}
       title="Usuarios"
     >
       <div
@@ -285,10 +307,18 @@ exports[`Search Title when has users renders message 1`] = `
       className="mb-4"
     >
       Resultados de búsqueda
+       
+      <small
+        className="text-muted"
+      >
+        (
+        1 post
+        )
+      </small>
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={false}
+      matches={1}
       title="Posts"
     >
       <Summaries
@@ -325,7 +355,6 @@ exports[`Search Title when has users renders message 1`] = `
       />
     </SearchGroup>
     <SearchGroup
-      hide={true}
       title="Usuarios"
     >
       <div
@@ -347,14 +376,13 @@ exports[`Search Title when is fetching renders message 1`] = `
       className="mb-4"
     >
       Buscando...
+       
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={true}
       title="Posts"
     />
     <SearchGroup
-      hide={true}
       title="Usuarios"
     >
       <div
@@ -376,14 +404,13 @@ exports[`Search Title when is idle renders message 1`] = `
       className="mb-4"
     >
       Buscar
+       
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={true}
       title="Posts"
     />
     <SearchGroup
-      hide={true}
       title="Usuarios"
     >
       <div
@@ -405,10 +432,10 @@ exports[`Search renders 1`] = `
       className="mb-4"
     >
       Buscar
+       
     </h5>
     <SearchGroup
       className="mb-4"
-      hide={true}
       title="Posts"
     >
       <Summaries
@@ -426,7 +453,6 @@ exports[`Search renders 1`] = `
       />
     </SearchGroup>
     <SearchGroup
-      hide={true}
       title="Usuarios"
     >
       <div
