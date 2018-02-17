@@ -1,7 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
-import { MemoryRouter } from 'react-router-dom'
 
 import Comment from '../Comment'
 import { comment, commentWithReply, commentWithReplies } from '../comment.data'
@@ -16,28 +15,26 @@ describe('Comment', () => {
   })
 
   it('renders default', () => {
-    const tree = renderer.create(<Comment {...comment} />).toJSON()
+    const wrapper = shallow(<Comment {...comment} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders with reply', () => {
-    const tree = renderer.create(<Comment {...commentWithReply} />).toJSON()
+    const wrapper = shallow(<Comment {...commentWithReply} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders with replies', () => {
-    const tree = renderer.create(<Comment {...commentWithReplies} />).toJSON()
+    const wrapper = shallow(<Comment {...commentWithReplies} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders with visible replies', () => {
-    const tree = renderer
-      .create(<Comment {...commentWithReplies} showReplies />)
-      .toJSON()
+    const wrapper = shallow(<Comment {...commentWithReplies} showReplies />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

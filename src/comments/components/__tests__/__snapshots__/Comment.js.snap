@@ -19,18 +19,23 @@ exports[`Comment renders default 1`] = `
     <h6
       className="Comment-author"
     >
-      <a
-        href="/"
+      <Link
+        onClick={[Function]}
+        replace={false}
+        to="/u/Foobar"
       >
         Foobar
-      </a>
-      <time
+      </Link>
+      <TimeAgo
         className="Comment-meta-created"
-        dateTime="2017-12-22T05:28:22.005Z"
-        title="2017-12-22 05:28"
-      >
-        hace 1 hora
-      </time>
+        component="time"
+        date={1513920502005}
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
     </h6>
     <div
       className="Comment-body"
@@ -63,18 +68,23 @@ exports[`Comment renders with replies 1`] = `
     <h6
       className="Comment-author"
     >
-      <a
-        href="/"
+      <Link
+        onClick={[Function]}
+        replace={false}
+        to="/u/Foobar"
       >
         Foobar
-      </a>
-      <time
+      </Link>
+      <TimeAgo
         className="Comment-meta-created"
-        dateTime="2017-12-22T05:28:22.005Z"
-        title="2017-12-22 05:28"
-      >
-        hace 1 hora
-      </time>
+        component="time"
+        date={1513920502005}
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
     </h6>
     <div
       className="Comment-body"
@@ -119,18 +129,23 @@ exports[`Comment renders with reply 1`] = `
     <h6
       className="Comment-author"
     >
-      <a
-        href="/"
+      <Link
+        onClick={[Function]}
+        replace={false}
+        to="/u/Foobar"
       >
         Foobar
-      </a>
-      <time
+      </Link>
+      <TimeAgo
         className="Comment-meta-created"
-        dateTime="2017-12-22T05:28:22.005Z"
-        title="2017-12-22 05:28"
-      >
-        hace 1 hora
-      </time>
+        component="time"
+        date={1513920502005}
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
     </h6>
     <div
       className="Comment-body"
@@ -175,18 +190,23 @@ exports[`Comment renders with visible replies 1`] = `
     <h6
       className="Comment-author"
     >
-      <a
-        href="/"
+      <Link
+        onClick={[Function]}
+        replace={false}
+        to="/u/Foobar"
       >
         Foobar
-      </a>
-      <time
+      </Link>
+      <TimeAgo
         className="Comment-meta-created"
-        dateTime="2017-12-22T05:28:22.005Z"
-        title="2017-12-22 05:28"
-      >
-        hace 1 hora
-      </time>
+        component="time"
+        date={1513920502005}
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
     </h6>
     <div
       className="Comment-body"
@@ -210,88 +230,48 @@ exports[`Comment renders with visible replies 1`] = `
     <div
       className="Comment-replies mt-4"
     >
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a reply comment",
-              }
-            }
-          />
-        </div>
-      </div>
-      <div
-        className="Comment mb-4 d-flex"
-      >
-        <div
-          className="Comment-avatar mr-3"
-        >
-          <img
-            alt="Foobar"
-            className="rounded Comment-avatar"
-            src="https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730"
-          />
-        </div>
-        <div
-          className="Comment-content"
-        >
-          <h6
-            className="Comment-author"
-          >
-            <a
-              href="/"
-            >
-              Foobar
-            </a>
-            <time
-              className="Comment-meta-created"
-              dateTime="2017-12-22T05:28:22.005Z"
-              title="2017-12-22 05:28"
-            >
-              hace 1 hora
-            </time>
-          </h6>
-          <div
-            className="Comment-body"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am a reply comment",
-              }
-            }
-          />
-        </div>
-      </div>
+      <Comment
+        attachment={null}
+        body="I am a reply comment"
+        created={1513920502005}
+        downvotes={0}
+        id="53675147"
+        key="53675147"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
+      <Comment
+        attachment={null}
+        body="I am a reply comment"
+        created={1513920502005}
+        downvotes={0}
+        id="53675146"
+        key="53675146"
+        owner={
+          Object {
+            "avatar": "https://a18.t26.net/avatares/2/3/4/5/120x120_nr_23454008.jpg?888730",
+            "firstname": "Foo",
+            "id": "l2m1j",
+            "lastname": "Bar",
+            "type": "user:summary",
+            "username": "Foobar",
+          }
+        }
+        state={Object {}}
+        type="comment"
+        upvotes={0}
+      />
     </div>
   </div>
 </div>

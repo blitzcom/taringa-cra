@@ -16,50 +16,46 @@ describe('Comments', () => {
   })
 
   it('renders idle', () => {
-    const tree = renderer.create(<Comments canRender={false} />).toJSON()
+    const wrapper = shallow(<Comments canRender={false} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders empty', () => {
-    const tree = renderer
-      .create(<Comments totalCount={0} status="success" />)
-      .toJSON()
+    const wrapper = shallow(<Comments totalCount={0} status="success" />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders listing', () => {
-    const tree = renderer
-      .create(<Comments totalCount={1} status="success" comments={[comment]} />)
-      .toJSON()
+    const wrapper = shallow(
+      <Comments totalCount={1} status="success" comments={[comment]} />
+    )
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders listing with more than one', () => {
-    const tree = renderer
-      .create(<Comments totalCount={2} status="success" comments={comments} />)
-      .toJSON()
+    const wrapper = shallow(
+      <Comments totalCount={2} status="success" comments={comments} />
+    )
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders listing with loading more', () => {
-    const tree = renderer
-      .create(
-        <Comments totalCount={2} status="fetching" comments={[comment]} />
-      )
-      .toJSON()
+    const wrapper = shallow(
+      <Comments totalCount={2} status="fetching" comments={[comment]} />
+    )
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders listing with error', () => {
-    const tree = renderer
-      .create(<Comments totalCount={1} status="failure" comments={[comment]} />)
-      .toJSON()
+    const wrapper = shallow(
+      <Comments totalCount={1} status="failure" comments={[comment]} />
+    )
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })
