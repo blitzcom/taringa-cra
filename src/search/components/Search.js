@@ -12,14 +12,13 @@ export const Search = props => {
   const { users, stories, search } = props
 
   const searchTitle = () => {
-    const { status, q } = search
+    const { status } = search
     if (status === 'failure') {
       return 'No se ha podido buscar'
     } else if (status === 'fetching') {
       return 'Buscando...'
     } else if (
       status === 'success' &&
-      q.length > 0 &&
       (users.items &&
         users.items.length > 0 &&
         stories.items &&

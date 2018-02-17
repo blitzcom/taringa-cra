@@ -62,7 +62,6 @@ export function* search({ q }) {
   })
 
   if (clear) {
-    console.log('canceling search')
     yield cancel(storiesTask)
     yield cancel(usersTask)
   }
