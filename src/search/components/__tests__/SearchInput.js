@@ -55,14 +55,34 @@ describe('Search Input', () => {
   it('clears search input', () => {
     const mock = jest.fn()
 
-    const wrapper = shallow(<SearchInput onClear={mock} />)
+    const wrapper = mount(<SearchInput onClear={mock} />)
+
     wrapper.setState({ value: 'foo' })
+
     expect(wrapper).toMatchSnapshot()
+
     wrapper
       .find('button')
       .at(1)
       .simulate('click')
+
     expect(wrapper).toMatchSnapshot()
+    expect(wrapper.instance().input).toBe(document.activeElement)
+    expect(mock).toBeCalled()
+  })
+
+  it('handles search on click', () => {
+    const mock = jest.fn()
+
+    const wrapper = shallow(<SearchInput onChange={mock} />)
+
+    wrapper.setState({ value: 'foo' })
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click')
+
+    expect(mock).toBeCalledWith('foo')
   })
 
   describe('redirect to search page', () => {

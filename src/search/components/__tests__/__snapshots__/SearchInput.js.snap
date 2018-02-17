@@ -1,68 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search Input clears search input 1`] = `
-<div
-  className="SearchInput input-group"
+<SearchInput
+  isSearching={false}
+  onChange={[Function]}
+  onClear={[Function]}
 >
   <div
-    className="input-group-prepend"
+    className="SearchInput input-group"
   >
-    <button
-      className="btn"
-      type="button"
+    <div
+      className="input-group-prepend"
     >
-      <i
-        className="fa fa-search"
-      />
-    </button>
-  </div>
-  <input
-    className="form-control"
-    onChange={[Function]}
-    placeholder="Buscar canal, post o usuario"
-    type="text"
-    value="foo"
-  />
-  <div
-    className="input-group-append"
-  >
-    <button
-      className="btn"
-      onClick={[Function]}
-      type="button"
+      <button
+        className="btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="fa fa-search"
+        />
+      </button>
+    </div>
+    <input
+      className="form-control"
+      onChange={[Function]}
+      placeholder="Buscar canal, post o usuario"
+      type="text"
+      value="foo"
+    />
+    <div
+      className="input-group-append"
     >
-      <i
-        className="fa fa-times"
-      />
-    </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="fa fa-times"
+        />
+      </button>
+    </div>
   </div>
-</div>
+</SearchInput>
 `;
 
 exports[`Search Input clears search input 2`] = `
-<div
-  className="SearchInput input-group"
+<SearchInput
+  isSearching={false}
+  onChange={[Function]}
+  onClear={[Function]}
 >
   <div
-    className="input-group-prepend"
+    className="SearchInput input-group"
   >
-    <button
-      className="btn"
-      type="button"
+    <div
+      className="input-group-prepend"
     >
-      <i
-        className="fa fa-search"
-      />
-    </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="fa fa-search"
+        />
+      </button>
+    </div>
+    <input
+      className="form-control"
+      onChange={[Function]}
+      placeholder="Buscar canal, post o usuario"
+      type="text"
+      value=""
+    />
   </div>
-  <input
-    className="form-control"
-    onChange={[Function]}
-    placeholder="Buscar canal, post o usuario"
-    type="text"
-    value=""
-  />
-</div>
+</SearchInput>
 `;
 
 exports[`Search Input renders 1`] = `
@@ -74,6 +88,7 @@ exports[`Search Input renders 1`] = `
   >
     <button
       className="btn"
+      onClick={[Function]}
       type="button"
     >
       <i
@@ -100,6 +115,7 @@ exports[`Search Input renders spinner 1`] = `
   >
     <button
       className="btn"
+      onClick={[Function]}
       type="button"
     >
       <i
@@ -126,6 +142,7 @@ exports[`Search Input shows clear button 1`] = `
   >
     <button
       className="btn"
+      onClick={[Function]}
       type="button"
     >
       <i
@@ -152,6 +169,7 @@ exports[`Search Input shows clear button 2`] = `
   >
     <button
       className="btn"
+      onClick={[Function]}
       type="button"
     >
       <i
