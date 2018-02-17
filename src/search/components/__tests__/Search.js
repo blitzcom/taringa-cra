@@ -75,15 +75,16 @@ describe('Search', () => {
       })
     })
 
-    describe('when has items stories', () => {
+    describe('when has stories', () => {
       it('renders message', () => {
         const stories = {
           status: 'success',
         }
 
         const users = {
-          status: 'success',
           items: [userSample],
+          status: 'success',
+          totalCount: 1,
         }
 
         const search = {
@@ -100,6 +101,7 @@ describe('Search', () => {
         const stories = {
           items: [normalizeStory(summary)],
           status: 'success',
+          totalCount: 1,
         }
 
         const users = {
@@ -120,11 +122,13 @@ describe('Search', () => {
         const stories = {
           items: [normalizeStory(summary)],
           status: 'success',
+          totalCount: 1,
         }
 
         const users = {
           items: [userSample],
           status: 'success',
+          totalCount: 1,
         }
 
         const search = {
@@ -141,11 +145,13 @@ describe('Search', () => {
         const stories = {
           items: [normalizeStory(summary)],
           status: 'fetching',
+          totalCount: 1,
         }
 
         const users = {
           items: [userSample],
           status: 'fetching',
+          totalCount: 1,
         }
 
         const search = {
