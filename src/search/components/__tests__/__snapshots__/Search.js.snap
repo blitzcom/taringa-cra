@@ -1,5 +1,399 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Search Title when has failure renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Buscar
+    </h5>
+    <p
+      className="text-danger"
+    >
+      ¡Ratas! Algo salío mal, vuelve a intentar.
+    </p>
+    <SearchGroup
+      className="mb-4"
+      hide={true}
+      title="Posts"
+    />
+    <SearchGroup
+      hide={true}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when has items stories renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Resultados de búsqueda
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={true}
+      title="Posts"
+    />
+    <SearchGroup
+      hide={false}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      >
+        <User
+          avatar="https://a21.t26.net/taringa/avatares/4/6/6/F/D/5/supr159/120x120_B7B.jpg"
+          birthday="1992-1-18"
+          country="MX"
+          created={1513920502005}
+          firstname="Diego"
+          followers={32}
+          following={0}
+          gender="m"
+          id="27s73"
+          key="27s73"
+          lastname="Lopez"
+          latestStory="2018-01-17T03:07:26.000Z"
+          message=""
+          rank="User"
+          site=""
+          state={
+            Object {
+              "following": false,
+            }
+          }
+          stories={11}
+          subscribedToDefaultChannels={true}
+          suspended={false}
+          tid={924744}
+          type="user"
+          username="supr159"
+        />
+      </div>
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when has users and stories and is fetching renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Buscando...
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={false}
+      title="Posts"
+    >
+      <Summaries
+        history={
+          Object {
+            "listen": [Function],
+          }
+        }
+        itemSize="settings/ITEM_SMALL"
+        loadFeed={[Function]}
+        loadMore={[Function]}
+        placeholderCount={3}
+        status="success"
+        summaries={
+          Array [
+            Object {
+              "comments": 78,
+              "created": 1513920502005,
+              "icon": "fa fa-image",
+              "id": "zbmsb",
+              "owner": "Fraudier",
+              "preview": Object {
+                "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+                "kind": "image",
+              },
+              "score": "2.9k",
+              "shares": 1,
+              "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "title": "Si no das like no tendras pelirojas en 100 años",
+            },
+          ]
+        }
+      />
+    </SearchGroup>
+    <SearchGroup
+      hide={false}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      >
+        <User
+          avatar="https://a21.t26.net/taringa/avatares/4/6/6/F/D/5/supr159/120x120_B7B.jpg"
+          birthday="1992-1-18"
+          country="MX"
+          created={1513920502005}
+          firstname="Diego"
+          followers={32}
+          following={0}
+          gender="m"
+          id="27s73"
+          key="27s73"
+          lastname="Lopez"
+          latestStory="2018-01-17T03:07:26.000Z"
+          message=""
+          rank="User"
+          site=""
+          state={
+            Object {
+              "following": false,
+            }
+          }
+          stories={11}
+          subscribedToDefaultChannels={true}
+          suspended={false}
+          tid={924744}
+          type="user"
+          username="supr159"
+        />
+      </div>
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when has users and stories renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Resultados de búsqueda
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={false}
+      title="Posts"
+    >
+      <Summaries
+        history={
+          Object {
+            "listen": [Function],
+          }
+        }
+        itemSize="settings/ITEM_SMALL"
+        loadFeed={[Function]}
+        loadMore={[Function]}
+        placeholderCount={3}
+        status="success"
+        summaries={
+          Array [
+            Object {
+              "comments": 78,
+              "created": 1513920502005,
+              "icon": "fa fa-image",
+              "id": "zbmsb",
+              "owner": "Fraudier",
+              "preview": Object {
+                "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+                "kind": "image",
+              },
+              "score": "2.9k",
+              "shares": 1,
+              "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "title": "Si no das like no tendras pelirojas en 100 años",
+            },
+          ]
+        }
+      />
+    </SearchGroup>
+    <SearchGroup
+      hide={false}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      >
+        <User
+          avatar="https://a21.t26.net/taringa/avatares/4/6/6/F/D/5/supr159/120x120_B7B.jpg"
+          birthday="1992-1-18"
+          country="MX"
+          created={1513920502005}
+          firstname="Diego"
+          followers={32}
+          following={0}
+          gender="m"
+          id="27s73"
+          key="27s73"
+          lastname="Lopez"
+          latestStory="2018-01-17T03:07:26.000Z"
+          message=""
+          rank="User"
+          site=""
+          state={
+            Object {
+              "following": false,
+            }
+          }
+          stories={11}
+          subscribedToDefaultChannels={true}
+          suspended={false}
+          tid={924744}
+          type="user"
+          username="supr159"
+        />
+      </div>
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when has users renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Resultados de búsqueda
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={false}
+      title="Posts"
+    >
+      <Summaries
+        history={
+          Object {
+            "listen": [Function],
+          }
+        }
+        itemSize="settings/ITEM_SMALL"
+        loadFeed={[Function]}
+        loadMore={[Function]}
+        placeholderCount={3}
+        status="success"
+        summaries={
+          Array [
+            Object {
+              "comments": 78,
+              "created": 1513920502005,
+              "icon": "fa fa-image",
+              "id": "zbmsb",
+              "owner": "Fraudier",
+              "preview": Object {
+                "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+                "kind": "image",
+              },
+              "score": "2.9k",
+              "shares": 1,
+              "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "title": "Si no das like no tendras pelirojas en 100 años",
+            },
+          ]
+        }
+      />
+    </SearchGroup>
+    <SearchGroup
+      hide={true}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when is fetching renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Buscando...
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={true}
+      title="Posts"
+    />
+    <SearchGroup
+      hide={true}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+  </div>
+</div>
+`;
+
+exports[`Search Title when is idle renders message 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-8"
+  >
+    <h5
+      className="mb-4"
+    >
+      Buscar
+    </h5>
+    <SearchGroup
+      className="mb-4"
+      hide={true}
+      title="Posts"
+    />
+    <SearchGroup
+      hide={true}
+      title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+  </div>
+</div>
+`;
+
 exports[`Search renders 1`] = `
 <div
   className="row"
