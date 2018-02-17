@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Card from '../../users/components/Card'
 import Summaries from '../../summaries/components/Summaries'
+import Ad from '../../ads/components/Ad'
 
 const SummariesRoute = ({ id: providedId, url, ...rest }) => (
   <Route
@@ -30,7 +30,7 @@ const Home = props => (
     </div>
 
     <div className="col-4">
-      <Card status="fetching" />
+      <Ad />
     </div>
   </div>
 )

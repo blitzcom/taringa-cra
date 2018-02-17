@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ad renders 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-header p-1 small text-center text-muted"
+  >
+    PUBLICIDAD
+  </div>
+  <div
+    className="card-body Ad-empty"
+  />
+</div>
+`;
