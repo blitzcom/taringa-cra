@@ -8,13 +8,7 @@ describe('Serach Group', () => {
   })
 
   it('renders nothing when has no matches', () => {
-    const tree = renderer
-      .create(
-        <SearchGroup>
-          baz
-        </SearchGroup>
-      )
-      .toJSON()
+    const tree = renderer.create(<SearchGroup>baz</SearchGroup>).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
