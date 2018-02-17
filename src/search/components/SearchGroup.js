@@ -1,13 +1,14 @@
 import React from 'react'
 
-const SearchGroup = ({ className, ...props }) => {
+const SearchGroup = ({ hide, title, children, ...props }) => {
+  if (hide) {
+    return null
+  }
+
   return (
-    <div className={className}>
-      <h6 className="text-secondary">{props.title}</h6>
-
-      {props.wrapper && <div className="row">{props.children}</div>}
-
-      {!props.wrapper && props.children}
+    <div {...props}>
+      <h6 className="text-secondary">{title}</h6>
+      {children}
     </div>
   )
 }
