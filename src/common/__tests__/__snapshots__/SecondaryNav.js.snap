@@ -81,15 +81,6 @@ exports[`Secondary Nav renders 1`] = `
                 Tops
               </a>
             </div>
-            <div
-              className="form-inline"
-            >
-              <button
-                className="btn btn-sm btn-outline-success"
-              >
-                Crear Post
-              </button>
-            </div>
           </div>
         </nav>
       </div>
@@ -178,15 +169,6 @@ exports[`Secondary Nav renders active on ITEM_BIG 1`] = `
               >
                 Tops
               </a>
-            </div>
-            <div
-              className="form-inline"
-            >
-              <button
-                className="btn btn-sm btn-outline-success"
-              >
-                Crear Post
-              </button>
             </div>
           </div>
         </nav>
@@ -277,15 +259,6 @@ exports[`Secondary Nav renders active on ITEM_MEDIUM 1`] = `
                 Tops
               </a>
             </div>
-            <div
-              className="form-inline"
-            >
-              <button
-                className="btn btn-sm btn-outline-success"
-              >
-                Crear Post
-              </button>
-            </div>
           </div>
         </nav>
       </div>
@@ -374,15 +347,6 @@ exports[`Secondary Nav renders active on ITEM_SMALL 1`] = `
               >
                 Tops
               </a>
-            </div>
-            <div
-              className="form-inline"
-            >
-              <button
-                className="btn btn-sm btn-outline-success"
-              >
-                Crear Post
-              </button>
             </div>
           </div>
         </nav>

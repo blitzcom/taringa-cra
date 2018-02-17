@@ -85,12 +85,6 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
                     Tops
                   </NavLink>
                 </div>
-
-                <div className="form-inline">
-                  <button className="btn btn-sm btn-outline-success">
-                    Crear Post
-                  </button>
-                </div>
               </div>
             </nav>
           </div>
