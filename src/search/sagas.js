@@ -15,7 +15,7 @@ import * as actions from './actions'
 import { SEARCH_CLEAR } from './types'
 
 export function* searchStories({ q }) {
-  const cancelToken = axios.CancelToken.source()
+  const cancelToken = yield call(axios.CancelToken.source)
 
   try {
     yield put(actions.searchStoriesRequest(q))
@@ -27,13 +27,15 @@ export function* searchStories({ q }) {
     yield put(actions.searchStoriesFailure(e.message))
   } finally {
     if (yield cancelled()) {
-      cancelToken.cancel()
+      if (cancelToken) {
+        yield call(cancelToken.cancel)
+      }
     }
   }
 }
 
 export function* searchUsers({ q }) {
-  const cancelToken = axios.CancelToken.source()
+  const cancelToken = yield call(axios.CancelToken.source)
 
   try {
     yield put(actions.searchUsersRequest(q))
@@ -45,7 +47,9 @@ export function* searchUsers({ q }) {
     yield put(actions.searchUsersFailure(e.message))
   } finally {
     if (yield cancelled()) {
-      cancelToken.cancel()
+      if (cancelToken) {
+        yield call(cancelToken.cancel)
+      }
     }
   }
 }
