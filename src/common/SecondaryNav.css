@@ -10,6 +10,7 @@
 
 .SecondaryNav .nav-link.active {
   color: rgba(0, 0, 0, 1) !important;
+  font-weight: 500 !important;
 }
 
 .SecondaryNav .btn-light.active {
