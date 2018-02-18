@@ -22,6 +22,7 @@
   background: rgba(255, 255, 255, 0.1);
   padding-left: 0;
   color: white;
+  min-width: 240px;
 }
 
 .SearchInput .form-control::placeholder {
