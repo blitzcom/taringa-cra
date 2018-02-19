@@ -33,18 +33,20 @@ export class Story extends Component {
       comments !== null &&
       'totalCount' in commentsStatus &&
       comments.length < commentsStatus.totalCount
+    const hasSuccess = status === 'success'
 
     return (
       <div className="row">
         <div className="col-8">
           <StoryContent {...story} status={status} />
-          <Comments
-            canRender={status === 'success'}
-            comments={comments}
-            loadMore={loadComments}
-            hasMoreContent={hasMoreContent}
-            {...commentsStatus}
-          />
+          {hasSuccess && (
+            <Comments
+              comments={comments}
+              loadMore={loadComments}
+              hasMoreContent={hasMoreContent}
+              {...commentsStatus}
+            />
+          )}
         </div>
 
         <div className="col-4">
