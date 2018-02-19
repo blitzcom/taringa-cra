@@ -22,17 +22,28 @@ storiesOf('Comment', module)
   ))
 
 storiesOf('Comments', module)
-  .add('idle', () => <Comments canRender={false} />)
+  .addDecorator(story => (
+    <div className="container">
+      <div className="row">
+        <div className="col-8">{story()}</div>
+      </div>
+    </div>
+  ))
+  .add('initial fetching', () => <Comments />)
   .add('empty', () => <Comments totalCount={0} status="success" />)
-  .add('listing', () => (
+  .add('listing one', () => (
     <Comments totalCount={1} status="success" comments={[comment]} />
   ))
-  .add('listing with two', () => (
+  .add('listing two', () => (
     <Comments totalCount={2} status="success" comments={comments} />
   ))
-  .add('with load more', () => (
+  .add('listing two and load more', () => (
+    <Comments totalCount={3} status="success" comments={comments} />
+  ))
+  .add('loading more', () => (
     <Comments totalCount={1} status="fetching" comments={[comment]} />
   ))
+  .add('with initial error', () => <Comments totalCount={1} status="failure" />)
   .add('with error', () => (
     <Comments totalCount={1} status="failure" comments={[comment]} />
   ))
