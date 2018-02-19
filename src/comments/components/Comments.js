@@ -1,85 +1,98 @@
 import React, { Component } from 'react'
 
-import infiniteScroll from '../../HOC/InfiniteScroll'
+import { pluralize } from '../../utils/StringHelpers'
 import Comment from './Comment'
 
 export class Comments extends Component {
-  renderCommentsLabel() {
-    const { totalCount } = this.props
-
-    if (totalCount === 0) {
-      return 'No hay comentarios'
-    } else if (totalCount === 1) {
-      return '1 comentario'
-    } else {
-      return `${totalCount} comentarios`
-    }
+  constructor(props) {
+    super(props)
+    this.handleLoadMore = this.handleLoadMore.bind(this)
   }
 
-  handleRetryLoadMore(e) {
-    e.preventDefault()
-
+  handleLoadMore(e) {
     if (this.props.status !== 'fetching') {
       this.props.loadMore()
     }
   }
 
   render() {
-    const { canRender, comments, status, totalCount } = this.props
-
-    if (!canRender) {
-      return null
-    }
-
-    const canRenderCommentsCount =
-      'comments' in this.props && 'totalCount' in this.props
-    const canRenderComments = comments && comments.length > 0
-    const canRenderSpinner = status === 'fetching'
-    const hasError = status === 'failure'
-    const hasNoMoreComments =
-      comments &&
-      comments.length === totalCount &&
-      comments.length !== 0 &&
-      status === 'success'
+    const { comments, status, totalCount } = this.props
+    const count = comments.length
+    const isFetching = status === 'fetching'
+    const hasFailure = status === 'failure'
+    const hasSuccess = status === 'success'
+    const hasComments = count > 0
+    const isEmpty = !hasComments
+    const canFetch = count < totalCount
 
     return (
       <div className="Comments mt-4">
         <div className="card">
-          {canRenderCommentsCount && (
+          {hasComments && (
             <div className="card-body">
-              <h6 className="card-title mb-0">{this.renderCommentsLabel()}</h6>
+              <h6 className="card-title mb-0">
+                {pluralize(totalCount, 'comentario')}
+              </h6>
             </div>
           )}
 
-          {canRenderComments && (
+          {hasComments && (
             <div className="card-body">
               {comments.map(i => <Comment key={i.id} {...i} />)}
             </div>
           )}
 
-          {canRenderSpinner && (
-            <div className="card-body">
-              <div className="text-center">
-                <i className="fa fa-circle-notch fa-spin" />
+          {isEmpty &&
+            hasSuccess && (
+              <div className="card-body">
+                <p className="text-secondary text-center mb-0">
+                  No hay comentarios
+                </p>
               </div>
+            )}
+
+          {isFetching && (
+            <div className="card-body text-center">
+              <i className="fa fa-circle-notch fa-spin" />
             </div>
           )}
 
-          {hasError && (
-            <div className="text-center">
+          {!canFetch &&
+            !isEmpty &&
+            !isFetching &&
+            !hasFailure && (
+              <div className="card-body text-center">
+                <p className="text-secondary mb-0">No hay más comentarios</p>
+              </div>
+            )}
+
+          {canFetch &&
+            !isFetching &&
+            !hasFailure && (
+              <div className="card-body text-center">
+                <button
+                  onClick={this.handleLoadMore}
+                  className="btn btn-sm btn-outline-secondary"
+                >
+                  Ver más comentarios
+                </button>
+              </div>
+            )}
+
+          {hasFailure && (
+            <div className="card-body text-center">
               <p className="text-danger">
-                ¡Ratas! Algo salío mal. Refresca la página o haz clic{' '}
-                <a href="/retry" onClick={this.handleRetryLoadMore.bind(this)}>
-                  aquí
-                </a>{' '}
-                para volver a intentar.
+                ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el
+                siguiente botón.
               </p>
-            </div>
-          )}
-
-          {hasNoMoreComments && (
-            <div className="text-center">
-              <p className="text-secondary">No hay más comentarios</p>
+              <p className="my-0">
+                <button
+                  onClick={this.handleLoadMore}
+                  className="btn btn-outline-secondary btn-sm"
+                >
+                  Volver a intentar
+                </button>
+              </p>
             </div>
           )}
         </div>
@@ -95,4 +108,4 @@ Comments.defaultProps = {
   status: 'fetching',
 }
 
-export default infiniteScroll()(Comments)
+export default Comments
