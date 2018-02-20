@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 
 import './StoryContent.css'
 
@@ -21,8 +20,7 @@ const StoryContent = props => {
     <div className="card Story-body">
       <div className="card-body">
         {props.title && <h4 className="card-title ">{props.title}</h4>}
-
-        <ReactMarkdown source={props.content} />
+        {props.content}
       </div>
     </div>
   )
