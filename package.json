@@ -8,6 +8,7 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "normalizr": "^3.2.4",
+    "query-string": "^5.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-markdown": "^3.1.5",
@@ -16,6 +17,7 @@
     "react-scripts": "1.1.0",
     "react-scroll": "^1.7.6",
     "react-timeago": "^3.4.3",
+    "react-youtube": "^7.5.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "redux-saga-testing": "^1.0.5",
@@ -50,7 +52,9 @@
     "redux-mock-store": "^1.4.0"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
