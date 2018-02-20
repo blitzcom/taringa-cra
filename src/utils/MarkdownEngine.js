@@ -1,6 +1,12 @@
 import _ from 'lodash'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 class MarkdownEngine {
+  constructor() {
+    this.mapEntities = this.mapEntities.bind(this)
+  }
+
   processHashtags(body) {
     return body.replace(/<hashtag tag="(.+?)" \/>/g, '[#$1](/hashtags/$1)')
   }
@@ -23,22 +29,29 @@ class MarkdownEngine {
     )
   }
 
+  mapEntities(entity, i) {
+    switch (entity.type) {
+      case 'markdown':
+        return <ReactMarkdown key={i} source={this.preRender(entity.body)} />
+      case 'image':
+        return (
+          <img
+            alt={entity.url}
+            height={entity.height}
+            key={i}
+            src={entity.url}
+            width={entity.width}
+          />
+        )
+      case 'html':
+        return <div key={i} dangerouslySetInnerHTML={{ __html: entity.body }} />
+      default:
+        return null
+    }
+  }
+
   render(content) {
-    return _.reduce(
-      content,
-      (markdown, next) => {
-        switch (next.type) {
-          case 'markdown':
-            return markdown + '\n' + this.preRender(next.body)
-          case 'image':
-            const image = `![${next.url}](${next.url})`
-            return markdown + image
-          default:
-            return markdown
-        }
-      },
-      ''
-    )
+    return _.map(content, this.mapEntities)
   }
 
   static Render(content) {
