@@ -1,6 +1,8 @@
 import _ from 'lodash'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import queryString from 'query-string'
+import YouTube from 'react-youtube'
 
 class MarkdownEngine {
   constructor() {
@@ -29,6 +31,28 @@ class MarkdownEngine {
     )
   }
 
+  getVideoId(url) {
+    const { query } = queryString.parseUrl(url)
+    return query.v
+  }
+
+  mapLinkEntity(entity, i) {
+    switch (entity.resourceType) {
+      case 'video.other':
+        const id = this.getVideoId(entity.url)
+        if (id) {
+          return (
+            <div className="text-center" key={i}>
+              <YouTube key={i} videoId={id} />
+            </div>
+          )
+        }
+        return null
+      default:
+        return null
+    }
+  }
+
   mapEntities(entity, i) {
     switch (entity.type) {
       case 'markdown':
@@ -45,6 +69,8 @@ class MarkdownEngine {
         )
       case 'html':
         return <div key={i} dangerouslySetInnerHTML={{ __html: entity.body }} />
+      case 'link':
+        return this.mapLinkEntity(entity, i)
       default:
         return null
     }
