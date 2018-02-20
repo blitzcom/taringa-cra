@@ -37,20 +37,17 @@ class MarkdownEngine {
   }
 
   mapLinkEntity(entity, i) {
-    switch (entity.resourceType) {
-      case 'video.other':
-        const id = this.getVideoId(entity.url)
-        if (id) {
-          return (
-            <div className="text-center" key={i}>
-              <YouTube key={i} videoId={id} />
-            </div>
-          )
-        }
-        return null
-      default:
-        return null
+    if (entity.url.indexOf('youtube') === -1) {
+      return null
     }
+
+    const id = this.getVideoId(entity.url)
+
+    return (
+      <div className="text-center" key={i}>
+        <YouTube key={i} videoId={id} />
+      </div>
+    )
   }
 
   mapEntities(entity, i) {
