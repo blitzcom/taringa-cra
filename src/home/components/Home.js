@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Summaries from '../../summaries/components/Summaries'
+import HomeFeed from './HomeFeed'
 import Ad from '../../ads/components/Ad'
 
 const SummariesRoute = ({ id, url, ...rest }) => (
   <Route
     {...rest}
-    render={props => <Summaries {...props} url={url} id={id} />}
+    render={props => <HomeFeed {...props} url={url} id={id} />}
   />
 )
 
