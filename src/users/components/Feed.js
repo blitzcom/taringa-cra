@@ -1,42 +1,15 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Card from './Card'
-import { Summaries } from '../../summaries/components/Summaries'
-import {
-  summariesSelector,
-  summariesStatusSelector,
-} from '../../summaries/selectors'
 import { userSelector } from '../selectors'
-import infiniteScroll from '../../HOC/InfiniteScroll'
-import { load, loadTail, clearTail } from '../../summaries/actions'
+import withSummaries from '../../summaries/components/withSummaries'
 
-const mapStateToProps = (state, props) => {
-  const username = props.match.params.username
-  const status = summariesStatusSelector(state, username)
+const getId = props => props.match.params.username
 
-  return {
-    itemSize: state.settings.itemSize,
-    summaries: summariesSelector(state, username),
-    ...status,
-  }
-}
+const getUrl = props => `/user/${getId(props)}/feed`
 
-const mapDispatchToProps = (dispatch, props) => {
-  const username = props.match.params.username
-  const url = `/user/${username}/feed`
-
-  return {
-    clearTail: () => dispatch(clearTail(username)),
-    loadFeed: () => dispatch(load(username, url, true)),
-    loadMore: () => dispatch(loadTail(username, url)),
-  }
-}
-
-const UserFeed = withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(infiniteScroll()(Summaries))
-)
+const UserFeed = withSummaries(getId, getUrl, true)()
 
 const Feed = props => {
   return (
