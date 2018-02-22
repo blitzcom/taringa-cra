@@ -95,6 +95,8 @@ const getPreview = (story = {}) => {
 
 export const normalizeStory = story => {
   return {
+    channel: story.channel.name,
+    channelName: story.channel.title,
     comments: story.comments,
     created: story.created,
     icon: getIcon(story),
