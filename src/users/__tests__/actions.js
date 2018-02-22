@@ -2,6 +2,13 @@ import * as actions from '../actions'
 import * as types from '../types'
 
 describe('Users actions', () => {
+  it('creates an action to trigger an user fetch', () => {
+    expect(actions.fetchTrigger('foo')).toEqual({
+      type: types.FETCH_TRIGGER,
+      username: 'foo',
+    })
+  })
+
   it('creates an action to start a fetching request', () => {
     expect(actions.fetchRequest('foo')).toEqual({
       type: types.FETCH_REQUEST,
