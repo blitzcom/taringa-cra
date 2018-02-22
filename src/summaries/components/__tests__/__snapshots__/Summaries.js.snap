@@ -309,14 +309,21 @@ exports[`Summaries renders summaries 1`] = `
               className="text-secondary small mb-2"
             >
               Posteado por
-               
+               
               <a
                 href="/u/Fraudier"
                 onClick={[Function]}
               >
                 Fraudier
               </a>
-               
+               en 
+              <a
+                href="/c/user-Fraudier"
+                onClick={[Function]}
+              >
+                user-Fraudier
+              </a>
+               
               <time
                 dateTime="2017-12-22T05:28:22.005Z"
                 title="2017-12-22 05:28"

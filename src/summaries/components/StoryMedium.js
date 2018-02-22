@@ -8,6 +8,8 @@ import StoryOwner from './StoryOwner'
 import { esFormatter } from '../../Utils'
 
 const StoryMedium = ({
+  channel,
+  channelName,
   comments,
   created,
   icon,
@@ -73,6 +75,8 @@ const StoryMedium = ({
           </StoryTitle>
 
           <StoryOwner
+            channel={channel}
+            channelName={channelName}
             className="text-secondary small mb-2"
             created={created}
             formatter={esFormatter}
