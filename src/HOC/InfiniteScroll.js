@@ -3,16 +3,14 @@ import React, { Component } from 'react'
 
 const infiniteScroll = (
   debounceDelay = 150,
-  scrollThreshold = 260
+  scrollThreshold = 400
 ) => WrappedComponent => {
   class InfiniteScroll extends Component {
     constructor(props) {
       super(props)
       this.hasScrollEventAttached = false
-      this.handleScroll = _.debounce(
-        this.handleScroll.bind(this),
-        debounceDelay
-      )
+      this.handleScroll = this.handleScroll.bind(this)
+      this.handleScrollThrottle = _.throttle(this.handleScroll, 250)
     }
 
     handleScroll() {
@@ -20,15 +18,13 @@ const infiniteScroll = (
         (document.documentElement && document.documentElement.scrollTop) ||
         document.body.scrollTop
 
-      const scrollHeight =
-        (document.documentElement && document.documentElement.scrollHeight) ||
-        document.body.scrollHeight
-
-      const clientHeight =
+      const windowHeight =
         document.documentElement.clientHeight || window.innerHeight
 
+      const documentHeight = document.body.clientHeight
+
       const scrolledToBottom =
-        Math.ceil(scrollTop + (clientHeight + scrollThreshold)) >= scrollHeight
+        documentHeight - scrollTop - windowHeight < scrollThreshold
 
       if (
         scrolledToBottom &&
@@ -40,28 +36,37 @@ const infiniteScroll = (
     }
 
     componentDidMount() {
+      this.addEvents()
+      this.handleScrollThrottle.cancel()
+    }
+
+    addEvents() {
+      if (this.hasScrollEventAttached) {
+        return
+      }
+
       this.hasScrollEventAttached = true
-      window.addEventListener('scroll', this.handleScroll)
+      window.addEventListener('scroll', this.handleScrollThrottle)
+    }
+
+    removeEvents() {
+      if (this.hasScrollEventAttached) {
+        window.removeEventListener('scroll', this.handleScrollThrottle)
+        this.hasScrollEventAttached = false
+      }
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll)
-      this.hasScrollEventAttached = false
+      this.removeEvents()
     }
 
     componentWillReceiveProps(nextProps) {
-      if (
-        this.hasScrollEventAttached &&
-        this.props.status === 'fetching' &&
-        nextProps.status === 'failure'
-      ) {
-        window.removeEventListener('scroll', this.handleScroll)
-        this.hasScrollEventAttached = false
+      if (this.props.status === 'fetching' && nextProps.status === 'failure') {
+        this.removeEvents()
       }
 
-      if (!this.hasScrollEventAttached && nextProps.status === 'success') {
-        this.hasScrollEventAttached = true
-        window.addEventListener('scroll', this.handleScroll)
+      if (nextProps.status === 'success') {
+        this.addEvents()
       }
     }
 
