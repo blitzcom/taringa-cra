@@ -1,28 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './Card.css'
+import Card from '../../common/Card'
 
-const Card = props => {
-  if (props.status === 'fetching') {
-    return (
-      <div className="Card card">
-        <div className="Card-animated-background">
-          <div className="Card-ph-body" />
-          <div className="Card-ph-avatar rounded" />
-        </div>
-      </div>
-    )
-  }
-
+const UserCard = props => {
   return (
-    <div className="Card card">
-      <img src={props.avatar} className="Card-avatar rounded" alt="Avatar" />
-      <img
-        className="Card-cover card-img-top"
-        src="https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png"
-        alt="Cover"
-      />
+    <Card
+      avatar={props.avatar}
+      cover="https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png"
+      status={props.status}
+    >
       <div className="card-body">
         <h5 className="card-title">
           {props.firstname} {props.lastname}
@@ -43,8 +30,8 @@ const Card = props => {
           inicio
         </p>
       </div>
-    </div>
+    </Card>
   )
 }
 
-export default Card
+export default UserCard
