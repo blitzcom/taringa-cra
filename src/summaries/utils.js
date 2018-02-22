@@ -93,10 +93,19 @@ const getPreview = (story = {}) => {
   }
 }
 
+const getChannel = story => {
+  const { channel } = story
+  const result = { channelName: channel.title, channel: channel.name }
+
+  if (channel.channelType === 'user_feed') {
+    result.channelName = 'self'
+  }
+
+  return result
+}
+
 export const normalizeStory = story => {
   return {
-    channel: story.channel.name,
-    channelName: story.channel.title,
     comments: story.comments,
     created: story.created,
     icon: getIcon(story),
@@ -108,5 +117,6 @@ export const normalizeStory = story => {
     slug: story.slug,
     thumbnail: getThumbnail(story),
     title: getTitle(story),
+    ...getChannel(story),
   }
 }

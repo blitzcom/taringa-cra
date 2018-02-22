@@ -321,7 +321,7 @@ exports[`Summaries renders summaries 1`] = `
                 href="/c/user-Fraudier"
                 onClick={[Function]}
               >
-                user-Fraudier
+                self
               </a>
                
               <time
