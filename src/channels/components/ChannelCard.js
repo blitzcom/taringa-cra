@@ -7,7 +7,6 @@ import withResource from '../../HOC/Resource'
 import { fetchTrigger } from '../actions'
 
 const ChannelCard = ({ channel, control }) => {
-  console.log(channel)
   return (
     <Card
       avatar={channel.thumbnail}
@@ -17,7 +16,9 @@ const ChannelCard = ({ channel, control }) => {
       <div className="card-body">
         <h5 className="card-title">{channel.title}</h5>
 
-        <p className="card-text mt-3 mb-4">{channel.description}</p>
+        {channel.description !== channel.title && (
+          <p className="card-text mt-3 mb-4">{channel.description}</p>
+        )}
 
         <button className="btn btn-primary btn-block font-weight-bold mb-3">
           SEGUIR
