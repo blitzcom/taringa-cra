@@ -1,15 +1,14 @@
 import _ from 'lodash'
 import { normalize } from 'normalizr'
-import { call, put, select, fork } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 
 import * as actions from './actions'
 import { summary } from './schemas'
 import Taringa from '../api'
-import { fetch as fetchUser } from '../users/sagas'
 
 export const getFeed = (state, id) => state.feed[id]
 
-export function* loadFeed({ id, url, includeUser }) {
+export function* loadFeed({ id, url }) {
   const feed = yield select(getFeed, id)
 
   if (feed && feed.ids && feed.ids.length >= 20) {
@@ -29,10 +28,6 @@ export function* loadFeed({ id, url, includeUser }) {
     )
 
     yield put(action)
-
-    if (includeUser) {
-      yield fork(fetchUser, { username: id })
-    }
   } catch (e) {
     yield put(actions.fetchFailure(id, e.message))
   }

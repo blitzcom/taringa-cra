@@ -7,9 +7,7 @@ import infiniteScroll from '../../HOC/InfiniteScroll'
 import { summariesSelector, summariesStatusSelector } from '../selectors'
 import { clearTail, load, loadTail } from '../actions'
 
-const withSummaries = (getId, getUrl, includeUser = false) => (
-  WrappedComponent = Summaries
-) => {
+const withSummaries = (getId, getUrl) => (WrappedComponent = Summaries) => {
   const mapStateToProps = (state, props) => {
     const id = getId(props)
     return _.assign(
@@ -27,7 +25,7 @@ const withSummaries = (getId, getUrl, includeUser = false) => (
 
     return {
       clearTail: () => dispatch(clearTail(id)),
-      loadFeed: () => dispatch(load(id, url, includeUser)),
+      loadFeed: () => dispatch(load(id, url)),
       loadMore: () => dispatch(loadTail(id, url)),
     }
   }
