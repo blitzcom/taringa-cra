@@ -24,4 +24,8 @@ const Card = ({ avatar, children, className, cover, status, ...rest }) => {
   )
 }
 
+Card.defaultProps = {
+  status: 'fetching',
+}
+
 export default Card

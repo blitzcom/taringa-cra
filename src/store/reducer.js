@@ -5,7 +5,7 @@ import { storiesEntities, storiesFetchControl } from '../stories/reducers'
 import { commentsEntities, commentsFetchControl } from '../comments/reducers'
 import { itemSize } from '../settings/reducers'
 import { flash } from '../flash/reducers'
-import { usersEntities } from '../users/reducers'
+import { usersEntities, usersFetchControl } from '../users/reducers'
 import { searchEntities, searchControl } from '../search/reducers'
 
 const entities = combineReducers({
@@ -19,6 +19,7 @@ const control = combineReducers({
   commentsFetch: commentsFetchControl,
   searchFetch: searchControl,
   storiesFetch: storiesFetchControl,
+  usersFetch: usersFetchControl,
 })
 
 const settings = combineReducers({

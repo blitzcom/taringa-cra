@@ -13,6 +13,7 @@ describe('Store', () => {
           q: '',
           status: 'success',
         },
+        usersFetch: {},
       },
       search: {
         stories: {

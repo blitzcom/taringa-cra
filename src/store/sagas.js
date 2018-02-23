@@ -12,6 +12,9 @@ import { loadComments } from '../comments/sagas'
 import { SEARCH_TRIGGER } from '../search/types'
 import { search } from '../search/sagas'
 
+import { FETCH_TRIGGER as FETCH_USER_TRIGGER } from '../users/types'
+import { fetch as fetchUser } from '../users/sagas'
+
 export default function* rootSaga() {
   yield all([
     takeEvery(CLEAR_TAIL, clearFeedTail),
@@ -20,5 +23,6 @@ export default function* rootSaga() {
     takeLatest(LOAD_STORY, loadStory),
     takeLatest(FETCH_TRIGGER, loadComments),
     takeLatest(SEARCH_TRIGGER, search),
+    takeLatest(FETCH_USER_TRIGGER, fetchUser),
   ])
 }

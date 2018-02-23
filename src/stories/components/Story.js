@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import './Story.css'
 
-import Card from '../../users/components/Card'
+import { UserCard } from '../../users/components/UserCard'
 import StoryContent from './StoryContent'
 import Comments from '../../comments/components/Comments'
 import * as actions from '../actions'
@@ -50,7 +50,7 @@ export class Story extends Component {
         </div>
 
         <div className="col-4">
-          <Card {...story.owner} status={status} />
+          <UserCard user={story.owner} control={{ status }} />
         </div>
       </div>
     )

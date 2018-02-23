@@ -4,6 +4,11 @@ import { normalize } from 'normalizr'
 import * as types from './types'
 import { user as userSchema } from './schemas'
 
+export const fetchTrigger = username => ({
+  type: types.FETCH_TRIGGER,
+  username: username,
+})
+
 export const fetchRequest = username => ({
   type: types.FETCH_REQUEST,
   username: username,
