@@ -1,15 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import Card from './Card'
-import { userSelector } from '../selectors'
+import UserCard from './UserCard'
 import withSummaries from '../../summaries/components/withSummaries'
 
 const getId = props => props.match.params.username
-
 const getUrl = props => `/user/${getId(props)}/feed`
 
-const UserFeed = withSummaries(getId, getUrl, true)()
+const UserFeed = withSummaries(getId, getUrl)()
 
 const Feed = props => {
   return (
@@ -18,14 +15,10 @@ const Feed = props => {
         <UserFeed />
       </div>
       <div className="col-4">
-        <Card {...props.user} />
+        <UserCard id={props.match.params.username} />
       </div>
     </div>
   )
 }
 
-export default connect((state, props) => {
-  return {
-    user: userSelector(state, props),
-  }
-})(Feed)
+export default Feed

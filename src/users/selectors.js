@@ -1,9 +1,11 @@
 import { createSelector } from 'reselect'
 
-const userState = (state, props) =>
-  state.entities.users[props.match.params.username]
+const controlState = (state, props) => state.control.usersFetch[props.id]
+const userState = (state, props) => state.entities.users[props.id]
 
-export const userSelector = createSelector(
-  userState,
-  user => user || { status: 'fetching' }
+export const controlSelector = createSelector(
+  controlState,
+  control => control || { status: 'fetching' }
 )
+
+export const userSelector = createSelector(userState, user => user || {})
