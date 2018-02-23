@@ -4,24 +4,24 @@ import { normalize } from 'normalizr'
 import * as types from './types'
 import { channel as channelSchema } from './schemas'
 
-export const fetchTrigger = id => ({
+export const fetchTrigger = name => ({
   type: types.FETCH_TRIGGER,
-  id: id,
+  name: name,
 })
 
-export const fetchRequest = id => ({
+export const fetchRequest = name => ({
   type: types.FETCH_REQUEST,
-  id: id,
+  name: name,
 })
 
-export const fetchSuccess = (id, channel) =>
+export const fetchSuccess = (name, channel) =>
   _.assign({}, normalize(channel, channelSchema), {
     type: types.FETCH_SUCCESS,
-    id: id,
+    name: name,
   })
 
-export const fetchFailure = (id, message) => ({
+export const fetchFailure = (name, message) => ({
   type: types.FETCH_FAILURE,
-  id: id,
+  name: name,
   message: message,
 })

@@ -28,7 +28,7 @@ export const channelsFetchControl = (state = {}, action) => {
     case types.FETCH_SUCCESS:
     case types.FETCH_FAILURE:
       return _.assign({}, state, {
-        [action.id]: channelFetch(state[action.id], action),
+        [action.name]: channelFetch(state[action.name], action),
       })
     default:
       return state

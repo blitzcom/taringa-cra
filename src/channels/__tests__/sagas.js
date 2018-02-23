@@ -10,17 +10,17 @@ describe('Fetch channel saga', () => {
   })
 
   describe('(a) fetch with success', () => {
-    const id = 'foo'
-    const it = sagaHelper(fetch({ id }))
+    const name = 'foo'
+    const it = sagaHelper(fetch({ name }))
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({ type: 'channels/FETCH_REQUEST', id }))
+      expect(result).toEqual(put({ type: 'channels/FETCH_REQUEST', name }))
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.channel.about, id))
+      expect(result).toEqual(call(Taringa.channel.about, name))
 
-      return { id: 'foo', foo: 'bar' }
+      return { name: 'foo', foo: 'bar' }
     })
 
     it('puts fetch success action', result => {
@@ -28,10 +28,10 @@ describe('Fetch channel saga', () => {
         put({
           type: 'channels/FETCH_SUCCESS',
           entities: {
-            channels: { foo: { id: 'foo', foo: 'bar' } },
+            channels: { foo: { name: 'foo', foo: 'bar' } },
           },
           result: 'foo',
-          id,
+          name,
         })
       )
     })
@@ -42,15 +42,15 @@ describe('Fetch channel saga', () => {
   })
 
   describe('(b) fetch with failure', () => {
-    const id = 'foo'
-    const it = sagaHelper(fetch({ id }))
+    const name = 'foo'
+    const it = sagaHelper(fetch({ name }))
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(put({ type: 'channels/FETCH_REQUEST', id }))
+      expect(result).toEqual(put({ type: 'channels/FETCH_REQUEST', name }))
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.channel.about, id))
+      expect(result).toEqual(call(Taringa.channel.about, name))
 
       return new Error('Network Error')
     })
@@ -59,7 +59,7 @@ describe('Fetch channel saga', () => {
       expect(result).toEqual(
         put({
           type: 'channels/FETCH_FAILURE',
-          id,
+          name,
           message: 'Network Error',
         })
       )

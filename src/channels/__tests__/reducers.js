@@ -15,15 +15,15 @@ describe('Channel entities reducer', () => {
       type: 'any',
       entities: {
         channels: {
-          1: { id: 1, foo: 'foo', bar: 'bar' },
-          2: { id: 2, foo: 'foo', bar: 'bar' },
+          1: { name: 1, foo: 'foo', bar: 'bar' },
+          2: { name: 2, foo: 'foo', bar: 'bar' },
         },
       },
     }
 
     expect(channelEntities(undefined, action)).toEqual({
-      1: { id: 1, foo: 'foo', bar: 'bar' },
-      2: { id: 2, foo: 'foo', bar: 'bar' },
+      1: { name: 1, foo: 'foo', bar: 'bar' },
+      2: { name: 2, foo: 'foo', bar: 'bar' },
     })
   })
 })
@@ -40,7 +40,7 @@ describe('Channel fetch control reducer', () => {
   it('handles FETCH_REQUEST', () => {
     const action = {
       type: types.FETCH_REQUEST,
-      id: 'foo',
+      name: 'foo',
     }
 
     const state = {}
@@ -53,7 +53,7 @@ describe('Channel fetch control reducer', () => {
   it('handles FETCH_SUCCESS', () => {
     const action = {
       type: types.FETCH_SUCCESS,
-      id: 'foo',
+      name: 'foo',
     }
 
     const state = {
@@ -68,7 +68,7 @@ describe('Channel fetch control reducer', () => {
   it('handles FETCH_SUCCESS from FETCH_FAILURE', () => {
     const action = {
       type: types.FETCH_SUCCESS,
-      id: 'foo',
+      name: 'foo',
     }
 
     const state = {
@@ -83,7 +83,7 @@ describe('Channel fetch control reducer', () => {
   it('handles FETCH_FAILURE', () => {
     const action = {
       type: types.FETCH_FAILURE,
-      id: 'foo',
+      name: 'foo',
       message: 'Network Error',
     }
 

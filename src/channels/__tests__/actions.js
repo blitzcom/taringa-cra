@@ -3,38 +3,38 @@ import * as actions from '../actions'
 
 describe('Channel actions', () => {
   it('creates an action to trigger a channel fetch', () => {
-    expect(actions.fetchTrigger('id')).toEqual({
+    expect(actions.fetchTrigger('foo')).toEqual({
       type: types.FETCH_TRIGGER,
-      id: 'id',
+      name: 'foo',
     })
   })
 
   it('creates an action to start a fetch request', () => {
-    expect(actions.fetchRequest('id')).toEqual({
+    expect(actions.fetchRequest('foo')).toEqual({
       type: types.FETCH_REQUEST,
-      id: 'id',
+      name: 'foo',
     })
   })
 
   it('creates an action to finish a fetch with success', () => {
-    const channel = { id: 'baz', foo: 'bar' }
+    const channel = { name: 'foo', bar: 'baz' }
 
-    expect(actions.fetchSuccess('id', channel)).toEqual({
+    expect(actions.fetchSuccess('foo', channel)).toEqual({
       type: types.FETCH_SUCCESS,
-      id: 'id',
+      name: 'foo',
       entities: {
         channels: {
-          baz: { id: 'baz', foo: 'bar' }
-        }
+          foo: { name: 'foo', bar: 'baz' },
+        },
       },
-      result: 'baz'
+      result: 'foo',
     })
   })
 
   it('creates an action to finish a fetch with failure', () => {
-    expect(actions.fetchFailure('id', 'Network Error')).toEqual({
+    expect(actions.fetchFailure('foo', 'Network Error')).toEqual({
       type: types.FETCH_FAILURE,
-      id: 'id',
+      name: 'foo',
       message: 'Network Error',
     })
   })
