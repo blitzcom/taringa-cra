@@ -1,4 +1,8 @@
+import _ from 'lodash'
+import { normalize } from 'normalizr'
+
 import * as types from './types'
+import { channel as channelSchema } from './schemas'
 
 export const fetchTrigger = id => ({
   type: types.FETCH_TRIGGER,
@@ -10,10 +14,11 @@ export const fetchRequest = id => ({
   id: id,
 })
 
-export const fetchSuccess = id => ({
-  type: types.FETCH_SUCCESS,
-  id: id,
-})
+export const fetchSuccess = (id, channel) =>
+  _.assign({}, normalize(channel, channelSchema), {
+    type: types.FETCH_SUCCESS,
+    id: id,
+  })
 
 export const fetchFailure = (id, message) => ({
   type: types.FETCH_FAILURE,

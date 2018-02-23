@@ -17,9 +17,17 @@ describe('Channel actions', () => {
   })
 
   it('creates an action to finish a fetch with success', () => {
-    expect(actions.fetchSuccess('id')).toEqual({
+    const channel = { id: 'baz', foo: 'bar' }
+
+    expect(actions.fetchSuccess('id', channel)).toEqual({
       type: types.FETCH_SUCCESS,
       id: 'id',
+      entities: {
+        channels: {
+          baz: { id: 'baz', foo: 'bar' }
+        }
+      },
+      result: 'baz'
     })
   })
 
