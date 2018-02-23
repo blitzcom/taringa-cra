@@ -18,7 +18,11 @@ const Card = ({ avatar, children, className, cover, status, ...rest }) => {
   return (
     <div {...rest} className={classNames('Card card', className)}>
       <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
-      <img alt="Cover" className="Card-cover card-img-top" src={cover} />
+      <img
+        alt="Cover"
+        className="Card-cover card-img-top"
+        src={cover || 'https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png'}
+      />
       {children}
     </div>
   )

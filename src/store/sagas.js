@@ -15,6 +15,9 @@ import { search } from '../search/sagas'
 import { FETCH_TRIGGER as FETCH_USER_TRIGGER } from '../users/types'
 import { fetch as fetchUser } from '../users/sagas'
 
+import { FETCH_TRIGGER as FETCH_CHANNEL_TRIGGER } from '../channels/types'
+import { fetch as fetchChannel } from '../channels/sagas'
+
 export default function* rootSaga() {
   yield all([
     takeEvery(CLEAR_TAIL, clearFeedTail),
@@ -24,5 +27,6 @@ export default function* rootSaga() {
     takeLatest(FETCH_TRIGGER, loadComments),
     takeLatest(SEARCH_TRIGGER, search),
     takeLatest(FETCH_USER_TRIGGER, fetchUser),
+    takeLatest(FETCH_CHANNEL_TRIGGER, fetchChannel),
   ])
 }

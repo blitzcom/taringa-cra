@@ -10,11 +10,7 @@ import { fetchTrigger } from '../actions'
 export const UserCard = props => {
   const { user, control } = props
   return (
-    <Card
-      avatar={user.avatar}
-      cover="https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png"
-      status={control.status}
-    >
+    <Card avatar={user.avatar} status={control.status}>
       <div className="card-body">
         <h5 className="card-title">
           {user.firstname} {user.lastname}

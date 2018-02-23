@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Feed from './Feed'
+import ChannelCard from './ChannelCard'
 
 class Channel extends Component {
   render() {
@@ -9,7 +10,9 @@ class Channel extends Component {
         <div className="col-8">
           <Feed />
         </div>
-        <div className="col-4">channel details goes here</div>
+        <div className="col-4">
+          <ChannelCard />
+        </div>
       </div>
     )
   }
