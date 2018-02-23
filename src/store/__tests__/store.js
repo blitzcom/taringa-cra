@@ -14,6 +14,7 @@ describe('Store', () => {
           status: 'success',
         },
         usersFetch: {},
+        channelsFetch: {},
       },
       search: {
         stories: {
@@ -32,6 +33,7 @@ describe('Store', () => {
         stories: {},
         summaries: {},
         users: {},
+        channels: {},
       },
       feed: {},
       flash: {},
