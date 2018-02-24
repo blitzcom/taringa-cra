@@ -29,6 +29,13 @@ exports[`Search Title when has failure renders message 1`] = `
         className="row"
       />
     </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
   </div>
 </div>
 `;
@@ -93,6 +100,13 @@ exports[`Search Title when has stories renders message 1`] = `
           username="supr159"
         />
       </div>
+    </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
     </SearchGroup>
   </div>
 </div>
@@ -195,6 +209,13 @@ exports[`Search Title when has users and stories and is fetching renders message
         />
       </div>
     </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
   </div>
 </div>
 `;
@@ -296,6 +317,13 @@ exports[`Search Title when has users and stories renders message 1`] = `
         />
       </div>
     </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
   </div>
 </div>
 `;
@@ -367,6 +395,13 @@ exports[`Search Title when has users renders message 1`] = `
         className="row"
       />
     </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
   </div>
 </div>
 `;
@@ -395,6 +430,13 @@ exports[`Search Title when is fetching renders message 1`] = `
         className="row"
       />
     </SearchGroup>
+    <SearchGroup
+      title="Canales"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
   </div>
 </div>
 `;
@@ -418,6 +460,13 @@ exports[`Search Title when is idle renders message 1`] = `
     />
     <SearchGroup
       title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+    <SearchGroup
+      title="Canales"
     >
       <div
         className="row"
@@ -460,6 +509,13 @@ exports[`Search renders 1`] = `
     </SearchGroup>
     <SearchGroup
       title="Usuarios"
+    >
+      <div
+        className="row"
+      />
+    </SearchGroup>
+    <SearchGroup
+      title="Canales"
     >
       <div
         className="row"
