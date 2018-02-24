@@ -11,11 +11,18 @@ const StoryOwner = ({
   owner,
   ...props
 }) => {
+  const handleOnClick = e => e.stopPropagation()
+
   return (
     <p {...props}>
-      {children} <Link to={`/u/${owner}`}>{owner}</Link>
+      {children}{' '}
+      <Link to={`/u/${owner}`} onClick={handleOnClick}>
+        {owner}
+      </Link>
       {' en '}
-      <Link to={`/c/${channel}`}>{channelName}</Link>{' '}
+      <Link to={`/c/${channel}`} onClick={handleOnClick}>
+        {channelName}
+      </Link>{' '}
       <TimeAgo date={created} formatter={formatter} />
     </p>
   )

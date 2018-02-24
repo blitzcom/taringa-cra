@@ -57,7 +57,7 @@ export class Summaries extends Component {
   }
 
   render() {
-    const { status, summaries, itemSize } = this.props
+    const { history, itemSize, status, summaries } = this.props
     const isFetching = status === 'fetching'
 
     return (
@@ -66,7 +66,7 @@ export class Summaries extends Component {
           <div className="card">
             <ul className="list-group list-group-flush">
               {summaries.map(i => (
-                <Summary key={i.id} size={itemSize} {...i} />
+                <Summary key={i.id} history={history} size={itemSize} {...i} />
               ))}
               {isFetching && this.renderPlaceholder()}
             </ul>

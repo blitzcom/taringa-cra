@@ -8,6 +8,8 @@ import StoryOwner from './StoryOwner'
 import { shortESFormatter } from '../../Utils'
 
 const StorySmall = ({
+  channel,
+  channelName,
   comments,
   created,
   icon,
@@ -30,58 +32,60 @@ const StorySmall = ({
   }
 
   return (
-    <div className="list-group-item p-2">
-      <div className="d-flex align-items-baseline">
-        <StoryThumbnail
-          className="mr-4"
-          icon={icon}
-          size={30}
-          slug={slug}
-          style={{ fontSize: '70%' }}
-        />
+    <div className="d-flex align-items-baseline">
+      <StoryThumbnail
+        className="mr-4"
+        icon={icon}
+        size={30}
+        slug={slug}
+        style={{ fontSize: '70%' }}
+      />
 
-        <button className="btn btn-score">
-          <i className="fa fa-chevron-up" />
-        </button>
+      <button className="btn btn-score">
+        <i className="fa fa-chevron-up" />
+      </button>
 
-        <div
-          className="small text-center font-weight-bold"
-          style={{ minWidth: 36 }}
-        >
-          {score}
-        </div>
+      <div
+        className="small text-center font-weight-bold"
+        style={{ minWidth: 36 }}
+      >
+        {score}
+      </div>
 
-        <button className="btn btn-score mr-4">
-          <i className="fa fa-chevron-down" />
-        </button>
+      <button className="btn btn-score mr-4">
+        <i className="fa fa-chevron-down" />
+      </button>
 
+      {title && (
         <StoryTitle
           className="my-0 mr-1 text-nowrap text-truncate"
           slug={slug}
           style={{ fontSize: '90%' }}
         >
-          {title ? title : 'Ver más'}
+          {title}
         </StoryTitle>
+      )}
 
-        <StoryOwner
-          className="mr-2 mb-0 text-secondary small text-nowrap"
-          created={created}
-          formatter={shortESFormatter}
-          owner={owner}
-          style={{ flex: 1 }}
-        >
-          Por
-        </StoryOwner>
+      <StoryOwner
+        channel={channel}
+        channelName={channelName}
+        className="mr-2 mb-0 text-secondary small text-nowrap"
+        created={created}
+        formatter={shortESFormatter}
+        owner={owner}
+        style={{ flex: 1 }}
+      >
+        Por
+      </StoryOwner>
 
-        <StoryButton
-          className="btn-story-compact"
-          count={comments}
-          icon="fa fa-comments"
-          isLink
-          to={`/story/${slug}`}
-          wrapperStyle={{ minWidth: 50 }}
-        />
-      </div>
+      <StoryButton
+        className="btn-story-compact"
+        count={comments}
+        icon="fa fa-comments"
+        isLink
+        to={`/story/${slug}`}
+        wrapperStyle={{ minWidth: 50 }}
+      />
     </div>
   )
 }
