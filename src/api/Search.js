@@ -18,6 +18,14 @@ class Search extends APIBase {
       cancelToken
     )
   }
+
+  channel(q, cancelToken, params = {}) {
+    return super.execute(
+      '/search/channel',
+      _.assign({}, params, { q }),
+      cancelToken
+    )
+  }
 }
 
 export default Search
