@@ -6,7 +6,8 @@ import { ITEM_SMALL } from '../../settings/constants'
 
 import SearchGroup from './SearchGroup'
 import User from './User'
-import { storiesSelector, usersSelector } from '../selectors'
+import Channel from './Channel'
+import { channelsSelector, storiesSelector, usersSelector } from '../selectors'
 import { searchClear } from '../actions'
 
 export class Search extends Component {
@@ -15,7 +16,7 @@ export class Search extends Component {
   }
 
   render() {
-    const { users, stories, search: { status } } = this.props
+    const { channels, users, stories, search: { status } } = this.props
 
     const hasItems =
       (users.items && users.items.length > 0) ||
@@ -48,6 +49,14 @@ export class Search extends Component {
         meta.push(
           `${users.totalCount} ${
             users.totalCount === 1 ? 'usuario' : 'usuarios'
+          }`
+        )
+      }
+
+      if (channels.totalCount) {
+        meta.push(
+          `${channels.totalCount} ${
+            channels.totalCount === 1 ? 'canal' : 'canales'
           }`
         )
       }
@@ -91,6 +100,13 @@ export class Search extends Component {
               {users.items && users.items.map(i => <User key={i.id} {...i} />)}
             </div>
           </SearchGroup>
+
+          <SearchGroup matches={channels.totalCount} title="Canales">
+            <div className="row">
+              {channels.items &&
+                channels.items.map(i => <Channel key={i.id} {...i} />)}
+            </div>
+          </SearchGroup>
         </div>
       </div>
     )
@@ -98,12 +114,14 @@ export class Search extends Component {
 }
 
 Search.defaultProps = {
+  channels: { items: [], status: 'success' },
   search: { q: '', status: 'success' },
   stories: { items: [], status: 'success' },
   users: { items: [], status: 'success' },
 }
 
 const mapStateToProps = state => ({
+  channels: channelsSelector(state),
   search: state.control.searchFetch,
   stories: storiesSelector(state),
   users: usersSelector(state),

@@ -17,6 +17,11 @@ describe('Store', () => {
         channelsFetch: {},
       },
       search: {
+        channels: {
+          error: '',
+          q: '',
+          status: 'success',
+        },
         stories: {
           error: '',
           q: '',

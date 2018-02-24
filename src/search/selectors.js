@@ -5,6 +5,7 @@ import { normalizeStory } from '../summaries/utils'
 
 const storiesState = state => state.search.stories
 const usersState = state => state.search.users
+const channelsState = state => state.search.channels
 
 export const storiesSelector = createSelector(storiesState, stories => {
   if (stories.items) {
@@ -16,3 +17,8 @@ export const storiesSelector = createSelector(storiesState, stories => {
 })
 
 export const usersSelector = createSelector(usersState, users => users)
+
+export const channelsSelector = createSelector(
+  channelsState,
+  channels => channels
+)

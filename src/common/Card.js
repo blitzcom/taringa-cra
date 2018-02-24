@@ -17,7 +17,9 @@ const Card = ({ avatar, children, className, cover, status, ...rest }) => {
 
   return (
     <div {...rest} className={classNames('Card card', className)}>
-      <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
+      {avatar && (
+        <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
+      )}
       <img
         alt="Cover"
         className="Card-cover card-img-top"

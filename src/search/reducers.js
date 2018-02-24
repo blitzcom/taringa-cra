@@ -62,7 +62,23 @@ export const searchStories = (state = searchGroupState, action) => {
   }
 }
 
+export const searchChannels = (state = searchGroupState, action) => {
+  switch (action.type) {
+    case types.SEARCH_CHANNELS_REQUEST:
+      return _.assign({}, state, { error: '', q: action.q, status: 'fetching' })
+    case types.SEARCH_CHANNELS_SUCCESS:
+      return _.assign({}, state, { status: 'success' }, action.payload)
+    case types.SEARCH_CHANNELS_FAILURE:
+      return _.assign({}, state, { error: action.message, status: 'failure' })
+    case types.SEARCH_CLEAR:
+      return _.assign({}, state, { error: '', q: '', status: 'success' })
+    default:
+      return state
+  }
+}
+
 export const searchEntities = combineReducers({
+  channels: searchChannels,
   stories: searchStories,
   users: searchUsers,
 })
