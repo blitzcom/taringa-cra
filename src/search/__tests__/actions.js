@@ -64,6 +64,27 @@ describe('Search actions', () => {
     })
   })
 
+  it('creates an action to start channels search request', () => {
+    expect(actions.searchChannelsRequest('foo')).toEqual({
+      type: types.SEARCH_CHANNELS_REQUEST,
+      q: 'foo',
+    })
+  })
+
+  it('creates an action to finish channels search with success', () => {
+    expect(actions.searchChannelsSuccess('payload')).toEqual({
+      type: types.SEARCH_CHANNELS_SUCCESS,
+      payload: 'payload',
+    })
+  })
+
+  it('creates an action to finish channels search with failure', () => {
+    expect(actions.searchChannelsFailure('Network Error')).toEqual({
+      type: types.SEARCH_CHANNELS_FAILURE,
+      message: 'Network Error',
+    })
+  })
+
   it('creates an action to clear search', () => {
     expect(actions.searchClear()).toEqual({
       type: types.SEARCH_CLEAR,

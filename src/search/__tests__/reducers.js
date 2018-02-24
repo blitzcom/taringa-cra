@@ -1,5 +1,10 @@
 import * as types from '../types'
-import { searchControl, searchStories, searchUsers } from '../reducers'
+import {
+  searchControl,
+  searchStories,
+  searchUsers,
+  searchChannels,
+} from '../reducers'
 
 describe('Search control reducer', () => {
   it('exists', () => {
@@ -238,6 +243,92 @@ describe('Search Stories', () => {
       q: '',
       status: 'success',
       foo: 'bar',
+    })
+  })
+})
+
+describe('Search channels', () => {
+  it('exists', () => {
+    expect(searchChannels).toBeDefined()
+  })
+
+  it('returns inital state', () => {
+    expect(searchChannels(undefined, {})).toEqual({
+      error: '',
+      q: '',
+      status: 'success',
+    })
+  })
+
+  it('handles SEARCH_CHANNELS_REQUEST', () => {
+    const action = {
+      type: types.SEARCH_CHANNELS_REQUEST,
+      q: 'foo',
+    }
+
+    expect(searchChannels(undefined, action)).toEqual({
+      error: '',
+      q: 'foo',
+      status: 'fetching',
+    })
+  })
+
+  it('handles SEARCH_CHANNELS_SUCCESS', () => {
+    const action = {
+      type: types.SEARCH_CHANNELS_SUCCESS,
+      payload: { foo: 'bar' },
+    }
+
+    const state = {
+      error: '',
+      q: 'foo',
+      status: 'fetching',
+    }
+
+    expect(searchChannels(state, action)).toEqual({
+      error: '',
+      foo: 'bar',
+      q: 'foo',
+      status: 'success',
+    })
+  })
+
+  it('handles SEARCH_CHANNELS_FAILURE', () => {
+    const action = {
+      type: types.SEARCH_CHANNELS_FAILURE,
+      message: 'Network Error',
+    }
+
+    const state = {
+      error: '',
+      q: 'foo',
+      status: 'fetching',
+    }
+
+    expect(searchChannels(state, action)).toEqual({
+      error: 'Network Error',
+      q: 'foo',
+      status: 'failure',
+    })
+  })
+
+  it('handles SEARCH_CLEAR', () => {
+    const action = {
+      type: types.SEARCH_CLEAR,
+    }
+
+    const state = {
+      error: 'Network Error',
+      foo: 'bar',
+      q: 'foo',
+      status: 'failure',
+    }
+
+    expect(searchChannels(state, action)).toEqual({
+      error: '',
+      foo: 'bar',
+      q: '',
+      status: 'success',
     })
   })
 })

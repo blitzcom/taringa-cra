@@ -44,6 +44,21 @@ export const searchStoriesFailure = message => ({
   message: message,
 })
 
+export const searchChannelsRequest = q => ({
+  type: types.SEARCH_CHANNELS_REQUEST,
+  q: q,
+})
+
+export const searchChannelsSuccess = payload => ({
+  type: types.SEARCH_CHANNELS_SUCCESS,
+  payload: payload,
+})
+
+export const searchChannelsFailure = message => ({
+  type: types.SEARCH_CHANNELS_FAILURE,
+  message: message,
+})
+
 export const searchClear = () => ({
   type: types.SEARCH_CLEAR,
 })

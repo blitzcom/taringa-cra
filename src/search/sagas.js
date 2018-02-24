@@ -54,20 +54,42 @@ export function* searchUsers({ q }) {
   }
 }
 
+export function* searchChannels({ q }) {
+  const cancelToken = yield call(axios.CancelToken.source)
+
+  try {
+    yield put(actions.searchChannelsRequest(q))
+
+    const users = yield call(Taringa.search.channel, q, cancelToken.token)
+
+    yield put(actions.searchChannelsSuccess(users))
+  } catch (e) {
+    yield put(actions.searchChannelsFailure(e.message))
+  } finally {
+    if (yield cancelled()) {
+      if (cancelToken) {
+        yield call(cancelToken.cancel)
+      }
+    }
+  }
+}
+
 export function* search({ q }) {
   yield put(actions.searchStart(q))
 
   const storiesTask = yield fork(searchStories, { q })
   const usersTask = yield fork(searchUsers, { q })
+  const channelsTask = yield fork(searchChannels, { q })
 
   const { clear } = yield race({
     clear: take(SEARCH_CLEAR),
-    complete: join(storiesTask, usersTask),
+    complete: join(storiesTask, usersTask, channelsTask),
   })
 
   if (clear) {
     yield cancel(storiesTask)
     yield cancel(usersTask)
+    yield cancel(channelsTask)
   }
 
   yield put(actions.searchFinish())
