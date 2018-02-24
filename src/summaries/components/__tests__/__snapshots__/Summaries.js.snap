@@ -219,7 +219,8 @@ exports[`Summaries renders summaries 1`] = `
       className="list-group list-group-flush"
     >
       <div
-        className="list-group-item p-2"
+        className="list-group-item list-group-item-action p-2 Summary"
+        onClick={[Function]}
       >
         <div
           className="d-flex"
@@ -294,16 +295,8 @@ exports[`Summaries renders summaries 1`] = `
           <div>
             <p
               className="m-0"
-              style={undefined}
-              title="Si no das like no tendras pelirojas en 100 años"
             >
-              <a
-                className="text-dark"
-                href="/story/si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
-                onClick={[Function]}
-              >
-                Si no das like no tendras pelirojas en 100 años
-              </a>
+              Si no das like no tendras pelirojas en 100 años
             </p>
             <p
               className="text-secondary small mb-2"
@@ -355,6 +348,7 @@ exports[`Summaries renders summaries 1`] = `
               >
                 <button
                   className="btn btn-story "
+                  onClick={[Function]}
                 >
                   <i
                     className="fa fa-retweet"

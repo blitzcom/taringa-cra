@@ -7,6 +7,8 @@ import StoryOwner from './StoryOwner'
 import { esFormatter } from '../../Utils'
 
 const StoryBig = ({
+  channel,
+  channelName,
   comments,
   created,
   isPlaceholder,
@@ -33,71 +35,71 @@ const StoryBig = ({
   }
 
   return (
-    <div className="list-group-item p-2">
-      <div className="d-flex">
-        <div className="text-center" style={{ lineHeight: 1.1 }}>
-          <button className="btn btn-score btn-score-big">
-            <i className="fa fa-chevron-up" />
-          </button>
+    <div className="d-flex">
+      <div className="text-center" style={{ lineHeight: 1.1 }}>
+        <button className="btn btn-score btn-score-big">
+          <i className="fa fa-chevron-up" />
+        </button>
 
-          <div
-            className="my-2 small font-weight-bold"
-            style={{
-              minWidth: 28,
-            }}
-          >
-            {score}
-          </div>
-
-          <button className="btn btn-score btn-score-big">
-            <i className="fa fa-chevron-down" />
-          </button>
+        <div
+          className="my-2 small font-weight-bold"
+          style={{
+            minWidth: 28,
+          }}
+        >
+          {score}
         </div>
 
-        <div className="ml-2">
-          <StoryOwner
-            className="text-secondary mb-1"
-            style={{ fontSize: '85%' }}
-            created={created}
-            formatter={esFormatter}
-            owner={owner}
-          >
-            Posteado por
-          </StoryOwner>
+        <button className="btn btn-score btn-score-big">
+          <i className="fa fa-chevron-down" />
+        </button>
+      </div>
 
-          <StoryTitle
-            className="font-weight-bold"
-            slug={slug}
-            style={{ fontSize: '110%' }}
-          >
-            {title}
-          </StoryTitle>
+      <div className="ml-2">
+        <StoryOwner
+          channel={channel}
+          channelName={channelName}
+          className="text-secondary mb-1"
+          created={created}
+          formatter={esFormatter}
+          owner={owner}
+          style={{ fontSize: '85%' }}
+        >
+          Posteado por
+        </StoryOwner>
 
-          {preview && (
-            <p className="mb-2">
-              {preview.kind === 'image' && (
-                <img
-                  style={{
-                    maxWidth: '100%',
-                  }}
-                  src={preview.content}
-                  alt={title}
-                />
-              )}
-              {preview.kind === 'text' && preview.content}
-            </p>
-          )}
+        <StoryTitle
+          className="font-weight-bold"
+          slug={slug}
+          style={{ fontSize: '110%' }}
+        >
+          {title}
+        </StoryTitle>
 
-          <p className="m-0">
-            <StoryButton
-              count={comments}
-              icon="fa fa-comments"
-              isLink
-              to={`/story/${slug}`}
-            />
-            <StoryButton icon="fa fa-retweet" count={shares} />
+        {preview && (
+          <p className="mb-2">
+            {preview.kind === 'image' && (
+              <img
+                style={{
+                  maxWidth: '100%',
+                }}
+                src={preview.content}
+                alt={title}
+              />
+            )}
+            {preview.kind === 'text' && preview.content}
           </p>
-        </div>
+        )}
+
+        <p className="m-0">
+          <StoryButton
+            count={comments}
+            icon="fa fa-comments"
+            isLink
+            to={`/story/${slug}`}
+          />
+          <StoryButton icon="fa fa-retweet" count={shares} />
+        </p>
       </div>
     </div>
   )

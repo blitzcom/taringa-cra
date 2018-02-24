@@ -12,10 +12,15 @@ const StoryButton = ({
   ...props
 }) => {
   const Component = isLink ? Link : 'button'
+  const handleOnClick = e => e.stopPropagation()
 
   return (
     <span className="StoryButton" style={wrapperStyle}>
-      <Component {...props} className={['btn btn-story', className].join(' ')}>
+      <Component
+        {...props}
+        onClick={handleOnClick}
+        className={['btn btn-story', className].join(' ')}
+      >
         <i className={icon} />
         {count !== 0 && count}
       </Component>

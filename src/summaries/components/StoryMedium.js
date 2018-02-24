@@ -12,6 +12,7 @@ const StoryMedium = ({
   channelName,
   comments,
   created,
+  history,
   icon,
   isPlaceholder,
   owner,
@@ -37,64 +38,60 @@ const StoryMedium = ({
   }
 
   return (
-    <div className="list-group-item p-2">
-      <div className="d-flex">
+    <div className="d-flex">
+      <div
+        className="text-center border-right pr-2"
+        style={{ padding: '1px 0' }}
+      >
+        <button className="btn btn-score">
+          <i className="fa fa-chevron-up" />
+        </button>
+
         <div
-          className="text-center border-right pr-2"
-          style={{ padding: '1px 0' }}
+          className="my-0 small font-weight-bold"
+          style={{
+            minWidth: 28,
+          }}
         >
-          <button className="btn btn-score">
-            <i className="fa fa-chevron-up" />
-          </button>
-
-          <div
-            className="my-0 small font-weight-bold"
-            style={{
-              minWidth: 28,
-            }}
-          >
-            {score}
-          </div>
-
-          <button className="btn btn-score">
-            <i className="fa fa-chevron-down" />
-          </button>
+          {score}
         </div>
 
-        <StoryThumbnail
-          className="mx-4"
-          icon={icon}
-          slug={slug}
-          style={{ fontSize: '200%' }}
-          thumbnail={thumbnail}
-        />
+        <button className="btn btn-score">
+          <i className="fa fa-chevron-down" />
+        </button>
+      </div>
 
-        <div>
-          <StoryTitle slug={slug} className="m-0">
-            {title}
-          </StoryTitle>
+      <StoryThumbnail
+        className="mx-4"
+        icon={icon}
+        slug={slug}
+        style={{ fontSize: '200%' }}
+        thumbnail={thumbnail}
+      />
 
-          <StoryOwner
-            channel={channel}
-            channelName={channelName}
-            className="text-secondary small mb-2"
-            created={created}
-            formatter={esFormatter}
-            owner={owner}
-          >
-            Posteado por
-          </StoryOwner>
+      <div>
+        {title && <StoryTitle className="m-0">{title}</StoryTitle>}
 
-          <p className="m-0">
-            <StoryButton
-              count={comments}
-              icon="fa fa-comments"
-              isLink
-              to={`/story/${slug}`}
-            />
-            <StoryButton icon="fa fa-retweet" count={shares} />
-          </p>
-        </div>
+        <StoryOwner
+          channel={channel}
+          channelName={channelName}
+          className="text-secondary small mb-2"
+          created={created}
+          formatter={esFormatter}
+          owner={owner}
+        >
+          Posteado por
+        </StoryOwner>
+
+        <p className="m-0">
+          <StoryButton
+            count={comments}
+            icon="fa fa-comments"
+            isLink
+            to={`/story/${slug}`}
+          />
+          <StoryButton icon="fa fa-retweet" count={shares} />
+        </p>
       </div>
     </div>
   )
