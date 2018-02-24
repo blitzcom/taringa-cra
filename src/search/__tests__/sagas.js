@@ -232,7 +232,9 @@ describe('Search Channels saga', () => {
     })
 
     it('puts search channels failure action', result => {
-      expect(result).toEqual(put(actions.searchChannelsFailure('Network Error')))
+      expect(result).toEqual(
+        put(actions.searchChannelsFailure('Network Error'))
+      )
     })
 
     it('checks for cancel', result => {
