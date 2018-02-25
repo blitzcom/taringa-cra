@@ -1,25 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 
-const StoryThumbnail = ({ className, icon, size, slug, style, thumbnail }) => {
-  const wrapperClass = [
-    'align-items-center',
-    'border',
-    'd-flex',
-    'justify-content-center',
-    className,
-  ].join(' ')
+const StoryThumbnail = ({
+  className,
+  icon,
+  size,
+  slug,
+  style,
+  thumbnail,
+  ...rest
+}) => {
+  const wrapperClass = classNames(
+    'align-items-center border d-flex justify-content-center',
+    className
+  )
 
   const defaultSize = size || 80
 
   const wrapperStyle = {
+    borderColor: '#6c757d',
     borderRadius: 3,
+    color: '#6c757d',
     height: defaultSize,
     minHeight: defaultSize,
     minWidth: defaultSize,
     width: defaultSize,
-    color: '#6c757d',
-    borderColor: '#6c757d',
     ...style,
   }
 
@@ -31,19 +36,18 @@ const StoryThumbnail = ({ className, icon, size, slug, style, thumbnail }) => {
   }
 
   return (
-    <Link to={`/story/${slug}`} className="no-decoration">
-      <div className={wrapperClass} style={wrapperStyle}>
-        {!thumbnail ? (
-          <i className={icon} />
-        ) : (
-          <img style={imgStyle} src={thumbnail} alt="Thumbnail" />
-        )}
-      </div>
-    </Link>
+    <div {...rest} className={wrapperClass} style={wrapperStyle}>
+      {!thumbnail ? (
+        <i className={icon} />
+      ) : (
+        <img style={imgStyle} src={thumbnail} alt="Thumbnail" />
+      )}
+    </div>
   )
 }
 
 StoryThumbnail.defaultProps = {
+  icon: 'fa fa-unknown',
   thumbnail: null,
 }
 
