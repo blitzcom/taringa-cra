@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import { Link } from 'react-router-dom'
 import './StoryButton.css'
@@ -14,13 +15,11 @@ const StoryButton = ({
   const Component = isLink ? Link : 'button'
   const handleOnClick = e => e.stopPropagation()
 
+  const classes = classNames('btn btn-story', className)
+
   return (
     <span className="StoryButton" style={wrapperStyle}>
-      <Component
-        {...props}
-        onClick={handleOnClick}
-        className={['btn btn-story', className].join(' ')}
-      >
+      <Component className={classes} onClick={handleOnClick} {...props}>
         <i className={icon} />
         {count !== 0 && count}
       </Component>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './Story.css'
+
 const Story = ({ history, slug, children }) => {
   const handleOnClick = () => {
     history.push(`/story/${slug}`)
