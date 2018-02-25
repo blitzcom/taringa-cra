@@ -6,28 +6,27 @@ import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
 import StoryButton from './StoryButton'
 import StoryOwner from './StoryOwner'
-import StoryPreview from './StoryPreview'
 import { esFormatter } from '../../Utils'
+import withPreview from './withPreview'
 
-class StoryMedium extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isPreviewOpen: false,
-    }
-
-    this.handleTogglePreview = this.handleTogglePreview.bind(this)
-  }
-
-  handleTogglePreview(e) {
-    e.preventDefault()
-    e.stopPropagation()
-
-    this.setState({ isPreviewOpen: !this.state.isPreviewOpen })
-  }
-
-  renderPlaceholder() {
+const StoryMedium = ({
+  channel,
+  channelName,
+  comments,
+  created,
+  icon,
+  isPlaceholder,
+  isPreviewOpen,
+  onTogglePreview,
+  owner,
+  preview: { kind },
+  score,
+  shares,
+  slug,
+  thumbnail,
+  title,
+}) => {
+  if (isPlaceholder) {
     return (
       <div className="list-group-item p-2">
         <div className="StoryMedium-animated-background">
@@ -42,106 +41,78 @@ class StoryMedium extends Component {
     )
   }
 
-  render() {
-    const {
-      channel,
-      channelName,
-      comments,
-      created,
-      icon,
-      isPlaceholder,
-      owner,
-      preview: { content, kind },
-      score,
-      shares,
-      slug,
-      thumbnail,
-      title,
-    } = this.props
+  const previewIconClass = classNames('fa', {
+    'fa-expand': !isPreviewOpen,
+    'fa-compress': isPreviewOpen,
+  })
 
-    const { isPreviewOpen } = this.state
+  return (
+    <div className="d-flex">
+      <div
+        className="text-center border-right pr-2"
+        style={{ padding: '1px 0' }}
+      >
+        <button className="btn btn-score">
+          <i className="fa fa-chevron-up" />
+        </button>
 
-    if (isPlaceholder) {
-      return this.renderPlaceholder()
-    }
-
-    const previewIconClass = classNames('fa', {
-      'fa-expand': !isPreviewOpen,
-      'fa-compress': isPreviewOpen,
-    })
-
-    return (
-      <div>
-        <div className="d-flex">
-          <div
-            className="text-center border-right pr-2"
-            style={{ padding: '1px 0' }}
-          >
-            <button className="btn btn-score">
-              <i className="fa fa-chevron-up" />
-            </button>
-
-            <div
-              className="my-0 small font-weight-bold"
-              style={{
-                minWidth: 28,
-              }}
-            >
-              {score}
-            </div>
-
-            <button className="btn btn-score">
-              <i className="fa fa-chevron-down" />
-            </button>
-          </div>
-
-          <StoryThumbnail
-            className="mx-4"
-            icon={icon}
-            slug={slug}
-            style={{ fontSize: '200%' }}
-            thumbnail={thumbnail}
-          />
-
-          <div>
-            {title && <StoryTitle className="m-0">{title}</StoryTitle>}
-
-            <StoryOwner
-              channel={channel}
-              channelName={channelName}
-              className="text-secondary small mb-2"
-              created={created}
-              formatter={esFormatter}
-              owner={owner}
-            >
-              Posteado por
-            </StoryOwner>
-
-            <p className="m-0">
-              {kind === 'image' && (
-                <StoryButton
-                  icon={previewIconClass}
-                  onClick={this.handleTogglePreview}
-                  wrapperStyle={{ minWidth: 40 }}
-                />
-              )}
-
-              <StoryButton
-                count={comments}
-                icon="fa fa-comments"
-                isLink
-                to={`/story/${slug}`}
-              />
-
-              <StoryButton icon="fa fa-retweet" count={shares} />
-            </p>
-          </div>
+        <div
+          className="my-0 small font-weight-bold"
+          style={{
+            minWidth: 28,
+          }}
+        >
+          {score}
         </div>
 
-        <StoryPreview content={content} isOpen={isPreviewOpen} />
+        <button className="btn btn-score">
+          <i className="fa fa-chevron-down" />
+        </button>
       </div>
-    )
-  }
+
+      <StoryThumbnail
+        className="mx-4"
+        icon={icon}
+        slug={slug}
+        style={{ fontSize: '200%' }}
+        thumbnail={thumbnail}
+      />
+
+      <div>
+        {title && <StoryTitle className="m-0">{title}</StoryTitle>}
+
+        <StoryOwner
+          channel={channel}
+          channelName={channelName}
+          className="text-secondary small mb-2"
+          created={created}
+          formatter={esFormatter}
+          owner={owner}
+        >
+          Posteado por
+        </StoryOwner>
+
+        <p className="m-0">
+          {kind === 'image' && (
+            <StoryButton
+              icon={previewIconClass}
+              onClick={onTogglePreview}
+              wrapperStyle={{ minWidth: 40 }}
+            />
+          )}
+
+          <StoryButton
+            count={comments}
+            icon="fa fa-comments"
+            isLink
+            to={`/story/${slug}`}
+          />
+
+          <StoryButton icon="fa fa-retweet" count={shares} />
+        </p>
+      </div>
+    </div>
+  )
 }
 
 StoryMedium.defaultProps = {
@@ -161,4 +132,6 @@ StoryMedium.defaultProps = {
   slug: '#',
 }
 
-export default StoryMedium
+const getContent = props => (props.preview ? props.preview.content : null)
+
+export default withPreview(getContent)(StoryMedium)
