@@ -259,40 +259,34 @@ exports[`Summaries renders summaries 1`] = `
                 />
               </button>
             </div>
-            <a
-              className="no-decoration"
-              href="/story/si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
-              onClick={[Function]}
+            <div
+              className="align-items-center border d-flex justify-content-center mx-4"
+              style={
+                Object {
+                  "borderColor": "#6c757d",
+                  "borderRadius": 3,
+                  "color": "#6c757d",
+                  "fontSize": "200%",
+                  "height": 80,
+                  "minHeight": 80,
+                  "minWidth": 80,
+                  "width": 80,
+                }
+              }
             >
-              <div
-                className="align-items-center border d-flex justify-content-center mx-4"
+              <img
+                alt="Thumbnail"
+                src="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
                 style={
                   Object {
-                    "borderColor": "#6c757d",
                     "borderRadius": 3,
-                    "color": "#6c757d",
-                    "fontSize": "200%",
-                    "height": 80,
-                    "minHeight": 80,
-                    "minWidth": 80,
-                    "width": 80,
+                    "height": 78,
+                    "objectFit": "cover",
+                    "width": 78,
                   }
                 }
-              >
-                <img
-                  alt="Thumbnail"
-                  src="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
-                  style={
-                    Object {
-                      "borderRadius": 3,
-                      "height": 78,
-                      "objectFit": "cover",
-                      "width": 78,
-                    }
-                  }
-                />
-              </div>
-            </a>
+              />
+            </div>
             <div>
               <p
                 className="m-0"

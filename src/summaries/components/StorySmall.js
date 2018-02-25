@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './StorySmall.css'
+import withPreview from './withPreview'
 import StoryTitle from './StoryTitle'
 import StoryThumbnail from './StoryThumbnail'
 import StoryButton from './StoryButton'
@@ -14,7 +15,10 @@ const StorySmall = ({
   created,
   icon,
   isPlaceholder,
+  isPreviewOpen,
+  onTogglePreview,
   owner,
+  preview: { kind },
   score,
   slug,
   title,
@@ -31,14 +35,24 @@ const StorySmall = ({
     )
   }
 
+  const handleClick = e => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    if (kind === 'image') {
+      onTogglePreview(e)
+    }
+  }
+
   return (
     <div className="d-flex align-items-baseline">
       <StoryThumbnail
         className="mr-4"
-        icon={icon}
+        icon={isPreviewOpen ? 'fa fa-compress' : icon}
         size={30}
         slug={slug}
         style={{ fontSize: '70%' }}
+        onClick={handleClick}
       />
 
       <button className="btn btn-score">
@@ -107,4 +121,4 @@ StorySmall.defaultProps = {
   slug: '#',
 }
 
-export default StorySmall
+export default withPreview()(StorySmall)
