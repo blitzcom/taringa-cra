@@ -68,11 +68,7 @@ const StoryBig = ({
           Posteado por
         </StoryOwner>
 
-        <StoryTitle
-          className="font-weight-bold"
-          slug={slug}
-          style={{ fontSize: '110%' }}
-        >
+        <StoryTitle slug={slug}>
           {title}
         </StoryTitle>
 
