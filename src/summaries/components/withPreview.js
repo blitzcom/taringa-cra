@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 
 import StoryPreview from './StoryPreview'
 
-const withPreview = getContent => WrappedComponent => {
+const defaultGetContent = props =>
+  props.preview ? props.preview.content : null
+
+const withPreview = (getContent = defaultGetContent) => WrappedComponent => {
   return class PreviewHOC extends Component {
     constructor(props) {
       super(props)

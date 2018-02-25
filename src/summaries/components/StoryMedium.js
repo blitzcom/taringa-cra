@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 
 import './StoryMedium.css'
@@ -132,6 +132,4 @@ StoryMedium.defaultProps = {
   slug: '#',
 }
 
-const getContent = props => (props.preview ? props.preview.content : null)
-
-export default withPreview(getContent)(StoryMedium)
+export default withPreview()(StoryMedium)
