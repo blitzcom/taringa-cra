@@ -6,6 +6,7 @@ import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
 import StoryButton from './StoryButton'
 import StoryOwner from './StoryOwner'
+import StoryPreview from './StoryPreview'
 import { esFormatter } from '../../Utils'
 
 class StoryMedium extends Component {
@@ -137,11 +138,7 @@ class StoryMedium extends Component {
           </div>
         </div>
 
-        {isPreviewOpen && (
-          <div className="Story-preview">
-            <img alt={content} className="img-fluid" src={content} />
-          </div>
-        )}
+        <StoryPreview content={content} isOpen={isPreviewOpen} />
       </div>
     )
   }
