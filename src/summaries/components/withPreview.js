@@ -27,6 +27,10 @@ const withPreview = (getContent = defaultGetContent) => WrappedComponent => {
     render() {
       const { isPreviewOpen } = this.state
 
+      if (this.props.isPlaceholder) {
+        return <WrappedComponent {...this.props} />
+      }
+
       return (
         <div>
           <WrappedComponent
