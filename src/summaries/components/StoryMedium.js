@@ -18,8 +18,8 @@ const StoryMedium = ({
   isPlaceholder,
   isPreviewOpen,
   onTogglePreview,
+  preview,
   owner,
-  preview: { kind },
   score,
   shares,
   slug,
@@ -93,13 +93,14 @@ const StoryMedium = ({
         </StoryOwner>
 
         <p className="m-0">
-          {kind === 'image' && (
-            <StoryButton
-              icon={previewIconClass}
-              onClick={onTogglePreview}
-              wrapperStyle={{ minWidth: 40 }}
-            />
-          )}
+          {preview &&
+            preview.kind === 'image' && (
+              <StoryButton
+                icon={previewIconClass}
+                onClick={onTogglePreview}
+                wrapperStyle={{ minWidth: 40 }}
+              />
+            )}
 
           <StoryButton
             count={comments}
