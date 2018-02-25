@@ -18,7 +18,7 @@ const StorySmall = ({
   isPreviewOpen,
   onTogglePreview,
   owner,
-  preview: { kind },
+  preview,
   score,
   slug,
   title,
@@ -39,7 +39,7 @@ const StorySmall = ({
     e.preventDefault()
     e.stopPropagation()
 
-    if (kind === 'image') {
+    if (preview && preview.kind === 'image') {
       onTogglePreview(e)
     }
   }
