@@ -81,7 +81,10 @@ const StoryBig = ({
                 alt={title}
               />
             )}
-            {preview.kind === 'text' && preview.content}
+
+            {preview.kind === 'text' &&
+              preview.content !== title &&
+              preview.content}
           </p>
         )}
 
