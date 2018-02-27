@@ -25,24 +25,30 @@ exports[`Nav renders default 1`] = `
       <div
         className="navbar-nav ml-5 mr-auto"
       >
-        <a
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
           className="nav-item nav-link active font-weight-bold"
-          href="/"
+          to="/"
         >
           MI T!
-        </a>
-        <a
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
           className="nav-item nav-link font-weight-bold"
-          href="/"
+          to="/global"
         >
           GLOBAL
-        </a>
-        <a
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
           className="nav-item nav-link font-weight-bold"
-          href="/"
+          to="/channels"
         >
           CANALES
-        </a>
+        </NavLink>
       </div>
       <div
         className="navbar-nav"

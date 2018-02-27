@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import './Nav.css'
 import SearchInput from '../search/components/SearchInput'
@@ -17,17 +17,20 @@ const Nav = props => (
         </div>
 
         <div className="navbar-nav ml-5 mr-auto">
-          <a className="nav-item nav-link active font-weight-bold" href="/">
+          <NavLink className="nav-item nav-link active font-weight-bold" to="/">
             MI T!
-          </a>
+          </NavLink>
 
-          <a className="nav-item nav-link font-weight-bold" href="/">
+          <NavLink className="nav-item nav-link font-weight-bold" to="/global">
             GLOBAL
-          </a>
+          </NavLink>
 
-          <a className="nav-item nav-link font-weight-bold" href="/">
+          <NavLink
+            className="nav-item nav-link font-weight-bold"
+            to="/channels"
+          >
             CANALES
-          </a>
+          </NavLink>
         </div>
 
         <div className="navbar-nav">
