@@ -28,7 +28,8 @@ exports[`Nav renders default 1`] = `
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          className="nav-item nav-link active font-weight-bold"
+          className="nav-item nav-link font-weight-bold"
+          isActive={[Function]}
           to="/"
         >
           MI T!
