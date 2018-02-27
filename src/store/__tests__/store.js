@@ -16,6 +16,7 @@ describe('Store', () => {
         usersFetch: {},
         channelsFetch: {},
       },
+      filters: {},
       search: {
         channels: {
           error: '',

@@ -8,6 +8,7 @@ import { flash } from '../flash/reducers'
 import { usersEntities, usersFetchControl } from '../users/reducers'
 import { searchEntities, searchControl } from '../search/reducers'
 import { channelEntities, channelsFetchControl } from '../channels/reducers'
+import { filters } from '../filters/reducers'
 
 const entities = combineReducers({
   channels: channelEntities,
@@ -33,6 +34,7 @@ export default combineReducers({
   control,
   entities,
   feed: summariesFetchControl,
+  filters: filters,
   flash,
   search: searchEntities,
   settings,
