@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -7,7 +8,7 @@ import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
 
-export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
+export const SecondaryNav = ({ changeItemSize, itemSize, filters }) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -51,39 +52,20 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
                 <span className="navbar-text divider" />
 
                 <div className="navbar-nav mr-auto">
-                  <NavLink
-                    activeClassName="active"
-                    className="nav-item nav-link"
-                    exact
-                    to={{
-                      pathname: '/',
-                      state: { clear: true },
-                    }}
-                  >
-                    Destacados
-                  </NavLink>
-
-                  <NavLink
-                    activeClassName="active"
-                    className="nav-item nav-link"
-                    to={{
-                      pathname: '/recents',
-                      state: { clear: true },
-                    }}
-                  >
-                    Recientes
-                  </NavLink>
-
-                  <NavLink
-                    activeClassName="active"
-                    className="nav-item nav-link"
-                    to={{
-                      pathname: '/tops',
-                      state: { clear: true },
-                    }}
-                  >
-                    Tops
-                  </NavLink>
+                  {filters.map(f => (
+                    <NavLink
+                      key={f.id}
+                      activeClassName="active"
+                      className="nav-item nav-link"
+                      exact={f.exact}
+                      to={{
+                        pathname: f.pathname,
+                        state: { clear: true },
+                      }}
+                    >
+                      {f.displayName}
+                    </NavLink>
+                  ))}
                 </div>
               </div>
             </nav>
@@ -94,7 +76,12 @@ export const SecondaryNav = ({ changeItemSize, itemSize, location }) => {
   )
 }
 
+SecondaryNav.defaultProps = {
+  filters: [],
+}
+
 const mapStateToProps = state => ({
+  filters: _.values(state.filters),
   itemSize: state.settings.itemSize,
 })
 
