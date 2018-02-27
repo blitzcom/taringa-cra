@@ -1,30 +1,37 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 
-import HomeFeed from './HomeFeed'
 import Ad from '../../ads/components/Ad'
+import withFilter from '../../HOC/Filterable'
+import FeedRoute from '../../feed/components/FeedRoute'
 
-const SummariesRoute = ({ id, url, ...rest }) => (
-  <Route
-    {...rest}
-    render={props => <HomeFeed {...props} url={url} id={id} />}
-  />
-)
+export const Home = () => {
+  return (
+    <div className="row">
+      <div className="col-8">
+        <FeedRoute exact id="mi.hot" path="/" url="/feed" />
+        <FeedRoute id="mi.recents" path="/recents" url="/feed?sort=recent" />
+      </div>
 
-const Home = props => (
-  <div className="row">
-    <div className="col-8">
-      <SummariesRoute exact id="trending" path="/" url="/feed/global" />
-
-      <SummariesRoute id="recents" path="/recents" url="/feed" />
-
-      <SummariesRoute id="tops" path="/tops" url="/feed/global/tops/week" />
+      <div className="col-4">
+        <Ad />
+      </div>
     </div>
+  )
+}
 
-    <div className="col-4">
-      <Ad />
-    </div>
-  </div>
-)
+const filters = {
+  hot: {
+    displayName: 'Destacados',
+    exact: true,
+    id: 'hot',
+    pathname: '/',
+  },
+  recents: {
+    displayName: 'Recientes',
+    exact: false,
+    id: 'recents',
+    pathname: '/recents',
+  },
+}
 
-export default Home
+export default withFilter(filters)(Home)
