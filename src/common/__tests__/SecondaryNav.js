@@ -94,4 +94,25 @@ describe('Secondary Nav', () => {
       .simulate('click')
     expect(mock).toBeCalledWith(ITEM_SMALL)
   })
+
+  it('renders filters', () => {
+    const filters = [
+      {
+        displayName: 'Foo',
+        exact: true,
+        id: 'foo',
+        pathname: '/',
+      },
+      {
+        displayName: 'Bar',
+        exact: false,
+        id: 'bar',
+        pathname: '/bar',
+      },
+    ]
+
+    const wrapper = shallow(<SecondaryNav filters={filters} />)
+
+    expect(wrapper).toMatchSnapshot()
+  })
 })

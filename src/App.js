@@ -10,6 +10,7 @@ import Story from './stories/components/Story'
 import Feed from './users/components/Feed'
 import Search from './search/components/Search'
 import Channel from './channels/components/Channel'
+import Global from './global/components/Global'
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path="/u/:username" component={Feed} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
+              <Route path="/global" component={Global} />
               <Route path="/" component={Home} />
             </Switch>
           </div>

@@ -7,21 +7,16 @@ exports[`Home renders 1`] = `
   <div
     className="col-8"
   >
-    <SummariesRoute
+    <FeedRoute
       exact={true}
-      id="trending"
+      id="mi.hot"
       path="/"
-      url="/feed/global"
-    />
-    <SummariesRoute
-      id="recents"
-      path="/recents"
       url="/feed"
     />
-    <SummariesRoute
-      id="tops"
-      path="/tops"
-      url="/feed/global/tops/week"
+    <FeedRoute
+      id="mi.recents"
+      path="/recents"
+      url="/feed?sort=recent"
     />
   </div>
   <div
