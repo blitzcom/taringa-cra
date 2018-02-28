@@ -19,19 +19,21 @@ export const Home = () => {
   )
 }
 
-const filters = {
-  hot: {
-    displayName: 'Destacados',
-    exact: true,
-    id: 'hot',
-    pathname: '/',
-  },
-  recents: {
-    displayName: 'Recientes',
-    exact: false,
-    id: 'recents',
-    pathname: '/recents',
-  },
+const mapFilters = props => {
+  return {
+    hot: {
+      displayName: 'Destacados',
+      exact: true,
+      id: 'hot',
+      pathname: '/',
+    },
+    recents: {
+      displayName: 'Recientes',
+      exact: false,
+      id: 'recents',
+      pathname: '/recents',
+    },
+  }
 }
 
-export default withFilter(filters)(Home)
+export default withFilter(mapFilters)(Home)
