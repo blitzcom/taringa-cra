@@ -23,25 +23,27 @@ const Global = props => {
   )
 }
 
-const filters = {
-  hot: {
-    displayName: 'Destacados',
-    exact: true,
-    id: 'hot',
-    pathname: '/global',
-  },
-  recents: {
-    displayName: 'Recientes',
-    exact: false,
-    id: 'recents',
-    pathname: '/global/recents',
-  },
-  tops: {
-    displayName: 'Tops',
-    exact: false,
-    id: 'tops',
-    pathname: '/global/tops',
-  },
+const mapFilters = props => {
+  return {
+    hot: {
+      displayName: 'Destacados',
+      exact: true,
+      id: 'hot',
+      pathname: '/global',
+    },
+    recents: {
+      displayName: 'Recientes',
+      exact: false,
+      id: 'recents',
+      pathname: '/global/recents',
+    },
+    tops: {
+      displayName: 'Tops',
+      exact: false,
+      id: 'tops',
+      pathname: '/global/tops',
+    },
+  }
 }
 
-export default withFilter(filters)(Global)
+export default withFilter(mapFilters)(Global)

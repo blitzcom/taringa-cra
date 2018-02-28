@@ -27,7 +27,7 @@ describe('Filterable HOC', () => {
 
   it('calls set filters', () => {
     const WrappedComponent = props => <div>{props.children}</div>
-    const Component = withFilter({ id: 'foo' })(WrappedComponent)
+    const Component = withFilter(() => ({ id: 'foo' }))(WrappedComponent)
 
     actions.set = jest.fn().mockImplementation(filters => ({
       type: 'MOCK_FILTER',

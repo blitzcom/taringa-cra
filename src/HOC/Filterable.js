@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 
 import { set } from '../filters/actions'
 
-const withFilter = (filters = {}) => WrappedComponent => {
+const withFilter = mapFilters => WrappedComponent => {
   class Filterable extends Component {
     componentDidMount() {
-      this.props.dispatch(set(filters))
+      if (mapFilters) {
+        const filters = mapFilters(this.props)
+        this.props.dispatch(set(filters))
+      }
     }
 
     render() {
