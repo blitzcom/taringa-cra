@@ -19,10 +19,14 @@ const StoryOwner = ({
       <Link to={`/u/${owner}`} onClick={handleOnClick}>
         {owner}
       </Link>
-      {' en '}
-      <Link to={`/c/${channel}`} onClick={handleOnClick}>
-        {channelName}
-      </Link>{' '}
+      {channelName && (
+        <span>
+          {' en '}
+          <Link to={`/c/${channel}`} onClick={handleOnClick}>
+            {channelName}
+          </Link>
+        </span>
+      )}{' '}
       <TimeAgo date={created} formatter={formatter} />
     </p>
   )

@@ -98,7 +98,7 @@ const getChannel = story => {
   const result = { channelName: channel.title, channel: channel.name }
 
   if (channel.channelType === 'user_feed') {
-    result.channelName = 'self'
+    result.channelName = null
   }
 
   return result
