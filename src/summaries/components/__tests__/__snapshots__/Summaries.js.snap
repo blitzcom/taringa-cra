@@ -304,13 +304,6 @@ exports[`Summaries renders summaries 1`] = `
                 >
                   Fraudier
                 </a>
-                 en 
-                <a
-                  href="/c/user-Fraudier"
-                  onClick={[Function]}
-                >
-                  self
-                </a>
                  
                 <time
                   dateTime="2017-12-22T05:28:22.005Z"

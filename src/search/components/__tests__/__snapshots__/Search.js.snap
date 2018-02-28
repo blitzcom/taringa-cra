@@ -152,7 +152,7 @@ exports[`Search Title when has users and stories and is fetching renders message
           Array [
             Object {
               "channel": "user-Fraudier",
-              "channelName": "self",
+              "channelName": null,
               "comments": 78,
               "created": 1513920502005,
               "icon": "fa fa-image",
@@ -260,7 +260,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
           Array [
             Object {
               "channel": "user-Fraudier",
-              "channelName": "self",
+              "channelName": null,
               "comments": 78,
               "created": 1513920502005,
               "icon": "fa fa-image",
@@ -368,7 +368,7 @@ exports[`Search Title when has users renders message 1`] = `
           Array [
             Object {
               "channel": "user-Fraudier",
-              "channelName": "self",
+              "channelName": null,
               "comments": 78,
               "created": 1513920502005,
               "icon": "fa fa-image",
