@@ -1,14 +1,14 @@
-import _ from 'lodash'
 import React from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
 import './SecondaryNav.css'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../settings/constants'
 import * as actions from '../settings/actions'
+import ScoringFilters from '../filters/components/ScoringFilters'
 
-export const SecondaryNav = ({ changeItemSize, itemSize, filters }) => {
+export const SecondaryNav = ({ changeItemSize, itemSize }) => {
   const bigButtonClass = classNames('btn px-1 py-0 btn-light', {
     active: itemSize === ITEM_BIG,
   })
@@ -51,22 +51,7 @@ export const SecondaryNav = ({ changeItemSize, itemSize, filters }) => {
 
                 <span className="navbar-text divider" />
 
-                <div className="navbar-nav mr-auto">
-                  {filters.map(f => (
-                    <NavLink
-                      key={f.id}
-                      activeClassName="active"
-                      className="nav-item nav-link"
-                      exact={f.exact}
-                      to={{
-                        pathname: f.pathname,
-                        state: { clear: true },
-                      }}
-                    >
-                      {f.displayName}
-                    </NavLink>
-                  ))}
-                </div>
+                <ScoringFilters />
               </div>
             </nav>
           </div>
@@ -76,12 +61,7 @@ export const SecondaryNav = ({ changeItemSize, itemSize, filters }) => {
   )
 }
 
-SecondaryNav.defaultProps = {
-  filters: [],
-}
-
 const mapStateToProps = state => ({
-  filters: _.values(state.filters),
   itemSize: state.settings.itemSize,
 })
 

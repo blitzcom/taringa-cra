@@ -12,49 +12,25 @@ describe('Secondary Nav', () => {
   })
 
   it('renders', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <SecondaryNav />
-        </MemoryRouter>
-      )
-      .toJSON()
+    const tree = shallow(<SecondaryNav />)
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_BIG', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <SecondaryNav itemSize={ITEM_BIG} />
-        </MemoryRouter>
-      )
-      .toJSON()
+    const tree = shallow(<SecondaryNav itemSize={ITEM_BIG} />)
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_MEDIUM', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <SecondaryNav itemSize={ITEM_MEDIUM} />
-        </MemoryRouter>
-      )
-      .toJSON()
+    const tree = shallow(<SecondaryNav itemSize={ITEM_MEDIUM} />)
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders active on ITEM_SMALL', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <SecondaryNav itemSize={ITEM_SMALL} />
-        </MemoryRouter>
-      )
-      .toJSON()
+    const tree = shallow(<SecondaryNav itemSize={ITEM_SMALL} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -68,6 +44,7 @@ describe('Secondary Nav', () => {
       .find('button')
       .at(0)
       .simulate('click')
+
     expect(mock).toBeCalledWith(ITEM_BIG)
   })
 
@@ -80,6 +57,7 @@ describe('Secondary Nav', () => {
       .find('button')
       .at(1)
       .simulate('click')
+
     expect(mock).toBeCalledWith(ITEM_MEDIUM)
   })
 
@@ -92,27 +70,7 @@ describe('Secondary Nav', () => {
       .find('button')
       .at(2)
       .simulate('click')
+
     expect(mock).toBeCalledWith(ITEM_SMALL)
-  })
-
-  it('renders filters', () => {
-    const filters = [
-      {
-        displayName: 'Foo',
-        exact: true,
-        id: 'foo',
-        pathname: '/',
-      },
-      {
-        displayName: 'Bar',
-        exact: false,
-        id: 'bar',
-        pathname: '/bar',
-      },
-    ]
-
-    const wrapper = shallow(<SecondaryNav filters={filters} />)
-
-    expect(wrapper).toMatchSnapshot()
   })
 })
