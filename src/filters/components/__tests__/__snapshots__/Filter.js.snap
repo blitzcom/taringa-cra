@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter renders default 1`] = `
+<NavLink
+  activeClassName="active"
+  ariaCurrent="true"
+  className="nav-item nav-link"
+  exact={false}
+  to={
+    Object {
+      "pathname": "/navlink",
+      "state": Object {
+        "clear": true,
+      },
+    }
+  }
+>
+  Nav Link
+</NavLink>
+`;
+
+exports[`Filter renders with props 1`] = `
+<NavLink
+  activeClassName="active"
+  ariaCurrent="true"
+  className="nav-item nav-link"
+  exact={true}
+  to={
+    Object {
+      "pathname": "/bar",
+      "state": Object {
+        "clear": true,
+      },
+    }
+  }
+>
+  foo
+</NavLink>
+`;
