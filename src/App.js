@@ -7,7 +7,7 @@ import SecondaryNav from './common/SecondaryNav'
 import Flashing from './flash/components/Flashing'
 import Home from './home/components/Home'
 import Story from './stories/components/Story'
-import Feed from './users/components/Feed'
+import User from './users/components/User'
 import Search from './search/components/Search'
 import Channel from './channels/components/Channel'
 import Global from './global/components/Global'
@@ -26,7 +26,7 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route path="/c/:channel/:filter?" component={Channel} />
-              <Route path="/u/:username" component={Feed} />
+              <Route path="/u/:username/:filter?" component={User} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
               <Route path="/global/:filter?" component={Global} />
