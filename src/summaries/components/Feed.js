@@ -15,7 +15,7 @@ class Feed extends Component {
   }
 
   render() {
-    const { items, onRetry, placeholderCount, status, size } = this.props
+    const { items, onRetry, placeholderCount, size, status } = this.props
 
     const isFetching = status === 'fetching'
     const hasFailure = status === 'failure'
@@ -34,7 +34,7 @@ class Feed extends Component {
           <div className="card">
             <ul className="list-group list-group-flush">
               {items.map(item => (
-                <Summary key={item.id} {...item} size={size} />
+                <Summary {...item} key={item.id} size={size} />
               ))}
 
               {isFetching && makePlaceholders()}

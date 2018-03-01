@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Story = ({ history, slug, children }) => {
+import history from '../../history'
+
+const Story = ({ slug, children }) => {
   const handleOnClick = () => {
     history.push(`/story/${slug}`)
   }

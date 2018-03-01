@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 
 import './App.css'
-import Nav from './common/Nav'
-import SecondaryNav from './common/SecondaryNav'
+import Channel from './channels/components/Channel'
 import Flashing from './flash/components/Flashing'
+import Global from './global/components/Global'
 import Home from './home/components/Home'
+import Nav from './common/Nav'
+import Search from './search/components/Search'
+import SecondaryNav from './common/SecondaryNav'
 import Story from './stories/components/Story'
 import User from './users/components/User'
-import Search from './search/components/Search'
-import Channel from './channels/components/Channel'
-import Global from './global/components/Global'
+import history from './history'
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="App">
           <div className="sticky-top">
             <Nav />
