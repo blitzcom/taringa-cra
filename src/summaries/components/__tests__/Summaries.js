@@ -40,14 +40,6 @@ describe('Summaries', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('calls onLoad', () => {
-    const mock = jest.fn()
-
-    mount(<Summaries onLoad={mock} />)
-
-    expect(mock).toHaveBeenCalled()
-  })
-
   it('calls onRetry when has failure', () => {
     const mock = jest.fn()
 

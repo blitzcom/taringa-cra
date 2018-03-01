@@ -13,42 +13,52 @@ exports[`Summaries changes placeholder count 1`] = `
       <Summary
         isPlaceholder={true}
         key="0"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="1"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="2"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="3"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="4"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="5"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="6"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="7"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="8"
+        size="settings/ITEM_SMALL"
       />
       <Summary
         isPlaceholder={true}
         key="9"
+        size="settings/ITEM_SMALL"
       />
     </ul>
   </div>
@@ -118,6 +128,7 @@ exports[`Summaries renders summaries 1`] = `
         }
         score="2.9k"
         shares={1}
+        size="settings/ITEM_SMALL"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"

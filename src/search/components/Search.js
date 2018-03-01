@@ -87,7 +87,6 @@ export class Search extends Component {
           >
             {stories.items && (
               <Summaries
-                hasMoreContent={false}
                 items={stories.items}
                 placeholderCount={3}
                 size={ITEM_SMALL}

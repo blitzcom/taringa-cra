@@ -138,7 +138,6 @@ exports[`Search Title when has users and stories and is fetching renders message
       title="Posts"
     >
       <Summaries
-        hasMoreContent={false}
         items={
           Array [
             Object {
@@ -161,7 +160,6 @@ exports[`Search Title when has users and stories and is fetching renders message
             },
           ]
         }
-        onLoad={[Function]}
         onRetry={[Function]}
         placeholderCount={3}
         size="settings/ITEM_SMALL"
@@ -242,7 +240,6 @@ exports[`Search Title when has users and stories renders message 1`] = `
       title="Posts"
     >
       <Summaries
-        hasMoreContent={false}
         items={
           Array [
             Object {
@@ -265,7 +262,6 @@ exports[`Search Title when has users and stories renders message 1`] = `
             },
           ]
         }
-        onLoad={[Function]}
         onRetry={[Function]}
         placeholderCount={3}
         size="settings/ITEM_SMALL"
@@ -346,7 +342,6 @@ exports[`Search Title when has users renders message 1`] = `
       title="Posts"
     >
       <Summaries
-        hasMoreContent={false}
         items={
           Array [
             Object {
@@ -369,7 +364,6 @@ exports[`Search Title when has users renders message 1`] = `
             },
           ]
         }
-        onLoad={[Function]}
         onRetry={[Function]}
         placeholderCount={3}
         size="settings/ITEM_SMALL"
@@ -482,9 +476,7 @@ exports[`Search renders 1`] = `
       title="Posts"
     >
       <Summaries
-        hasMoreContent={false}
         items={Array []}
-        onLoad={[Function]}
         onRetry={[Function]}
         placeholderCount={3}
         size="settings/ITEM_SMALL"
