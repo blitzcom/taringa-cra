@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { normalizeStory } from '../../summaries/utils'
 
+import infiniteScroll from '../../HOC/FilterableInfiniteScroll'
 import Summaries from '../../summaries/components/Summaries'
 import { load, loadTail } from '../../summaries/actions'
 
@@ -26,4 +27,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Summaries)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  infiniteScroll()(Summaries)
+)
