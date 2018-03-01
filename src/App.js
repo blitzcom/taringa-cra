@@ -30,7 +30,7 @@ class App extends Component {
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
               <Route path="/global" component={Global} />
-              <Route path="/" component={Home} />
+              <Route path="/:filter?" component={Home} />
             </Switch>
           </div>
         </div>
