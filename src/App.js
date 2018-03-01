@@ -29,7 +29,7 @@ class App extends Component {
               <Route path="/u/:username" component={Feed} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
-              <Route path="/global" component={Global} />
+              <Route path="/global/:filter?" component={Global} />
               <Route path="/:filter?" component={Home} />
             </Switch>
           </div>

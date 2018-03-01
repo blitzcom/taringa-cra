@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Global renders 1`] = `
+<div
+  className="row"
+>
+  <Connect(Filterable)
+    filters={
+      Object {
+        "hot": Object {
+          "displayName": "Destacados",
+          "exact": true,
+          "id": "hot",
+          "pathname": "/global",
+          "url": "/feed/global",
+        },
+        "recents": Object {
+          "displayName": "Recientes",
+          "exact": false,
+          "id": "recents",
+          "pathname": "/global/recents",
+          "url": "/feed/global?sort=recent",
+        },
+        "tops": Object {
+          "displayName": "Tops",
+          "exact": false,
+          "id": "tops",
+          "pathname": "/global/tops",
+          "url": "/feed/global/tops/week",
+        },
+      }
+    }
+  />
+  <div
+    className="col-8"
+  >
+    <Connect(Feed)
+      feedId="global"
+      filter="hot"
+      url="/feed/global"
+    />
+  </div>
+  <div
+    className="col-4"
+  >
+    <Ad />
+  </div>
+</div>
+`;
