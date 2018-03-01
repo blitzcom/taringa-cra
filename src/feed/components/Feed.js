@@ -1,8 +1,25 @@
-import withSummaries from '../../summaries/components/withSummaries'
+import { connect } from 'react-redux'
+import { normalizeStory } from '../../summaries/utils'
 
-const getId = props => props.id
-const getUrl = props => props.url
+import Summaries from '../../summaries/components/Summaries'
+import { load } from '../../summaries/actions'
 
-const Feed = withSummaries(getId, getUrl)()
+const mapStateToProps = (state, ownProps) => {
+  const feed = state.feed[ownProps.feedId] || { status: 'fetching', ids: [] }
+  const summaries = state.entities.summaries
 
-export default Feed
+  return {
+    items: feed.ids.map(id => normalizeStory(summaries[id])),
+    size: state.settings.itemSize,
+    status: feed.status,
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onLoad: () => dispatch(load(ownProps.feedId, ownProps.url)),
+    onRetry: () => dispatch(load(ownProps.feedId, ownProps.url)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summaries)

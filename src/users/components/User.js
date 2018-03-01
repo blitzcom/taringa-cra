@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Feeding from '../../summaries/components/Feeding'
+import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
 import UserCard from './UserCard'
 
-const Feed = ({ match }) => {
+const User = ({ match }) => {
   const username = match.params.username
 
   const filters = {
@@ -39,7 +39,7 @@ const Feed = ({ match }) => {
       <Filterable filters={filters} />
 
       <div className="col-8">
-        <Feeding feedId={username} filter={filter} url={url} />
+        <Feed feedId={username} filter={filter} url={url} />
       </div>
 
       <div className="col-4">
@@ -49,4 +49,4 @@ const Feed = ({ match }) => {
   )
 }
 
-export default Feed
+export default User

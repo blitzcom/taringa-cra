@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Ad from '../../ads/components/Ad'
-import Feeding from '../../summaries/components/Feeding'
+import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
 
 const filters = {
@@ -30,7 +30,7 @@ const Home = ({ match }) => {
       <Filterable filters={filters} />
 
       <div className="col-8">
-        <Feeding feedId="mi" filter={filter} url={url} />
+        <Feed feedId="mi" filter={filter} url={url} />
       </div>
 
       <div className="col-4">

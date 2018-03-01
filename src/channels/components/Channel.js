@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Feeding from '../../summaries/components/Feeding'
+import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
 import ChannelCard from './ChannelCard'
 
@@ -39,7 +39,7 @@ const Channel = ({ match }) => {
       <Filterable filters={filters} />
 
       <div className="col-8">
-        <Feeding feedId={channel} filter={filter} url={url} />
+        <Feed feedId={channel} filter={filter} url={url} />
       </div>
 
       <div className="col-4">

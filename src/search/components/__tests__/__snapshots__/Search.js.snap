@@ -138,17 +138,7 @@ exports[`Search Title when has users and stories and is fetching renders message
       title="Posts"
     >
       <Summaries
-        history={
-          Object {
-            "listen": [Function],
-          }
-        }
-        itemSize="settings/ITEM_SMALL"
-        loadFeed={[Function]}
-        loadMore={[Function]}
-        placeholderCount={3}
-        status="success"
-        summaries={
+        items={
           Array [
             Object {
               "channel": "user-Fraudier",
@@ -170,6 +160,11 @@ exports[`Search Title when has users and stories and is fetching renders message
             },
           ]
         }
+        onLoad={[Function]}
+        onRetry={[Function]}
+        placeholderCount={3}
+        size="settings/ITEM_SMALL"
+        status="success"
       />
     </SearchGroup>
     <SearchGroup
@@ -246,17 +241,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
       title="Posts"
     >
       <Summaries
-        history={
-          Object {
-            "listen": [Function],
-          }
-        }
-        itemSize="settings/ITEM_SMALL"
-        loadFeed={[Function]}
-        loadMore={[Function]}
-        placeholderCount={3}
-        status="success"
-        summaries={
+        items={
           Array [
             Object {
               "channel": "user-Fraudier",
@@ -278,6 +263,11 @@ exports[`Search Title when has users and stories renders message 1`] = `
             },
           ]
         }
+        onLoad={[Function]}
+        onRetry={[Function]}
+        placeholderCount={3}
+        size="settings/ITEM_SMALL"
+        status="success"
       />
     </SearchGroup>
     <SearchGroup
@@ -354,17 +344,7 @@ exports[`Search Title when has users renders message 1`] = `
       title="Posts"
     >
       <Summaries
-        history={
-          Object {
-            "listen": [Function],
-          }
-        }
-        itemSize="settings/ITEM_SMALL"
-        loadFeed={[Function]}
-        loadMore={[Function]}
-        placeholderCount={3}
-        status="success"
-        summaries={
+        items={
           Array [
             Object {
               "channel": "user-Fraudier",
@@ -386,6 +366,11 @@ exports[`Search Title when has users renders message 1`] = `
             },
           ]
         }
+        onLoad={[Function]}
+        onRetry={[Function]}
+        placeholderCount={3}
+        size="settings/ITEM_SMALL"
+        status="success"
       />
     </SearchGroup>
     <SearchGroup
@@ -494,17 +479,12 @@ exports[`Search renders 1`] = `
       title="Posts"
     >
       <Summaries
-        history={
-          Object {
-            "listen": [Function],
-          }
-        }
-        itemSize="settings/ITEM_SMALL"
-        loadFeed={[Function]}
-        loadMore={[Function]}
+        items={Array []}
+        onLoad={[Function]}
+        onRetry={[Function]}
         placeholderCount={3}
+        size="settings/ITEM_SMALL"
         status="success"
-        summaries={Array []}
       />
     </SearchGroup>
     <SearchGroup

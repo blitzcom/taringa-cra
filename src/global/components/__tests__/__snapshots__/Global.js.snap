@@ -34,7 +34,7 @@ exports[`Global renders 1`] = `
   <div
     className="col-8"
   >
-    <Connect(Feed)
+    <Connect(Summaries)
       feedId="global"
       filter="hot"
       url="/feed/global"

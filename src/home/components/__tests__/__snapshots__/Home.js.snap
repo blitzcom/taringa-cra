@@ -27,7 +27,7 @@ exports[`Home renders 1`] = `
   <div
     className="col-8"
   >
-    <Connect(Feed)
+    <Connect(Summaries)
       feedId="mi"
       filter="hot"
       url="/feed"
