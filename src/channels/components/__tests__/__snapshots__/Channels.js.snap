@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Channels renders 1`] = `
+<div
+  className="row"
+>
+  <Connect(Filterable)
+    filters={
+      Object {
+        "hot": Object {
+          "displayName": "Destacados",
+          "exact": true,
+          "id": "hot",
+          "pathname": "/channels",
+          "url": "/c/list/hot",
+        },
+        "populars": Object {
+          "displayName": "Populares",
+          "exact": false,
+          "id": "tops",
+          "pathname": "/channels/populars",
+          "url": "/c/list/popular",
+        },
+        "recents": Object {
+          "displayName": "Recientes",
+          "exact": false,
+          "id": "recents",
+          "pathname": "/channels/recents",
+          "url": "/c/list/recent",
+        },
+      }
+    }
+  />
+  <div
+    className="col-8"
+  />
+  <div
+    className="col-4"
+  >
+    <Ad />
+  </div>
+</div>
+`;

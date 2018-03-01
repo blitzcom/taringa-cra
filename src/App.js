@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 
 import './App.css'
+
 import Channel from './channels/components/Channel'
+import Channels from './channels/components/Channels'
 import Flashing from './flash/components/Flashing'
 import Global from './global/components/Global'
 import Home from './home/components/Home'
@@ -30,6 +32,7 @@ class App extends Component {
               <Route path="/u/:username/:filter?" component={User} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
+              <Route path="/channels/:filter?" component={Channels} />
               <Route path="/global/:filter?" component={Global} />
               <Route path="/:filter?" component={Home} />
             </Switch>
