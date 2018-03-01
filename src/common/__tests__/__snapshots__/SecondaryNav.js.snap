@@ -23,7 +23,7 @@ exports[`Secondary Nav renders 1`] = `
             <span
               className="navbar-text divider"
             />
-            <Connect(Filters) />
+            <withRouter(Connect(Filters)) />
           </div>
         </nav>
       </div>
