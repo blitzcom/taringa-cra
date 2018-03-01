@@ -9,12 +9,6 @@ import Taringa from '../api'
 export const getFeed = (state, id) => state.feed[id]
 
 export function* loadFeed({ id, url }) {
-  const feed = yield select(getFeed, id)
-
-  if (feed && feed.ids && feed.ids.length >= 20) {
-    return
-  }
-
   try {
     yield put(actions.fetchRequest(id))
 
