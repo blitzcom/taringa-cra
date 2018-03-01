@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Channel renders 1`] = `
+<div
+  className="row"
+>
+  <Connect(Filterable)
+    filters={
+      Object {
+        "hot": Object {
+          "displayName": "Destacados",
+          "exact": true,
+          "id": "hot",
+          "pathname": "/c/foo",
+          "url": "/c/foo/feed",
+        },
+        "recents": Object {
+          "displayName": "Recientes",
+          "exact": false,
+          "id": "recents",
+          "pathname": "/c/foo/recents",
+          "url": "/c/foo/feed",
+        },
+        "tops": Object {
+          "displayName": "Tops",
+          "exact": false,
+          "id": "tops",
+          "pathname": "/c/foo/tops",
+          "url": "/c/foo/tops/week",
+        },
+      }
+    }
+  />
+  <div
+    className="col-8"
+  >
+    <Connect(Feed)
+      feedId="foo"
+      filter="hot"
+      url="/c/foo/feed"
+    />
+  </div>
+  <div
+    className="col-4"
+  >
+    <withRouter(Connect(ResourceHOC)) />
+  </div>
+</div>
+`;

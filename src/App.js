@@ -25,7 +25,7 @@ class App extends Component {
 
           <div className="container">
             <Switch>
-              <Route path="/c/:channel" component={Channel} />
+              <Route path="/c/:channel/:filter?" component={Channel} />
               <Route path="/u/:username" component={Feed} />
               <Route path="/story/:slug" component={Story} />
               <Route path="/search" component={Search} />
