@@ -1,10 +1,19 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 
+import { scrolledToBottom } from '../../utils/Scroll'
+
 import Summary from './Summary'
 
 class Summaries extends Component {
+  constructor(props) {
+    super(props)
+    this.handleScroll = this.handleScroll.bind(this)
+    this.handleScrollThrottle = _.throttle(this.handleScroll, 250)
+  }
+
   componentDidMount() {
+    this.addEvents()
     this.props.onLoad()
   }
 
@@ -12,6 +21,25 @@ class Summaries extends Component {
     if (this.props.filter !== prevProps.filter) {
       this.props.onLoad()
     }
+
+    this.addEvents()
+  }
+
+  handleScroll() {
+    const { hasMoreContent, status } = this.props
+
+    if (scrolledToBottom() && hasMoreContent && status !== 'fetching') {
+      this.removeEvents()
+      this.props.onLoadMore()
+    }
+  }
+
+  addEvents() {
+    window.addEventListener('scroll', this.handleScrollThrottle)
+  }
+
+  removeEvents() {
+    window.removeEventListener('scroll', this.handleScrollThrottle)
   }
 
   render() {
@@ -63,6 +91,7 @@ class Summaries extends Component {
 }
 
 Summaries.defaultProps = {
+  hasMoreContent: true,
   items: [],
   onLoad: () => {},
   onRetry: () => {},

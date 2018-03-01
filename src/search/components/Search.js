@@ -87,10 +87,11 @@ export class Search extends Component {
           >
             {stories.items && (
               <Summaries
-                size={ITEM_SMALL}
-                placeholderCount={3}
-                status="success"
+                hasMoreContent={false}
                 items={stories.items}
+                placeholderCount={3}
+                size={ITEM_SMALL}
+                status="success"
               />
             )}
           </SearchGroup>
