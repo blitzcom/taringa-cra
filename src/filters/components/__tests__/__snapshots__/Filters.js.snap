@@ -10,40 +10,20 @@ exports[`Filters renders filters 1`] = `
 <div
   className="navbar-nav mr-auto"
 >
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    className="nav-item nav-link"
+  <Filter
+    displayName="Foo"
     exact={true}
+    id="foo"
     key="foo"
-    to={
-      Object {
-        "pathname": "/",
-        "state": Object {
-          "clear": true,
-        },
-      }
-    }
-  >
-    Foo
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    className="nav-item nav-link"
+    pathname="/"
+  />
+  <Filter
+    displayName="Bar"
     exact={false}
+    id="bar"
     key="bar"
-    to={
-      Object {
-        "pathname": "/bar",
-        "state": Object {
-          "clear": true,
-        },
-      }
-    }
-  >
-    Bar
-  </NavLink>
+    pathname="/bar"
+  />
 </div>
 `;
 
@@ -56,6 +36,5 @@ exports[`Filters renders with additional classes 1`] = `
 exports[`Filters renders with additional props 1`] = `
 <div
   className="navbar-nav mr-auto"
-  id="foobar"
 />
 `;

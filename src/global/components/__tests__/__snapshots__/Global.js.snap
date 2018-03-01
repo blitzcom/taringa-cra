@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renders 1`] = `
+exports[`Global renders 1`] = `
 <div
   className="row"
 >
@@ -11,15 +11,22 @@ exports[`Home renders 1`] = `
           "displayName": "Destacados",
           "exact": true,
           "id": "hot",
-          "pathname": "/",
-          "url": "/feed",
+          "pathname": "/global",
+          "url": "/feed/global",
         },
         "recents": Object {
           "displayName": "Recientes",
           "exact": false,
           "id": "recents",
-          "pathname": "/recents",
-          "url": "/feed?sort=recent",
+          "pathname": "/global/recents",
+          "url": "/feed/global?sort=recent",
+        },
+        "tops": Object {
+          "displayName": "Tops",
+          "exact": false,
+          "id": "tops",
+          "pathname": "/global/tops",
+          "url": "/feed/global/tops/week",
         },
       }
     }
@@ -28,9 +35,9 @@ exports[`Home renders 1`] = `
     className="col-8"
   >
     <Connect(Summaries)
-      feedId="mi"
+      feedId="global"
       filter="hot"
-      url="/feed"
+      url="/feed/global"
     />
   </div>
   <div

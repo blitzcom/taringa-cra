@@ -16,10 +16,6 @@ describe('Load feed saga', () => {
   describe('(a) loads initial feed', () => {
     const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
 
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-    })
-
     it('puts fetch request action', result => {
       expect(result).toEqual(put({ type: 'summaries/FETCH_REQUEST', id: 1 }))
     })
@@ -48,25 +44,8 @@ describe('Load feed saga', () => {
     })
   })
 
-  describe('(b) skips load if already has at least 20 items', () => {
-    const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
-
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-      return { ids: _.times(21, String) }
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
-    })
-  })
-
   describe('(c) returns failure', () => {
     const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
-
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-    })
 
     it('puts fetch request action', result => {
       expect(result).toEqual(put({ type: 'summaries/FETCH_REQUEST', id: 1 }))

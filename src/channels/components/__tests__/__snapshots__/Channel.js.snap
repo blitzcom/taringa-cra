@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renders 1`] = `
+exports[`Channel renders 1`] = `
 <div
   className="row"
 >
@@ -11,15 +11,22 @@ exports[`Home renders 1`] = `
           "displayName": "Destacados",
           "exact": true,
           "id": "hot",
-          "pathname": "/",
-          "url": "/feed",
+          "pathname": "/c/foo",
+          "url": "/c/foo/feed",
         },
         "recents": Object {
           "displayName": "Recientes",
           "exact": false,
           "id": "recents",
-          "pathname": "/recents",
-          "url": "/feed?sort=recent",
+          "pathname": "/c/foo/recents",
+          "url": "/c/foo/feed",
+        },
+        "tops": Object {
+          "displayName": "Tops",
+          "exact": false,
+          "id": "tops",
+          "pathname": "/c/foo/tops",
+          "url": "/c/foo/tops/week",
         },
       }
     }
@@ -28,15 +35,15 @@ exports[`Home renders 1`] = `
     className="col-8"
   >
     <Connect(Summaries)
-      feedId="mi"
+      feedId="foo"
       filter="hot"
-      url="/feed"
+      url="/c/foo/feed"
     />
   </div>
   <div
     className="col-4"
   >
-    <Ad />
+    <withRouter(Connect(ResourceHOC)) />
   </div>
 </div>
 `;

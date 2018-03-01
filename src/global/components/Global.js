@@ -1,49 +1,54 @@
 import React from 'react'
 
-import withFilter from '../../HOC/Filterable'
-import FeedRoute from '../../feed/components/FeedRoute'
+import Ad from '../../ads/components/Ad'
+import Feed from '../../feed/components/Feed'
+import Filterable from '../../filters/components/Filterable'
 
-const Global = props => {
+const filters = {
+  hot: {
+    displayName: 'Destacados',
+    exact: true,
+    id: 'hot',
+    pathname: '/global',
+    url: '/feed/global',
+  },
+  recents: {
+    displayName: 'Recientes',
+    exact: false,
+    id: 'recents',
+    pathname: '/global/recents',
+    url: '/feed/global?sort=recent',
+  },
+  tops: {
+    displayName: 'Tops',
+    exact: false,
+    id: 'tops',
+    pathname: '/global/tops',
+    url: '/feed/global/tops/week',
+  },
+}
+
+const Global = ({ match }) => {
+  const filter = match.params.filter || 'hot'
+  const url = filters[filter].url
+
   return (
     <div className="row">
+      <Filterable filters={filters} />
+
       <div className="col-8">
-        <FeedRoute exact id="global.hot" path="/global" url="/feed/global" />
-        <FeedRoute
-          id="global.recents"
-          path="/global/recents"
-          url="/feed/global?sort=recent"
-        />
-        <FeedRoute
-          id="global.tops"
-          path="/global/tops"
-          url="/feed/global/tops/week"
-        />
+        <Feed feedId="global" filter={filter} url={url} />
+      </div>
+
+      <div className="col-4">
+        <Ad />
       </div>
     </div>
   )
 }
 
-const mapFilters = props => {
-  return {
-    hot: {
-      displayName: 'Destacados',
-      exact: true,
-      id: 'hot',
-      pathname: '/global',
-    },
-    recents: {
-      displayName: 'Recientes',
-      exact: false,
-      id: 'recents',
-      pathname: '/global/recents',
-    },
-    tops: {
-      displayName: 'Tops',
-      exact: false,
-      id: 'tops',
-      pathname: '/global/tops',
-    },
-  }
+Global.defaultProps = {
+  match: { params: {} },
 }
 
-export default withFilter(mapFilters)(Global)
+export default Global

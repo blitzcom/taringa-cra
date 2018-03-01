@@ -2,36 +2,36 @@ import React from 'react'
 
 import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
-import ChannelCard from './ChannelCard'
+import UserCard from './UserCard'
 
-const Channel = ({ match }) => {
-  const channel = match.params.channel
-  const filter = match.params.filter || 'hot'
+const User = ({ match }) => {
+  const username = match.params.username
 
   const filters = {
     hot: {
       displayName: 'Destacados',
       exact: true,
       id: 'hot',
-      pathname: `/c/${channel}`,
-      url: `/c/${channel}/feed`,
+      pathname: `/u/${username}`,
+      url: `/user/${username}/feed`,
     },
     recents: {
       displayName: 'Recientes',
       exact: false,
       id: 'recents',
-      pathname: `/c/${channel}/recents`,
-      url: `/c/${channel}/feed`,
+      pathname: `/u/${username}/recents`,
+      url: `/user/${username}/feed`,
     },
     tops: {
       displayName: 'Tops',
       exact: false,
       id: 'tops',
-      pathname: `/c/${channel}/tops`,
-      url: `/c/${channel}/tops/week`,
+      pathname: `/u/${username}/tops`,
+      url: `/user/${username}/tops/week`,
     },
   }
 
+  const filter = match.params.filter || 'hot'
   const url = filters[filter].url
 
   return (
@@ -39,18 +39,14 @@ const Channel = ({ match }) => {
       <Filterable filters={filters} />
 
       <div className="col-8">
-        <Feed feedId={channel} filter={filter} url={url} />
+        <Feed feedId={username} filter={filter} url={url} />
       </div>
 
       <div className="col-4">
-        <ChannelCard />
+        <UserCard id={username} />
       </div>
     </div>
   )
 }
 
-Channel.defaultProps = {
-  match: { params: {} },
-}
-
-export default Channel
+export default User

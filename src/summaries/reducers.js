@@ -26,13 +26,13 @@ const fetchControlInitialState = {
 const fetchingControl = (state = fetchControlInitialState, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
-      return _.assign({}, state, { status: 'fetching', error: '' })
+      return _.assign({}, state, { error: '', ids: [], status: 'fetching' })
     case types.FETCH_SUCCESS:
       return _.assign({}, state, {
         after: action.after,
         before: action.before,
         count: action.count,
-        ids: _.union(state.ids, action.result),
+        ids: action.result,
         status: 'success',
         totalCount: action.totalCount,
       })

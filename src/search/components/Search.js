@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Summaries } from '../../summaries/components/Summaries'
+import Summaries from '../../summaries/components/Summaries'
 import { ITEM_SMALL } from '../../settings/constants'
 
 import SearchGroup from './SearchGroup'
@@ -87,10 +87,10 @@ export class Search extends Component {
           >
             {stories.items && (
               <Summaries
-                itemSize={ITEM_SMALL}
+                size={ITEM_SMALL}
                 placeholderCount={3}
                 status="success"
-                summaries={stories.items}
+                items={stories.items}
               />
             )}
           </SearchGroup>
