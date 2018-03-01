@@ -7,7 +7,11 @@ import { itemSize } from '../settings/reducers'
 import { flash } from '../flash/reducers'
 import { usersEntities, usersFetchControl } from '../users/reducers'
 import { searchEntities, searchControl } from '../search/reducers'
-import { channelEntities, channelsFetchControl } from '../channels/reducers'
+import {
+  channelEntities,
+  channelsFetchControl,
+  channelListFetch,
+} from '../channels/reducers'
 import { filters } from '../filters/reducers'
 
 const entities = combineReducers({
@@ -31,6 +35,7 @@ const settings = combineReducers({
 })
 
 export default combineReducers({
+  channels: channelListFetch,
   control,
   entities,
   feed: summariesFetchControl,

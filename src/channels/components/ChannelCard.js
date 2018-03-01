@@ -6,7 +6,7 @@ import Card from '../../common/Card'
 import withResource from '../../HOC/Resource'
 import { fetchTrigger } from '../actions'
 
-const ChannelCard = ({ channel, control }) => {
+export const ChannelCard = ({ channel, control }) => {
   return (
     <Card
       avatar={channel.thumbnail}
@@ -31,6 +31,11 @@ const ChannelCard = ({ channel, control }) => {
       </div>
     </Card>
   )
+}
+
+ChannelCard.defaultProps = {
+  channel: {},
+  control: { status: 'fetching' },
 }
 
 const getId = props => props.match.params.channel

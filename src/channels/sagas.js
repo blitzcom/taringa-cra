@@ -14,3 +14,15 @@ export function* fetch({ name }) {
     yield put(actions.fetchFailure(name, e.message))
   }
 }
+
+export function* fetchList({ url }) {
+  try {
+    yield put(actions.fetchListRequest())
+
+    const channels = yield call(Taringa.url, url)
+
+    yield put(actions.fetchListSuccess(channels))
+  } catch (e) {
+    yield put(actions.fetchListFailure(e.message))
+  }
+}

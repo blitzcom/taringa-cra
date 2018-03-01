@@ -2,8 +2,9 @@ import React from 'react'
 
 import Ad from '../../ads/components/Ad'
 import Filterable from '../../filters/components/Filterable'
+import FilterableChannelList from './FilterableChannelList'
 
-const Channels = () => {
+const Channels = ({ match }) => {
   const filters = {
     hot: {
       displayName: 'Destacados',
@@ -28,17 +29,26 @@ const Channels = () => {
     },
   }
 
+  const filter = match.params.filter || 'hot'
+  const url = filters[filter].url
+
   return (
     <div className="row">
       <Filterable filters={filters} />
 
-      <div className="col-8" />
+      <div className="col-8">
+        <FilterableChannelList url={url} filter={filter} />
+      </div>
 
       <div className="col-4">
         <Ad />
       </div>
     </div>
   )
+}
+
+Channels.defaultProps = {
+  match: { params: {} },
 }
 
 export default Channels

@@ -6,6 +6,11 @@ describe('Store', () => {
     const store = configure()
 
     expect(store.getState()).toEqual({
+      channels: {
+        error: '',
+        result: [],
+        status: 'success',
+      },
       control: {
         commentsFetch: {},
         storiesFetch: {},
