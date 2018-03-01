@@ -1,15 +1,36 @@
 import React from 'react'
 
 import Ad from '../../ads/components/Ad'
-import withFilter from '../../HOC/Filterable'
-import FeedRoute from '../../feed/components/FeedRoute'
+import Feeding from '../../summaries/components/Feeding'
+import Filterable from '../../filters/components/Filterable'
 
-export const Home = () => {
+const filters = {
+  hot: {
+    displayName: 'Destacados',
+    exact: true,
+    id: 'hot',
+    pathname: '/',
+    url: '/feed',
+  },
+  recents: {
+    displayName: 'Recientes',
+    exact: false,
+    id: 'recents',
+    pathname: '/recents',
+    url: '/feed?sort=recent',
+  },
+}
+
+const Home = ({ match }) => {
+  const filter = match.params.filter || 'hot'
+  const url = filters[filter].url
+
   return (
     <div className="row">
+      <Filterable filters={filters} />
+
       <div className="col-8">
-        <FeedRoute exact id="mi.hot" path="/" url="/feed" />
-        <FeedRoute id="mi.recents" path="/recents" url="/feed?sort=recent" />
+        <Feeding feedId="mi" filter={filter} url={url} />
       </div>
 
       <div className="col-4">
@@ -19,21 +40,8 @@ export const Home = () => {
   )
 }
 
-const mapFilters = props => {
-  return {
-    hot: {
-      displayName: 'Destacados',
-      exact: true,
-      id: 'hot',
-      pathname: '/',
-    },
-    recents: {
-      displayName: 'Recientes',
-      exact: false,
-      id: 'recents',
-      pathname: '/recents',
-    },
-  }
+Home.defaultProps = {
+  match: { params: {} },
 }
 
-export default withFilter(mapFilters)(Home)
+export default Home

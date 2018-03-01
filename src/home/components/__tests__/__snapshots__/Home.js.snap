@@ -4,19 +4,33 @@ exports[`Home renders 1`] = `
 <div
   className="row"
 >
+  <Connect(Filterable)
+    filters={
+      Object {
+        "hot": Object {
+          "displayName": "Destacados",
+          "exact": true,
+          "id": "hot",
+          "pathname": "/",
+          "url": "/feed",
+        },
+        "recents": Object {
+          "displayName": "Recientes",
+          "exact": false,
+          "id": "recents",
+          "pathname": "/recents",
+          "url": "/feed?sort=recent",
+        },
+      }
+    }
+  />
   <div
     className="col-8"
   >
-    <FeedRoute
-      exact={true}
-      id="mi.hot"
-      path="/"
+    <Connect(Feed)
+      feedId="mi"
+      filter="hot"
       url="/feed"
-    />
-    <FeedRoute
-      id="mi.recents"
-      path="/recents"
-      url="/feed?sort=recent"
     />
   </div>
   <div
