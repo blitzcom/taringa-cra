@@ -2,7 +2,7 @@ import React from 'react'
 
 import CardDecorator from '../../common/CardDecorator'
 
-export const ChannelCard = ({ channel, control }) => {
+const ChannelCard = ({ channel, control }) => {
   return (
     <CardDecorator
       avatar={channel.thumbnail}

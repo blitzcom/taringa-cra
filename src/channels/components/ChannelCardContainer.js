@@ -1,27 +1,22 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import CardDecorator from '../../common/CardDecorator'
 import withResource from '../../HOC/Resource'
 import ChannelCard from './ChannelCard'
+import { fetchTrigger } from '../actions'
 
-const getId = props => props.match.params.channel
-
-const mapStateToProps = (state, props) => {
-  const id = getId(props)
+const mapStateToProps = (state, { channel }) => {
   return {
-    channel: state.entities.channels[id] || {},
-    control: state.control.channelsFetch[id] || { status: 'fetching' },
+    channel: state.entities.channels[channel] || {},
+    control: state.control.channelsFetch[channel] || { status: 'fetching' },
   }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch, { channel }) => {
   return {
-    fetchResource: () => dispatch(fetchTrigger(getId(props))),
+    fetchResource: () => dispatch(fetchTrigger(channel)),
   }
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(withResource()(ChannelCard))
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withResource()(ChannelCard)
 )
