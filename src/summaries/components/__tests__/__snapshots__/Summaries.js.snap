@@ -51,7 +51,7 @@ exports[`Summaries Failure renders error whan has items 1`] = `
         shares={1}
         size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
-        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
       />
     </ul>
@@ -103,7 +103,7 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
         shares={1}
         size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
-        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
       />
       <Summary
@@ -484,7 +484,7 @@ exports[`Summaries renders summaries 1`] = `
         shares={1}
         size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
-        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
       />
     </ul>

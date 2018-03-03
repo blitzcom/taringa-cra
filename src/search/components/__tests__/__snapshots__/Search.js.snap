@@ -155,7 +155,7 @@ exports[`Search Title when has users and stories and is fetching renders message
               "score": "2.9k",
               "shares": 1,
               "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
               "title": "Si no das like no tendras pelirojas en 100 años",
             },
           ]
@@ -257,7 +257,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
               "score": "2.9k",
               "shares": 1,
               "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
               "title": "Si no das like no tendras pelirojas en 100 años",
             },
           ]
@@ -359,7 +359,7 @@ exports[`Search Title when has users renders message 1`] = `
               "score": "2.9k",
               "shares": 1,
               "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg",
+              "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
               "title": "Si no das like no tendras pelirojas en 100 años",
             },
           ]
