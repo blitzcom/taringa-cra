@@ -36,16 +36,32 @@ export const fetchListRequest = () => ({
 })
 
 export const fetchListSuccess = ({ items, ...rest }) => {
-  const { entities, result } = normalize(items, [channelSchema])
-
-  return {
+  return _.assign({}, normalize(items, [channelSchema]), rest, {
     type: types.FETCH_LIST_SUCCESS,
-    entities: entities,
-    payload: _.assign({}, rest, { result: result }),
-  }
+  })
 }
 
 export const fetchListFailure = message => ({
   type: types.FETCH_LIST_SUCCESS,
+  message: message,
+})
+
+export const fetchListTailTrigger = url => ({
+  type: types.FETCH_LIST_TAIL_TRIGGER,
+  url: url,
+})
+
+export const fetchListTailRequest = () => ({
+  type: types.FETCH_LIST_TAIL_REQUEST,
+})
+
+export const fetchListTailSuccess = ({ items, ...rest }) => {
+  return _.assign({}, normalize(items, [channelSchema]), rest, {
+    type: types.FETCH_LIST_TAIL_SUCCESS,
+  })
+}
+
+export const fetchListTailFailure = message => ({
+  type: types.FETCH_LIST_TAIL_FAILURE,
   message: message,
 })

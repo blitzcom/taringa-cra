@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
@@ -24,5 +24,27 @@ export function* fetchList({ url }) {
     yield put(actions.fetchListSuccess(channels))
   } catch (e) {
     yield put(actions.fetchListFailure(e.message))
+  }
+}
+
+const getList = state => state.channels
+
+export function* fetchListTail({ url }) {
+  const list = yield select(getList)
+
+  if (list.status === 'fetching') {
+    return
+  }
+
+  const params = { after: list.after }
+
+  try {
+    yield put(actions.fetchListTailRequest())
+
+    const channels = yield call(Taringa.url, url, params)
+
+    yield put(actions.fetchListTailSuccess(channels))
+  } catch (e) {
+    yield put(actions.fetchListTailFailure(e.message))
   }
 }
