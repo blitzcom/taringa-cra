@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Channel Card renders 1`] = `
+<Card
+  avatar="foo"
+  cover="bar"
+  placeholder={false}
+>
+  <div
+    className="card-body"
+  >
+    <h5
+      className="card-title"
+    >
+      baz
+    </h5>
+    <p
+      className="card-text mt-3 mb-4"
+    >
+      lorem
+    </p>
+    <button
+      className="btn btn-primary btn-block font-weight-bold mb-3"
+    >
+      SEGUIR
+    </button>
+    <p
+      className="text-muted small mb-0"
+    >
+      Siguiendo este canal podrás ver sus publicaciones en tu página de inicio
+    </p>
+  </div>
+</Card>
+`;
+
+exports[`Channel Card renders placeholder 1`] = `
+<Card
+  placeholder={true}
+>
+  <div
+    className="card-body"
+  >
+    <h5
+      className="card-title"
+    />
+    <button
+      className="btn btn-primary btn-block font-weight-bold mb-3"
+    >
+      SEGUIR
+    </button>
+    <p
+      className="text-muted small mb-0"
+    >
+      Siguiendo este canal podrás ver sus publicaciones en tu página de inicio
+    </p>
+  </div>
+</Card>
+`;

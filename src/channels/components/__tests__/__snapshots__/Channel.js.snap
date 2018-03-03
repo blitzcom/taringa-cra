@@ -43,7 +43,9 @@ exports[`Channel renders 1`] = `
   <div
     className="col-4"
   >
-    <withRouter(Connect(ResourceHOC)) />
+    <Connect(ResourceHOC)
+      channel="foo"
+    />
   </div>
 </div>
 `;

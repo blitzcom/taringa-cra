@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 
-import { ChannelCard } from './ChannelCard'
+import ChannelCard from './ChannelCard'
 
 const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
   const isFetching = status === 'fetching'
