@@ -19,11 +19,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, { feedId, url }) => {
   return {
-    onLoad: () => dispatch(load(ownProps.feedId, ownProps.url)),
-    onLoadMore: () => dispatch(loadTail(ownProps.feedId, ownProps.url)),
-    onRetry: () => dispatch(load(ownProps.feedId, ownProps.url)),
+    onLoad: () => dispatch(load(feedId, url)),
+    onLoadMore: () => dispatch(loadTail(feedId, url)),
+    onRetry: () => dispatch(loadTail(feedId, url)),
   }
 }
 
