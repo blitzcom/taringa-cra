@@ -2,16 +2,16 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Card from '../../common/Card'
+import CardDecorator from '../../common/CardDecorator'
 import withResource from '../../HOC/Resource'
 import { fetchTrigger } from '../actions'
 
 export const ChannelCard = ({ channel, control }) => {
   return (
-    <Card
+    <CardDecorator
       avatar={channel.thumbnail}
       cover={channel.background}
-      status={control.status}
+      placeholder={control.status === 'fetching'}
     >
       <div className="card-body">
         <h5 className="card-title">{channel.title}</h5>
@@ -29,7 +29,7 @@ export const ChannelCard = ({ channel, control }) => {
           inicio
         </p>
       </div>
-    </Card>
+    </CardDecorator>
   )
 }
 

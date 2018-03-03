@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDecorator renders 1`] = `
+<div
+  className="Card card"
+>
+  <div
+    className="Card-animated-background"
+  >
+    <div
+      className="Card-ph-body"
+    />
+    <div
+      className="Card-ph-avatar rounded"
+    />
+  </div>
+</div>
+`;
+
+exports[`CardDecorator renders with custom params 1`] = `
+<div
+  className="Card card foo"
+>
+  <img
+    alt="Avatar"
+    className="Card-avatar rounded"
+    src="https://placehold.it/64"
+  />
+  <img
+    alt="Cover"
+    className="Card-cover card-img-top"
+    src="https://placehold.it/600x200"
+  />
+  bar
+</div>
+`;

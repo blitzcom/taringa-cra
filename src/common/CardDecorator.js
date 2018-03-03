@@ -1,10 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import './Card.css'
+import './CardDecorator.css'
 
-const Card = ({ avatar, children, className, cover, status, ...rest }) => {
-  if (status === 'fetching') {
+const Card = ({ avatar, children, className, cover, placeholder, ...rest }) => {
+  if (placeholder) {
     return (
       <div className="Card card">
         <div className="Card-animated-background">
@@ -31,7 +31,7 @@ const Card = ({ avatar, children, className, cover, status, ...rest }) => {
 }
 
 Card.defaultProps = {
-  status: 'fetching',
+  placeholder: true,
 }
 
 export default Card

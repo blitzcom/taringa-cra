@@ -2,15 +2,17 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Card from '../../common/Card'
+import CardDecorator from '../../common/CardDecorator'
 import { userSelector, controlSelector } from '../selectors'
 import withResource from '../../HOC/Resource'
 import { fetchTrigger } from '../actions'
 
-export const UserCard = props => {
-  const { user, control } = props
+export const UserCard = ({ control, user }) => {
   return (
-    <Card avatar={user.avatar} status={control.status}>
+    <CardDecorator
+      avatar={user.avatar}
+      placeholder={control.status === 'fetching'}
+    >
       <div className="card-body">
         <h5 className="card-title">
           {user.firstname} {user.lastname}
@@ -31,7 +33,7 @@ export const UserCard = props => {
           inicio
         </p>
       </div>
-    </Card>
+    </CardDecorator>
   )
 }
 
