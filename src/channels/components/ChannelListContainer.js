@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 
   return {
     items: items,
+    status: page.status,
   }
 }
 
