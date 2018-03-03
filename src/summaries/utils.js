@@ -10,9 +10,9 @@ const scaleThumbnail = image => {
   let nextSize = ''
 
   if (width < height) {
-    nextSize = `${minSize}x${minSize * 2}`
+    nextSize = `${minSize}x${height}`
   } else if (height < width) {
-    nextSize = `${minSize * 2}x${minSize}`
+    nextSize = `${width}x${minSize}`
   } else {
     nextSize = `${minSize}x${minSize}`
   }
