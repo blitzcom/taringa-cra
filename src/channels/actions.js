@@ -42,7 +42,7 @@ export const fetchListSuccess = ({ items, ...rest }) => {
 }
 
 export const fetchListFailure = message => ({
-  type: types.FETCH_LIST_SUCCESS,
+  type: types.FETCH_LIST_FAILURE,
   message: message,
 })
 
