@@ -1,6 +1,272 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Summaries changes placeholder count 1`] = `
+exports[`Summaries Failure renders error 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="my-4 text-center"
+  >
+    <div
+      className="my-3 text-danger"
+    >
+      ¡Ratas! Parece que no estás conectado a internet. Refresca la página o pulsa el siguiente botón.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      onClick={[Function]}
+    >
+      Volver a intentar
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Summaries Failure renders error whan has items 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        channel="user-Fraudier"
+        channelName={null}
+        comments={78}
+        created={1513920502005}
+        icon="fa fa-image"
+        id="zbmsb"
+        key="zbmsb"
+        owner="Fraudier"
+        preview={
+          Object {
+            "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+            "kind": "image",
+          }
+        }
+        score="2.9k"
+        shares={1}
+        size="settings/ITEM_MEDIUM"
+        slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
+        title="Si no das like no tendras pelirojas en 100 años"
+      />
+    </ul>
+  </div>
+  <div
+    className="my-4 text-center"
+  >
+    <div
+      className="my-3 text-danger"
+    >
+      ¡Ratas! Parece que no estás conectado a internet. Refresca la página o pulsa el siguiente botón.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      onClick={[Function]}
+    >
+      Volver a intentar
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders 1 placeholder when has items and is fetching 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        channel="user-Fraudier"
+        channelName={null}
+        comments={78}
+        created={1513920502005}
+        icon="fa fa-image"
+        id="zbmsb"
+        key="zbmsb"
+        owner="Fraudier"
+        preview={
+          Object {
+            "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+            "kind": "image",
+          }
+        }
+        score="2.9k"
+        shares={1}
+        size="settings/ITEM_MEDIUM"
+        slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
+        title="Si no das like no tendras pelirojas en 100 años"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="0"
+        size="settings/ITEM_MEDIUM"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders 3 placeholders when size is big 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        isPlaceholder={true}
+        key="0"
+        size="settings/ITEM_BIG"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="1"
+        size="settings/ITEM_BIG"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="2"
+        size="settings/ITEM_BIG"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders 9 placeholders when size is medium 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        isPlaceholder={true}
+        key="0"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="1"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="2"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="3"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="4"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="5"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="6"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="7"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="8"
+        size="settings/ITEM_MEDIUM"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders 9 placeholders when size is no given nor placeholder count 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        isPlaceholder={true}
+        key="0"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="1"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="2"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="3"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="4"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="5"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="6"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="7"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="8"
+        size="settings/ITEM_MEDIUM"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders 19 placeholders when size is small 1`] = `
 <div
   className="Summaries"
 >
@@ -60,6 +326,116 @@ exports[`Summaries changes placeholder count 1`] = `
         key="9"
         size="settings/ITEM_SMALL"
       />
+      <Summary
+        isPlaceholder={true}
+        key="10"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="11"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="12"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="13"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="14"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="15"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="16"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="17"
+        size="settings/ITEM_SMALL"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="18"
+        size="settings/ITEM_SMALL"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Summaries Placeholder renders given placeholders 1`] = `
+<div
+  className="Summaries"
+>
+  <div
+    className="card"
+  >
+    <ul
+      className="list-group list-group-flush"
+    >
+      <Summary
+        isPlaceholder={true}
+        key="0"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="1"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="2"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="3"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="4"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="5"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="6"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="7"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="8"
+        size="settings/ITEM_MEDIUM"
+      />
+      <Summary
+        isPlaceholder={true}
+        key="9"
+        size="settings/ITEM_MEDIUM"
+      />
     </ul>
   </div>
 </div>
@@ -75,28 +451,6 @@ exports[`Summaries renders default 1`] = `
     <ul
       className="list-group list-group-flush"
     />
-  </div>
-</div>
-`;
-
-exports[`Summaries renders error 1`] = `
-<div
-  className="Summaries"
->
-  <div
-    className="my-4 text-center"
-  >
-    <div
-      className="my-3 text-danger"
-    >
-      ¡Ratas! Parece que no estás conectado a internet. Refresca la página o pulsa el siguiente botón.
-    </div>
-    <button
-      className="btn btn-outline-primary btn-sm"
-      onClick={[Function]}
-    >
-      Volver a intentar
-    </button>
   </div>
 </div>
 `;
@@ -128,7 +482,7 @@ exports[`Summaries renders summaries 1`] = `
         }
         score="2.9k"
         shares={1}
-        size="settings/ITEM_SMALL"
+        size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x156_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"

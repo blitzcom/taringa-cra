@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 
-import { ITEM_SMALL } from '../../settings/constants'
+import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../../settings/constants'
 import Summary from './Summary'
 
 const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
@@ -9,8 +9,22 @@ const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
   const hasFailure = status === 'failure'
   const itemsLength = items.length
 
+  const placeholdersByItemSize = () => {
+    switch (size) {
+      case ITEM_SMALL:
+        return 19
+      case ITEM_BIG:
+        return 3
+      case ITEM_MEDIUM:
+      default:
+        return 9
+    }
+  }
+
   const makePlaceholders = () => {
-    const effectiveCount = itemsLength > 0 ? 1 : placeholderCount
+    const effectiveCount =
+      itemsLength > 0 ? 1 : placeholderCount || placeholdersByItemSize()
+
     return _.times(effectiveCount, index => (
       <Summary key={index} isPlaceholder size={size} />
     ))
@@ -47,8 +61,7 @@ const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
 Summaries.defaultProps = {
   items: [],
   onRetry: () => {},
-  placeholderCount: 8,
-  size: ITEM_SMALL,
+  size: ITEM_MEDIUM,
   status: 'success',
 }
 
