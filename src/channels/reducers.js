@@ -35,16 +35,46 @@ export const channelsFetchControl = (state = {}, action) => {
   }
 }
 
+const channelListFetchInitialState = {
+  after: null,
+  before: null,
+  count: 0,
+  error: '',
+  ids: [],
+  status: 'success',
+  totalCount: 0,
+}
+
 export const channelListFetch = (
-  state = { error: '', result: [], status: 'success' },
+  state = channelListFetchInitialState,
   action
 ) => {
   switch (action.type) {
     case types.FETCH_LIST_REQUEST:
-      return _.assign({}, state, { status: 'fetching', error: '' })
+      return _.assign({}, state, { error: '', ids: [], status: 'fetching' })
     case types.FETCH_LIST_SUCCESS:
-      return _.assign({}, state, { status: 'success' }, action.payload)
+      return _.assign({}, state, {
+        after: action.after,
+        before: action.before,
+        count: action.count,
+        ids: action.result,
+        status: 'success',
+        totalCount: action.totalCount,
+      })
     case types.FETCH_LIST_FAILURE:
+      return _.assign({}, state, { status: 'failure', error: action.message })
+    case types.FETCH_LIST_TAIL_REQUEST:
+      return _.assign({}, state, { status: 'fetching', error: '' })
+    case types.FETCH_LIST_TAIL_SUCCESS:
+      return _.assign({}, state, {
+        after: action.after,
+        before: action.before,
+        count: action.count,
+        ids: _.union(state.ids, action.result),
+        status: 'success',
+        totalCount: action.totalCount,
+      })
+    case types.FETCH_LIST_TAIL_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
     default:
       return state

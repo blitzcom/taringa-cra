@@ -7,9 +7,13 @@ describe('Store', () => {
 
     expect(store.getState()).toEqual({
       channels: {
+        after: null,
+        before: null,
+        count: 0,
         error: '',
-        result: [],
+        ids: [],
         status: 'success',
+        totalCount: 0,
       },
       control: {
         commentsFetch: {},

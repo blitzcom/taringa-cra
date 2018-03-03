@@ -9,7 +9,7 @@ const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
   const itemsLength = items.length
 
   const makePlaceholders = () => {
-    const effectiveCount = itemsLength > 0 ? 1 : placeholderCount
+    const effectiveCount = itemsLength > 0 ? 2 : placeholderCount
     return _.times(effectiveCount, index => (
       <div key={index} className="col-6 mb-4">
         <ChannelCard />
