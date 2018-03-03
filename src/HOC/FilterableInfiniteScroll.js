@@ -19,12 +19,19 @@ const infiniteScroll = (
       this.props.onLoad()
     }
 
+    componentWillUnmount() {
+      this.handleScrollThrottle.cancel()
+      this.removeEvents()
+    }
+
     componentDidUpdate(prevProps) {
       if (this.props.filter !== prevProps.filter) {
         this.props.onLoad()
       }
 
-      this.addEvents()
+      if (this.props.status === 'success') {
+        this.addEvents()
+      }
     }
 
     handleScroll() {
