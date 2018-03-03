@@ -2,7 +2,7 @@ import React from 'react'
 
 import Ad from '../../ads/components/Ad'
 import Filterable from '../../filters/components/Filterable'
-import FilterableChannelList from './FilterableChannelList'
+import ChannelListContainer from './ChannelListContainer'
 
 const Channels = ({ match }) => {
   const filters = {
@@ -37,7 +37,7 @@ const Channels = ({ match }) => {
       <Filterable filters={filters} />
 
       <div className="col-8">
-        <FilterableChannelList url={url} filter={filter} />
+        <ChannelListContainer url={url} filter={filter} />
       </div>
 
       <div className="col-4">
