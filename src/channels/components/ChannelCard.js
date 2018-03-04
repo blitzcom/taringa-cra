@@ -2,12 +2,14 @@ import React from 'react'
 
 import CardDecorator from '../../common/CardDecorator'
 
-const ChannelCard = ({ channel, control }) => {
+const ChannelCard = ({ channel, control, link }) => {
   return (
     <CardDecorator
       avatar={channel.thumbnail}
       cover={channel.background}
+      link={link}
       placeholder={control.status === 'fetching'}
+      to={`/c/${channel.name}`}
     >
       <div className="card-body">
         <h5 className="card-title">{channel.title}</h5>
@@ -32,6 +34,7 @@ const ChannelCard = ({ channel, control }) => {
 ChannelCard.defaultProps = {
   channel: {},
   control: { status: 'fetching' },
+  link: true,
 }
 
 export default ChannelCard

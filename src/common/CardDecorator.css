@@ -2,6 +2,12 @@
   position: relative;
 }
 
+.card.link:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .Card .card-body {
   padding-top: 2.2rem !important;
 }

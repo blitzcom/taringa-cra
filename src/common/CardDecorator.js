@@ -3,7 +3,18 @@ import classNames from 'classnames'
 
 import './CardDecorator.css'
 
-const Card = ({ avatar, children, className, cover, placeholder, ...rest }) => {
+import history from '../history'
+
+const CardDecorator = ({
+  avatar,
+  children,
+  className,
+  cover,
+  link,
+  placeholder,
+  to,
+  ...rest
+}) => {
   if (placeholder) {
     return (
       <div className="Card card">
@@ -15,8 +26,18 @@ const Card = ({ avatar, children, className, cover, placeholder, ...rest }) => {
     )
   }
 
+  const handleOnClick = () => {
+    if (link && to) {
+      history.push(to)
+    }
+  }
+
+  const classes = classNames('Card card', className, {
+    link: link && true,
+  })
+
   return (
-    <div {...rest} className={classNames('Card card', className)}>
+    <div {...rest} onClick={handleOnClick} className={classes}>
       {avatar && (
         <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
       )}
@@ -30,8 +51,8 @@ const Card = ({ avatar, children, className, cover, placeholder, ...rest }) => {
   )
 }
 
-Card.defaultProps = {
+CardDecorator.defaultProps = {
   placeholder: true,
 }
 
-export default Card
+export default CardDecorator

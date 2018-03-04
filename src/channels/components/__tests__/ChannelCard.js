@@ -15,6 +15,7 @@ describe('Channel Card', () => {
     const channel = {
       background: 'bar',
       description: 'lorem',
+      name: 'foo',
       thumbnail: 'foo',
       title: 'baz',
     }

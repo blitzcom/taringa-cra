@@ -17,9 +17,29 @@ exports[`CardDecorator renders 1`] = `
 </div>
 `;
 
+exports[`CardDecorator renders as a link 1`] = `
+<div
+  className="Card card link"
+  onClick={[Function]}
+>
+  <img
+    alt="Avatar"
+    className="Card-avatar rounded"
+    src="https://placehold.it/64"
+  />
+  <img
+    alt="Cover"
+    className="Card-cover card-img-top"
+    src="https://placehold.it/600x200"
+  />
+  bar
+</div>
+`;
+
 exports[`CardDecorator renders with custom params 1`] = `
 <div
   className="Card card foo"
+  onClick={[Function]}
 >
   <img
     alt="Avatar"

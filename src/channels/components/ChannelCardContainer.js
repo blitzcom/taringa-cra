@@ -8,6 +8,7 @@ const mapStateToProps = (state, { channel }) => {
   return {
     channel: state.entities.channels[channel] || {},
     control: state.control.channelsFetch[channel] || { status: 'fetching' },
+    link: false,
   }
 }
 
