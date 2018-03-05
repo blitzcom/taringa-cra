@@ -6,7 +6,7 @@ import { ITEM_SMALL } from '../../settings/constants'
 
 import SearchGroup from './SearchGroup'
 import User from './User'
-import Channel from './Channel'
+import ChannelCard from '../../channels/components/ChannelCard'
 import { channelsSelector, storiesSelector, usersSelector } from '../selectors'
 import { searchClear } from '../actions'
 
@@ -104,7 +104,11 @@ export class Search extends Component {
           <SearchGroup matches={channels.totalCount} title="Canales">
             <div className="row">
               {channels.items &&
-                channels.items.map(i => <Channel key={i.id} {...i} />)}
+                channels.items.map(i => (
+                  <div className="col-6 mb-4" key={i.id}>
+                    <ChannelCard channel={i} control={{ status: 'success' }} />
+                  </div>
+                ))}
             </div>
           </SearchGroup>
         </div>
