@@ -12,13 +12,11 @@ const ChannelCard = ({ channel, control, link }) => {
       to={`/c/${channel.name}`}
     >
       <div className="card-body">
-        <h5 className="card-title">{channel.title}</h5>
+        <h5 className="card-title text-truncate" title={channel.title}>
+          {channel.title}
+        </h5>
 
-        {channel.description !== channel.title && (
-          <p className="card-text mt-3 mb-4">{channel.description}</p>
-        )}
-
-        <button className="btn btn-primary btn-block font-weight-bold mb-3">
+        <button className="btn btn-primary btn-block btn-sm font-weight-bold mt-4 mb-2">
           SEGUIR
         </button>
 
