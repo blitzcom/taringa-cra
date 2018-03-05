@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './SecondaryNav.css'
-import ScoringFilters from '../filters/components/ScoringFilters'
+import FiltersContainer from '../filters/components/FiltersContainer'
 import SizeList from '../settings/components/SizeList'
 
 export const SecondaryNav = () => {
@@ -14,7 +14,7 @@ export const SecondaryNav = () => {
               <div className="collapse navbar-collapse">
                 <SizeList />
                 <span className="navbar-text divider" />
-                <ScoringFilters />
+                <FiltersContainer />
               </div>
             </nav>
           </div>

@@ -4,29 +4,7 @@ import Ad from '../../ads/components/Ad'
 import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
 
-const filters = {
-  hot: {
-    displayName: 'Destacados',
-    exact: true,
-    id: 'hot',
-    pathname: '/global',
-    url: '/feed/global',
-  },
-  recents: {
-    displayName: 'Recientes',
-    exact: false,
-    id: 'recents',
-    pathname: '/global/recents',
-    url: '/feed/global?sort=recent',
-  },
-  tops: {
-    displayName: 'Tops',
-    exact: false,
-    id: 'tops',
-    pathname: '/global/tops',
-    url: '/feed/global/tops/week',
-  },
-}
+import { filters } from '../constants'
 
 const Global = ({ match }) => {
   const filter = match.params.filter || 'hot'
