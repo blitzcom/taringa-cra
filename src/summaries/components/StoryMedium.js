@@ -53,7 +53,7 @@ const StoryMedium = ({
         style={{ padding: '1px 0' }}
       >
         <button className="btn btn-score">
-          <i className="fa fa-chevron-up" />
+          <i className="fa fa-arrow-up" />
         </button>
 
         <div
@@ -66,7 +66,7 @@ const StoryMedium = ({
         </div>
 
         <button className="btn btn-score">
-          <i className="fa fa-chevron-down" />
+          <i className="fa fa-arrow-down" />
         </button>
       </div>
 
@@ -104,7 +104,7 @@ const StoryMedium = ({
 
           <StoryButton
             count={comments}
-            icon="fa fa-comments"
+            icon="far fa-comment"
             isLink
             to={`/story/${slug}`}
           />

@@ -24,18 +24,18 @@ const StoryContent = props => {
         {props.content}
       </div>
       <div className="card-footer bg-transparent">
-        <button className="btn btn-story mr-5">
-          <i className="fa fa-chevron-up" />
+        <button className="btn btn-story mr-4">
+          <i className="fa fa-arrow-up" />
           {humanizeNum(props.upvotes)}
         </button>
 
-        <button className="btn btn-story mr-5">
-          <i className="fa fa-chevron-down" />
+        <button className="btn btn-story mr-4">
+          <i className="fa fa-arrow-down" />
           {humanizeNum(props.downvotes)}
         </button>
 
         <button className="btn btn-story">
-          <i className="fa fa-comment" />
+          <i className="far fa-comment" />
           {humanizeNum(props.comments)}
         </button>
       </div>

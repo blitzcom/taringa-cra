@@ -38,7 +38,7 @@ const StoryBig = ({
     <div className="d-flex">
       <div className="text-center" style={{ lineHeight: 1.1 }}>
         <button className="btn btn-score btn-score-big">
-          <i className="fa fa-chevron-up" />
+          <i className="fa fa-arrow-up" />
         </button>
 
         <div
@@ -51,7 +51,7 @@ const StoryBig = ({
         </div>
 
         <button className="btn btn-score btn-score-big">
-          <i className="fa fa-chevron-down" />
+          <i className="fa fa-arrow-down" />
         </button>
       </div>
 
@@ -91,7 +91,7 @@ const StoryBig = ({
         <p className="m-0">
           <StoryButton
             count={comments}
-            icon="fa fa-comments"
+            icon="far fa-comment"
             isLink
             to={`/story/${slug}`}
           />

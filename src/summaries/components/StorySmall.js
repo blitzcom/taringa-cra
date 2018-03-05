@@ -56,7 +56,7 @@ const StorySmall = ({
       />
 
       <button className="btn btn-score">
-        <i className="fa fa-chevron-up" />
+        <i className="fa fa-arrow-up" />
       </button>
 
       <div
@@ -67,7 +67,7 @@ const StorySmall = ({
       </div>
 
       <button className="btn btn-score mr-4">
-        <i className="fa fa-chevron-down" />
+        <i className="fa fa-arrow-down" />
       </button>
 
       {title && (
@@ -95,7 +95,7 @@ const StorySmall = ({
       <StoryButton
         className="btn-story-compact"
         count={comments}
-        icon="fa fa-comments"
+        icon="far fa-comment"
         isLink
         to={`/story/${slug}`}
         wrapperStyle={{ minWidth: 50 }}
