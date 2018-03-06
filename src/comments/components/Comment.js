@@ -3,7 +3,7 @@ import TimeAgo from 'react-timeago'
 import { Link } from 'react-router-dom'
 
 import './Comment.css'
-import { esFormatter } from '../../Utils'
+import { esFormatter, humanizeNum } from '../../Utils'
 
 class Comment extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Comment extends Component {
 
   render() {
     const { showReplies } = this.state
-    const { owner, replies, body, created } = this.props
+    const { body, created, downvotes, owner, replies, upvotes } = this.props
 
     return (
       <div className="Comment mb-4 d-flex">
@@ -80,9 +80,23 @@ class Comment extends Component {
           </h6>
 
           <div
-            className="Comment-body"
+            className="Comment-body mb-3"
             dangerouslySetInnerHTML={{ __html: body }}
           />
+
+          <p className="mb-1">
+            <button className="btn btn-sm btn-light mr-3">RESPONDER</button>
+
+            <button className="btn btn-sm btn-light mr-3">
+              <i className="far fa-thumbs-up" />{' '}
+              {upvotes > 0 && humanizeNum(upvotes)}
+            </button>
+
+            <button className="btn btn-sm btn-light mr-3">
+              <i className="far fa-thumbs-down" />{' '}
+              {downvotes > 0 && humanizeNum(downvotes)}
+            </button>
+          </p>
 
           {this.renderRepliesToggler()}
 
