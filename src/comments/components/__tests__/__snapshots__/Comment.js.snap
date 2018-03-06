@@ -139,8 +139,7 @@ exports[`Comment renders with replies 1`] = `
       onClick={[Function]}
     >
       <span>
-        Ver 2 respuestas
-         
+        Ver 2 respuestas 
         <i
           className="fa fa-chevron-down"
         />
@@ -220,8 +219,7 @@ exports[`Comment renders with reply 1`] = `
       onClick={[Function]}
     >
       <span>
-        Ver respuesta
-         
+        Ver respuesta 
         <i
           className="fa fa-chevron-down"
         />
