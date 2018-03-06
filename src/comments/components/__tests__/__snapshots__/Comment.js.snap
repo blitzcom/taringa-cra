@@ -38,13 +38,38 @@ exports[`Comment renders default 1`] = `
       />
     </h6>
     <div
-      className="Comment-body"
+      className="Comment-body mb-3"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
         }
       }
     />
+    <p
+      className="mb-1"
+    >
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        RESPONDER
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-up"
+        />
+         
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-down"
+        />
+         
+      </button>
+    </p>
   </div>
 </div>
 `;
@@ -87,13 +112,38 @@ exports[`Comment renders with replies 1`] = `
       />
     </h6>
     <div
-      className="Comment-body"
+      className="Comment-body mb-3"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
         }
       }
     />
+    <p
+      className="mb-1"
+    >
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        RESPONDER
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-up"
+        />
+         
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-down"
+        />
+         
+      </button>
+    </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"
       onClick={[Function]}
@@ -148,13 +198,38 @@ exports[`Comment renders with reply 1`] = `
       />
     </h6>
     <div
-      className="Comment-body"
+      className="Comment-body mb-3"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
         }
       }
     />
+    <p
+      className="mb-1"
+    >
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        RESPONDER
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-up"
+        />
+         
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-down"
+        />
+         
+      </button>
+    </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"
       onClick={[Function]}
@@ -209,13 +284,38 @@ exports[`Comment renders with visible replies 1`] = `
       />
     </h6>
     <div
-      className="Comment-body"
+      className="Comment-body mb-3"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
         }
       }
     />
+    <p
+      className="mb-1"
+    >
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        RESPONDER
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-up"
+        />
+         
+      </button>
+      <button
+        className="btn btn-sm btn-light mr-3"
+      >
+        <i
+          className="far fa-thumbs-down"
+        />
+         
+      </button>
+    </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"
       onClick={[Function]}
