@@ -22,4 +22,14 @@ describe('pluralize', () => {
       '2 nuevos comentarios'
     )
   })
+
+  describe('Only word', () => {
+    it('returns singular', () => {
+      expect(pluralize(1, 'comentario', null, true)).toBe('comentario')
+    })
+
+    it('returns plural', () => {
+      expect(pluralize(2, 'comentario', null, true)).toBe('comentarios')
+    })
+  })
 })
