@@ -88,7 +88,9 @@ class Comment extends Component {
           <p className="mb-1">
             <Action className="mr-4">RESPONDER</Action>
 
-            <Action className="mr-4" icon="far fa-thumbs-up">{humanizeNum(upvotes)}</Action>
+            <Action className="mr-4" icon="far fa-thumbs-up">
+              {humanizeNum(upvotes)}
+            </Action>
 
             <Action icon="far fa-thumbs-down">{humanizeNum(downvotes)}</Action>
           </p>

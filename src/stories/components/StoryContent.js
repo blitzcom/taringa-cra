@@ -40,9 +40,7 @@ const StoryContent = ({
           {humanizeNum(downvotes)}
         </Action>
 
-        <Action icon="far fa-comment">
-          {humanizeNum(comments)}
-        </Action>
+        <Action icon="far fa-comment">{humanizeNum(comments)}</Action>
       </div>
     </div>
   )
