@@ -3,6 +3,7 @@ import TimeAgo from 'react-timeago'
 import { Link } from 'react-router-dom'
 
 import './Comment.css'
+import Action from '../../common/Action.js'
 import { esFormatter, humanizeNum } from '../../Utils'
 
 class Comment extends Component {
@@ -85,17 +86,13 @@ class Comment extends Component {
           />
 
           <p className="mb-1">
-            <button className="btn btn-sm btn-light mr-3">RESPONDER</button>
+            <Action className="mr-4">RESPONDER</Action>
 
-            <button className="btn btn-sm btn-light mr-3">
-              <i className="far fa-thumbs-up" />{' '}
-              {upvotes > 0 && humanizeNum(upvotes)}
-            </button>
+            <Action className="mr-4" icon="far fa-thumbs-up">
+              {humanizeNum(upvotes)}
+            </Action>
 
-            <button className="btn btn-sm btn-light mr-3">
-              <i className="far fa-thumbs-down" />{' '}
-              {downvotes > 0 && humanizeNum(downvotes)}
-            </button>
+            <Action icon="far fa-thumbs-down">{humanizeNum(downvotes)}</Action>
           </p>
 
           {this.renderRepliesToggler()}

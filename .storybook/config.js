@@ -5,7 +5,6 @@ import { configure, addDecorator } from '@storybook/react'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../src/index.css'
 import '../src/fontawesome-all.css'
-import '../src/css/action.css'
 import '../src/css/placeholder.css'
 import '../src/css/taringa.css'
 

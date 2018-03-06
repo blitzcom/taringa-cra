@@ -1,29 +1,71 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import renderer from 'react-test-renderer'
 
 import Action from '../Action'
 
 describe('Action', () => {
-  it('renders default', () => {
-    const tree = renderer.create(<Action>click me</Action>).toJSON()
-
-    expect(tree).toMatchSnapshot()
+  it('exists', () => {
+    expect(Action).toBeDefined()
   })
 
-  it('renders with icon', () => {
-    const tree = renderer
-      .create(<Action icon="comments">click me</Action>)
-      .toJSON()
+  it('renders', () => {
+    const wrapper = shallow(<Action />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders content', () => {
+    const wrapper = shallow(<Action>Foobar</Action>)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders content with icon', () => {
+    const wrapper = shallow(<Action icon="fa fa-close">Foobar</Action>)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders with additional class', () => {
+    const wrapper = shallow(
+      <Action className="foo" icon="fa fa-close">
+        Foobar
+      </Action>
+    )
+
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('handles onClick', () => {
     const mock = jest.fn()
 
-    const action = shallow(<Action onClick={mock} />)
-    action.find('button').simulate('click')
-    expect(mock).toBeCalled()
+    const wrapper = shallow(
+      <Action onClick={mock} className="foo" icon="fa fa-close">
+        Foobar
+      </Action>
+    )
+
+    wrapper.find('button').simulate('click')
+
+    expect(mock).toHaveBeenCalled()
+  })
+
+  it('passes additional props', () => {
+    const wrapper = shallow(
+      <Action id="foo-action" className="foo" icon="fa fa-close">
+        Foobar
+      </Action>
+    )
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('does not render if children is zero', () => {
+    const wrapper = shallow(
+      <Action id="foo-action" className="foo" icon="fa fa-close">
+        0
+      </Action>
+    )
+
+    expect(wrapper).toMatchSnapshot()
   })
 })

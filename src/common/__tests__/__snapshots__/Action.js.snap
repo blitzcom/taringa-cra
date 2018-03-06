@@ -1,20 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Action renders default 1`] = `
+exports[`Action does not render if children is zero 1`] = `
 <button
-  className="btn btn-action"
+  className="btn btn-light btn-sm foo"
+  id="foo-action"
 >
-  click me
+  <i
+    className="fa fa-close"
+  />
 </button>
 `;
 
-exports[`Action renders with icon 1`] = `
+exports[`Action passes additional props 1`] = `
 <button
-  className="btn btn-action"
+  className="btn btn-light btn-sm foo"
+  id="foo-action"
 >
   <i
-    className="fa fa-comments"
+    className="fa fa-close"
   />
-  click me
+  <span
+    className="ml-3"
+  >
+    Foobar
+  </span>
+</button>
+`;
+
+exports[`Action renders 1`] = `
+<button
+  className="btn btn-light btn-sm"
+/>
+`;
+
+exports[`Action renders content 1`] = `
+<button
+  className="btn btn-light btn-sm"
+>
+  <span
+    className=""
+  >
+    Foobar
+  </span>
+</button>
+`;
+
+exports[`Action renders content with icon 1`] = `
+<button
+  className="btn btn-light btn-sm"
+>
+  <i
+    className="fa fa-close"
+  />
+  <span
+    className="ml-3"
+  >
+    Foobar
+  </span>
+</button>
+`;
+
+exports[`Action renders with additional class 1`] = `
+<button
+  className="btn btn-light btn-sm foo"
+>
+  <i
+    className="fa fa-close"
+  />
+  <span
+    className="ml-3"
+  >
+    Foobar
+  </span>
 </button>
 `;

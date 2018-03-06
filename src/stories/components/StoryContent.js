@@ -2,9 +2,17 @@ import React from 'react'
 import { humanizeNum } from '../../Utils'
 
 import './StoryContent.css'
+import Action from '../../common/Action'
 
-const StoryContent = props => {
-  if (props.status === 'fetching') {
+const StoryContent = ({
+  comments,
+  content,
+  downvotes,
+  status,
+  title,
+  upvotes,
+}) => {
+  if (status === 'fetching') {
     return (
       <div className="StoryContent-ph card">
         <div className="StoryContent-animated-background">
@@ -20,24 +28,19 @@ const StoryContent = props => {
   return (
     <div className="card Story-body">
       <div className="card-body">
-        {props.title && <h4 className="card-title ">{props.title}</h4>}
-        {props.content}
+        {title && <h4 className="card-title ">{title}</h4>}
+        {content}
       </div>
       <div className="card-footer bg-transparent">
-        <button className="btn btn-story mr-4">
-          <i className="fa fa-arrow-up" />
-          {humanizeNum(props.upvotes)}
-        </button>
+        <Action className="mr-4" icon="fa fa-arrow-up">
+          {humanizeNum(upvotes)}
+        </Action>
 
-        <button className="btn btn-story mr-4">
-          <i className="fa fa-arrow-down" />
-          {humanizeNum(props.downvotes)}
-        </button>
+        <Action className="mr-4" icon="fa fa-arrow-down">
+          {humanizeNum(downvotes)}
+        </Action>
 
-        <button className="btn btn-story">
-          <i className="far fa-comment" />
-          {humanizeNum(props.comments)}
-        </button>
+        <Action icon="far fa-comment">{humanizeNum(comments)}</Action>
       </div>
     </div>
   )
