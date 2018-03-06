@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import './Comment.css'
 import Action from '../../common/Action.js'
 import { esFormatter, humanizeNum } from '../../Utils'
+import { pluralize } from '../../utils/StringHelpers'
 
 class Comment extends Component {
   constructor(props) {
@@ -30,8 +31,6 @@ class Comment extends Component {
 
     if (replies && replies.items && replies.items.length > 0) {
       const repliesCount = replies.items.length
-      const showRepliesLabel =
-        repliesCount > 1 ? `Ver ${repliesCount} respuestas` : 'Ver respuesta'
 
       return (
         <button
@@ -40,11 +39,18 @@ class Comment extends Component {
         >
           {showReplies ? (
             <span>
-              Ocultar respuestas <i className="fa fa-chevron-up" />
+              {`Ocultar ${pluralize(repliesCount, 'respuesta', null, true)} `}
+              <i className="fa fa-chevron-up" />
             </span>
           ) : (
             <span>
-              {showRepliesLabel} <i className="fa fa-chevron-down" />
+              {`Ver ${pluralize(
+                repliesCount,
+                'respuesta',
+                null,
+                repliesCount === 1
+              )} `}
+              <i className="fa fa-chevron-down" />
             </span>
           )}
         </button>
