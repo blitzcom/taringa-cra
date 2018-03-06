@@ -48,27 +48,22 @@ exports[`Comment renders default 1`] = `
     <p
       className="mb-1"
     >
-      <button
-        className="btn btn-sm btn-light mr-3"
+      <Action
+        className="mr-4"
       >
         RESPONDER
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+      </Action>
+      <Action
+        className="mr-4"
+        icon="far fa-thumbs-up"
       >
-        <i
-          className="far fa-thumbs-up"
-        />
-         
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+        0
+      </Action>
+      <Action
+        icon="far fa-thumbs-down"
       >
-        <i
-          className="far fa-thumbs-down"
-        />
-         
-      </button>
+        0
+      </Action>
     </p>
   </div>
 </div>
@@ -122,27 +117,22 @@ exports[`Comment renders with replies 1`] = `
     <p
       className="mb-1"
     >
-      <button
-        className="btn btn-sm btn-light mr-3"
+      <Action
+        className="mr-4"
       >
         RESPONDER
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+      </Action>
+      <Action
+        className="mr-4"
+        icon="far fa-thumbs-up"
       >
-        <i
-          className="far fa-thumbs-up"
-        />
-         
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+        0
+      </Action>
+      <Action
+        icon="far fa-thumbs-down"
       >
-        <i
-          className="far fa-thumbs-down"
-        />
-         
-      </button>
+        0
+      </Action>
     </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"
@@ -208,27 +198,22 @@ exports[`Comment renders with reply 1`] = `
     <p
       className="mb-1"
     >
-      <button
-        className="btn btn-sm btn-light mr-3"
+      <Action
+        className="mr-4"
       >
         RESPONDER
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+      </Action>
+      <Action
+        className="mr-4"
+        icon="far fa-thumbs-up"
       >
-        <i
-          className="far fa-thumbs-up"
-        />
-         
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+        0
+      </Action>
+      <Action
+        icon="far fa-thumbs-down"
       >
-        <i
-          className="far fa-thumbs-down"
-        />
-         
-      </button>
+        0
+      </Action>
     </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"
@@ -294,27 +279,22 @@ exports[`Comment renders with visible replies 1`] = `
     <p
       className="mb-1"
     >
-      <button
-        className="btn btn-sm btn-light mr-3"
+      <Action
+        className="mr-4"
       >
         RESPONDER
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+      </Action>
+      <Action
+        className="mr-4"
+        icon="far fa-thumbs-up"
       >
-        <i
-          className="far fa-thumbs-up"
-        />
-         
-      </button>
-      <button
-        className="btn btn-sm btn-light mr-3"
+        0
+      </Action>
+      <Action
+        icon="far fa-thumbs-down"
       >
-        <i
-          className="far fa-thumbs-down"
-        />
-         
-      </button>
+        0
+      </Action>
     </p>
     <button
       className="btn btn-link text-dark Comment-replies-toggler"

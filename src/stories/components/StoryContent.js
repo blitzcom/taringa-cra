@@ -2,6 +2,7 @@ import React from 'react'
 import { humanizeNum } from '../../Utils'
 
 import './StoryContent.css'
+import Action from '../../common/Action'
 
 const StoryContent = ({
   comments,
@@ -31,19 +32,17 @@ const StoryContent = ({
         {content}
       </div>
       <div className="card-footer bg-transparent">
-        <button className="btn btn-light btn-sm mr-4">
-          <i className="fa fa-arrow-up" /> {upvotes > 0 && humanizeNum(upvotes)}
-        </button>
+        <Action className="mr-4" icon="fa fa-arrow-up">
+          {humanizeNum(upvotes)}
+        </Action>
 
-        <button className="btn btn-light btn-sm mr-4">
-          <i className="fa fa-arrow-down" />{' '}
-          {downvotes > 0 && humanizeNum(downvotes)}
-        </button>
+        <Action className="mr-4" icon="fa fa-arrow-down">
+          {humanizeNum(downvotes)}
+        </Action>
 
-        <button className="btn btn-light btn-sm">
-          <i className="far fa-comment" />{' '}
-          {comments > 0 && humanizeNum(comments)}
-        </button>
+        <Action icon="far fa-comment">
+          {humanizeNum(comments)}
+        </Action>
       </div>
     </div>
   )
