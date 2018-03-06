@@ -20,7 +20,7 @@ exports[`Action passes additional props 1`] = `
     className="fa fa-close"
   />
   <span
-    className="ml-3"
+    className="ml-2"
   >
     Foobar
   </span>
@@ -53,7 +53,7 @@ exports[`Action renders content with icon 1`] = `
     className="fa fa-close"
   />
   <span
-    className="ml-3"
+    className="ml-2"
   >
     Foobar
   </span>
@@ -68,7 +68,7 @@ exports[`Action renders with additional class 1`] = `
     className="fa fa-close"
   />
   <span
-    className="ml-3"
+    className="ml-2"
   >
     Foobar
   </span>
