@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 
-import { Comments } from '../Comments'
+import Comments from '../Comments'
 import { comment, comments } from '../comment.data'
 
 describe('Comments', () => {
@@ -71,32 +71,15 @@ describe('Comments', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('handles load more', () => {
-    const mock = jest.fn()
-
-    const wrapper = shallow(
-      <Comments
-        totalCount={3}
-        loadMore={mock}
-        status="success"
-        comments={comments}
-      />
-    )
-
-    wrapper.find('button').simulate('click')
-
-    expect(mock).toBeCalled()
-  })
-
   it('handles load more when has failure', () => {
     const mock = jest.fn()
 
     const wrapper = shallow(
       <Comments
-        totalCount={3}
-        loadMore={mock}
-        status="failure"
         comments={comments}
+        onRetry={mock}
+        status="failure"
+        totalCount={3}
       />
     )
 

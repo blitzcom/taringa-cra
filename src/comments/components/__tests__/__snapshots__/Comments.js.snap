@@ -274,16 +274,6 @@ exports[`Comments renders listing two and load more 1`] = `
         upvotes={0}
       />
     </div>
-    <div
-      className="card-body text-center"
-    >
-      <button
-        className="btn btn-sm btn-outline-secondary"
-        onClick={[Function]}
-      >
-        Ver más comentarios
-      </button>
-    </div>
   </div>
 </div>
 `;
