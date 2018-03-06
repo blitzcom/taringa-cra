@@ -4,7 +4,7 @@ import classNames from 'classnames'
 const Action = ({ children, className, icon, ...rest }) => {
   const classes = classNames('btn btn-light btn-sm', className)
   const contentClasses = classNames({
-    'ml-3': icon && true,
+    'ml-2': icon && true,
   })
 
   return (
