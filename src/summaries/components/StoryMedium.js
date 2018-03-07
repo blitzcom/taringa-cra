@@ -2,11 +2,11 @@ import React from 'react'
 import classNames from 'classnames'
 
 import './StoryMedium.css'
+import Action from '../../common/Action'
 import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
-import StoryButton from './StoryButton'
 import StoryOwner from './StoryOwner'
-import { esFormatter } from '../../Utils'
+import { esFormatter, humanizeNum } from '../../Utils'
 import withPreview from './withPreview'
 
 const StoryMedium = ({
@@ -95,21 +95,18 @@ const StoryMedium = ({
         <p className="m-0">
           {preview &&
             preview.kind === 'image' && (
-              <StoryButton
+              <Action
+                className="mr-4"
                 icon={previewIconClass}
                 onClick={onTogglePreview}
-                wrapperStyle={{ minWidth: 40 }}
               />
             )}
 
-          <StoryButton
-            count={comments}
-            icon="far fa-comment"
-            isLink
-            to={`/story/${slug}`}
-          />
+          <Action className="mr-4" icon="far fa-comment" to={`/story/${slug}`}>
+            {humanizeNum(comments)}
+          </Action>
 
-          <StoryButton icon="fa fa-retweet" count={shares} />
+          <Action icon="fa fa-retweet">{humanizeNum(shares)}</Action>
         </p>
       </div>
     </div>
