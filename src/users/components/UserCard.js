@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import CardDecorator from '../../common/CardDecorator'
-import { userSelector, controlSelector } from '../selectors'
-import withResource from '../../HOC/Resource'
-import { fetchTrigger } from '../actions'
 
 export const UserCard = ({ control, user }) => {
   return (
@@ -38,18 +34,14 @@ export const UserCard = ({ control, user }) => {
 }
 
 UserCard.defaultProps = {
-  user: {},
+  control: { status: 'fetching' },
+  user: {
+    avatar: 'avatar',
+    firstname: 'firstname',
+    lastname: 'lastname',
+    username: 'usernmae',
+    message: 'message',
+  },
 }
 
-const mapStateToProps = (state, props) => ({
-  user: userSelector(state, props),
-  control: controlSelector(state, props),
-})
-
-const mapDispatchToProps = (dispatch, props) => ({
-  fetchResource: () => dispatch(fetchTrigger(props.id)),
-})
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(withResource()(UserCard))
-)
+export default UserCard

@@ -16,6 +16,10 @@ exports[`Story renders 1`] = `
   </div>
   <div
     className="col-4"
-  />
+  >
+    <withRouter(Connect(Component))
+      storyId="id"
+    />
+  </div>
 </div>
 `;

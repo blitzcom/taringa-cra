@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Story.css'
 
-import { UserCard } from '../../users/components/UserCard'
+import UserCard from '../../users/components/UserCardContainer'
 import StoryContent from './StoryContentContainer'
 import Comments from '../../comments/components/CommentsContainer'
 import { slugToId } from '../../utils/slug'
@@ -17,7 +17,9 @@ const Story = ({ match }) => {
         <Comments storyId={storyId} />
       </div>
 
-      <div className="col-4" />
+      <div className="col-4">
+        <UserCard storyId={storyId} />
+      </div>
     </div>
   )
 }
