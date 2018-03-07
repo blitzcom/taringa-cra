@@ -37,9 +37,7 @@ const StoryBig = ({
   return (
     <div className="d-flex">
       <div className="text-center" style={{ lineHeight: 1.1 }}>
-        <button className="btn btn-score btn-score-big">
-          <i className="fa fa-arrow-up" />
-        </button>
+        <Action icon="fa fa-arrow-up" />
 
         <div
           className="my-2 small font-weight-bold"
@@ -50,9 +48,7 @@ const StoryBig = ({
           {score}
         </div>
 
-        <button className="btn btn-score btn-score-big">
-          <i className="fa fa-arrow-down" />
-        </button>
+        <Action icon="fa fa-arrow-down" />
       </div>
 
       <div className="ml-2">
