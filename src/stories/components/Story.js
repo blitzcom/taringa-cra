@@ -5,15 +5,10 @@ import './Story.css'
 
 import { UserCard } from '../../users/components/UserCard'
 import StoryContent from './StoryContent'
-import Comments from '../../comments/components/Comments'
+import Comments from '../../comments/components/CommentsContainer'
 import * as actions from '../actions'
-import { load as loadComments } from '../../comments/actions'
 import { slugToId } from '../../utils/slug'
 import { storySelector, storyStateSelector } from '../selectors'
-import {
-  commentsStatusSelector,
-  commentsSelector,
-} from '../../comments/selectors'
 
 export class Story extends Component {
   componentDidMount() {
@@ -21,32 +16,13 @@ export class Story extends Component {
   }
 
   render() {
-    const {
-      comments,
-      commentsStatus,
-      loadComments,
-      story,
-      storyStatus: { status },
-    } = this.props
-
-    const hasMoreContent =
-      comments !== null &&
-      'totalCount' in commentsStatus &&
-      comments.length < commentsStatus.totalCount
-    const hasSuccess = status === 'success'
+    const { story, storyId, storyStatus: { status } } = this.props
 
     return (
       <div className="row">
         <div className="col-8">
           <StoryContent {...story} status={status} />
-          {hasSuccess && (
-            <Comments
-              comments={comments}
-              loadMore={loadComments}
-              hasMoreContent={hasMoreContent}
-              {...commentsStatus}
-            />
-          )}
+          <Comments storyId={storyId} />
         </div>
 
         <div className="col-4">
@@ -67,10 +43,6 @@ Story.defaultProps = {
     error: '',
     status: 'fetching',
   },
-  commentsStatus: {
-    error: '',
-    status: 'fetching',
-  },
   fetchStoryWithComments: () => {},
   story: {},
 }
@@ -82,9 +54,8 @@ const mapStateToProps = (state, props) => {
 
   return {
     story: storySelector(state, storyId),
+    storyId: storyId,
     storyStatus: storyStateSelector(state, storyId),
-    commentsStatus: commentsStatusSelector(state, storyId),
-    comments: commentsSelector(state, storyId),
   }
 }
 
@@ -92,7 +63,6 @@ const mapDispatchToProps = (dispatch, props) => {
   const storyId = getStoryId(props)
 
   return {
-    loadComments: () => dispatch(loadComments(storyId)),
     fetchStoryWithComments: () => dispatch(actions.fetchWithComments(storyId)),
   }
 }

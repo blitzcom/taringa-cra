@@ -36,6 +36,6 @@ export const commentsSelector = createSelector(
       return denormalizedComments
     }
 
-    return null
+    return []
   }
 )
