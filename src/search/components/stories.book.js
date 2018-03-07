@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import SearchInput from './SearchInput'
+import { SearchInput } from './SearchInput'
 import User from './User'
 import { user as userSample } from './data'
 
