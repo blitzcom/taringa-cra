@@ -1,16 +1,12 @@
-import _ from 'lodash'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import Filters from './Filters'
-import { filters } from '../../global/constants'
+import { filtersSelector } from '../selectors'
 
-const mapStateToProps = state => {
-  const filtersInState = _.values(state.filters)
-  const defaultFilters = _.values(filters)
-
+const mapStateToProps = (state, ownProps) => {
   return {
-    items: filtersInState.length > 0 ? filtersInState : defaultFilters,
+    items: filtersSelector(state),
   }
 }
 
