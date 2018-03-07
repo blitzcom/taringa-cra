@@ -3,7 +3,7 @@ import React from 'react'
 import { pluralize } from '../../utils/StringHelpers'
 import Comment from './Comment'
 
-const Comments = ({ comments, onRetry, status, totalCount }) => {
+const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
   const count = comments.length
   const isFetching = status === 'fetching'
   const hasFailure = status === 'failure'
@@ -76,9 +76,8 @@ const Comments = ({ comments, onRetry, status, totalCount }) => {
 
 Comments.defaultProps = {
   comments: [],
+  control: { status: 'fetching', totalCount: 0 },
   onRetry: () => {},
-  status: 'fetching',
-  totalCount: 0,
 }
 
 export default Comments
