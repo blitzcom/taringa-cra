@@ -10,7 +10,9 @@ import '../src/css/taringa.css'
 
 addDecorator(story => (
   <MemoryRouter>
-    {story()}
+    <div className="container">
+      <div className="row">{story()}</div>
+    </div>
   </MemoryRouter>
 ))
 

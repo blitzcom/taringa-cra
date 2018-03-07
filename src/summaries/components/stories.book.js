@@ -11,13 +11,7 @@ import { normalizeStory } from '../utils'
 import { image, text, link, article } from './data'
 
 storiesOf('Summaries', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
+  .addDecorator(story => <div className="col-8">{story()}</div>)
   .add('default', () => <Summaries status="fetching" />)
   .add('listing', () => (
     <Summaries
@@ -39,13 +33,7 @@ storiesOf('Summaries', module)
   .add('with error and no summaries', () => <Summaries status="failure" />)
 
 storiesOf('Summary', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
+  .addDecorator(story => <div className="col-8">{story()}</div>)
   .add('all default', () => (
     <div>
       <Summary size="settings/ITEM_SMALL" />

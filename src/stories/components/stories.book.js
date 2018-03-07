@@ -9,13 +9,7 @@ import { story } from './story.data'
 import StoryContent from './StoryContent'
 
 storiesOf('StoryContent', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
+  .addDecorator(story => <div className="col-8">{story()}</div>)
   .add('default', () => (
     <StoryContent story={story} control={{ status: 'success' }} />
   ))

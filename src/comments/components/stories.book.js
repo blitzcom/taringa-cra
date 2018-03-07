@@ -14,6 +14,13 @@ import Comment from './Comment'
 import Comments from './Comments'
 
 storiesOf('Comment', module)
+  .addDecorator(story => (
+    <div className="col-8">
+      <div className="card">
+        <div className="card-body">{story()}</div>
+      </div>
+    </div>
+  ))
   .add('default', () => <Comment {...comment} />)
   .add('with reply', () => <Comment {...commentWithReply} />)
   .add('with replies', () => <Comment {...commentWithReplies} />)
@@ -22,13 +29,7 @@ storiesOf('Comment', module)
   ))
 
 storiesOf('Comments', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
+  .addDecorator(story => <div className="col-8">{story()}</div>)
   .add('initial fetching', () => (
     <Comments control={{ status: 'fetching', totalCount: 0 }} />
   ))
