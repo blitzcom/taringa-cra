@@ -52,9 +52,7 @@ const StoryMedium = ({
         className="text-center border-right pr-2"
         style={{ padding: '1px 0' }}
       >
-        <button className="btn btn-score">
-          <i className="fa fa-arrow-up" />
-        </button>
+        <Action icon="fa fa-arrow-up" />
 
         <div
           className="my-0 small font-weight-bold"
@@ -65,9 +63,7 @@ const StoryMedium = ({
           {score}
         </div>
 
-        <button className="btn btn-score">
-          <i className="fa fa-arrow-down" />
-        </button>
+        <Action icon="fa fa-arrow-down" />
       </div>
 
       <StoryThumbnail

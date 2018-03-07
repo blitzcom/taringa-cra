@@ -1,12 +1,12 @@
 import React from 'react'
 
 import './StorySmall.css'
+import Action from '../../common/Action'
 import withPreview from './withPreview'
 import StoryTitle from './StoryTitle'
 import StoryThumbnail from './StoryThumbnail'
-import StoryButton from './StoryButton'
 import StoryOwner from './StoryOwner'
-import { shortESFormatter } from '../../Utils'
+import { shortESFormatter, humanizeNum } from '../../Utils'
 
 const StorySmall = ({
   channel,
@@ -55,9 +55,7 @@ const StorySmall = ({
         onClick={handleClick}
       />
 
-      <button className="btn btn-score">
-        <i className="fa fa-arrow-up" />
-      </button>
+      <Action icon="fa fa-arrow-up" />
 
       <div
         className="small text-center font-weight-bold"
@@ -66,9 +64,7 @@ const StorySmall = ({
         {score}
       </div>
 
-      <button className="btn btn-score mr-4">
-        <i className="fa fa-arrow-down" />
-      </button>
+      <Action className="mr-4" icon="fa fa-arrow-down" />
 
       {title && (
         <StoryTitle
@@ -92,14 +88,7 @@ const StorySmall = ({
         Por
       </StoryOwner>
 
-      <StoryButton
-        className="btn-story-compact"
-        count={comments}
-        icon="far fa-comment"
-        isLink
-        to={`/story/${slug}`}
-        wrapperStyle={{ minWidth: 50 }}
-      />
+      <Action icon="far fa-comment">{humanizeNum(comments)}</Action>
     </div>
   )
 }
