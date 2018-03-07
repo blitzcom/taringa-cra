@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import { Summaries } from './Summaries'
+import Summaries from './Summaries'
 import Summary from './Summary'
 
 import { normalizeStory } from '../utils'
@@ -18,11 +18,11 @@ storiesOf('Summaries', module)
       </div>
     </div>
   ))
-  .add('default', () => <Summaries />)
+  .add('default', () => <Summaries status="fetching" />)
   .add('listing', () => (
     <Summaries
       status="success"
-      summaries={[
+      items={[
         normalizeStory(image),
         normalizeStory(text),
         normalizeStory(link),
@@ -31,10 +31,10 @@ storiesOf('Summaries', module)
     />
   ))
   .add('loading', () => (
-    <Summaries status="fetching" summaries={[normalizeStory(image)]} />
+    <Summaries status="fetching" items={[normalizeStory(image)]} />
   ))
   .add('with error', () => (
-    <Summaries status="failure" summaries={[normalizeStory(image)]} />
+    <Summaries status="failure" items={[normalizeStory(image)]} />
   ))
   .add('with error and no summaries', () => <Summaries status="failure" />)
 
