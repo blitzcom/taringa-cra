@@ -11,7 +11,7 @@ import {
   comments,
 } from './comment.data'
 import Comment from './Comment'
-import { Comments } from './Comments'
+import Comments from './Comments'
 
 storiesOf('Comment', module)
   .add('default', () => <Comment {...comment} />)
@@ -29,21 +29,36 @@ storiesOf('Comments', module)
       </div>
     </div>
   ))
-  .add('initial fetching', () => <Comments />)
-  .add('empty', () => <Comments totalCount={0} status="success" />)
+  .add('initial fetching', () => (
+    <Comments control={{ status: 'fetching', totalCount: 0 }} />
+  ))
+  .add('empty', () => (
+    <Comments control={{ status: 'success', totalCount: 0 }} />
+  ))
   .add('listing one', () => (
-    <Comments totalCount={1} status="success" comments={[comment]} />
+    <Comments
+      control={{ status: 'success', totalCount: 1 }}
+      comments={[comment]}
+    />
   ))
   .add('listing two', () => (
-    <Comments totalCount={2} status="success" comments={comments} />
-  ))
-  .add('listing two and load more', () => (
-    <Comments totalCount={3} status="success" comments={comments} />
+    <Comments
+      control={{ status: 'success', totalCount: 2 }}
+      comments={comments}
+    />
   ))
   .add('loading more', () => (
-    <Comments totalCount={1} status="fetching" comments={[comment]} />
+    <Comments
+      control={{ status: 'fetching', totalCount: 1 }}
+      comments={[comment]}
+    />
   ))
-  .add('with initial error', () => <Comments totalCount={1} status="failure" />)
+  .add('with initial error', () => (
+    <Comments control={{ status: 'failure', totalCount: 1 }} />
+  ))
   .add('with error', () => (
-    <Comments totalCount={1} status="failure" comments={[comment]} />
+    <Comments
+      control={{ status: 'failure', totalCount: 1 }}
+      comments={[comment]}
+    />
   ))
