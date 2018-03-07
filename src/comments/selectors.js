@@ -7,8 +7,21 @@ const commentsFetchState = (state, storyId) =>
 
 export const commentsStatusSelector = createSelector(
   commentsFetchState,
-  state =>
-    state || { status: 'fetching', error: '', comments: [], totalCount: 0 }
+  state => {
+    if (state) {
+      return _.assign({}, state, {
+        hasMoreContent: state.ids.length < state.totalCount,
+      })
+    }
+
+    return {
+      status: 'fetching',
+      error: '',
+      ids: [],
+      totalCount: 0,
+      hasMoreContent: true,
+    }
+  }
 )
 
 export const commentsSelector = createSelector(

@@ -10,7 +10,7 @@ exports[`Story renders 1`] = `
     <Connect(StoryContentContainer)
       storyId="id"
     />
-    <Connect(Comments)
+    <Connect(InfiniteScroll)
       storyId="id"
     />
   </div>
