@@ -16,5 +16,9 @@ storiesOf('StoryContent', module)
       </div>
     </div>
   ))
-  .add('default', () => <StoryContent {...story} status="success" />)
-  .add('with placeholder', () => <StoryContent status="fetching" />)
+  .add('default', () => (
+    <StoryContent story={story} control={{ status: 'success' }} />
+  ))
+  .add('with placeholder', () => (
+    <StoryContent control={{ status: 'fetching' }} />
+  ))
