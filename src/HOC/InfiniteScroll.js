@@ -28,8 +28,6 @@ const infiniteScroll = (
     handleScroll() {
       const { control: { hasMoreContent, status } } = this.props
 
-      console.log(this.props)
-
       if (
         scrolledToBottom(threshold) &&
         hasMoreContent &&
