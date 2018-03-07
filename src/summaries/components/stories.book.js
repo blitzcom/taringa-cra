@@ -4,25 +4,19 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import { Summaries } from './Summaries'
+import Summaries from './Summaries'
 import Summary from './Summary'
 
 import { normalizeStory } from '../utils'
 import { image, text, link, article } from './data'
 
 storiesOf('Summaries', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
-  .add('default', () => <Summaries />)
+  .addDecorator(story => <div className="col-8">{story()}</div>)
+  .add('default', () => <Summaries status="fetching" />)
   .add('listing', () => (
     <Summaries
       status="success"
-      summaries={[
+      items={[
         normalizeStory(image),
         normalizeStory(text),
         normalizeStory(link),
@@ -31,21 +25,15 @@ storiesOf('Summaries', module)
     />
   ))
   .add('loading', () => (
-    <Summaries status="fetching" summaries={[normalizeStory(image)]} />
+    <Summaries status="fetching" items={[normalizeStory(image)]} />
   ))
   .add('with error', () => (
-    <Summaries status="failure" summaries={[normalizeStory(image)]} />
+    <Summaries status="failure" items={[normalizeStory(image)]} />
   ))
   .add('with error and no summaries', () => <Summaries status="failure" />)
 
 storiesOf('Summary', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-8">{story()}</div>
-      </div>
-    </div>
-  ))
+  .addDecorator(story => <div className="col-8">{story()}</div>)
   .add('all default', () => (
     <div>
       <Summary size="settings/ITEM_SMALL" />

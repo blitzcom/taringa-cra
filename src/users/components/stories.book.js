@@ -6,15 +6,11 @@ import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
 import { user } from './user.data'
-import Card from './Card'
+import UserCard from './UserCard'
 
 storiesOf('User', module)
-  .addDecorator(story => (
-    <div className="container">
-      <div className="row">
-        <div className="col-4">{story()}</div>
-      </div>
-    </div>
+  .addDecorator(story => <div className="col-4">{story()}</div>)
+  .add('default', () => (
+    <UserCard user={user} control={{ status: 'success' }} />
   ))
-  .add('default', () => <Card {...user} />)
-  .add('with placeholder', () => <Card status="fetching" />)
+  .add('with placeholder', () => <UserCard control={{ status: 'fetching' }} />)
