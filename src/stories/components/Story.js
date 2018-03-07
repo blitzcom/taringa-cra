@@ -1,70 +1,31 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 
 import './Story.css'
 
-import { UserCard } from '../../users/components/UserCard'
-import StoryContent from './StoryContent'
+import UserCard from '../../users/components/UserCardContainer'
+import StoryContent from './StoryContentContainer'
 import Comments from '../../comments/components/CommentsContainer'
-import * as actions from '../actions'
 import { slugToId } from '../../utils/slug'
-import { storySelector, storyStateSelector } from '../selectors'
 
-export class Story extends Component {
-  componentDidMount() {
-    this.props.fetchStoryWithComments()
-  }
+const Story = ({ match }) => {
+  const storyId = slugToId(match.params.slug)
 
-  render() {
-    const { story, storyId, storyStatus: { status } } = this.props
-
-    return (
-      <div className="row">
-        <div className="col-8">
-          <StoryContent {...story} status={status} />
-          <Comments storyId={storyId} />
-        </div>
-
-        <div className="col-4">
-          <UserCard user={story.owner} control={{ status }} />
-        </div>
+  return (
+    <div className="row">
+      <div className="col-8">
+        <StoryContent storyId={storyId} />
+        <Comments storyId={storyId} />
       </div>
-    )
-  }
+
+      <div className="col-4">
+        <UserCard storyId={storyId} />
+      </div>
+    </div>
+  )
 }
 
 Story.defaultProps = {
-  match: {
-    params: {
-      slug: '',
-    },
-  },
-  storyStatus: {
-    error: '',
-    status: 'fetching',
-  },
-  fetchStoryWithComments: () => {},
-  story: {},
+  match: { params: { slug: 'slug_id' } },
 }
 
-const getStoryId = props => slugToId(props.match.params.slug)
-
-const mapStateToProps = (state, props) => {
-  const storyId = getStoryId(props)
-
-  return {
-    story: storySelector(state, storyId),
-    storyId: storyId,
-    storyStatus: storyStateSelector(state, storyId),
-  }
-}
-
-const mapDispatchToProps = (dispatch, props) => {
-  const storyId = getStoryId(props)
-
-  return {
-    fetchStoryWithComments: () => dispatch(actions.fetchWithComments(storyId)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Story)
+export default Story
