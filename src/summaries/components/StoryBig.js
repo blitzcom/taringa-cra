@@ -1,10 +1,10 @@
 import React from 'react'
 
 import './StoryBig.css'
+import Action from '../../common/Action'
 import StoryTitle from './StoryTitle'
-import StoryButton from './StoryButton'
 import StoryOwner from './StoryOwner'
-import { esFormatter } from '../../Utils'
+import { esFormatter, humanizeNum } from '../../Utils'
 
 const StoryBig = ({
   channel,
@@ -89,13 +89,17 @@ const StoryBig = ({
         )}
 
         <p className="m-0">
-          <StoryButton
-            count={comments}
+          <Action
+            className="mr-4"
             icon="far fa-comment"
-            isLink
-            to={`/story/${slug}`}
-          />
-          <StoryButton icon="fa fa-retweet" count={shares} />
+            href={`/story/${slug}`}
+          >
+            {humanizeNum(comments)}
+          </Action>
+
+          <Action className="mr-4" icon="fa fa-retweet">
+            {humanizeNum(shares)}
+          </Action>
         </p>
       </div>
     </div>
