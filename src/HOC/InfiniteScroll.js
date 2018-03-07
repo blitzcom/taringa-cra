@@ -1,73 +1,51 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 
+import { scrolledToBottom } from '../utils/Scroll'
+
 const infiniteScroll = (
-  debounceDelay = 150,
-  scrollThreshold = 400
+  throttleDelay = 250,
+  threshold = 400
 ) => WrappedComponent => {
   class InfiniteScroll extends Component {
     constructor(props) {
       super(props)
-      this.hasScrollEventAttached = false
       this.handleScroll = this.handleScroll.bind(this)
-      this.handleScrollThrottle = _.throttle(this.handleScroll, 250)
+      this.handleScrollThrottle = _.throttle(this.handleScroll, throttleDelay)
+    }
+
+    componentWillUnmount() {
+      this.handleScrollThrottle.cancel()
+      this.removeEvents()
+    }
+
+    componentDidUpdate(prevProps) {
+      if (this.props.control.status === 'success') {
+        this.addEvents()
+      }
     }
 
     handleScroll() {
-      const scrollTop =
-        (document.documentElement && document.documentElement.scrollTop) ||
-        document.body.scrollTop
+      const { control: { hasMoreContent, status } } = this.props
 
-      const windowHeight =
-        document.documentElement.clientHeight || window.innerHeight
-
-      const documentHeight = document.body.clientHeight
-
-      const scrolledToBottom =
-        documentHeight - scrollTop - windowHeight < scrollThreshold
+      console.log(this.props)
 
       if (
-        scrolledToBottom &&
-        this.props.hasMoreContent &&
-        this.props.status !== 'fetching'
+        scrolledToBottom(threshold) &&
+        hasMoreContent &&
+        status !== 'fetching'
       ) {
-        this.props.loadMore()
+        this.removeEvents()
+        this.props.onLoadMore()
       }
-    }
-
-    componentDidMount() {
-      this.addEvents()
-      this.handleScrollThrottle.cancel()
     }
 
     addEvents() {
-      if (this.hasScrollEventAttached) {
-        return
-      }
-
-      this.hasScrollEventAttached = true
       window.addEventListener('scroll', this.handleScrollThrottle)
     }
 
     removeEvents() {
-      if (this.hasScrollEventAttached) {
-        window.removeEventListener('scroll', this.handleScrollThrottle)
-        this.hasScrollEventAttached = false
-      }
-    }
-
-    componentWillUnmount() {
-      this.removeEvents()
-    }
-
-    componentWillReceiveProps(nextProps) {
-      if (this.props.status === 'fetching' && nextProps.status === 'failure') {
-        this.removeEvents()
-      }
-
-      if (nextProps.status === 'success') {
-        this.addEvents()
-      }
+      window.removeEventListener('scroll', this.handleScrollThrottle)
     }
 
     render() {
@@ -76,7 +54,8 @@ const infiniteScroll = (
   }
 
   InfiniteScroll.defaultProps = {
-    loadMore: () => {},
+    control: { hasMoreContent: true, status: 'success' },
+    onLoadMore: () => {},
   }
 
   return InfiniteScroll
