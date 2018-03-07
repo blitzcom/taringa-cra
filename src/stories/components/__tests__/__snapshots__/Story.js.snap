@@ -7,22 +7,15 @@ exports[`Story renders 1`] = `
   <div
     className="col-8"
   >
-    <StoryContent
-      status="fetching"
+    <Connect(StoryContentContainer)
+      storyId="id"
     />
-    <Connect(Comments) />
+    <Connect(Comments)
+      storyId="id"
+    />
   </div>
   <div
     className="col-4"
-  >
-    <Component
-      control={
-        Object {
-          "status": "fetching",
-        }
-      }
-      user={Object {}}
-    />
-  </div>
+  />
 </div>
 `;

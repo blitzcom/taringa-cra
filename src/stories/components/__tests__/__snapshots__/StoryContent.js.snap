@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Story Content renders 1`] = `
+<div
+  className="StoryContent-ph card"
+>
+  <div
+    className="StoryContent-animated-background"
+  >
+    <div
+      className="StoryContent-title-gap ph"
+    />
+    <div
+      className="StoryContent-subtitle-gap ph"
+    />
+    <div
+      className="StoryContent-content-gap ph"
+    />
+    <div
+      className="StoryContent-meta-extra ph"
+    />
+  </div>
+</div>
+`;

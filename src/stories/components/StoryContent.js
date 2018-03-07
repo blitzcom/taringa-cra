@@ -5,12 +5,8 @@ import './StoryContent.css'
 import Action from '../../common/Action'
 
 const StoryContent = ({
-  comments,
-  content,
-  downvotes,
-  status,
-  title,
-  upvotes,
+  control: { status },
+  story: { comments, content, downvotes, title, upvotes },
 }) => {
   if (status === 'fetching') {
     return (
@@ -44,6 +40,11 @@ const StoryContent = ({
       </div>
     </div>
   )
+}
+
+StoryContent.defaultProps = {
+  control: { status: 'fetching' },
+  story: { comments: [], content: null, downvotes: 0, title: '', upvotes: 0 },
 }
 
 export default StoryContent

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Story } from '../Story'
+import Story from '../Story'
 
 describe('Story', () => {
   it('exists', () => {
