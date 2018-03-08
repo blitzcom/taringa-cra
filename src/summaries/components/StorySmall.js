@@ -47,7 +47,6 @@ const StorySmall = ({
   return (
     <div className="d-flex align-items-baseline">
       <StoryThumbnail
-        className="mr-4"
         icon={isPreviewOpen ? 'fa fa-compress' : icon}
         size={30}
         slug={slug}
@@ -55,7 +54,7 @@ const StorySmall = ({
         onClick={handleClick}
       />
 
-      <Action icon="fa fa-arrow-up" />
+      <Action className="ml-0 ml-sm-4" icon="fa fa-arrow-up" />
 
       <div
         className="small text-center font-weight-bold"
@@ -64,7 +63,7 @@ const StorySmall = ({
         {score}
       </div>
 
-      <Action className="mr-4" icon="fa fa-arrow-down" />
+      <Action className="mr-0 mr-sm-4" icon="fa fa-arrow-down" />
 
       {title && (
         <StoryTitle
@@ -88,7 +87,9 @@ const StorySmall = ({
         Por
       </StoryOwner>
 
-      <Action icon="far fa-comment">{humanizeNum(comments)}</Action>
+      <Action className="d-none d-sm-block" icon="far fa-comment">
+        {humanizeNum(comments)}
+      </Action>
     </div>
   )
 }
