@@ -99,7 +99,11 @@ const StoryMedium = ({
               />
             )}
 
-          <Action className="mr-3 mr-md-4" icon="far fa-comment" to={`/story/${slug}`}>
+          <Action
+            className="mr-3 mr-md-4"
+            icon="far fa-comment"
+            to={`/story/${slug}`}
+          >
             {humanizeNum(comments)}
           </Action>
 
