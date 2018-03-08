@@ -5,7 +5,7 @@ exports[`Comments renders empty 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -25,7 +25,7 @@ exports[`Comments renders intial fetching 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body text-center"
@@ -43,7 +43,7 @@ exports[`Comments renders listing one 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -106,7 +106,7 @@ exports[`Comments renders listing two 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -199,7 +199,7 @@ exports[`Comments renders listing two and load more 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -283,7 +283,7 @@ exports[`Comments renders loading more 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -344,7 +344,7 @@ exports[`Comments renders with error 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body"
@@ -417,7 +417,7 @@ exports[`Comments renders with initial error 1`] = `
   className="Comments mt-4"
 >
   <div
-    className="card"
+    className="card bg-light"
   >
     <div
       className="card-body text-center"

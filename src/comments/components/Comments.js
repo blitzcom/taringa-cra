@@ -14,7 +14,7 @@ const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
 
   return (
     <div className="Comments mt-4">
-      <div className="card">
+      <div className="card bg-light">
         {hasComments && (
           <div className="card-body">
             <h6 className="card-title mb-0">

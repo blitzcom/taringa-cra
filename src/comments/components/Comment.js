@@ -92,13 +92,16 @@ class Comment extends Component {
           />
 
           <p className="mb-1">
-            <Action className="mr-4">RESPONDER</Action>
-
-            <Action className="mr-4" icon="far fa-thumbs-up">
+            <Action className="mr-3" icon="far fa-thumbs-up">
               {humanizeNum(upvotes)}
             </Action>
 
-            <Action icon="far fa-thumbs-down">{humanizeNum(downvotes)}</Action>
+            <Action className="mr-3" icon="far fa-thumbs-down">
+              {humanizeNum(downvotes)}
+            </Action>
+
+            <Action className="d-none d-sm-inline">RESPONDER</Action>
+            <Action className="d-sm-none" icon="far fa-comment-alt" />
           </p>
 
           {this.renderRepliesToggler()}
