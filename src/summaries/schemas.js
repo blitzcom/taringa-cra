@@ -1,3 +1,9 @@
 import { schema } from 'normalizr'
 
-export const summary = new schema.Entity('summaries')
+const channel = new schema.Entity('channels')
+const user = new schema.Entity('users')
+
+export const summary = new schema.Entity('summaries', {
+  channel: channel,
+  owner: user,
+})
