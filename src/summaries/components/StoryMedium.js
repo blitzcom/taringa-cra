@@ -67,7 +67,7 @@ const StoryMedium = ({
       </div>
 
       <StoryThumbnail
-        className="mx-4"
+        className="mx-2 mx-md-4"
         icon={icon}
         slug={slug}
         style={{ fontSize: '200%' }}
@@ -92,13 +92,13 @@ const StoryMedium = ({
           {preview &&
             preview.kind === 'image' && (
               <Action
-                className="mr-4"
+                className="mr-3 mr-md-4"
                 icon={previewIconClass}
                 onClick={onTogglePreview}
               />
             )}
 
-          <Action className="mr-4" icon="far fa-comment" to={`/story/${slug}`}>
+          <Action className="mr-3 mr-md-4" icon="far fa-comment" to={`/story/${slug}`}>
             {humanizeNum(comments)}
           </Action>
 
