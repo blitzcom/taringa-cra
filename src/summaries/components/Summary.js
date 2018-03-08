@@ -7,28 +7,32 @@ import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
 
-const Summary = ({ size, history, ...props }) => {
-  const getStoryContent = () => {
-    switch (size) {
-      case ITEM_BIG:
-        return <StoryBig {...props} />
-      case ITEM_SMALL:
-        return <StorySmall {...props} />
-      case ITEM_MEDIUM:
-      default:
-        return <StoryMedium {...props} />
+class Summary extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.size !== nextProps.size
+  }
+
+  render() {
+    const { size, slug, ...rest } = this.props
+
+    const getStoryContent = () => {
+      switch (size) {
+        case ITEM_BIG:
+          return <StoryBig {...rest} />
+        case ITEM_SMALL:
+          return <StorySmall {...rest} />
+        case ITEM_MEDIUM:
+        default:
+          return <StoryMedium {...rest} />
+      }
     }
-  }
 
-  if (props.isPlaceholder) {
-    return getStoryContent()
-  }
+    if (rest.isPlaceholder) {
+      return getStoryContent()
+    }
 
-  return (
-    <Story history={history} slug={props.slug}>
-      {getStoryContent()}
-    </Story>
-  )
+    return <Story slug={slug}>{getStoryContent()}</Story>
+  }
 }
 
 export default Summary
