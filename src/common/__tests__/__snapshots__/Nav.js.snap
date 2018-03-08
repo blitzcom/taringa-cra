@@ -2,7 +2,7 @@
 
 exports[`Nav renders default 1`] = `
 <div
-  className="navbar navbar-expand-lg navbar-dark Nav"
+  className="navbar navbar-expand navbar-dark Nav"
 >
   <div
     className="container"
@@ -18,12 +18,12 @@ exports[`Nav renders default 1`] = `
       className="collapse navbar-collapse"
     >
       <div
-        className="form-inline"
+        className="form-inline d-none d-md-block ml-md-4"
       >
         <withRouter(Connect(SearchInput)) />
       </div>
       <div
-        className="navbar-nav ml-5 mr-auto"
+        className="navbar-nav ml-auto ml-md-4"
       >
         <NavLink
           activeClassName="active"
@@ -52,7 +52,7 @@ exports[`Nav renders default 1`] = `
         </NavLink>
       </div>
       <div
-        className="navbar-nav"
+        className="navbar-nav d-none"
       >
         <a
           className="nav-item nav-link"
