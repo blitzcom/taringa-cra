@@ -9,7 +9,7 @@ const Story = ({ slug, children }) => {
 
   return (
     <div
-      className="list-group-item list-group-item-action p-2 Summary"
+      className="list-group-item bg-light list-group-item-action p-2 Summary"
       onClick={handleOnClick}
     >
       {children}
