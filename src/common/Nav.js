@@ -10,18 +10,18 @@ const Nav = props => {
   }
 
   return (
-    <div className="navbar navbar-expand-lg navbar-dark Nav">
+    <div className="navbar navbar-expand navbar-dark Nav">
       <div className="container">
         <Link className="navbar-brand font-weight-bold" to="/">
           TARINGA!
         </Link>
 
         <div className="collapse navbar-collapse">
-          <div className="form-inline">
+          <div className="form-inline d-none d-md-block ml-md-4">
             <SearchInput />
           </div>
 
-          <div className="navbar-nav ml-5 mr-auto">
+          <div className="navbar-nav ml-auto ml-md-4">
             <NavLink
               activeClassName="active"
               className="nav-item nav-link font-weight-bold"
@@ -48,7 +48,7 @@ const Nav = props => {
             </NavLink>
           </div>
 
-          <div className="navbar-nav">
+          <div className="navbar-nav d-none">
             <a className="nav-item nav-link" href="/">
               Iniciar sesión
             </a>
