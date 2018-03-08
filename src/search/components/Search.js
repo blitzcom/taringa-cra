@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Summaries from '../../summaries/components/Summaries'
 import { ITEM_SMALL } from '../../settings/constants'
 
+import Ad from '../../ads/components/Ad'
 import SearchGroup from './SearchGroup'
 import User from './User'
 import ChannelCard from '../../channels/components/ChannelCard'
@@ -111,6 +112,10 @@ export class Search extends Component {
                 ))}
             </div>
           </SearchGroup>
+        </div>
+
+        <div className="col-4">
+          <Ad />
         </div>
       </div>
     )
