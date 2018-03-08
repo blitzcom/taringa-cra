@@ -20,7 +20,7 @@ const StoryOwner = ({
         {owner}
       </Link>
       {channelName && (
-        <span>
+        <span className="d-none d-xl-inline">
           {' en '}
           <Link to={`/c/${channel}`} onClick={handleOnClick}>
             {channelName}
