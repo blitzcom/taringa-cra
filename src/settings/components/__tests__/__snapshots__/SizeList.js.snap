@@ -4,17 +4,21 @@ exports[`Size List renders 1`] = `
 <div
   className="form-inline"
 >
-  <Connect(Button)
-    icon="ta-items-big"
-    size="settings/ITEM_BIG"
-  />
-  <Connect(Button)
-    icon="ta-items-medium"
-    size="settings/ITEM_MEDIUM"
-  />
-  <Connect(Button)
-    icon="ta-items-small"
-    size="settings/ITEM_SMALL"
-  />
+  <div
+    className="btn-group"
+  >
+    <Connect(Button)
+      icon="ta-items-big"
+      size="settings/ITEM_BIG"
+    />
+    <Connect(Button)
+      icon="ta-items-medium"
+      size="settings/ITEM_MEDIUM"
+    />
+    <Connect(Button)
+      icon="ta-items-small"
+      size="settings/ITEM_SMALL"
+    />
+  </div>
 </div>
 `;

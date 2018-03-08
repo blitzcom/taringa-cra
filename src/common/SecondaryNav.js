@@ -13,7 +13,7 @@ export const SecondaryNav = () => {
             <nav className="navbar navbar-light navbar-expand p-0">
               <div className="collapse navbar-collapse">
                 <SizeList />
-                <span className="navbar-text divider" />
+                <span className="navbar-text divider mx-0 mx-lg-3" />
                 <FiltersContainer />
               </div>
             </nav>
