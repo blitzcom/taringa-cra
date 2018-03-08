@@ -2,7 +2,7 @@
 
 exports[`Search User renders 1`] = `
 <div
-  className="col-6 mb-4"
+  className="col-12 col-md-6 mb-4"
 >
   <div
     className="card"
