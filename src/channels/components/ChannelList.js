@@ -11,7 +11,7 @@ const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
   const makePlaceholders = () => {
     const effectiveCount = itemsLength > 0 ? 2 : placeholderCount
     return _.times(effectiveCount, index => (
-      <div key={index} className="col-6 mb-4">
+      <div key={index} className="col-12 col-md-6 mb-4">
         <ChannelCard />
       </div>
     ))
@@ -22,7 +22,7 @@ const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
       {(!hasFailure || itemsLength > 0) && (
         <div className="row">
           {items.map(item => (
-            <div key={item.id} className="col-6 mb-4">
+            <div key={item.id} className="col-12 col-md-6 mb-4">
               <ChannelCard channel={item} control={{ status: 'success' }} />
             </div>
           ))}
