@@ -9,11 +9,11 @@ export const SecondaryNav = () => {
     <div className="SecondaryNav bg-light border-bottom">
       <div className="container">
         <div className="row">
-          <div className="col-8">
-            <nav className="navbar navbar-light navbar-expand-lg p-0">
+          <div className="col-12 col-lg-8">
+            <nav className="navbar navbar-light navbar-expand p-0">
               <div className="collapse navbar-collapse">
                 <SizeList />
-                <span className="navbar-text divider" />
+                <span className="navbar-text divider mx-0 mx-lg-3" />
                 <FiltersContainer />
               </div>
             </nav>

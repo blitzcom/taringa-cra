@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { ITEM_MEDIUM } from '../constants'
 
 const Button = ({ active, className, icon, size, onChangeSize, ...rest }) => {
-  const classes = classNames(className, 'btn px-1 py-0 btn-light', {
+  const classes = classNames(className, 'btn btn-sm btn-light', {
     active: active === size,
   })
 
