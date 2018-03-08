@@ -69,6 +69,7 @@ const StoryMedium = ({
       <StoryThumbnail
         className="mx-2 mx-md-4"
         icon={icon}
+        size={48}
         slug={slug}
         style={{ fontSize: '200%' }}
         thumbnail={thumbnail}
