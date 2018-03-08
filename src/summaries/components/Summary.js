@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 
 import './Summary.css'
@@ -9,7 +10,7 @@ import StoryBig from './StoryBig'
 
 class Summary extends React.Component {
   shouldComponentUpdate(nextProps) {
-    return this.props.size !== nextProps.size
+    return !_.isEqual(this.props, nextProps)
   }
 
   render() {
