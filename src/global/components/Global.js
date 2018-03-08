@@ -14,11 +14,11 @@ const Global = ({ match }) => {
     <div className="row">
       <Filterable filters={filters} />
 
-      <div className="col-8">
+      <div className="col-12 col-lg-8">
         <Feed feedId="global" filter={filter} url={url} />
       </div>
 
-      <div className="col-4">
+      <div className="col-4 order-first order-lg-last d-none d-lg-block">
         <Ad />
       </div>
     </div>

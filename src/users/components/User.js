@@ -38,11 +38,11 @@ const User = ({ match }) => {
     <div className="row">
       <Filterable filters={filters} />
 
-      <div className="col-8">
+      <div className="col-12 col-lg-8">
         <Feed feedId={username} filter={filter} url={url} />
       </div>
 
-      <div className="col-4">
+      <div className="col-12 col-lg-4 order-first order-lg-last mb-4 mb-lg-0">
         <UserCard id={username} />
       </div>
     </div>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Summaries from '../../summaries/components/Summaries'
 import { ITEM_SMALL } from '../../settings/constants'
 
+import Ad from '../../ads/components/Ad'
 import SearchGroup from './SearchGroup'
 import User from './User'
 import ChannelCard from '../../channels/components/ChannelCard'
@@ -69,7 +70,7 @@ export class Search extends Component {
 
     return (
       <div className="row">
-        <div className="col-8">
+        <div className="col-12 col-lg-8">
           <h5 className="mb-4">
             {searchTitle()} {searchMeta()}
           </h5>
@@ -105,12 +106,16 @@ export class Search extends Component {
             <div className="row">
               {channels.items &&
                 channels.items.map(i => (
-                  <div className="col-6 mb-4" key={i.id}>
+                  <div className="col-12 col-md-6 mb-4" key={i.id}>
                     <ChannelCard channel={i} control={{ status: 'success' }} />
                   </div>
                 ))}
             </div>
           </SearchGroup>
+        </div>
+
+        <div className="col-4 d-none d-lg-block">
+          <Ad />
         </div>
       </div>
     )
