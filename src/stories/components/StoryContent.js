@@ -27,7 +27,7 @@ const StoryContent = ({
         {title && <h4 className="card-title ">{title}</h4>}
         {content}
       </div>
-      <div className="card-footer bg-transparent">
+      <div className="card-footer bg-light">
         <Action className="mr-4" icon="fa fa-arrow-up">
           {humanizeNum(upvotes)}
         </Action>
