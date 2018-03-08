@@ -2,7 +2,7 @@ import React from 'react'
 
 const StoryTitle = ({ children, ...props }) => {
   return (
-    <p {...props} style={{ wordBreak: 'break-all' }}>
+    <p {...props} style={{ wordBreak: 'break-word' }}>
       {children}
     </p>
   )
