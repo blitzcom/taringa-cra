@@ -48,6 +48,7 @@ const StorySmall = ({
   return (
     <div className="d-flex align-items-baseline">
       <StoryThumbnail
+        className="d-flex"
         icon={isPreviewOpen ? 'fa fa-compress' : icon}
         size={30}
         slug={slug}

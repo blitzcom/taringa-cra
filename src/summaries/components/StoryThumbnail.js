@@ -11,7 +11,7 @@ const StoryThumbnail = ({
   ...rest
 }) => {
   const wrapperClass = classNames(
-    'align-items-center border d-flex justify-content-center',
+    'align-items-center border justify-content-center',
     className
   )
 
