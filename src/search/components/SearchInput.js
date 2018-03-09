@@ -71,7 +71,7 @@ export class SearchInput extends Component {
     })
 
     return (
-      <div className="SearchInput input-group">
+      <div className="SearchInput input-group w-100">
         <div className="input-group-prepend">
           <button className="btn" type="button" onClick={this.handleClick}>
             <i className={iconClass} />

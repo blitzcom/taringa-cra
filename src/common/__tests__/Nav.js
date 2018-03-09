@@ -4,6 +4,8 @@ import { MemoryRouter } from 'react-router-dom'
 
 import Nav from '../Nav'
 
+window.$ = () => {}
+
 describe('Nav', () => {
   it('exists', () => {
     expect(Nav).toBeDefined()

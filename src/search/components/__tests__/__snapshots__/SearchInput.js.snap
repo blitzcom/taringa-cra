@@ -7,7 +7,7 @@ exports[`Search Input clears search input 1`] = `
   onClear={[Function]}
 >
   <div
-    className="SearchInput input-group"
+    className="SearchInput input-group w-100"
   >
     <div
       className="input-group-prepend"
@@ -53,7 +53,7 @@ exports[`Search Input clears search input 2`] = `
   onClear={[Function]}
 >
   <div
-    className="SearchInput input-group"
+    className="SearchInput input-group w-100"
   >
     <div
       className="input-group-prepend"
@@ -81,7 +81,7 @@ exports[`Search Input clears search input 2`] = `
 
 exports[`Search Input renders 1`] = `
 <div
-  className="SearchInput input-group"
+  className="SearchInput input-group w-100"
 >
   <div
     className="input-group-prepend"
@@ -108,7 +108,7 @@ exports[`Search Input renders 1`] = `
 
 exports[`Search Input renders spinner 1`] = `
 <div
-  className="SearchInput input-group"
+  className="SearchInput input-group w-100"
 >
   <div
     className="input-group-prepend"
@@ -135,7 +135,7 @@ exports[`Search Input renders spinner 1`] = `
 
 exports[`Search Input shows clear button 1`] = `
 <div
-  className="SearchInput input-group"
+  className="SearchInput input-group w-100"
 >
   <div
     className="input-group-prepend"
@@ -162,7 +162,7 @@ exports[`Search Input shows clear button 1`] = `
 
 exports[`Search Input shows clear button 2`] = `
 <div
-  className="SearchInput input-group"
+  className="SearchInput input-group w-100"
 >
   <div
     className="input-group-prepend"
