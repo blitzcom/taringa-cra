@@ -14,10 +14,10 @@ class Summary extends React.Component {
   }
 
   render() {
-    const { size, slug, ...rest } = this.props
+    const { slug, ...rest } = this.props
 
     const getStoryContent = () => {
-      switch (size) {
+      switch (rest.size) {
         case ITEM_BIG:
           return <StoryBig {...rest} />
         case ITEM_SMALL:

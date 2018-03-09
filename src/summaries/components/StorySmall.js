@@ -20,6 +20,7 @@ const StorySmall = ({
   owner,
   preview,
   score,
+  size,
   slug,
   title,
 }) => {
@@ -57,8 +58,14 @@ const StorySmall = ({
       <Action className="ml-0 ml-sm-4" icon="fa fa-arrow-up" />
 
       <div
-        className="small text-center font-weight-bold"
+        className="small text-center font-weight-bold d-none d-sm-block"
         style={{ minWidth: 36 }}
+      >
+        {score}
+      </div>
+
+      <div
+        className="small text-center font-weight-bold d-sm-none"
       >
         {score}
       </div>
@@ -78,13 +85,13 @@ const StorySmall = ({
       <StoryOwner
         channel={channel}
         channelName={channelName}
-        className="mr-2 mb-0 text-secondary small text-nowrap"
+        className="mr-sm-2 mb-0 text-secondary small text-nowrap"
         created={created}
         formatter={shortESFormatter}
         owner={owner}
+        size={size}
         style={{ flex: 1 }}
       >
-        Por
       </StoryOwner>
 
       <Action className="d-none d-sm-block" icon="far fa-comment">
