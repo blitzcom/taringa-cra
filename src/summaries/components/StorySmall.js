@@ -64,9 +64,7 @@ const StorySmall = ({
         {score}
       </div>
 
-      <div
-        className="small text-center font-weight-bold d-sm-none"
-      >
+      <div className="small text-center font-weight-bold d-sm-none">
         {score}
       </div>
 
@@ -91,8 +89,7 @@ const StorySmall = ({
         owner={owner}
         size={size}
         style={{ flex: 1 }}
-      >
-      </StoryOwner>
+      />
 
       <Action className="d-none d-sm-block" icon="far fa-comment">
         {humanizeNum(comments)}
