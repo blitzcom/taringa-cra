@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import $ from 'jquery'
 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/css/bootstrap.css'
 import './fontawesome-all.css'
 import './index.css'
@@ -13,6 +15,8 @@ import registerServiceWorker from './registerServiceWorker'
 import configure from './store'
 import { restoreItemSize } from './settings/actions'
 import { add as addFlash } from './flash/actions'
+
+window.$ = $
 
 const store = configure()
 restoreItemSize(store)
