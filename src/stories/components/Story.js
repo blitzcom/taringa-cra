@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Story.css'
 
-import UserCard from '../../users/components/UserCardContainer'
+import UserCard from './StoryUserCardContainer'
 import StoryContent from './StoryContentContainer'
 import Comments from '../../comments/components/CommentsContainer'
 import { slugToId } from '../../utils/slug'

@@ -6,7 +6,6 @@ import Taringa from '../api'
 import * as actions from './actions'
 import { story as storySchema } from './schemas'
 import { loadComments } from '../comments/sagas'
-import { fetch as fetchUser } from '../users/sagas'
 
 export const getStory = (state, id) => state.entities.stories[id]
 
@@ -31,7 +30,6 @@ export function* loadStory({ id }) {
     yield put(action)
 
     yield fork(loadComments, { id })
-    yield fork(fetchUser, { username: story.owner.username })
   } catch (e) {
     yield put(actions.fetchFailure(id, e.message))
   }

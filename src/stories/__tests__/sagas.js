@@ -46,10 +46,6 @@ describe('Load story saga', () => {
       expect(result).toEqual(fork(loadComments, { id }))
     })
 
-    it('forks to load user', result => {
-      expect(result).toEqual(fork(fetchUser, { username: 'foo' }))
-    })
-
     it('ends', result => {
       expect(result).toBeUndefined()
     })
