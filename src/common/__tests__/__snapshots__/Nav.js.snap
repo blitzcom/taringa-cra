@@ -2,7 +2,7 @@
 
 exports[`Nav renders default 1`] = `
 <div
-  className="navbar navbar-expand navbar-dark Nav"
+  className="navbar navbar-expand-md navbar-dark Nav"
 >
   <div
     className="container"
@@ -14,11 +14,21 @@ exports[`Nav renders default 1`] = `
     >
       TARINGA!
     </Link>
+    <button
+      aria-expanded="false"
+      className="navbar-toggler"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
     <div
       className="collapse navbar-collapse"
     >
       <div
-        className="form-inline d-none d-md-block ml-md-4"
+        className="form-inline mt-3 mt-md-0 mb-1 mb-md-0"
       >
         <withRouter(Connect(SearchInput)) />
       </div>
