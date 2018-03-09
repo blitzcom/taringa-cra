@@ -52,13 +52,13 @@ const getIcon = (story = {}) => {
 
   switch (kind) {
     case 'image':
-      return 'fa fa-image'
+      return 'far fa-image'
     case 'link':
       return 'fa fa-link'
     case 'article':
-      return 'fa fa-file-alt'
+      return 'far fa-file-alt'
     case 'text':
-      return 'fa fa-comment'
+      return 'far fa-comment'
     default:
       return 'fa fa-question'
   }
