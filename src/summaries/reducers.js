@@ -17,6 +17,7 @@ export const summariesEntities = (state = {}, action) => {
 const fetchControlInitialState = {
   after: null,
   before: null,
+  count: 0,
   error: '',
   ids: [],
   status: 'success',
@@ -53,6 +54,7 @@ const fetchingTail = (state = fetchControlInitialState, action) => {
       return _.assign({}, state, {
         after: action.after,
         before: action.before,
+        count: action.count,
         ids: _.union(state.ids, action.result),
         status: 'success',
         totalCount: action.totalCount,

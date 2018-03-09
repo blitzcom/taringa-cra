@@ -42,6 +42,7 @@ describe('Summaries fetch control reducer', () => {
       1: {
         after: null,
         before: null,
+        count: 0,
         error: '',
         ids: [],
         status: 'fetching',
