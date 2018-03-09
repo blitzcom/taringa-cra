@@ -20,7 +20,7 @@ const StoryThumbnail = ({
   const wrapperStyle = {
     borderColor: '#6c757d',
     borderRadius: 3,
-    color: '#6c757d',
+    color: 'rgba(17, 17, 17, 0.4)',
     height: defaultSize,
     minHeight: defaultSize,
     minWidth: defaultSize,

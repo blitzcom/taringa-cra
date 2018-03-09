@@ -155,7 +155,7 @@ exports[`Search Title when has users and stories and is fetching renders message
               "channelName": null,
               "comments": 78,
               "created": 1513920502005,
-              "icon": "fa fa-image",
+              "icon": "far fa-image",
               "id": "zbmsb",
               "owner": "Fraudier",
               "preview": Object {
@@ -262,7 +262,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
               "channelName": null,
               "comments": 78,
               "created": 1513920502005,
-              "icon": "fa fa-image",
+              "icon": "far fa-image",
               "id": "zbmsb",
               "owner": "Fraudier",
               "preview": Object {
@@ -369,7 +369,7 @@ exports[`Search Title when has users renders message 1`] = `
               "channelName": null,
               "comments": 78,
               "created": 1513920502005,
-              "icon": "fa fa-image",
+              "icon": "far fa-image",
               "id": "zbmsb",
               "owner": "Fraudier",
               "preview": Object {
