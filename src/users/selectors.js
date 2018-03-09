@@ -1,30 +1,13 @@
 import { createSelector } from 'reselect'
 
-const storyState = (state, storyId) => state.entities.stories[storyId]
-const usersControlState = state => state.control.usersFetch
-const usersState = state => state.entities.users
+const userControlState = (state, ownProps) =>
+  state.control.usersFetch[ownProps.username]
+const userState = (state, ownProps) => state.entities.users[ownProps.username]
 
-export const userControlSelector = createSelector(
-  storyState,
-  usersControlState,
-  usersState,
-  (story, controls, users) => {
-    if (story && controls[story.owner.username]) {
-      return controls[story.owner.username]
-    }
+export const userControlSelector = createSelector(userControlState, control => {
+  return control || { status: 'fetching' }
+})
 
-    return { status: 'fetching' }
-  }
-)
-
-export const userSelector = createSelector(
-  storyState,
-  usersState,
-  (story, users) => {
-    if (story && users[story.owner.username]) {
-      return users[story.owner.username]
-    }
-
-    return {}
-  }
-)
+export const userSelector = createSelector(userState, user => {
+  return user || {}
+})

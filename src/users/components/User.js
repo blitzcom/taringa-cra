@@ -2,7 +2,7 @@ import React from 'react'
 
 import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
-import UserCard from './UserCard'
+import UserCard from './UserCardContainer'
 
 const User = ({ match }) => {
   const username = match.params.username
@@ -43,7 +43,7 @@ const User = ({ match }) => {
       </div>
 
       <div className="col-12 col-lg-4 order-first order-lg-last mb-4 mb-lg-0">
-        <UserCard id={username} />
+        <UserCard username={username} />
       </div>
     </div>
   )
