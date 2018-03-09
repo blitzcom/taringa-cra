@@ -2,10 +2,10 @@
 
 exports[`Comment renders default 1`] = `
 <div
-  className="Comment mb-4 d-flex"
+  className="Comment mb-2 d-flex"
 >
   <div
-    className="Comment-avatar mr-3"
+    className="Comment-avatar mr-3 mr-lg-4"
   >
     <img
       alt="Foobar"
@@ -20,6 +20,7 @@ exports[`Comment renders default 1`] = `
       className="Comment-author"
     >
       <Link
+        className="text-dark"
         onClick={[Function]}
         replace={false}
         to="/u/Foobar"
@@ -38,7 +39,7 @@ exports[`Comment renders default 1`] = `
       />
     </h6>
     <div
-      className="Comment-body mb-3"
+      className="Comment-body"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
@@ -46,7 +47,7 @@ exports[`Comment renders default 1`] = `
       }
     />
     <p
-      className="mb-1"
+      className="my-1"
     >
       <Action
         className="mr-3"
@@ -76,10 +77,10 @@ exports[`Comment renders default 1`] = `
 
 exports[`Comment renders with replies 1`] = `
 <div
-  className="Comment mb-4 d-flex"
+  className="Comment mb-2 d-flex"
 >
   <div
-    className="Comment-avatar mr-3"
+    className="Comment-avatar mr-3 mr-lg-4"
   >
     <img
       alt="Foobar"
@@ -94,6 +95,7 @@ exports[`Comment renders with replies 1`] = `
       className="Comment-author"
     >
       <Link
+        className="text-dark"
         onClick={[Function]}
         replace={false}
         to="/u/Foobar"
@@ -112,7 +114,7 @@ exports[`Comment renders with replies 1`] = `
       />
     </h6>
     <div
-      className="Comment-body mb-3"
+      className="Comment-body"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
@@ -120,7 +122,7 @@ exports[`Comment renders with replies 1`] = `
       }
     />
     <p
-      className="mb-1"
+      className="my-1"
     >
       <Action
         className="mr-3"
@@ -145,7 +147,7 @@ exports[`Comment renders with replies 1`] = `
       />
     </p>
     <button
-      className="btn btn-link text-dark Comment-replies-toggler"
+      className="btn btn-link text-dark Comment-replies-toggler mb-2"
       onClick={[Function]}
     >
       <span>
@@ -161,10 +163,10 @@ exports[`Comment renders with replies 1`] = `
 
 exports[`Comment renders with reply 1`] = `
 <div
-  className="Comment mb-4 d-flex"
+  className="Comment mb-2 d-flex"
 >
   <div
-    className="Comment-avatar mr-3"
+    className="Comment-avatar mr-3 mr-lg-4"
   >
     <img
       alt="Foobar"
@@ -179,6 +181,7 @@ exports[`Comment renders with reply 1`] = `
       className="Comment-author"
     >
       <Link
+        className="text-dark"
         onClick={[Function]}
         replace={false}
         to="/u/Foobar"
@@ -197,7 +200,7 @@ exports[`Comment renders with reply 1`] = `
       />
     </h6>
     <div
-      className="Comment-body mb-3"
+      className="Comment-body"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
@@ -205,7 +208,7 @@ exports[`Comment renders with reply 1`] = `
       }
     />
     <p
-      className="mb-1"
+      className="my-1"
     >
       <Action
         className="mr-3"
@@ -230,7 +233,7 @@ exports[`Comment renders with reply 1`] = `
       />
     </p>
     <button
-      className="btn btn-link text-dark Comment-replies-toggler"
+      className="btn btn-link text-dark Comment-replies-toggler mb-2"
       onClick={[Function]}
     >
       <span>
@@ -246,10 +249,10 @@ exports[`Comment renders with reply 1`] = `
 
 exports[`Comment renders with visible replies 1`] = `
 <div
-  className="Comment mb-4 d-flex"
+  className="Comment mb-2 d-flex"
 >
   <div
-    className="Comment-avatar mr-3"
+    className="Comment-avatar mr-3 mr-lg-4"
   >
     <img
       alt="Foobar"
@@ -264,6 +267,7 @@ exports[`Comment renders with visible replies 1`] = `
       className="Comment-author"
     >
       <Link
+        className="text-dark"
         onClick={[Function]}
         replace={false}
         to="/u/Foobar"
@@ -282,7 +286,7 @@ exports[`Comment renders with visible replies 1`] = `
       />
     </h6>
     <div
-      className="Comment-body mb-3"
+      className="Comment-body"
       dangerouslySetInnerHTML={
         Object {
           "__html": "I am a text comment",
@@ -290,7 +294,7 @@ exports[`Comment renders with visible replies 1`] = `
       }
     />
     <p
-      className="mb-1"
+      className="my-1"
     >
       <Action
         className="mr-3"
@@ -315,7 +319,7 @@ exports[`Comment renders with visible replies 1`] = `
       />
     </p>
     <button
-      className="btn btn-link text-dark Comment-replies-toggler"
+      className="btn btn-link text-dark Comment-replies-toggler mb-2"
       onClick={[Function]}
     >
       <span>
@@ -326,7 +330,7 @@ exports[`Comment renders with visible replies 1`] = `
       </span>
     </button>
     <div
-      className="Comment-replies mt-4"
+      className="Comment-replies mt-2"
     >
       <Comment
         attachment={null}

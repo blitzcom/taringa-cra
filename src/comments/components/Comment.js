@@ -34,7 +34,7 @@ class Comment extends Component {
 
       return (
         <button
-          className="btn btn-link text-dark Comment-replies-toggler"
+          className="btn btn-link text-dark Comment-replies-toggler mb-2"
           onClick={this.toggleRepliesVisibility.bind(this)}
         >
           {showReplies ? (
@@ -65,33 +65,37 @@ class Comment extends Component {
     const { body, created, downvotes, owner, replies, upvotes } = this.props
 
     return (
-      <div className="Comment mb-4 d-flex">
-        <div className="Comment-avatar mr-3">
+      <div className="Comment mb-2 d-flex">
+        <div className="Comment-avatar mr-3 mr-lg-4">
           <img
-            src={owner.avatar}
-            className="rounded Comment-avatar"
             alt={owner.username}
+            className="rounded Comment-avatar"
+            src={owner.avatar}
           />
         </div>
         <div className="Comment-content">
           <h6 className="Comment-author">
-            <Link to={`/u/${owner.username}`} onClick={this.handleOnClik}>
+            <Link
+              className="text-dark"
+              onClick={this.handleOnClik}
+              to={`/u/${owner.username}`}
+            >
               {owner.username}
             </Link>
 
             <TimeAgo
+              className="Comment-meta-created"
               date={created}
               formatter={esFormatter}
-              className="Comment-meta-created"
             />
           </h6>
 
           <div
-            className="Comment-body mb-3"
+            className="Comment-body"
             dangerouslySetInnerHTML={{ __html: body }}
           />
 
-          <p className="mb-1">
+          <p className="my-1">
             <Action className="mr-3" icon="far fa-thumbs-up">
               {humanizeNum(upvotes)}
             </Action>
@@ -107,7 +111,7 @@ class Comment extends Component {
           {this.renderRepliesToggler()}
 
           {showReplies && (
-            <div className="Comment-replies mt-4">
+            <div className="Comment-replies mt-2">
               {replies.items.map(r => <Comment key={r.id} {...r} />)}
             </div>
           )}
