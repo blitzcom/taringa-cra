@@ -42,7 +42,7 @@ const StoryOwner = ({
           href={ownerURL}
           onClick={handleOnClick}
         >
-          <i className="far fa-user" />
+          <i className="far fa-user small" />
         </a>
       )}
 
@@ -62,7 +62,7 @@ const StoryOwner = ({
             href={channelURL}
             onClick={handleOnClick}
           >
-            <i className="fa fa-tag" />
+            <i className="fa fa-tag small" />
           </a>
         )}
 
