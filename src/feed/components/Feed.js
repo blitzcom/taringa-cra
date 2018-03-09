@@ -8,7 +8,7 @@ import { itemsSelector } from '../selectors'
 const mapStateToProps = (state, ownProps) => {
   const defaultFeed = { status: 'fetching', ids: [], totalCount: 0 }
   const feed = state.feed[ownProps.feedId] || defaultFeed
-  const hasMoreContent = feed.ids.length < feed.totalCount
+  const hasMoreContent = feed.count > 0 || feed.ids.length < feed.totalCount
 
   return {
     items: itemsSelector(state, ownProps),
