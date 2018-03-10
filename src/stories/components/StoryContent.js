@@ -1,5 +1,4 @@
 import React from 'react'
-import { humanizeNum } from '../../Utils'
 
 import './StoryContent.css'
 import Action from '../../common/Action'
@@ -29,14 +28,14 @@ const StoryContent = ({
       </div>
       <div className="card-footer bg-light">
         <Action className="mr-4" icon="fa fa-arrow-up">
-          {humanizeNum(upvotes)}
+          {upvotes.humanize()}
         </Action>
 
         <Action className="mr-4" icon="fa fa-arrow-down">
-          {humanizeNum(downvotes)}
+          {downvotes.humanize()}
         </Action>
 
-        <Action icon="far fa-comment">{humanizeNum(comments)}</Action>
+        <Action icon="far fa-comment">{comments.humanize()}</Action>
       </div>
     </div>
   )

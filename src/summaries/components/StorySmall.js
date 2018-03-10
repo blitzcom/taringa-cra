@@ -6,7 +6,7 @@ import withPreview from './withPreview'
 import StoryTitle from './StoryTitle'
 import StoryThumbnail from './StoryThumbnail'
 import StoryOwner from './StoryOwner'
-import { shortESFormatter, humanizeNum } from '../../Utils'
+import { shortESFormatter } from '../../Utils'
 
 const StorySmall = ({
   channel,
@@ -93,7 +93,7 @@ const StorySmall = ({
       />
 
       <Action className="d-none d-sm-block" icon="far fa-comment">
-        {humanizeNum(comments)}
+        {comments.humanize()}
       </Action>
     </div>
   )

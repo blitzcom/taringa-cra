@@ -4,7 +4,7 @@ import './StoryBig.css'
 import Action from '../../common/Action'
 import StoryTitle from './StoryTitle'
 import StoryOwner from './StoryOwner'
-import { esFormatter, humanizeNum } from '../../Utils'
+import { esFormatter } from '../../Utils'
 
 const StoryBig = ({
   channel,
@@ -90,11 +90,11 @@ const StoryBig = ({
             icon="far fa-comment"
             href={`/story/${slug}`}
           >
-            {humanizeNum(comments)}
+            {comments.humanize()}
           </Action>
 
           <Action className="mr-4" icon="fa fa-retweet">
-            {humanizeNum(shares)}
+            {shares.humanize()}
           </Action>
         </p>
       </div>

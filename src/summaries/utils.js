@@ -1,5 +1,3 @@
-import { humanizeNum } from '../Utils'
-
 const scaleThumbnail = image => {
   if (!image) {
     return null
@@ -112,7 +110,7 @@ export const normalizeStory = story => {
     id: story.id,
     owner: story.owner.username,
     preview: getPreview(story),
-    score: humanizeNum(story.upvotes - story.downvotes),
+    score: (story.upvotes - story.downvotes).humanize(),
     shares: story.shares,
     slug: story.slug,
     thumbnail: getThumbnail(story),
