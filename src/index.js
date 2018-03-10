@@ -17,7 +17,7 @@ import configure from './store'
 import { restoreItemSize } from './settings/actions'
 import { add as addFlash } from './flash/actions'
 
-window.$ = $
+global.$ = $
 
 const store = configure()
 restoreItemSize(store)

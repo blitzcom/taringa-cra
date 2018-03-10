@@ -1,8 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 
-import { scrolledToBottom } from '../utils/Scroll'
-
 const infiniteScroll = (
   throttleDelay = 250,
   threshold = 400
@@ -38,7 +36,7 @@ const infiniteScroll = (
       const { hasMoreContent, status } = this.props
 
       if (
-        scrolledToBottom(threshold) &&
+        global.Viewport.scrolledToBottom(threshold) &&
         hasMoreContent &&
         status !== 'fetching'
       ) {

@@ -10,3 +10,7 @@ export const scrolledToBottom = (scrollThreshold = 400) => {
 
   return documentHeight - scrollTop - windowHeight < scrollThreshold
 }
+
+global.Viewport = {
+  scrolledToBottom,
+}
