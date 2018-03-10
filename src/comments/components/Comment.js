@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 import './Comment.css'
 import Action from '../../common/Action.js'
-import { esFormatter } from '../../Utils'
 
 class Comment extends Component {
   constructor(props) {
@@ -84,7 +83,7 @@ class Comment extends Component {
             <TimeAgo
               className="Comment-meta-created"
               date={created}
-              formatter={esFormatter}
+              formatter={Intl.ES()}
             />
           </h6>
 

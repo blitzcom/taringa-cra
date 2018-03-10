@@ -1,6 +1,6 @@
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 
-export const esFormatter = buildFormatter({
+const ESFormatter = buildFormatter({
   prefixAgo: 'hace',
   prefixFromNow: 'dentro de',
   suffixAgo: '',
@@ -18,7 +18,7 @@ export const esFormatter = buildFormatter({
   years: '%d años',
 })
 
-export const shortESFormatter = buildFormatter({
+const ESShortFormatter = buildFormatter({
   prefixAgo: '\u2219',
   prefixFromNow: '',
   suffixAgo: '',
@@ -35,3 +35,11 @@ export const shortESFormatter = buildFormatter({
   year: '1 a',
   years: '%d a',
 })
+
+Intl.ES = function() {
+  return ESFormatter
+}
+
+Intl.ESShort = function() {
+  return ESShortFormatter
+}

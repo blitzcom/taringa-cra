@@ -6,7 +6,6 @@ import withPreview from './withPreview'
 import StoryTitle from './StoryTitle'
 import StoryThumbnail from './StoryThumbnail'
 import StoryOwner from './StoryOwner'
-import { shortESFormatter } from '../../Utils'
 
 const StorySmall = ({
   channel,
@@ -86,7 +85,7 @@ const StorySmall = ({
         channelName={channelName}
         className="mr-sm-2 mb-0 text-secondary small text-nowrap"
         created={created}
-        formatter={shortESFormatter}
+        formatter={Intl.ESShort()}
         owner={owner}
         size={size}
         style={{ flex: 1 }}

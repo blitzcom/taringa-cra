@@ -4,7 +4,6 @@ import './StoryBig.css'
 import Action from '../../common/Action'
 import StoryTitle from './StoryTitle'
 import StoryOwner from './StoryOwner'
-import { esFormatter } from '../../Utils'
 
 const StoryBig = ({
   channel,
@@ -57,7 +56,7 @@ const StoryBig = ({
           channelName={channelName}
           className="text-secondary mb-1"
           created={created}
-          formatter={esFormatter}
+          formatter={Intl.ES()}
           owner={owner}
           style={{ fontSize: '85%' }}
         >
