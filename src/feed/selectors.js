@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { createSelector } from 'reselect'
-import { normalizeStory } from '../summaries/utils'
+import normalizer from '../utils/summary'
 
 const feedState = (state, ownProps) =>
   state.feed[ownProps.feedId] || { status: 'fetching', ids: [], totalCount: 0 }
@@ -21,7 +21,7 @@ export const itemsSelector = createSelector(
         channel: channels[summary.channel],
       })
 
-      return normalizeStory(denormalizedSummary)
+      return normalizer.normalize(denormalizedSummary)
     })
   }
 )

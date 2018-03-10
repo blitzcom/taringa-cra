@@ -8,7 +8,7 @@ import StoryThumbnail from './StoryThumbnail'
 import StoryOwner from './StoryOwner'
 
 const StorySmall = ({
-  channel,
+  channelTitle,
   channelName,
   comments,
   created,
@@ -81,7 +81,7 @@ const StorySmall = ({
       )}
 
       <StoryOwner
-        channel={channel}
+        channelTitle={channelTitle}
         channelName={channelName}
         className="mr-sm-2 mb-0 text-secondary small text-nowrap"
         created={created}
@@ -92,7 +92,7 @@ const StorySmall = ({
       />
 
       <Action className="d-none d-sm-block" icon="far fa-comment">
-        {comments.humanize()}
+        {comments}
       </Action>
     </div>
   )

@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 export function scale(width, height) {
-  if (this.indexOf('kn3') === -1) {
+  if (!this.isKN3()) {
     return this
   }
 
@@ -18,7 +18,31 @@ export function slugToId() {
   return ''
 }
 
+export function thumbnail(width, height, size = 78) {
+  let nextSize = ''
+
+  if (width < height) {
+    nextSize = `${size}x${height}`
+  } else if (height < width) {
+    nextSize = `${width}x${size}`
+  } else {
+    nextSize = `${size}x${size}`
+  }
+
+  if (!this.isKN3()) {
+    return this
+  }
+
+  return this.replace(/(\w+?)(\.\w+?)$/g, `${nextSize}_$1$2`)
+}
+
+export function isKN3() {
+  return this.indexOf('kn3') > -1
+}
+
 _.assign(String.prototype, {
+  isKN3,
   scale,
   slugToId,
+  thumbnail,
 })
