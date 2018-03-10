@@ -33,10 +33,6 @@ class Summary {
     return null
   }
 
-  getPreviewKind() {
-    return null
-  }
-
   getScore() {
     return (this.summary.upvotes - this.summary.downvotes).humanize()
   }
@@ -86,7 +82,6 @@ class Summary {
       id: this.getId(),
       owner: this.getOwner(),
       preview: this.getPreview(),
-      previewKind: this.getPreviewKind(),
       score: this.getScore(),
       shares: this.getShares(),
       slug: this.getSlug(),

@@ -19,7 +19,6 @@ const StoryMedium = ({
   onTogglePreview,
   owner,
   preview,
-  previewKind,
   score,
   shares,
   slug,
@@ -98,7 +97,7 @@ const StoryMedium = ({
         </StoryOwner>
 
         <p className="m-0">
-          {previewKind && (
+          {preview && (
             <Action
               className="mr-3 mr-md-4"
               icon={previewIconClass}
