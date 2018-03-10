@@ -1,8 +1,10 @@
+import React from 'react'
 import Summary from './Summary'
 
 class Image extends Summary {
   getPreview() {
-    return this.summary.summary.images.slice[0].url
+    const url = this.summary.summary.images.slice[0].url
+    return <img alt={url} className="img-fluid" src={url} />
   }
 
   getPreviewKind() {

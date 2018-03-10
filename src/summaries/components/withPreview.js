@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import StoryPreview from './StoryPreview'
 
-const defaultGetContent = props => (props.previewKind ? props.preview : null)
-
-const withPreview = (getContent = defaultGetContent) => WrappedComponent => {
+const withPreview = () => WrappedComponent => {
   return class PreviewHOC extends Component {
     constructor(props) {
       super(props)
@@ -25,24 +23,22 @@ const withPreview = (getContent = defaultGetContent) => WrappedComponent => {
 
     render() {
       const { isPreviewOpen } = this.state
+      const { preview } = this.props
 
       if (this.props.isPlaceholder) {
         return <WrappedComponent {...this.props} />
       }
 
       return (
-        <div>
+        <Fragment>
           <WrappedComponent
             {...this.props}
             isPreviewOpen={isPreviewOpen}
             onTogglePreview={this.handleTogglePreview}
           />
 
-          <StoryPreview
-            content={getContent(this.props)}
-            isOpen={isPreviewOpen}
-          />
-        </div>
+          {isPreviewOpen && <StoryPreview>{preview}</StoryPreview>}
+        </Fragment>
       )
     }
   }
