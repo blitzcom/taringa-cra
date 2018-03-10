@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import './Comment.css'
 import Action from '../../common/Action.js'
 import { esFormatter } from '../../Utils'
-import { pluralize } from '../../utils/StringHelpers'
 
 class Comment extends Component {
   constructor(props) {
@@ -39,13 +38,12 @@ class Comment extends Component {
         >
           {showReplies ? (
             <span>
-              {`Ocultar ${pluralize(repliesCount, 'respuesta', null, true)} `}
+              {`Ocultar ${repliesCount.pluralize('respuesta', null, true)} `}
               <i className="fa fa-chevron-up" />
             </span>
           ) : (
             <span>
-              {`Ver ${pluralize(
-                repliesCount,
+              {`Ver ${repliesCount.pluralize(
                 'respuesta',
                 null,
                 repliesCount === 1
