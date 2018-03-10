@@ -1,4 +1,6 @@
-export const scrolledToBottom = (scrollThreshold = 400) => {
+class Viewport {}
+
+Viewport.scrolledToBottom = (scrollThreshold = 400) => {
   const scrollTop =
     (document.documentElement && document.documentElement.scrollTop) ||
     document.body.scrollTop
@@ -11,6 +13,4 @@ export const scrolledToBottom = (scrollThreshold = 400) => {
   return documentHeight - scrollTop - windowHeight < scrollThreshold
 }
 
-global.Viewport = {
-  scrolledToBottom,
-}
+global.Viewport = Viewport
