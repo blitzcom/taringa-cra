@@ -9,8 +9,8 @@ import StoryOwner from './StoryOwner'
 import withPreview from './withPreview'
 
 const StoryMedium = ({
-  channel,
   channelName,
+  channelTitle,
   comments,
   created,
   icon,
@@ -19,6 +19,7 @@ const StoryMedium = ({
   onTogglePreview,
   owner,
   preview,
+  previewKind,
   score,
   shares,
   slug,
@@ -86,8 +87,8 @@ const StoryMedium = ({
         {title && <StoryTitle className="m-0">{title}</StoryTitle>}
 
         <StoryOwner
-          channel={channel}
           channelName={channelName}
+          channelTitle={channelTitle}
           className="text-secondary small mb-2"
           created={created}
           formatter={Intl.ES()}
@@ -97,24 +98,23 @@ const StoryMedium = ({
         </StoryOwner>
 
         <p className="m-0">
-          {preview &&
-            preview.kind === 'image' && (
-              <Action
-                className="mr-3 mr-md-4"
-                icon={previewIconClass}
-                onClick={onTogglePreview}
-              />
-            )}
+          {previewKind && (
+            <Action
+              className="mr-3 mr-md-4"
+              icon={previewIconClass}
+              onClick={onTogglePreview}
+            />
+          )}
 
           <Action
             className="mr-3 mr-md-4"
             icon="far fa-comment"
             to={`/story/${slug}`}
           >
-            {comments.humanize()}
+            {comments}
           </Action>
 
-          <Action icon="fa fa-retweet">{shares.humanize()}</Action>
+          <Action icon="fa fa-retweet">{shares}</Action>
         </p>
       </div>
     </div>

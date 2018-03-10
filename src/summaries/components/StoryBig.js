@@ -6,7 +6,7 @@ import StoryTitle from './StoryTitle'
 import StoryOwner from './StoryOwner'
 
 const StoryBig = ({
-  channel,
+  channelTitle,
   channelName,
   comments,
   created,
@@ -52,7 +52,7 @@ const StoryBig = ({
 
       <div className="ml-2">
         <StoryOwner
-          channel={channel}
+          channelTitle={channelTitle}
           channelName={channelName}
           className="text-secondary mb-1"
           created={created}
@@ -89,11 +89,11 @@ const StoryBig = ({
             icon="far fa-comment"
             href={`/story/${slug}`}
           >
-            {comments.humanize()}
+            {comments}
           </Action>
 
           <Action className="mr-4" icon="fa fa-retweet">
-            {shares.humanize()}
+            {shares}
           </Action>
         </p>
       </div>

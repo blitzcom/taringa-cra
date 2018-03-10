@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import { ITEM_SMALL } from '../../settings/constants'
 
 const StoryOwner = ({
-  channel,
+  channelTitle,
   channelName,
   children,
   created,
@@ -18,7 +18,7 @@ const StoryOwner = ({
   const handleOnClick = e => e.stopPropagation()
 
   const ownerURL = `/u/${owner}`
-  const channelURL = `/c/${channel}`
+  const channelURL = `/c/${channelTitle}`
 
   const isSmall = size === ITEM_SMALL
 
@@ -50,7 +50,7 @@ const StoryOwner = ({
         <span className={responsiveClasses}>
           {'en '}
           <Link to={channelURL} onClick={handleOnClick}>
-            {channelName}
+            {channelTitle}
           </Link>{' '}
         </span>
       )}
