@@ -39,7 +39,7 @@ const StorySmall = ({
     e.preventDefault()
     e.stopPropagation()
 
-    if (preview && preview.kind === 'image') {
+    if (preview) {
       onTogglePreview(e)
     }
   }
