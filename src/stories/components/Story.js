@@ -5,10 +5,9 @@ import './Story.css'
 import UserCard from './StoryUserCardContainer'
 import StoryContent from './StoryContentContainer'
 import Comments from '../../comments/components/CommentsContainer'
-import { slugToId } from '../../utils/slug'
 
 const Story = ({ match }) => {
-  const storyId = slugToId(match.params.slug)
+  const storyId = match.params.slug.slugToId()
 
   return (
     <div className="row">

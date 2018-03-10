@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 import './Comment.css'
 import Action from '../../common/Action.js'
-import { esFormatter, humanizeNum } from '../../Utils'
-import { pluralize } from '../../utils/StringHelpers'
 
 class Comment extends Component {
   constructor(props) {
@@ -39,13 +37,12 @@ class Comment extends Component {
         >
           {showReplies ? (
             <span>
-              {`Ocultar ${pluralize(repliesCount, 'respuesta', null, true)} `}
+              {`Ocultar ${repliesCount.pluralize('respuesta', null, true)} `}
               <i className="fa fa-chevron-up" />
             </span>
           ) : (
             <span>
-              {`Ver ${pluralize(
-                repliesCount,
+              {`Ver ${repliesCount.pluralize(
                 'respuesta',
                 null,
                 repliesCount === 1
@@ -86,7 +83,7 @@ class Comment extends Component {
             <TimeAgo
               className="Comment-meta-created"
               date={created}
-              formatter={esFormatter}
+              formatter={Intl.ES()}
             />
           </h6>
 
@@ -97,11 +94,11 @@ class Comment extends Component {
 
           <p className="my-1">
             <Action className="mr-3" icon="far fa-thumbs-up">
-              {humanizeNum(upvotes)}
+              {upvotes.humanize()}
             </Action>
 
             <Action className="mr-3" icon="far fa-thumbs-down">
-              {humanizeNum(downvotes)}
+              {downvotes.humanize()}
             </Action>
 
             <Action className="d-none d-sm-inline">RESPONDER</Action>

@@ -6,7 +6,6 @@ import Action from '../../common/Action'
 import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
 import StoryOwner from './StoryOwner'
-import { esFormatter, humanizeNum } from '../../Utils'
 import withPreview from './withPreview'
 
 const StoryMedium = ({
@@ -91,7 +90,7 @@ const StoryMedium = ({
           channelName={channelName}
           className="text-secondary small mb-2"
           created={created}
-          formatter={esFormatter}
+          formatter={Intl.ES()}
           owner={owner}
         >
           Posteado por
@@ -112,10 +111,10 @@ const StoryMedium = ({
             icon="far fa-comment"
             to={`/story/${slug}`}
           >
-            {humanizeNum(comments)}
+            {comments.humanize()}
           </Action>
 
-          <Action icon="fa fa-retweet">{humanizeNum(shares)}</Action>
+          <Action icon="fa fa-retweet">{shares.humanize()}</Action>
         </p>
       </div>
     </div>

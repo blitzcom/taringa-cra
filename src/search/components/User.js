@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { humanizeNum } from '../../Utils'
-
 const User = props => {
   const fullname = `${props.firstname} ${props.lastname}`
 
@@ -32,9 +30,9 @@ const User = props => {
             </Link>
 
             <p className="mb-0 mt-1 text-muted small">
-              {humanizeNum(props.followers)} seguidores &nbsp;
-              {humanizeNum(props.following)} siguiendo &nbsp;
-              {humanizeNum(props.stories)} posts
+              {props.followers.humanize()} seguidores &nbsp;
+              {props.following.humanize()} siguiendo &nbsp;
+              {props.stories.humanize()} posts
             </p>
           </div>
         </div>

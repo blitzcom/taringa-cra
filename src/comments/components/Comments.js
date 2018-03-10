@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { pluralize } from '../../utils/StringHelpers'
 import Comment from './Comment'
 
 const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
@@ -18,7 +17,7 @@ const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
         {hasComments && (
           <div className="card-body">
             <h6 className="card-title mb-0">
-              {pluralize(totalCount, 'comentario')}
+              {totalCount.pluralize('comentario')}
             </h6>
           </div>
         )}

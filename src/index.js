@@ -10,6 +10,7 @@ import './index.css'
 import './css/placeholder.css'
 import './css/taringa.css'
 
+import './utils'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import configure from './store'
