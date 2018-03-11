@@ -3,8 +3,23 @@ import Summary from './Summary'
 
 class Image extends Summary {
   getPreview() {
-    const url = this.summary.summary.images.slice[0].url
-    return <img alt={url} className="img-fluid" src={url} />
+    const image = this.getFirstSummaryImage()
+
+    if (image) {
+      const { url, width, height } = image
+
+      return (
+        <img
+          alt={url}
+          className="img-fluid"
+          height={height}
+          src={url}
+          width={width}
+        />
+      )
+    }
+
+    return null
   }
 
   getPreviewKind() {
