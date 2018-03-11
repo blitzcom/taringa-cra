@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { createSelector } from 'reselect'
-import normalizer from '../utils/summary'
 
 const feedState = (state, ownProps) =>
   state.feed[ownProps.feedId] || { status: 'fetching', ids: [], totalCount: 0 }
@@ -15,13 +14,13 @@ export const itemsSelector = createSelector(
   channelsState,
   (feed, summaries, users, channels) => {
     return _.map(feed.ids, id => {
-      const summary = summaries[id]
-      const denormalizedSummary = _.assign({}, summary, {
-        owner: users[summary.owner],
-        channel: channels[summary.channel],
+      const normalizedSummary = summaries[id]
+      const summary = _.assign({}, normalizedSummary, {
+        owner: users[normalizedSummary.owner],
+        channel: channels[normalizedSummary.channel],
       })
 
-      return normalizer.normalize(denormalizedSummary)
+      return summary
     })
   }
 )
