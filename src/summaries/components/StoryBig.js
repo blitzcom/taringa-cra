@@ -65,23 +65,7 @@ const StoryBig = ({
 
         <StoryTitle slug={slug}>{title}</StoryTitle>
 
-        {preview && (
-          <p className="mb-2">
-            {preview.kind === 'image' && (
-              <img
-                style={{
-                  maxWidth: '100%',
-                }}
-                src={preview.content}
-                alt={title}
-              />
-            )}
-
-            {preview.kind === 'text' &&
-              preview.content !== title &&
-              preview.content}
-          </p>
-        )}
+        {preview}
 
         <p className="m-0">
           <Action

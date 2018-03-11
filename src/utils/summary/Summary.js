@@ -1,8 +1,24 @@
 class Summary {
+  getFirstSummaryImage() {
+    const images = this.summary.summary.images
+    return images && images.amount > 0 && images.slice.length > 0
+      ? images.slice[0]
+      : null
+  }
+
+  getFirstLinkImage() {
+    const link = this.summary.summary.link
+    return link ? link.images[0] : null
+  }
+
   getChannelName() {
     return this.summary.channel.channelType === 'user_feed'
       ? null
       : this.summary.channel.name
+  }
+
+  getExcerpt() {
+    return this.summary.summary.excerpt
   }
 
   getChannelTitle() {
@@ -46,9 +62,7 @@ class Summary {
   }
 
   getThumbnail() {
-    return this.summary.summary.images.amount > 0
-      ? this.summary.summary.images.slice[0]
-      : null
+    return this.getFirstSummaryImage()
   }
 
   getTitle() {

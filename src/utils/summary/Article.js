@@ -1,8 +1,36 @@
+import React, { Fragment } from 'react'
 import Summary from './Summary'
 
 class Article extends Summary {
   getIcon() {
     return 'far fa-file-alt'
+  }
+
+  getPreview() {
+    const image = this.getFirstLinkImage() || this.getFirstSummaryImage()
+
+    if (image) {
+      const { url, width, height } = image
+
+      return (
+        <Fragment>
+          <p className="text-secondary">{this.getExcerpt()}</p>
+          <img
+            alt={url}
+            className="img-fluid"
+            height={height}
+            src={url}
+            width={width}
+          />
+        </Fragment>
+      )
+    }
+
+    return null
+  }
+
+  getTitle() {
+    return super.getTitle()
   }
 
   getArticleThumbnail() {
