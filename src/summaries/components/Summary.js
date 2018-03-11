@@ -1,41 +1,97 @@
 import _ from 'lodash'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import classNames from 'classnames'
 
 import './Summary.css'
+import history from '../../history'
 import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
-import Story from './Story'
 import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
+import StoryPreview from './StoryPreview'
 import normalizer from '../../utils/summary'
 
+const stories = {
+  [ITEM_BIG]: StoryBig,
+  [ITEM_MEDIUM]: StoryMedium,
+  [ITEM_SMALL]: StorySmall,
+}
+
 class Summary extends Component {
-  shouldComponentUpdate(nextProps) {
-    return !_.isEqual(this.props, nextProps)
+  constructor(props) {
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleTogglePreview = this.handleTogglePreview.bind(this)
+
+    this.state = {
+      isPreviewOpen: false,
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      !_.isEqual(this.props, nextProps) ||
+      this.state.isPreviewOpen !== nextState.isPreviewOpen
+    )
+  }
+
+  handleTogglePreview(e) {
+    e.preventDefault()
+    e.stopPropagation()
+
+    this.setState({ isPreviewOpen: !this.state.isPreviewOpen })
+  }
+
+  handleClick(e) {
+    const { isPlaceholder, summary } = this.props
+
+    if (isPlaceholder && summary) {
+      return
+    }
+
+    history.push(`/story/${summary.slug}`)
+  }
+
+  renderContent() {
+    const { isPreviewOpen } = this.state
+    const { summary: denormalized, isPlaceholder, ...rest } = this.props
+
+    const StoryComponent = stories[rest.size]
+
+    if (isPlaceholder) {
+      return <StoryComponent.Placeholder />
+    } else {
+      const summary = normalizer.normalize(denormalized)
+
+      return (
+        <Fragment>
+          <StoryComponent
+            {...rest}
+            {...summary}
+            isPreviewOpen={isPreviewOpen}
+            onTogglePreview={this.handleTogglePreview}
+          />
+
+          {isPreviewOpen && <StoryPreview>{summary.preview}</StoryPreview>}
+        </Fragment>
+      )
+    }
   }
 
   render() {
-    const { slug, summary, ...rest } = this.props
+    const { isPlaceholder } = this.props
 
-    const getStoryContent = (su = {}) => {
-      switch (rest.size) {
-        case ITEM_BIG:
-          return <StoryBig {...rest} {...su} />
-        case ITEM_SMALL:
-          return <StorySmall {...rest} {...su} />
-        case ITEM_MEDIUM:
-        default:
-          return <StoryMedium {...rest} {...su} />
-      }
-    }
+    const classes = classNames('list-group-item p-2', {
+      'list-group-item-action': !isPlaceholder,
+      Summary: !isPlaceholder,
+    })
 
-    if (rest.isPlaceholder) {
-      return getStoryContent()
-    }
-
-    const su = normalizer.normalize(summary)
-
-    return <Story slug={slug}>{getStoryContent(su)}</Story>
+    return (
+      <div className={classes} onClick={this.handleClick}>
+        {this.renderContent()}
+      </div>
+    )
   }
 }
 
