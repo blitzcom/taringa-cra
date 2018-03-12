@@ -36,13 +36,13 @@ class Summary extends React.PureComponent {
   }
 
   handleClick(e) {
-    const { isPlaceholder, summary } = this.props
+    const { isPlaceholder, slug } = this.props
 
-    if (isPlaceholder && summary) {
+    if (isPlaceholder && slug) {
       return
     }
 
-    history.push(`/story/${summary.slug}`)
+    history.push(`/story/${slug}`)
   }
 
   renderContent() {
@@ -70,8 +70,6 @@ class Summary extends React.PureComponent {
 
   render() {
     const { isPlaceholder } = this.props
-
-    console.log(this.props.id)
 
     const classes = classNames('list-group-item p-2', {
       'list-group-item-action': !isPlaceholder,
