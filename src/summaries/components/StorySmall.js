@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 
 import './StorySmall.css'
@@ -19,20 +20,23 @@ const Placeholder = () => {
 class StorySmall extends Component {
   static Placeholder = Placeholder
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(this.props, nextProps)
+  }
+
   render() {
     const {
-      channelTitle,
-      channelName,
+      channel,
       comments,
       created,
+      downvotes,
       icon,
       isPreviewOpen,
       onTogglePreview,
       owner,
-      score,
       size,
-      slug,
       title,
+      upvotes,
     } = this.props
 
     return (
@@ -41,7 +45,6 @@ class StorySmall extends Component {
           className="d-flex"
           icon={isPreviewOpen ? 'fa fa-compress' : icon}
           size={30}
-          slug={slug}
           style={{ fontSize: '70%' }}
           onClick={onTogglePreview}
         />
@@ -52,11 +55,11 @@ class StorySmall extends Component {
           className="small text-center font-weight-bold d-none d-sm-block"
           style={{ minWidth: 36 }}
         >
-          {score}
+          {(upvotes - downvotes).humanize()}
         </div>
 
         <div className="small text-center font-weight-bold d-sm-none">
-          {score}
+          {(upvotes - downvotes).humanize()}
         </div>
 
         <Action className="mr-0 mr-sm-4" icon="fa fa-arrow-down" />
@@ -64,7 +67,6 @@ class StorySmall extends Component {
         {title && (
           <StoryTitle
             className="my-0 mr-1 text-nowrap text-truncate"
-            slug={slug}
             style={{ fontSize: '90%' }}
           >
             {title}
@@ -72,8 +74,8 @@ class StorySmall extends Component {
         )}
 
         <StoryOwner
-          channelTitle={channelTitle}
-          channelName={channelName}
+          channelName={channel.channelType === 'public' ? channel.name : ''}
+          channelTitle={channel.title}
           className="mr-sm-2 mb-0 text-secondary small text-nowrap"
           created={created}
           formatter={Intl.ESShort()}
@@ -83,7 +85,7 @@ class StorySmall extends Component {
         />
 
         <Action className="d-none d-sm-block" icon="far fa-comment">
-          {comments}
+          {comments.humanize()}
         </Action>
       </div>
     )

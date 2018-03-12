@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 
 import './StoryBig.css'
@@ -20,18 +21,21 @@ const Placeholder = () => {
 class StoryBig extends Component {
   static Placeholder = Placeholder
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(this.props, nextProps)
+  }
+
   render() {
     const {
-      channelName,
-      channelTitle,
+      channel,
       comments,
       created,
+      downvotes,
       owner,
       preview,
-      score,
       shares,
-      slug,
       title,
+      upvotes,
     } = this.props
 
     return (
@@ -45,7 +49,7 @@ class StoryBig extends Component {
               minWidth: 28,
             }}
           >
-            {score}
+            {(upvotes - downvotes).humanize()}
           </div>
 
           <Action icon="fa fa-arrow-down" />
@@ -53,8 +57,8 @@ class StoryBig extends Component {
 
         <div className="ml-2">
           <StoryOwner
-            channelTitle={channelTitle}
-            channelName={channelName}
+            channelName={channel.channelType === 'public' ? channel.name : ''}
+            channelTitle={channel.title}
             className="text-secondary mb-1"
             created={created}
             formatter={Intl.ES()}
@@ -64,21 +68,17 @@ class StoryBig extends Component {
             Posteado por
           </StoryOwner>
 
-          <StoryTitle slug={slug}>{title}</StoryTitle>
+          <StoryTitle>{title}</StoryTitle>
 
           {preview}
 
           <p className="m-0">
-            <Action
-              className="mr-4"
-              icon="far fa-comment"
-              href={`/story/${slug}`}
-            >
-              {comments}
+            <Action className="mr-4" icon="far fa-comment">
+              {comments.humanize()}
             </Action>
 
             <Action className="mr-4" icon="fa fa-retweet">
-              {shares}
+              {shares.humanize()}
             </Action>
           </p>
         </div>

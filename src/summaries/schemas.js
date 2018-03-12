@@ -1,9 +1,27 @@
+import _ from 'lodash'
 import { schema } from 'normalizr'
 
-const channel = new schema.Entity('channels')
+import normalizer from '../utils/summary'
+
 const user = new schema.Entity('users', {}, { idAttribute: 'username' })
 
-export const summary = new schema.Entity('summaries', {
-  channel: channel,
-  owner: user,
-})
+const channel = new schema.Entity(
+  'channels',
+  {
+    owner: user,
+  },
+  {
+    processStrategy: entity => _.omit(entity, ['state']),
+  }
+)
+
+export const summary = new schema.Entity(
+  'summaries',
+  {
+    channel: channel,
+    owner: user,
+  },
+  {
+    processStrategy: entity => normalizer.normalize(entity),
+  }
+)

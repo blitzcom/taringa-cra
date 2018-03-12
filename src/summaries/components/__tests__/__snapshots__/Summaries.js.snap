@@ -33,28 +33,27 @@ exports[`Summaries Failure renders error whan has items 1`] = `
       className="list-group list-group-flush"
     >
       <Summary
+        channel="user-Fraudier"
+        channelName={null}
+        comments={78}
+        created={1513920502005}
+        icon="far fa-image"
+        id="zbmsb"
+        isPlaceholder={false}
         key="zbmsb"
-        size="settings/ITEM_MEDIUM"
-        summary={
+        owner="Fraudier"
+        preview={
           Object {
-            "channel": "user-Fraudier",
-            "channelName": null,
-            "comments": 78,
-            "created": 1513920502005,
-            "icon": "far fa-image",
-            "id": "zbmsb",
-            "owner": "Fraudier",
-            "preview": Object {
-              "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
-              "kind": "image",
-            },
-            "score": "2.9k",
-            "shares": 1,
-            "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-            "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
-            "title": "Si no das like no tendras pelirojas en 100 años",
+            "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+            "kind": "image",
           }
         }
+        score="2.9k"
+        shares={1}
+        size="settings/ITEM_MEDIUM"
+        slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
+        title="Si no das like no tendras pelirojas en 100 años"
       />
     </ul>
   </div>
@@ -87,28 +86,27 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
       className="list-group list-group-flush"
     >
       <Summary
+        channel="user-Fraudier"
+        channelName={null}
+        comments={78}
+        created={1513920502005}
+        icon="far fa-image"
+        id="zbmsb"
+        isPlaceholder={false}
         key="zbmsb"
-        size="settings/ITEM_MEDIUM"
-        summary={
+        owner="Fraudier"
+        preview={
           Object {
-            "channel": "user-Fraudier",
-            "channelName": null,
-            "comments": 78,
-            "created": 1513920502005,
-            "icon": "far fa-image",
-            "id": "zbmsb",
-            "owner": "Fraudier",
-            "preview": Object {
-              "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
-              "kind": "image",
-            },
-            "score": "2.9k",
-            "shares": 1,
-            "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-            "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
-            "title": "Si no das like no tendras pelirojas en 100 años",
+            "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+            "kind": "image",
           }
         }
+        score="2.9k"
+        shares={1}
+        size="settings/ITEM_MEDIUM"
+        slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
+        title="Si no das like no tendras pelirojas en 100 años"
       />
       <Summary
         isPlaceholder={true}
@@ -435,11 +433,6 @@ exports[`Summaries Placeholder renders given placeholders 1`] = `
         key="8"
         size="settings/ITEM_MEDIUM"
       />
-      <Summary
-        isPlaceholder={true}
-        key="9"
-        size="settings/ITEM_MEDIUM"
-      />
     </ul>
   </div>
 </div>
@@ -470,28 +463,27 @@ exports[`Summaries renders summaries 1`] = `
       className="list-group list-group-flush"
     >
       <Summary
+        channel="user-Fraudier"
+        channelName={null}
+        comments={78}
+        created={1513920502005}
+        icon="far fa-image"
+        id="zbmsb"
+        isPlaceholder={false}
         key="zbmsb"
-        size="settings/ITEM_MEDIUM"
-        summary={
+        owner="Fraudier"
+        preview={
           Object {
-            "channel": "user-Fraudier",
-            "channelName": null,
-            "comments": 78,
-            "created": 1513920502005,
-            "icon": "far fa-image",
-            "id": "zbmsb",
-            "owner": "Fraudier",
-            "preview": Object {
-              "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
-              "kind": "image",
-            },
-            "score": "2.9k",
-            "shares": 1,
-            "slug": "si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb",
-            "thumbnail": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg",
-            "title": "Si no das like no tendras pelirojas en 100 años",
+            "content": "https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/D4C.jpg",
+            "kind": "image",
           }
         }
+        score="2.9k"
+        shares={1}
+        size="settings/ITEM_MEDIUM"
+        slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
+        thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
+        title="Si no das like no tendras pelirojas en 100 años"
       />
     </ul>
   </div>

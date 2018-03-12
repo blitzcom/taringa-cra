@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
@@ -23,22 +24,25 @@ const Placeholder = () => {
 class StoryMedium extends Component {
   static Placeholder = Placeholder
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(this.props, nextProps)
+  }
+
   render() {
     const {
-      channelName,
-      channelTitle,
+      channel,
       comments,
       created,
+      downvotes,
       icon,
       isPreviewOpen,
       onTogglePreview,
       owner,
       preview,
-      score,
       shares,
-      slug,
       thumbnail,
       title,
+      upvotes,
     } = this.props
 
     const previewIconClass = classNames('fa', {
@@ -60,7 +64,7 @@ class StoryMedium extends Component {
               minWidth: 28,
             }}
           >
-            {score}
+            {(upvotes - downvotes).humanize()}
           </div>
 
           <Action icon="fa fa-arrow-down" />
@@ -70,7 +74,6 @@ class StoryMedium extends Component {
           className="mx-2 mx-md-4 d-flex d-md-none"
           icon={icon}
           size={48}
-          slug={slug}
           style={{ fontSize: '120%' }}
           thumbnail={thumbnail}
         />
@@ -78,7 +81,6 @@ class StoryMedium extends Component {
         <StoryThumbnail
           className="mx-2 mx-md-4 d-none d-md-flex"
           icon={icon}
-          slug={slug}
           style={{ fontSize: '200%' }}
           thumbnail={thumbnail}
         />
@@ -87,8 +89,8 @@ class StoryMedium extends Component {
           {title && <StoryTitle className="m-0">{title}</StoryTitle>}
 
           <StoryOwner
-            channelName={channelName}
-            channelTitle={channelTitle}
+            channelName={channel.channelType === 'public' ? channel.name : ''}
+            channelTitle={channel.title}
             className="text-secondary small mb-2"
             created={created}
             formatter={Intl.ES()}
@@ -106,15 +108,11 @@ class StoryMedium extends Component {
               />
             )}
 
-            <Action
-              className="mr-3 mr-md-4"
-              icon="far fa-comment"
-              to={`/story/${slug}`}
-            >
-              {comments}
+            <Action className="mr-3 mr-md-4" icon="far fa-comment">
+              {comments.humanize()}
             </Action>
 
-            <Action icon="fa fa-retweet">{shares}</Action>
+            <Action icon="fa fa-retweet">{shares.humanize()}</Action>
           </p>
         </div>
       </div>

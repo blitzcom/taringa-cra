@@ -1,23 +1,22 @@
-import _ from 'lodash'
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames'
 
 import './Summary.css'
 import history from '../../history'
 import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
+import makeStoryContainer from './StoryContainer'
 import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
 import StoryPreview from './StoryPreview'
-import normalizer from '../../utils/summary'
 
 const stories = {
-  [ITEM_BIG]: StoryBig,
-  [ITEM_MEDIUM]: StoryMedium,
-  [ITEM_SMALL]: StorySmall,
+  [ITEM_BIG]: makeStoryContainer(StoryBig),
+  [ITEM_MEDIUM]: makeStoryContainer(StoryMedium),
+  [ITEM_SMALL]: makeStoryContainer(StorySmall),
 }
 
-class Summary extends Component {
+class Summary extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -29,13 +28,6 @@ class Summary extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      !_.isEqual(this.props, nextProps) ||
-      this.state.isPreviewOpen !== nextState.isPreviewOpen
-    )
-  }
-
   handleTogglePreview(e) {
     e.preventDefault()
     e.stopPropagation()
@@ -44,36 +36,33 @@ class Summary extends Component {
   }
 
   handleClick(e) {
-    const { isPlaceholder, summary } = this.props
+    const { isPlaceholder, slug } = this.props
 
-    if (isPlaceholder && summary) {
+    if (isPlaceholder && slug) {
       return
     }
 
-    history.push(`/story/${summary.slug}`)
+    history.push(`/story/${slug}`)
   }
 
   renderContent() {
     const { isPreviewOpen } = this.state
-    const { summary: denormalized, isPlaceholder, ...rest } = this.props
+    const { isPlaceholder, ...rest } = this.props
 
     const StoryComponent = stories[rest.size]
 
     if (isPlaceholder) {
       return <StoryComponent.Placeholder />
     } else {
-      const summary = normalizer.normalize(denormalized)
-
       return (
         <Fragment>
           <StoryComponent
             {...rest}
-            {...summary}
             isPreviewOpen={isPreviewOpen}
             onTogglePreview={this.handleTogglePreview}
           />
 
-          {isPreviewOpen && <StoryPreview>{summary.preview}</StoryPreview>}
+          {isPreviewOpen && <StoryPreview>{rest.preview}</StoryPreview>}
         </Fragment>
       )
     }
@@ -93,6 +82,10 @@ class Summary extends Component {
       </div>
     )
   }
+}
+
+Summary.defaultProps = {
+  isPlaceholder: false,
 }
 
 export default Summary
