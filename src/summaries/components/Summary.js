@@ -9,7 +9,6 @@ import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
 import StoryPreview from './StoryPreview'
-import normalizer from '../../utils/summary'
 
 const stories = {
   [ITEM_BIG]: StoryBig,
@@ -17,7 +16,7 @@ const stories = {
   [ITEM_SMALL]: StorySmall,
 }
 
-class Summary extends Component {
+class Summary extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -27,13 +26,6 @@ class Summary extends Component {
     this.state = {
       isPreviewOpen: false,
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      !_.isEqual(this.props, nextProps) ||
-      this.state.isPreviewOpen !== nextState.isPreviewOpen
-    )
   }
 
   handleTogglePreview(e) {
@@ -55,25 +47,22 @@ class Summary extends Component {
 
   renderContent() {
     const { isPreviewOpen } = this.state
-    const { summary: denormalized, isPlaceholder, ...rest } = this.props
+    const { isPlaceholder, ...rest } = this.props
 
     const StoryComponent = stories[rest.size]
 
     if (isPlaceholder) {
       return <StoryComponent.Placeholder />
     } else {
-      const summary = normalizer.normalize(denormalized)
-
       return (
         <Fragment>
           <StoryComponent
             {...rest}
-            {...summary}
             isPreviewOpen={isPreviewOpen}
             onTogglePreview={this.handleTogglePreview}
           />
 
-          {isPreviewOpen && <StoryPreview>{summary.preview}</StoryPreview>}
+          {isPreviewOpen && <StoryPreview>{rest.preview}</StoryPreview>}
         </Fragment>
       )
     }
@@ -81,6 +70,8 @@ class Summary extends Component {
 
   render() {
     const { isPlaceholder } = this.props
+
+    console.log(this.props.id)
 
     const classes = classNames('list-group-item p-2', {
       'list-group-item-action': !isPlaceholder,
@@ -93,6 +84,10 @@ class Summary extends Component {
       </div>
     )
   }
+}
+
+Summary.defaultProps = {
+  isPlaceholder: false,
 }
 
 export default Summary

@@ -35,9 +35,7 @@ const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
       {(!hasFailure || itemsLength > 0) && (
         <div className="card">
           <ul className="list-group list-group-flush">
-            {items.map(item => (
-              <Summary summary={item} key={item.id} size={size} />
-            ))}
+            {items.map(item => <Summary key={item.id} size={size} {...item} />)}
 
             {isFetching && makePlaceholders()}
           </ul>

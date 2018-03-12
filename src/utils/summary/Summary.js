@@ -1,4 +1,21 @@
+import _ from 'lodash'
+
 class Summary {
+  constructor() {
+    this.omit = [
+      'brandSafe',
+      'classic',
+      'edited',
+      'keywords',
+      'listViewSafe',
+      'nsfw',
+      'state',
+      'summary',
+      'tags',
+      'type',
+    ]
+  }
+
   getFirstSummaryImage() {
     const images = this.summary.summary.images
     return images && images.amount > 0 && images.slice.length > 0
@@ -11,54 +28,16 @@ class Summary {
     return link ? link.images[0] : null
   }
 
-  getChannelName() {
-    return this.summary.channel.channelType === 'user_feed'
-      ? null
-      : this.summary.channel.name
-  }
-
   getExcerpt() {
     return this.summary.summary.excerpt
-  }
-
-  getChannelTitle() {
-    return this.summary.channel.title
-  }
-
-  getComments() {
-    return this.summary.comments.humanize()
-  }
-
-  getCreated() {
-    return this.summary.created
   }
 
   getIcon() {
     return 'fa fa-question'
   }
 
-  getId() {
-    return this.summary.id
-  }
-
-  getOwner() {
-    return this.summary.owner.username
-  }
-
   getPreview() {
     return null
-  }
-
-  getScore() {
-    return (this.summary.upvotes - this.summary.downvotes).humanize()
-  }
-
-  getShares() {
-    return this.summary.shares.humanize()
-  }
-
-  getSlug() {
-    return this.summary.slug
   }
 
   getThumbnail() {
@@ -71,7 +50,8 @@ class Summary {
 
   exec(summary) {
     this.summary = summary
-    return this.build()
+    const normalized = _.assign({}, this.summary, this.build())
+    return _.omit(normalized, this.omit)
   }
 
   scaleThumbnail() {
@@ -88,17 +68,7 @@ class Summary {
 
   build() {
     return {
-      channelName: this.getChannelName(),
-      channelTitle: this.getChannelTitle(),
-      comments: this.getComments(),
-      created: this.getCreated(),
       icon: this.getIcon(),
-      id: this.getId(),
-      owner: this.getOwner(),
-      preview: this.getPreview(),
-      score: this.getScore(),
-      shares: this.getShares(),
-      slug: this.getSlug(),
       thumbnail: this.scaleThumbnail(),
       title: this.getTitle(),
     }
