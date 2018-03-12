@@ -1,5 +1,4 @@
-import _ from 'lodash'
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames'
 
 import './Summary.css'

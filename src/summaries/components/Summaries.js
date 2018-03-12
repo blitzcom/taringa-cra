@@ -4,26 +4,19 @@ import React from 'react'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../../settings/constants'
 import Summary from './Summary'
 
-const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
+const placeholdersByItemSize = {
+  [ITEM_BIG]: 3,
+  [ITEM_MEDIUM]: 9,
+  [ITEM_SMALL]: 19,
+}
+
+const Summaries = ({ items, onRetry, size, status }) => {
   const isFetching = status === 'fetching'
   const hasFailure = status === 'failure'
   const itemsLength = items.length
 
-  const placeholdersByItemSize = () => {
-    switch (size) {
-      case ITEM_SMALL:
-        return 19
-      case ITEM_BIG:
-        return 3
-      case ITEM_MEDIUM:
-      default:
-        return 9
-    }
-  }
-
   const makePlaceholders = () => {
-    const effectiveCount =
-      itemsLength > 0 ? 1 : placeholderCount || placeholdersByItemSize()
+    const effectiveCount = itemsLength > 0 ? 1 : placeholdersByItemSize[size]
 
     return _.times(effectiveCount, index => (
       <Summary key={index} isPlaceholder size={size} />
@@ -35,9 +28,7 @@ const Summaries = ({ items, onRetry, placeholderCount, size, status }) => {
       {(!hasFailure || itemsLength > 0) && (
         <div className="card">
           <ul className="list-group list-group-flush">
-            {items.map(item => (
-              <Summary key={item.id} size={size} {...item} />
-            ))}
+            {items.map(item => <Summary key={item.id} size={size} {...item} />)}
 
             {isFetching && makePlaceholders()}
           </ul>
