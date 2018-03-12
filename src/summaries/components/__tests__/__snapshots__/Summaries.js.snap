@@ -433,11 +433,6 @@ exports[`Summaries Placeholder renders given placeholders 1`] = `
         key="8"
         size="settings/ITEM_MEDIUM"
       />
-      <Summary
-        isPlaceholder={true}
-        key="9"
-        size="settings/ITEM_MEDIUM"
-      />
     </ul>
   </div>
 </div>

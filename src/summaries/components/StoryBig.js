@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 
 import './StoryBig.css'
@@ -20,8 +21,13 @@ const Placeholder = () => {
 class StoryBig extends Component {
   static Placeholder = Placeholder
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(this.props, nextProps)
+  }
+
   render() {
     const {
+      channel,
       comments,
       created,
       downvotes,
@@ -51,8 +57,8 @@ class StoryBig extends Component {
 
         <div className="ml-2">
           <StoryOwner
-            channelTitle=""
-            channelName=""
+            channelName={channel.channelType === 'public' ? channel.name : ''}
+            channelTitle={channel.title}
             className="text-secondary mb-1"
             created={created}
             formatter={Intl.ES()}

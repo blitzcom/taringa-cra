@@ -4,15 +4,16 @@ import classNames from 'classnames'
 import './Summary.css'
 import history from '../../history'
 import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
+import makeStoryContainer from './StoryContainer'
 import StorySmall from './StorySmall'
 import StoryMedium from './StoryMedium'
 import StoryBig from './StoryBig'
 import StoryPreview from './StoryPreview'
 
 const stories = {
-  [ITEM_BIG]: StoryBig,
-  [ITEM_MEDIUM]: StoryMedium,
-  [ITEM_SMALL]: StorySmall,
+  [ITEM_BIG]: makeStoryContainer(StoryBig),
+  [ITEM_MEDIUM]: makeStoryContainer(StoryMedium),
+  [ITEM_SMALL]: makeStoryContainer(StorySmall),
 }
 
 class Summary extends React.PureComponent {

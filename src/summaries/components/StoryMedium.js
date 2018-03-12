@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
@@ -23,8 +24,13 @@ const Placeholder = () => {
 class StoryMedium extends Component {
   static Placeholder = Placeholder
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(this.props, nextProps)
+  }
+
   render() {
     const {
+      channel,
       comments,
       created,
       downvotes,
@@ -83,8 +89,8 @@ class StoryMedium extends Component {
           {title && <StoryTitle className="m-0">{title}</StoryTitle>}
 
           <StoryOwner
-            channelName=""
-            channelTitle=""
+            channelName={channel.channelType === 'public' ? channel.name : ''}
+            channelTitle={channel.title}
             className="text-secondary small mb-2"
             created={created}
             formatter={Intl.ES()}

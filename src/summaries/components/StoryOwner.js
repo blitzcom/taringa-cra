@@ -18,7 +18,7 @@ const StoryOwner = ({
   const handleOnClick = e => e.stopPropagation()
 
   const ownerURL = `/u/${owner}`
-  const channelURL = `/c/${channelTitle}`
+  const channelURL = `/c/${channelName}`
 
   const isSmall = size === ITEM_SMALL
 
