@@ -37,6 +37,7 @@ exports[`Summaries Failure renders error whan has items 1`] = `
         channelName={null}
         comments={78}
         created={1513920502005}
+        downvotes={0}
         icon="far fa-image"
         id="zbmsb"
         isPlaceholder={false}
@@ -53,6 +54,7 @@ exports[`Summaries Failure renders error whan has items 1`] = `
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -89,6 +91,7 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
         channelName={null}
         comments={78}
         created={1513920502005}
+        downvotes={0}
         icon="far fa-image"
         id="zbmsb"
         isPlaceholder={false}
@@ -105,11 +108,16 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -127,19 +135,31 @@ exports[`Summaries Placeholder renders 3 placeholders when size is big 1`] = `
       className="list-group list-group-flush"
     >
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_BIG"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="1"
+        shares={0}
         size="settings/ITEM_BIG"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="2"
+        shares={0}
         size="settings/ITEM_BIG"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -157,49 +177,85 @@ exports[`Summaries Placeholder renders 9 placeholders when size is medium 1`] = 
       className="list-group list-group-flush"
     >
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="1"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="2"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="3"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="4"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="5"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="6"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="7"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="8"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -217,49 +273,85 @@ exports[`Summaries Placeholder renders 9 placeholders when size is no given nor 
       className="list-group list-group-flush"
     >
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="1"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="2"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="3"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="4"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="5"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="6"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="7"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="8"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -277,99 +369,175 @@ exports[`Summaries Placeholder renders 19 placeholders when size is small 1`] = 
       className="list-group list-group-flush"
     >
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="1"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="2"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="3"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="4"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="5"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="6"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="7"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="8"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="9"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="10"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="11"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="12"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="13"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="14"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="15"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="16"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="17"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="18"
+        shares={0}
         size="settings/ITEM_SMALL"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -387,49 +555,85 @@ exports[`Summaries Placeholder renders given placeholders 1`] = `
       className="list-group list-group-flush"
     >
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="0"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="1"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="2"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="3"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="4"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="5"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="6"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="7"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
       <Summary
+        comments={0}
+        downvotes={0}
         isPlaceholder={true}
         key="8"
+        shares={0}
         size="settings/ITEM_MEDIUM"
+        upvotes={0}
       />
     </ul>
   </div>
@@ -465,6 +669,7 @@ exports[`Summaries renders summaries 1`] = `
         channelName={null}
         comments={78}
         created={1513920502005}
+        downvotes={0}
         icon="far fa-image"
         id="zbmsb"
         isPlaceholder={false}
@@ -481,6 +686,7 @@ exports[`Summaries renders summaries 1`] = `
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
+        upvotes={0}
       />
     </ul>
   </div>

@@ -1,13 +1,10 @@
 import React from 'react'
-import classNames from 'classnames'
 
 import './StoryThumbnail.css'
 
-const StoryThumbnail = ({ className, icon, src }) => {
-  const wrapperClass = classNames('StoryThumbnail', className)
-
+const StoryThumbnail = ({ icon, src, ...rest }) => {
   return (
-    <div className={wrapperClass}>
+    <div className="StoryThumbnail" {...rest}>
       {src ? <img src={src} alt="Thumbnail" /> : <i className={icon} />}
     </div>
   )

@@ -3,7 +3,12 @@ import classNames from 'classnames'
 
 import './Summary.css'
 import history from '../../history'
-import StoryDock from './StoryDock'
+import StoryPreview from './StoryPreview'
+import Action from '../../common/Action'
+import StoryThumbnail from './StoryThumbnail'
+import StoryTitle from './StoryTitle'
+import StoryOwner from './StoryOwner'
+import StoryChannel from './StoryChannel'
 
 class Summary extends React.PureComponent {
   constructor(props) {
@@ -35,7 +40,20 @@ class Summary extends React.PureComponent {
   }
 
   render() {
-    const { isPlaceholder } = this.props
+    const {
+      channel,
+      comments,
+      downvotes,
+      icon,
+      isPlaceholder,
+      onPreviewToggle,
+      owner,
+      shares,
+      thumbnail,
+      title,
+      upvotes,
+    } = this.props
+    const { isPreviewOpen } = this.state
 
     const classes = classNames('list-group-item Summary', {
       'list-group-item-action': !isPlaceholder,
@@ -44,14 +62,53 @@ class Summary extends React.PureComponent {
 
     return (
       <div className={classes} onClick={this.handleClick}>
-        <StoryDock {...this.props} />
+        <div className="StoryDock-Voting">
+          <Action icon="fa fa-arrow-up" />
+
+          <div className="StoryDock-Votes">
+            {(upvotes - downvotes).humanize()}
+          </div>
+
+          <Action icon="fa fa-arrow-down" />
+        </div>
+
+        <StoryThumbnail
+          icon={icon}
+          src={thumbnail}
+          onClick={this.handleTogglePreview}
+        />
+
+        <div className="StoryRight">
+          <StoryTitle>{title}</StoryTitle>
+
+          <div className="StoryMeta">
+            <StoryOwner>{owner}</StoryOwner>
+            <StoryChannel>{channel}</StoryChannel>
+          </div>
+
+          <div className="StoryActions">
+            <Action className="StoryAction-comments" icon="far fa-comment">
+              {comments.humanize()}
+            </Action>
+
+            <Action className="StoryAction-shares" icon="fa fa-retweet">
+              {shares.humanize()}
+            </Action>
+          </div>
+        </div>
+
+        {isPreviewOpen && <StoryPreview />}
       </div>
     )
   }
 }
 
 Summary.defaultProps = {
+  comments: 0,
+  downvotes: 0,
   isPlaceholder: false,
+  shares: 0,
+  upvotes: 0,
 }
 
 export default Summary

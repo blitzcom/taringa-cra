@@ -1,0 +1,8 @@
+.StoryPreview {
+  background: rgba(0, 0, 0, 0.05);
+  flex: 1 100%;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
