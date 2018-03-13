@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react'
 import Summary from './Summary'
 
 class Article extends Summary {
@@ -10,20 +9,9 @@ class Article extends Summary {
     const image = this.getFirstLinkImage() || this.getFirstSummaryImage()
 
     if (image) {
-      const { url, width, height } = image
+      const { url } = image
 
-      return (
-        <Fragment>
-          <p className="text-secondary">{this.getExcerpt()}</p>
-          <img
-            alt={url}
-            className="img-fluid"
-            height={height}
-            src={url}
-            width={width}
-          />
-        </Fragment>
-      )
+      return url
     }
 
     return null

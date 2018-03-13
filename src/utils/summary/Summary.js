@@ -69,6 +69,7 @@ class Summary {
   build() {
     return {
       icon: this.getIcon(),
+      preview: this.getPreview(),
       thumbnail: this.scaleThumbnail(),
       title: this.getTitle(),
     }

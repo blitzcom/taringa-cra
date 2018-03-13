@@ -46,8 +46,8 @@ class Summary extends React.PureComponent {
       downvotes,
       icon,
       isPlaceholder,
-      onPreviewToggle,
       owner,
+      preview,
       shares,
       thumbnail,
       title,
@@ -97,7 +97,7 @@ class Summary extends React.PureComponent {
           </div>
         </div>
 
-        {isPreviewOpen && <StoryPreview />}
+        {isPreviewOpen && <StoryPreview src={preview} />}
       </div>
     )
   }
@@ -107,6 +107,7 @@ Summary.defaultProps = {
   comments: 0,
   downvotes: 0,
   isPlaceholder: false,
+  preview: '',
   shares: 0,
   upvotes: 0,
 }
