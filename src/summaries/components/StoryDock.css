@@ -1,0 +1,57 @@
+.StoryDock-Voting {
+  border-right: 1px solid #dee2e6 !important;
+  padding-right: 0.5rem !important;
+  text-align: center !important;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.StoryDock-Votes {
+  display: inline-block !important;
+  font-size: 80% !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  min-width: 38px !important;
+}
+
+.StoryRight {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.item-medium .StoryRight {
+  align-items: initial;
+  flex-direction: column;
+}
+
+.StoryMeta {
+  flex: 1;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.StoryActions {
+  margin-left: 0.5rem;
+}
+
+.item-medium .StoryActions {
+  margin-left: 0;
+}
+
+.item-medium .StoryDock-Votes {
+  display: block !important;
+  min-width: 30px !important;
+}
+
+.StoryAction-shares {
+  display: none;
+}
+
+.item-medium .StoryAction-shares {
+  display: initial;
+  margin-left: 1.5rem;
+}

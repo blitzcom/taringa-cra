@@ -1,3 +1,18 @@
-.Summary:hover {
+.Summary {
+  align-items: center !important;
+  display: flex;
+  padding: 0.5rem !important;
+}
+
+.Summary .btn-light {
+  background: transparent;
+  border-color: transparent;
+}
+
+.item-medium .Summary {
+  align-items: initial !important;
+}
+
+.Summary.interactive:hover {
   cursor: pointer;
 }

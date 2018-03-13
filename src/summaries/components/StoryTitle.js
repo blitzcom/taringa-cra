@@ -1,11 +1,9 @@
 import React from 'react'
 
-const StoryTitle = ({ children, ...props }) => {
-  return (
-    <p {...props} style={{ wordBreak: 'break-word' }}>
-      {children}
-    </p>
-  )
+import './StoryTitle.css'
+
+const StoryTitle = ({ children }) => {
+  return <p className="StoryTitle">{children}</p>
 }
 
 export default StoryTitle

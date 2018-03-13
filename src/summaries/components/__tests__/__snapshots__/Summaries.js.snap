@@ -2,7 +2,7 @@
 
 exports[`Summaries Failure renders error 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="my-4 text-center"
@@ -24,7 +24,7 @@ exports[`Summaries Failure renders error 1`] = `
 
 exports[`Summaries Failure renders error whan has items 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -50,7 +50,6 @@ exports[`Summaries Failure renders error whan has items 1`] = `
         }
         score="2.9k"
         shares={1}
-        size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
@@ -77,7 +76,7 @@ exports[`Summaries Failure renders error whan has items 1`] = `
 
 exports[`Summaries Placeholder renders 1 placeholder when has items and is fetching 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -103,7 +102,6 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
         }
         score="2.9k"
         shares={1}
-        size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"
@@ -120,7 +118,7 @@ exports[`Summaries Placeholder renders 1 placeholder when has items and is fetch
 
 exports[`Summaries Placeholder renders 3 placeholders when size is big 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-big"
 >
   <div
     className="card"
@@ -150,7 +148,7 @@ exports[`Summaries Placeholder renders 3 placeholders when size is big 1`] = `
 
 exports[`Summaries Placeholder renders 9 placeholders when size is medium 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -210,7 +208,7 @@ exports[`Summaries Placeholder renders 9 placeholders when size is medium 1`] = 
 
 exports[`Summaries Placeholder renders 9 placeholders when size is no given nor placeholder count 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -270,7 +268,7 @@ exports[`Summaries Placeholder renders 9 placeholders when size is no given nor 
 
 exports[`Summaries Placeholder renders 19 placeholders when size is small 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-small"
 >
   <div
     className="card"
@@ -380,7 +378,7 @@ exports[`Summaries Placeholder renders 19 placeholders when size is small 1`] = 
 
 exports[`Summaries Placeholder renders given placeholders 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -440,7 +438,7 @@ exports[`Summaries Placeholder renders given placeholders 1`] = `
 
 exports[`Summaries renders default 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -454,7 +452,7 @@ exports[`Summaries renders default 1`] = `
 
 exports[`Summaries renders summaries 1`] = `
 <div
-  className="Summaries"
+  className="Summaries item-medium"
 >
   <div
     className="card"
@@ -480,7 +478,6 @@ exports[`Summaries renders summaries 1`] = `
         }
         score="2.9k"
         shares={1}
-        size="settings/ITEM_MEDIUM"
         slug="si-no-das-like-no-tendras-pelirojas-en-100-anos_zbmsb"
         thumbnail="https://k50.kn3.net/taringa/2/7/9/1/4/3/20/fraudier/78x1026_D4C.jpg"
         title="Si no das like no tendras pelirojas en 100 años"

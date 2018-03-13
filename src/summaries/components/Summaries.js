@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import React from 'react'
+import classNames from 'classnames'
 
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../../settings/constants'
 import Summary from './Summary'
@@ -23,12 +24,18 @@ const Summaries = ({ items, onRetry, size, status }) => {
     ))
   }
 
+  const classes = classNames('Summaries', {
+    'item-big': size === ITEM_BIG,
+    'item-medium': size === ITEM_MEDIUM,
+    'item-small': size === ITEM_SMALL,
+  })
+
   return (
-    <div className="Summaries">
+    <div className={classes}>
       {(!hasFailure || itemsLength > 0) && (
         <div className="card">
           <ul className="list-group list-group-flush">
-            {items.map(item => <Summary key={item.id} size={size} {...item} />)}
+            {items.map(item => <Summary key={item.id} {...item} />)}
 
             {isFetching && makePlaceholders()}
           </ul>
