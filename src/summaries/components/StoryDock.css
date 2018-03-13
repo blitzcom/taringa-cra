@@ -1,7 +1,13 @@
 .StoryDock-Voting {
-  border-right: 1px solid #dee2e6 !important;
+  border-right: 1px solid #dee2e6;
   padding-right: 0.5rem !important;
   text-align: center !important;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.item-big .StoryDock-Voting {
+  border-right: none;
   display: inline-block;
   white-space: nowrap;
 }
@@ -15,6 +21,12 @@
   min-width: 38px !important;
 }
 
+.item-big .StoryDock-Votes,
+.item-medium .StoryDock-Votes {
+  display: block !important;
+  min-width: 30px !important;
+}
+
 .StoryRight {
   align-items: center;
   display: flex;
@@ -22,6 +34,7 @@
   overflow: hidden;
 }
 
+.item-big .StoryRight,
 .item-medium .StoryRight {
   align-items: initial;
   flex-direction: column;
@@ -31,6 +44,10 @@
   flex: 1;
   display: inline-block;
   white-space: nowrap;
+}
+
+.item-big .StoryMeta,
+.item-medium .StoryMeta {
   line-height: 1;
 }
 
@@ -38,19 +55,16 @@
   margin-left: 0.5rem;
 }
 
+.item-big .StoryActions,
 .item-medium .StoryActions {
   margin-left: 0;
-}
-
-.item-medium .StoryDock-Votes {
-  display: block !important;
-  min-width: 30px !important;
 }
 
 .StoryAction-shares {
   display: none;
 }
 
+.item-big .StoryAction-shares,
 .item-medium .StoryAction-shares {
   display: initial;
   margin-left: 1.5rem;

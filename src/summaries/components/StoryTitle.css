@@ -9,6 +9,7 @@
   word-break: break-word;
 }
 
+.item-big .StoryTitle,
 .item-medium .StoryTitle {
   font-size: 100%;
   overflow: initial;

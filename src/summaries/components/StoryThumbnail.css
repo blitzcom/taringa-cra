@@ -46,3 +46,7 @@
   min-width: 78px;
   width: 78px;
 }
+
+.item-big .StoryThumbnail {
+  display: none;
+}
