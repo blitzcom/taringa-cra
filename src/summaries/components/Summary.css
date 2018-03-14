@@ -1,6 +1,5 @@
 .Summary {
   align-items: center;
-  display: flex;
   flex-wrap: wrap;
   padding: 0.5rem !important;
 }
@@ -16,6 +15,10 @@
 
 .item-big .Summary {
   align-items: normal;
+}
+
+.Summary.interactive {
+  display: flex;
 }
 
 .Summary.interactive:hover {

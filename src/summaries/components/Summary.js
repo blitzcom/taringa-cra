@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames'
 
 import './Summary.css'
 import history from '../../history'
-import StoryPreview from './StoryPreview'
+
 import Action from '../../common/Action'
+import StoryChannel from './StoryChannel'
+import StoryOwner from './StoryOwner'
+import StoryPeek from './StoryPeek'
+import StoryPlaceholder from './StoryPlaceholder'
+import StoryPreview from './StoryPreview'
 import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
-import StoryOwner from './StoryOwner'
-import StoryChannel from './StoryChannel'
-import StoryPeek from './StoryPeek'
 
 class Summary extends React.PureComponent {
   constructor(props) {
@@ -40,14 +42,14 @@ class Summary extends React.PureComponent {
     history.push(`/story/${slug}`)
   }
 
-  render() {
+  renderContent() {
+    const { isPreviewOpen } = this.state
     const {
       channel,
       comments,
       downvotes,
       excerpt,
       icon,
-      isPlaceholder,
       owner,
       preview,
       shares,
@@ -55,15 +57,9 @@ class Summary extends React.PureComponent {
       title,
       upvotes,
     } = this.props
-    const { isPreviewOpen } = this.state
-
-    const classes = classNames('list-group-item Summary', {
-      'list-group-item-action': !isPlaceholder,
-      interactive: !isPlaceholder,
-    })
 
     return (
-      <div className={classes} onClick={this.handleClick}>
+      <Fragment>
         <div className="StoryDock-Voting">
           <Action icon="fa fa-arrow-up" />
 
@@ -102,6 +98,21 @@ class Summary extends React.PureComponent {
         </div>
 
         {isPreviewOpen && <StoryPreview src={preview} />}
+      </Fragment>
+    )
+  }
+
+  render() {
+    const { isPlaceholder } = this.props
+
+    const classes = classNames('list-group-item Summary', {
+      'list-group-item-action': !isPlaceholder,
+      interactive: !isPlaceholder,
+    })
+
+    return (
+      <div className={classes} onClick={this.handleClick}>
+        {isPlaceholder ? <StoryPlaceholder /> : this.renderContent()}
       </div>
     )
   }
