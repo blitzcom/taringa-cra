@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react'
+import TimeAgo from 'react-timeago'
 import classNames from 'classnames'
 
 import './Summary.css'
 import history from '../../history'
-import { ITEM_SMALL, ITEM_MEDIUM, ITEM_BIG } from '../../settings/constants'
-import makeStoryContainer from './StoryContainer'
-import StorySmall from './StorySmall'
-import StoryMedium from './StoryMedium'
-import StoryBig from './StoryBig'
-import StoryPreview from './StoryPreview'
 
-const stories = {
-  [ITEM_BIG]: makeStoryContainer(StoryBig),
-  [ITEM_MEDIUM]: makeStoryContainer(StoryMedium),
-  [ITEM_SMALL]: makeStoryContainer(StorySmall),
-}
+import Action from '../../common/Action'
+import StoryChannel from './StoryChannelContainer'
+import StoryOwner from './StoryOwner'
+import StoryPeek from './StoryPeek'
+import StoryPlaceholder from './StoryPlaceholder'
+import StoryPreview from './StoryPreview'
+import StoryThumbnail from './StoryThumbnail'
+import StoryTitle from './StoryTitle'
 
 class Summary extends React.PureComponent {
   constructor(props) {
@@ -47,45 +45,93 @@ class Summary extends React.PureComponent {
 
   renderContent() {
     const { isPreviewOpen } = this.state
-    const { isPlaceholder, ...rest } = this.props
+    const {
+      channel,
+      comments,
+      created,
+      downvotes,
+      excerpt,
+      icon,
+      owner,
+      preview,
+      shares,
+      thumbnail,
+      title,
+      upvotes,
+    } = this.props
 
-    const StoryComponent = stories[rest.size]
+    return (
+      <Fragment>
+        <div className="StoryDock-Voting">
+          <Action icon="fa fa-arrow-up" />
 
-    if (isPlaceholder) {
-      return <StoryComponent.Placeholder />
-    } else {
-      return (
-        <Fragment>
-          <StoryComponent
-            {...rest}
-            isPreviewOpen={isPreviewOpen}
-            onTogglePreview={this.handleTogglePreview}
-          />
+          <div className="StoryDock-Votes">
+            {(upvotes - downvotes).humanize()}
+          </div>
 
-          {isPreviewOpen && <StoryPreview>{rest.preview}</StoryPreview>}
-        </Fragment>
-      )
-    }
+          <Action icon="fa fa-arrow-down" />
+        </div>
+
+        <StoryThumbnail
+          icon={icon}
+          src={thumbnail}
+          onClick={this.handleTogglePreview}
+        />
+
+        <div className="StoryRight">
+          <StoryTitle>{title}</StoryTitle>
+
+          <div className="StoryMeta">
+            <StoryOwner>{owner}</StoryOwner>
+            <StoryChannel channel={channel} />
+            <TimeAgo
+              className="StoryTiming"
+              date={created}
+              formatter={Intl.ESShort()}
+            />
+          </div>
+
+          <StoryPeek preview={preview} excerpt={excerpt} />
+
+          <div className="StoryActions">
+            <Action className="StoryAction-comments" icon="far fa-comment">
+              {comments.humanize()}
+            </Action>
+
+            <Action className="StoryAction-shares" icon="fa fa-retweet">
+              {shares.humanize()}
+            </Action>
+          </div>
+        </div>
+
+        {isPreviewOpen && <StoryPreview src={preview} />}
+      </Fragment>
+    )
   }
 
   render() {
     const { isPlaceholder } = this.props
 
-    const classes = classNames('list-group-item p-2', {
+    const classes = classNames('list-group-item Summary', {
       'list-group-item-action': !isPlaceholder,
-      Summary: !isPlaceholder,
+      interactive: !isPlaceholder,
     })
 
     return (
       <div className={classes} onClick={this.handleClick}>
-        {this.renderContent()}
+        {isPlaceholder ? <StoryPlaceholder /> : this.renderContent()}
       </div>
     )
   }
 }
 
 Summary.defaultProps = {
+  comments: 0,
+  downvotes: 0,
   isPlaceholder: false,
+  preview: '',
+  shares: 0,
+  upvotes: 0,
 }
 
 export default Summary

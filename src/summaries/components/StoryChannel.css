@@ -1,0 +1,8 @@
+.StoryChannel {
+  color: #6c757d !important;
+  font-size: 80%;
+  font-weight: 400;
+  white-space: nowrap;
+  display: inline-block;
+  margin-left: 0.25rem;
+}

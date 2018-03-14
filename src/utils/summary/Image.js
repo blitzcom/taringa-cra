@@ -1,4 +1,3 @@
-import React from 'react'
 import Summary from './Summary'
 
 class Image extends Summary {
@@ -6,17 +5,9 @@ class Image extends Summary {
     const image = this.getFirstSummaryImage()
 
     if (image) {
-      const { url, width, height } = image
+      const { url } = image
 
-      return (
-        <img
-          alt={url}
-          className="img-fluid"
-          height={height}
-          src={url}
-          width={width}
-        />
-      )
+      return url
     }
 
     return null

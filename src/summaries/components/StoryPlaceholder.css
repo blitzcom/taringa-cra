@@ -1,0 +1,184 @@
+@keyframes storyMediumPlaceholderShimmer {
+  0% {
+    background-position: -712px 0;
+  }
+
+  100% {
+    background-position: 712px 0;
+  }
+}
+
+.StoryMedium-animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: storyMediumPlaceholderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1424px 30.5px;
+  height: 80px;
+  position: relative;
+}
+
+.item-small .StoryMedium-animated-background,
+.item-big .StoryMedium-animated-background {
+  display: none;
+}
+
+.StoryMedium-score-gap {
+  bottom: 0;
+  left: 37px;
+  top: 0;
+  width: 24px;
+}
+
+.StoryMedium-thumbnail-gap {
+  bottom: 0;
+  left: 141px;
+  top: 0;
+  width: 24px;
+}
+
+.StoryMedium-title-gap {
+  height: 10px;
+  left: 165px;
+  right: 0;
+  top: 18px;
+}
+
+.StoryMedium-title-edge {
+  height: 18px;
+  right: 0;
+  top: 0;
+  width: 10%;
+}
+
+.StoryMedium-meta-gap {
+  bottom: 0;
+  left: 165px;
+  right: 0;
+  top: 38px;
+}
+
+.StoryMedium-meta-edge {
+  height: 10px;
+  right: 0;
+  top: 28px;
+  width: 30%;
+}
+
+/*------------------------------*/
+@keyframes storyBigPlaceholderShimmer {
+  0% {
+    background-position: -712px 0;
+  }
+
+  100% {
+    background-position: 712px 0;
+  }
+}
+
+.StoryBig-animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: storyBigPlaceholderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1424px 30.5px;
+  height: 62px;
+  position: relative;
+  margin-bottom: 280px;
+}
+
+.item-small .StoryBig-animated-background,
+.item-medium .StoryBig-animated-background {
+  display: none;
+}
+
+.StoryBig-score-gap {
+  bottom: 0;
+  left: 28px;
+  top: 0;
+  width: 8px;
+}
+
+.StoryBig-meta-gap {
+  height: 14px;
+  left: 36px;
+  right: 0;
+  top: 18px;
+}
+
+.StoryBig-meta-edge {
+  right: 0;
+  height: 18px;
+  top: 0;
+  width: 30%;
+}
+
+.StoryBig-title-gap {
+  bottom: 0;
+  height: 8px;
+  left: 36px;
+  right: 0;
+}
+
+.StoryBig-title-edge {
+  bottom: 8px;
+  height: 22px;
+  right: 0;
+  width: 10%;
+}
+
+/*----------------------------------------------*/
+@keyframes storySmallPlaceholderShimmer {
+  0% {
+    background-position: -712px 0;
+  }
+
+  100% {
+    background-position: 712px 0;
+  }
+}
+
+.StorySmall-animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: storySmallPlaceholderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1424px 30.5px;
+  height: 30.5px;
+  position: relative;
+}
+
+.item-big .StorySmall-animated-background,
+.item-medium .StorySmall-animated-background {
+  display: none;
+}
+
+.StorySmall-thumbnail-gap {
+  bottom: 0;
+  left: 30px;
+  top: 0;
+  width: 25px;
+}
+
+.StorySmall-top-gap {
+  height: 6px;
+  left: 55px;
+  right: 0;
+  top: 0;
+}
+
+.StorySmall-bottom-gap {
+  bottom: 0;
+  height: 6px;
+  left: 55px;
+  right: 0;
+}

@@ -66,11 +66,21 @@ class Summary {
     return null
   }
 
+  validateExcerpt() {
+    if (this.getExcerpt() === this.getTitle()) {
+      return ''
+    }
+
+    return this.getExcerpt()
+  }
+
   build() {
     return {
       icon: this.getIcon(),
+      preview: this.getPreview(),
       thumbnail: this.scaleThumbnail(),
       title: this.getTitle(),
+      excerpt: this.validateExcerpt(),
     }
   }
 }

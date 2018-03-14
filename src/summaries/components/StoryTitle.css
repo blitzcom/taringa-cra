@@ -1,0 +1,22 @@
+.StoryTitle {
+  font-size: 90%;
+  margin-bottom: 0 !important;
+  margin-right: 0.25rem !important;
+  margin-top: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.item-big .StoryTitle,
+.item-medium .StoryTitle {
+  font-size: 100%;
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial !important;
+}
+
+.item-big .StoryTitle {
+  font-weight: 500;
+}

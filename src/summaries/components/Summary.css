@@ -1,3 +1,110 @@
-.Summary:hover {
+.Summary {
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem !important;
+}
+
+.Summary .btn-light {
+  background: transparent;
+  border-color: transparent;
+}
+
+.item-medium .Summary {
+  align-items: start;
+}
+
+.item-big .Summary {
+  align-items: normal;
+}
+
+.Summary.interactive {
+  display: flex;
+}
+
+.Summary.interactive:hover {
   cursor: pointer;
+}
+
+.StoryDock-Voting {
+  border-right: 1px solid #dee2e6;
+  padding-right: 0.5rem !important;
+  text-align: center !important;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.item-big .StoryDock-Voting {
+  border-right: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.StoryDock-Votes {
+  display: inline-block !important;
+  font-size: 80% !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  min-width: 38px !important;
+}
+
+.item-big .StoryDock-Votes,
+.item-medium .StoryDock-Votes {
+  display: block !important;
+  min-width: 30px !important;
+}
+
+.StoryRight {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.item-big .StoryRight,
+.item-medium .StoryRight {
+  align-items: initial;
+  flex-direction: column;
+}
+
+.StoryMeta {
+  flex: 1;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.item-big .StoryMeta,
+.item-medium .StoryMeta {
+  line-height: 1;
+}
+
+.StoryActions {
+  margin-left: 0.5rem;
+}
+
+.item-medium .StoryActions {
+  margin-top: 0.25rem;
+}
+
+.item-big .StoryActions,
+.item-medium .StoryActions {
+  margin-left: 0;
+}
+
+.StoryAction-shares {
+  display: none;
+}
+
+.item-big .StoryAction-shares,
+.item-medium .StoryAction-shares {
+  display: initial;
+  margin-left: 1.5rem;
+}
+
+.StoryTiming {
+  color: #6c757d;
+  font-size: 80%;
+  font-weight: 400;
+  margin-left: 0.25rem;
+  white-space: nowrap;
 }
