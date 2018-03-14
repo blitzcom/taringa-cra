@@ -10,7 +10,7 @@
 }
 
 .item-medium .Summary {
-  align-items: normal;
+  align-items: start;
 }
 
 .item-big .Summary {
@@ -80,6 +80,10 @@
 
 .StoryActions {
   margin-left: 0.5rem;
+}
+
+.item-medium .StoryActions {
+  margin-top: 0.25rem;
 }
 
 .item-big .StoryActions,
