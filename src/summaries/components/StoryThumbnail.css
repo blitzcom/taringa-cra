@@ -26,25 +26,27 @@
   width: 31px;
 }
 
-.item-medium .StoryThumbnail {
-  font-size: 220%;
-  height: 80px;
-  margin-left: 1.5rem !important;
-  margin-right: 1.5rem !important;
-  max-height: 80px;
-  max-width: 80px;
-  min-height: 80px;
-  min-width: 80px;
-  width: 80px;
-}
+@media (min-width: 576px) {
+  .item-medium .StoryThumbnail {
+    font-size: 220%;
+    height: 80px;
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+    max-height: 80px;
+    max-width: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    width: 80px;
+  }
 
-.item-medium .StoryThumbnail img {
-  height: 78px;
-  max-height: 78px;
-  max-width: 78px;
-  min-height: 78px;
-  min-width: 78px;
-  width: 78px;
+  .item-medium .StoryThumbnail img {
+    height: 78px;
+    max-height: 78px;
+    max-width: 78px;
+    min-height: 78px;
+    min-width: 78px;
+    width: 78px;
+  }
 }
 
 .item-big .StoryThumbnail {
