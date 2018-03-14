@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryOwner renders children 1`] = `
+<div
+  className="StoryOwner"
+>
+  <span>
+    Por 
+  </span>
+  <Link
+    onClick={[Function]}
+    replace={false}
+    to="/u/foo"
+  >
+    foo
+  </Link>
+</div>
+`;
+
+exports[`StoryOwner renders default 1`] = `
+<div
+  className="StoryOwner"
+>
+  <span>
+    Por 
+  </span>
+  <Link
+    onClick={[Function]}
+    replace={false}
+    to="/u/#USER"
+  >
+    #USER
+  </Link>
+</div>
+`;
