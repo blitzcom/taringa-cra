@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import TimeAgo from 'react-timeago'
 import classNames from 'classnames'
 
 import './Summary.css'
@@ -47,6 +48,7 @@ class Summary extends React.PureComponent {
     const {
       channel,
       comments,
+      created,
       downvotes,
       excerpt,
       icon,
@@ -82,6 +84,11 @@ class Summary extends React.PureComponent {
           <div className="StoryMeta">
             <StoryOwner>{owner}</StoryOwner>
             <StoryChannel>{channel}</StoryChannel>
+            <TimeAgo
+              className="StoryTiming"
+              date={created}
+              formatter={Intl.ESShort()}
+            />
           </div>
 
           <StoryPeek preview={preview} excerpt={excerpt} />

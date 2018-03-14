@@ -96,3 +96,11 @@
   display: initial;
   margin-left: 1.5rem;
 }
+
+.StoryTiming {
+  color: #6c757d;
+  font-size: 80%;
+  font-weight: 400;
+  margin-left: 0.25rem;
+  white-space: nowrap;
+}
