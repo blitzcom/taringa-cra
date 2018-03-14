@@ -28,14 +28,14 @@ const StoryContent = ({
       </div>
       <div className="card-footer bg-light">
         <Action className="mr-4" icon="fa fa-arrow-up">
-          {upvotes}
+          {upvotes.humanize()}
         </Action>
 
         <Action className="mr-4" icon="fa fa-arrow-down">
-          {downvotes}
+          {downvotes.humanize()}
         </Action>
 
-        <Action icon="far fa-comment">{comments}</Action>
+        <Action icon="far fa-comment">{comments.humanize()}</Action>
       </div>
     </div>
   )
