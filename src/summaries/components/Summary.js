@@ -6,7 +6,7 @@ import './Summary.css'
 import history from '../../history'
 
 import Action from '../../common/Action'
-import StoryChannel from './StoryChannel'
+import StoryChannel from './StoryChannelContainer'
 import StoryOwner from './StoryOwner'
 import StoryPeek from './StoryPeek'
 import StoryPlaceholder from './StoryPlaceholder'
@@ -83,7 +83,7 @@ class Summary extends React.PureComponent {
 
           <div className="StoryMeta">
             <StoryOwner>{owner}</StoryOwner>
-            <StoryChannel>{channel}</StoryChannel>
+            <StoryChannel channel={channel} />
             <TimeAgo
               className="StoryTiming"
               date={created}
