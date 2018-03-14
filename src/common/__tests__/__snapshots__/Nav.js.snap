@@ -30,7 +30,7 @@ exports[`Nav renders default 1`] = `
       <div
         className="form-inline mt-3 mt-md-0 mb-1 mb-md-0"
       >
-        <withRouter(Connect(SearchInput)) />
+        <Connect(SearchInput) />
       </div>
       <div
         className="navbar-nav ml-auto ml-md-4"

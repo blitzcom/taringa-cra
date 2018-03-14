@@ -1,20 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './StoryOwner.css'
 
 const StoryOwner = ({ children }) => {
   const handleOnClick = e => e.stopPropagation()
 
-  const ownerURL = `/u/${children}`
-
   return (
     <div className="StoryOwner">
       <span>Por </span>
-      <a href={ownerURL} onClick={handleOnClick}>
+      <Link to={`/u/${children}`} onClick={handleOnClick}>
         {children}
-      </a>
+      </Link>
     </div>
   )
+}
+
+StoryOwner.defaultProps = {
+  children: '#USER',
 }
 
 export default StoryOwner

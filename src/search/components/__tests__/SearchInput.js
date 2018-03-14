@@ -10,13 +10,35 @@ describe('Search Input', () => {
   })
 
   it('renders', () => {
-    const tree = renderer.create(<SearchInput />).toJSON()
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/' },
+      push: () => {},
+      replace: () => {},
+    }
+
+    const options = {
+      context: { router: { history } },
+    }
+
+    const tree = shallow(<SearchInput />, options)
 
     expect(tree).toMatchSnapshot()
   })
 
   it('renders spinner', () => {
-    const tree = renderer.create(<SearchInput isSearching />).toJSON()
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/' },
+      push: () => {},
+      replace: () => {},
+    }
+
+    const options = {
+      context: { router: { history } },
+    }
+
+    const tree = shallow(<SearchInput isSearching />, options)
 
     expect(tree).toMatchSnapshot()
   })
@@ -24,16 +46,18 @@ describe('Search Input', () => {
   it('handles input with 250ms debounce', () => {
     const mock = jest.fn()
 
-    const props = {
-      location: {
-        pathname: '/search',
-      },
-      history: {
-        push: () => {},
-      },
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/search' },
+      push: () => {},
+      replace: () => {},
     }
 
-    const wrapper = mount(<SearchInput onChange={mock} {...props} />)
+    const options = {
+      context: { router: { history } },
+    }
+
+    const wrapper = mount(<SearchInput onChange={mock} />, options)
     const event = { target: { value: 'foo' } }
 
     wrapper.find('input').simulate('change', event)
@@ -46,7 +70,18 @@ describe('Search Input', () => {
   })
 
   it('shows clear button', () => {
-    const wrapper = shallow(<SearchInput />)
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/search' },
+      push: () => {},
+      replace: () => {},
+    }
+
+    const options = {
+      context: { router: { history } },
+    }
+
+    const wrapper = shallow(<SearchInput />, options)
     expect(wrapper).toMatchSnapshot()
     wrapper.setState({ value: 'foo' })
     expect(wrapper).toMatchSnapshot()
@@ -55,7 +90,18 @@ describe('Search Input', () => {
   it('clears search input', () => {
     const mock = jest.fn()
 
-    const wrapper = mount(<SearchInput onClear={mock} />)
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/search' },
+      push: () => {},
+      replace: () => {},
+    }
+
+    const options = {
+      context: { router: { history } },
+    }
+
+    const wrapper = mount(<SearchInput onClear={mock} />, options)
 
     wrapper.setState({ value: 'foo' })
 
@@ -75,16 +121,18 @@ describe('Search Input', () => {
     const mock = jest.fn()
     const mockRedirect = jest.fn()
 
-    const props = {
-      location: {
-        pathname: '/',
-      },
-      history: {
-        push: mockRedirect,
-      },
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/' },
+      push: mockRedirect,
+      replace: () => {},
     }
 
-    const wrapper = shallow(<SearchInput onChange={mock} {...props} />)
+    const options = {
+      context: { router: { history } },
+    }
+
+    const wrapper = shallow(<SearchInput onChange={mock} />, options)
 
     wrapper.setState({ value: 'foo' })
     wrapper
@@ -101,16 +149,18 @@ describe('Search Input', () => {
       it('ignores redirect', () => {
         const mock = jest.fn()
 
-        const props = {
-          location: {
-            pathname: '/search',
-          },
-          history: {
-            push: mock,
-          },
+        const history = {
+          createHref: () => {},
+          location: { pathname: '/search' },
+          push: mock,
+          replace: () => {},
         }
 
-        const wrapper = mount(<SearchInput {...props} />)
+        const options = {
+          context: { router: { history } },
+        }
+
+        const wrapper = mount(<SearchInput />, options)
         const event = { target: { value: 'foo' } }
 
         wrapper.find('input').simulate('change', event)
@@ -127,16 +177,18 @@ describe('Search Input', () => {
       it('redirects to /search', () => {
         const mock = jest.fn()
 
-        const props = {
-          location: {
-            pathname: '/',
-          },
-          history: {
-            push: mock,
-          },
+        const history = {
+          createHref: () => {},
+          location: { pathname: '/' },
+          push: mock,
+          replace: () => {},
         }
 
-        const wrapper = mount(<SearchInput {...props} />)
+        const options = {
+          context: { router: { history } },
+        }
+
+        const wrapper = mount(<SearchInput />, options)
         const event = { target: { value: 'foo' } }
 
         wrapper.find('input').simulate('change', event)

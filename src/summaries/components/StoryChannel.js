@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './StoryChannel.css'
 
@@ -8,20 +9,23 @@ const StoryChannel = ({ details: { channelType, name, title } }) => {
   }
 
   const handleOnClick = e => e.stopPropagation()
-  const channelURL = `/c/${name}`
 
   return (
     <div className="StoryChannel">
       <span>en </span>
-      <a href={channelURL} onClick={handleOnClick}>
+      <Link to={`/c/${name}`} onClick={handleOnClick}>
         {title}
-      </a>
+      </Link>
     </div>
   )
 }
 
 StoryChannel.defaultProps = {
-  details: {},
+  details: {
+    channelType: '#CHANNEL_TYPE',
+    name: '#CHANNEL_NAME',
+    title: '#CHANNEL_TITLE',
+  },
 }
 
 export default StoryChannel

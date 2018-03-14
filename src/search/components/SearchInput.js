@@ -2,12 +2,14 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './SearchInput.css'
 import { searchTrigger, searchClear } from '../actions'
 
 export class SearchInput extends Component {
+  static contextTypes = Link.contextTypes
+
   constructor(props) {
     super(props)
     this.state = {
@@ -40,10 +42,11 @@ export class SearchInput extends Component {
   }
 
   redirect() {
-    const { pathname } = this.props.location
+    const { location, push } = this.context.router.history
+    const searchURL = '/search'
 
-    if (pathname !== '/search') {
-      this.props.history.push('/search')
+    if (location.pathname !== searchURL) {
+      push(searchURL)
     }
   }
 
@@ -119,6 +122,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SearchInput)
-)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput)
