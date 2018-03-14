@@ -13,6 +13,7 @@ import StoryPlaceholder from './StoryPlaceholder'
 import StoryPreview from './StoryPreview'
 import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
+import Votes from './Votes'
 
 class Summary extends React.PureComponent {
   constructor(props) {
@@ -62,15 +63,7 @@ class Summary extends React.PureComponent {
 
     return (
       <Fragment>
-        <div className="StoryDock-Voting">
-          <Action icon="fa fa-arrow-up" />
-
-          <div className="StoryDock-Votes">
-            {(upvotes - downvotes).humanize()}
-          </div>
-
-          <Action icon="fa fa-arrow-down" />
-        </div>
+        <Votes downvotes={downvotes} upvotes={upvotes} />
 
         <StoryThumbnail
           icon={icon}
@@ -127,11 +120,9 @@ class Summary extends React.PureComponent {
 
 Summary.defaultProps = {
   comments: 0,
-  downvotes: 0,
   isPlaceholder: false,
   preview: '',
   shares: 0,
-  upvotes: 0,
 }
 
 export default Summary

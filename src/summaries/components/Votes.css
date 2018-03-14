@@ -1,0 +1,33 @@
+.Votes {
+  border-right: 1px solid #dee2e6;
+  display: inline-block;
+  padding-right: 0.5rem !important;
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.item-big .Votes {
+  border-right: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.Votes-Vote {
+  display: inline-block !important;
+  font-size: 80% !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  min-width: 38px;
+}
+
+.item-big .Votes-Vote,
+.item-medium .Votes-Vote {
+  display: block !important;
+  min-width: 30px;
+}
+
+.item-small .Votes-Vote {
+  min-width: 28px;
+}
+

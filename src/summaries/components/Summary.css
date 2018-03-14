@@ -25,37 +25,8 @@
   cursor: pointer;
 }
 
-.StoryDock-Voting {
-  border-right: 1px solid #dee2e6;
-  padding-right: 0.5rem !important;
-  text-align: center !important;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.item-big .StoryDock-Voting {
-  border-right: none;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.StoryDock-Votes {
-  display: inline-block !important;
-  font-size: 80% !important;
-  font-weight: 600 !important;
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
-  min-width: 38px !important;
-}
-
-.item-big .StoryDock-Votes,
-.item-medium .StoryDock-Votes {
-  display: block !important;
-  min-width: 30px !important;
-}
-
 .StoryRight {
-  align-items: center;
+  align-items: baseline;
   display: flex;
   flex: 1;
   overflow: hidden;
