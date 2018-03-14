@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryChannel does not render if channel type is user_feed 1`] = `""`;
+
+exports[`StoryChannel renders channel details 1`] = `
+<div
+  className="StoryChannel"
+>
+  <span>
+    en 
+  </span>
+  <Link
+    onClick={[Function]}
+    replace={false}
+    to="/c/foo"
+  >
+    Foo
+  </Link>
+</div>
+`;
+
+exports[`StoryChannel renders default 1`] = `
+<div
+  className="StoryChannel"
+>
+  <span>
+    en 
+  </span>
+  <Link
+    onClick={[Function]}
+    replace={false}
+    to="/c/#CHANNEL_NAME"
+  >
+    #CHANNEL_TITLE
+  </Link>
+</div>
+`;
