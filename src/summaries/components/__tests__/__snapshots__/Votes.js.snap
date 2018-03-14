@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Votes calculates votes 1`] = `
+<div
+  className="Votes"
+>
+  <Action
+    icon="fa fa-arrow-up"
+  />
+  <div
+    className="Votes-Vote"
+  >
+    7.5k
+  </div>
+  <Action
+    icon="fa fa-arrow-down"
+  />
+</div>
+`;
+
+exports[`Votes renders default 1`] = `
+<div
+  className="Votes"
+>
+  <Action
+    icon="fa fa-arrow-up"
+  />
+  <div
+    className="Votes-Vote"
+  >
+    0
+  </div>
+  <Action
+    icon="fa fa-arrow-down"
+  />
+</div>
+`;

@@ -1,0 +1,33 @@
+.Votes {
+  border-right: 1px solid #dee2e6;
+  padding-right: 0.5rem;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.item-big .Votes {
+  border-right: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.Votes-Vote {
+  display: inline-block;
+  font-size: 80%;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-width: 38px;
+}
+
+.item-big .Votes-Vote,
+.item-medium .Votes-Vote {
+  display: block;
+  min-width: 30px;
+}
+
+.item-small .Votes-Vote {
+  min-width: 28px;
+}
+
