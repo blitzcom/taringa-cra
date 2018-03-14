@@ -9,6 +9,7 @@ import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
 import StoryOwner from './StoryOwner'
 import StoryChannel from './StoryChannel'
+import StoryPeek from './StoryPeek'
 
 class Summary extends React.PureComponent {
   constructor(props) {
@@ -44,6 +45,7 @@ class Summary extends React.PureComponent {
       channel,
       comments,
       downvotes,
+      excerpt,
       icon,
       isPlaceholder,
       owner,
@@ -85,6 +87,8 @@ class Summary extends React.PureComponent {
             <StoryOwner>{owner}</StoryOwner>
             <StoryChannel>{channel}</StoryChannel>
           </div>
+
+          <StoryPeek preview={preview} excerpt={excerpt} />
 
           <div className="StoryActions">
             <Action className="StoryAction-comments" icon="far fa-comment">

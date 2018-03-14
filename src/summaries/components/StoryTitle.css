@@ -16,3 +16,7 @@
   text-overflow: initial;
   white-space: initial !important;
 }
+
+.item-big .StoryTitle {
+  font-weight: 500;
+}

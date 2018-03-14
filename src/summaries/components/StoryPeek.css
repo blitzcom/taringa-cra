@@ -1,0 +1,15 @@
+.StoryPeek {
+  display: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.StoryPeek p {
+  color: #6c757d;
+  font-size: 97%;
+  margin-bottom: 0.5rem;
+}
+
+.item-big .StoryPeek {
+  display: block;
+}
