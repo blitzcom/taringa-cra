@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import TimeAgo from 'react-timeago'
 import classNames from 'classnames'
 
 import './Summary.css'
-import history from '../../history'
 
 import Action from '../../common/Action'
 import StoryChannel from './StoryChannelContainer'
@@ -16,6 +16,8 @@ import StoryTitle from './StoryTitle'
 import Votes from './Votes'
 
 class Summary extends React.PureComponent {
+  static contextTypes = Link.contextTypes
+
   constructor(props) {
     super(props)
 
@@ -41,6 +43,7 @@ class Summary extends React.PureComponent {
       return
     }
 
+    const { history } = this.context.router
     history.push(`/story/${slug}`)
   }
 
