@@ -157,12 +157,12 @@ exports[`Comments renders with error 1`] = `
       />
       <React.Fragment>
         <p
-          className="text-danger"
+          className="text-center text-danger"
         >
           ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
         </p>
         <p
-          className="my-0"
+          className="text-center my-0"
         >
           <button
             className="btn btn-outline-secondary btn-sm"
@@ -192,12 +192,12 @@ exports[`Comments renders with initial error 1`] = `
       />
       <React.Fragment>
         <p
-          className="text-danger"
+          className="text-center text-danger"
         >
           ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
         </p>
         <p
-          className="my-0"
+          className="text-center my-0"
         >
           <button
             className="btn btn-outline-secondary btn-sm"

@@ -40,11 +40,11 @@ const Comments = ({ items, onRetry, status, totalCount }) => {
 
           {hasFailure && (
             <Fragment>
-              <p className="text-danger">
+              <p className="text-center text-danger">
                 ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el
                 siguiente botón.
               </p>
-              <p className="my-0">
+              <p className="text-center my-0">
                 <button
                   onClick={onRetry}
                   className="btn btn-outline-secondary btn-sm"
