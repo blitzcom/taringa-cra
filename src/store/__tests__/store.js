@@ -16,14 +16,12 @@ describe('Store', () => {
         totalCount: 0,
       },
       control: {
-        commentsFetch: {},
-        storiesFetch: {},
-        searchFetch: {
-          q: '',
-          status: 'success',
-        },
-        usersFetch: {},
         channelsFetch: {},
+        commentsFetch: {},
+        repliesFetch: {},
+        searchFetch: { q: '', status: 'success' },
+        storiesFetch: {},
+        usersFetch: {},
       },
       filters: {},
       search: {

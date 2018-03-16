@@ -1,5 +1,7 @@
 import _ from 'lodash'
+
 import * as types from './types'
+import { PUSH } from '../constants'
 
 export const commentsEntities = (state = {}, action) => {
   if (
@@ -13,20 +15,31 @@ export const commentsEntities = (state = {}, action) => {
 }
 
 const commentFetchControl = (
-  state = { error: '', ids: [], status: 'success' },
+  state = { error: '', items: [], status: 'success', totalCount: 0 },
   action
 ) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
       return _.assign({}, state, { error: '', status: 'fetching' })
     case types.FETCH_SUCCESS:
+      if (action.entities && action.entities.commentRoot) {
+        if (action.strategy === PUSH) {
+          const root = action.entities.commentRoot[action.result]
+
+          return _.assign({}, state, root, {
+            status: 'success',
+            items: _.concat(state.items, root.items),
+          })
+        }
+
+        return _.assign({}, state, action.entities.commentRoot[action.result], {
+          status: 'success',
+        })
+      }
+
       return _.assign({}, state, {
-        after: action.after,
-        before: action.before,
-        count: action.count,
-        ids: _.union(state.ids, action.result),
         status: 'success',
-        totalCount: action.totalCount,
+        items: action.result,
       })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { error: action.message, status: 'failure' })
@@ -34,6 +47,7 @@ const commentFetchControl = (
       return state
   }
 }
+
 export const commentsFetchControl = (state = {}, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
@@ -45,4 +59,12 @@ export const commentsFetchControl = (state = {}, action) => {
     default:
       return state
   }
+}
+
+export const repliesFetchControl = (state = {}, action) => {
+  if (action.entities && action.entities.replyRoots) {
+    return _.merge({}, state, action.entities.replyRoots)
+  }
+
+  return state
 }

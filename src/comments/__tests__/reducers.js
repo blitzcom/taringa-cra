@@ -92,13 +92,13 @@ describe('Comments fetch control reducer', () => {
     }
 
     const state = {
-      1: { error: '', ids: [], status: 'success' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [], status: 'success' },
+      2: { error: '', items: [], status: 'success' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', ids: [], status: 'fetching' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
     })
   })
 
@@ -109,13 +109,13 @@ describe('Comments fetch control reducer', () => {
     }
 
     const state = {
-      1: { error: 'Network Error', ids: [], status: 'failure' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: 'Network Error', items: [], status: 'failure' },
+      2: { error: '', items: [], status: 'success' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', ids: [], status: 'fetching' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
     })
   })
 
@@ -126,13 +126,13 @@ describe('Comments fetch control reducer', () => {
     }
 
     const state = {
-      1: { error: '', ids: [1, 2, 3, 4, 5], status: 'success' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [1, 2, 3, 4, 5], status: 'success' },
+      2: { error: '', items: [], status: 'success' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', ids: [1, 2, 3, 4, 5], status: 'fetching' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [1, 2, 3, 4, 5], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
     })
   })
 
@@ -144,13 +144,62 @@ describe('Comments fetch control reducer', () => {
     }
 
     const state = {
-      1: { error: '', ids: [], status: 'fetching' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', ids: [1, 2, 3, 4, 5], status: 'success' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [1, 2, 3, 4, 5], status: 'success' },
+      2: { error: '', items: [], status: 'success' },
+    })
+  })
+
+  describe('when has commentRoot', () => {
+    it('replaces state', () => {
+      const action = {
+        type: types.FETCH_SUCCESS,
+        entities: {
+          commentRoot: {
+            1: { items: [1, 2, 3, 4] },
+          },
+        },
+        id: 1,
+        result: 1,
+      }
+
+      const state = {
+        1: { error: '', items: [9, 10], status: 'fetching' },
+        2: { error: '', items: [], status: 'fetching' },
+      }
+
+      expect(commentsFetchControl(state, action)).toEqual({
+        1: { error: '', items: [1, 2, 3, 4], status: 'success' },
+        2: { error: '', items: [], status: 'fetching' },
+      })
+    })
+
+    it('appends items when strategy is PUSH', () => {
+      const action = {
+        type: types.FETCH_SUCCESS,
+        entities: {
+          commentRoot: {
+            1: { items: [1, 2, 3, 4] },
+          },
+        },
+        id: 1,
+        result: 1,
+        strategy: 'PUSH',
+      }
+
+      const state = {
+        1: { error: '', items: [9, 10], status: 'fetching' },
+        2: { error: '', items: [], status: 'fetching' },
+      }
+
+      expect(commentsFetchControl(state, action)).toEqual({
+        1: { error: '', items: [9, 10, 1, 2, 3, 4], status: 'success' },
+        2: { error: '', items: [], status: 'fetching' },
+      })
     })
   })
 
@@ -162,13 +211,13 @@ describe('Comments fetch control reducer', () => {
     }
 
     const state = {
-      1: { error: '', ids: [], status: 'fetching' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: '', items: [], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: 'Network Error', ids: [], status: 'failure' },
-      2: { error: '', ids: [], status: 'success' },
+      1: { error: 'Network Error', items: [], status: 'failure' },
+      2: { error: '', items: [], status: 'success' },
     })
   })
 })

@@ -15,25 +15,13 @@ describe('Comment', () => {
   })
 
   it('renders default', () => {
-    const wrapper = shallow(<Comment {...comment} />)
-
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renders with reply', () => {
-    const wrapper = shallow(<Comment {...commentWithReply} />)
+    const wrapper = shallow(<Comment />)
 
     expect(wrapper).toMatchSnapshot()
   })
 
   it('renders with replies', () => {
-    const wrapper = shallow(<Comment {...commentWithReplies} />)
-
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renders with visible replies', () => {
-    const wrapper = shallow(<Comment {...commentWithReplies} showReplies />)
+    const wrapper = shallow(<Comment comment={{ replies: 'foo' }} />)
 
     expect(wrapper).toMatchSnapshot()
   })

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Comment from './Comment'
+import Comment from './CommentContainer'
 
-const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
-  const count = comments.length
+const Comments = ({ items, onRetry, status, totalCount }) => {
+  const count = items.length
   const isFetching = status === 'fetching'
   const hasFailure = status === 'failure'
   const hasSuccess = status === 'success'
@@ -24,7 +24,7 @@ const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
 
         {hasComments && (
           <div className="card-body">
-            {comments.map(i => <Comment key={i.id} {...i} />)}
+            {items.map(i => <Comment key={i} id={i} />)}
           </div>
         )}
 
@@ -74,9 +74,10 @@ const Comments = ({ comments, onRetry, control: { status, totalCount } }) => {
 }
 
 Comments.defaultProps = {
-  comments: [],
-  control: { status: 'fetching', totalCount: 0 },
+  items: [],
   onRetry: () => {},
+  status: 'success',
+  totalCount: 0,
 }
 
 export default Comments
