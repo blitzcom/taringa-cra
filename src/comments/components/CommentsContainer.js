@@ -26,6 +26,9 @@ const canFetch = ({ status, items, totalCount }) => {
   return status !== 'fetching' && items.length < totalCount
 }
 
+const getStatus = props => props.status
+const getHasMoreContent = props => props.items.length < props.totalCount
+
 export default connect(mapStateToProps, mapDispatchToProps)(
-  infiniteScroll(canFetch)(Comments)
+  infiniteScroll(getStatus, getHasMoreContent)(Comments)
 )
