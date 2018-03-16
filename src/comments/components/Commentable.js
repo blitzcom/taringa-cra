@@ -1,41 +1,39 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
 import { Link } from 'react-router-dom'
+
+import './Commentable.css'
 import Action from '../../common/Action.js'
 
 const Commentable = ({
   children,
-  comment: { body, created, downvotes, replies, upvotes },
+  comment: { body, created, downvotes, upvotes },
   owner,
 }) => {
   return (
-    <div className="Comment mb-2 d-flex">
-      <div className="Comment-avatar mr-3 mr-lg-4">
+    <div className="Commentable">
+      <div className="Commentable-avatar mr-2 mr-lg-3">
         <img
           alt={owner.username}
-          className="rounded Comment-avatar"
+          className="rounded Commentable-avatar"
           src={owner.avatar}
         />
       </div>
-      <div className="Comment-content">
-        <h6 className="Comment-author">
-          <Link
-            className="text-dark"
-            onClick={this.handleOnClik}
-            to={`/u/${owner.username}`}
-          >
+      <div className="Commentable-content">
+        <p className="Commentable-author">
+          <Link className="text-dark" to={`/u/${owner.username}`}>
             {owner.username}
           </Link>
 
           <TimeAgo
-            className="Comment-meta-created"
+            className="Commentable-meta-created"
             date={created}
             formatter={Intl.ES()}
           />
-        </h6>
+        </p>
 
         <div
-          className="Comment-body"
+          className="Commentable-body"
           dangerouslySetInnerHTML={{ __html: body }}
         />
 
@@ -60,13 +58,15 @@ const Commentable = ({
 
 Commentable.defaultProps = {
   comment: {
-    body: '',
+    body: '#BODY',
     create: 0,
     downvotes: 0,
-    replies: null,
     upvotes: 0,
   },
-  owner: {},
+  owner: {
+    avatar: '#AVATAR',
+    username: '#USERNAME',
+  },
 }
 
 export default Commentable

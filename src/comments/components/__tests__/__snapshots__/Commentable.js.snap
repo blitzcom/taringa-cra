@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Commentable renders default 1`] = `
+<div
+  className="Commentable"
+>
+  <div
+    className="Commentable-avatar mr-2 mr-lg-3"
+  >
+    <img
+      alt="#USERNAME"
+      className="rounded Commentable-avatar"
+      src="#AVATAR"
+    />
+  </div>
+  <div
+    className="Commentable-content"
+  >
+    <p
+      className="Commentable-author"
+    >
+      <Link
+        className="text-dark"
+        replace={false}
+        to="/u/#USERNAME"
+      >
+        #USERNAME
+      </Link>
+      <TimeAgo
+        className="Commentable-meta-created"
+        component="time"
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
+    </p>
+    <div
+      className="Commentable-body"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "#BODY",
+        }
+      }
+    />
+    <p
+      className="my-1"
+    >
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-up"
+      >
+        0
+      </Action>
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-down"
+      >
+        0
+      </Action>
+      <Action
+        className="d-none d-sm-inline"
+      >
+        RESPONDER
+      </Action>
+      <Action
+        className="d-sm-none"
+        icon="far fa-comment-alt"
+      />
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Commentable renders with given comment 1`] = `
+<div
+  className="Commentable"
+>
+  <div
+    className="Commentable-avatar mr-2 mr-lg-3"
+  >
+    <img
+      alt="#USERNAME"
+      className="rounded Commentable-avatar"
+      src="#AVATAR"
+    />
+  </div>
+  <div
+    className="Commentable-content"
+  >
+    <p
+      className="Commentable-author"
+    >
+      <Link
+        className="text-dark"
+        replace={false}
+        to="/u/#USERNAME"
+      >
+        #USERNAME
+      </Link>
+      <TimeAgo
+        className="Commentable-meta-created"
+        component="time"
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
+    </p>
+    <div
+      className="Commentable-body"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "foo",
+        }
+      }
+    />
+    <p
+      className="my-1"
+    >
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-up"
+      >
+        5
+      </Action>
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-down"
+      >
+        2
+      </Action>
+      <Action
+        className="d-none d-sm-inline"
+      >
+        RESPONDER
+      </Action>
+      <Action
+        className="d-sm-none"
+        icon="far fa-comment-alt"
+      />
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Commentable renders with user 1`] = `
+<div
+  className="Commentable"
+>
+  <div
+    className="Commentable-avatar mr-2 mr-lg-3"
+  >
+    <img
+      alt="foo"
+      className="rounded Commentable-avatar"
+      src="bar"
+    />
+  </div>
+  <div
+    className="Commentable-content"
+  >
+    <p
+      className="Commentable-author"
+    >
+      <Link
+        className="text-dark"
+        replace={false}
+        to="/u/foo"
+      >
+        foo
+      </Link>
+      <TimeAgo
+        className="Commentable-meta-created"
+        component="time"
+        formatter={[Function]}
+        live={true}
+        maxPeriod={Infinity}
+        minPeriod={0}
+        now={[Function]}
+      />
+    </p>
+    <div
+      className="Commentable-body"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "#BODY",
+        }
+      }
+    />
+    <p
+      className="my-1"
+    >
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-up"
+      >
+        0
+      </Action>
+      <Action
+        className="mr-3"
+        icon="far fa-thumbs-down"
+      >
+        0
+      </Action>
+      <Action
+        className="d-none d-sm-inline"
+      >
+        RESPONDER
+      </Action>
+      <Action
+        className="d-sm-none"
+        icon="far fa-comment-alt"
+      />
+    </p>
+  </div>
+</div>
+`;

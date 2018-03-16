@@ -24,7 +24,7 @@ class Replies extends Component {
     if (items.length > 0) {
       return (
         <button
-          className="btn btn-link text-dark Comment-replies-toggler mb-2"
+          className="btn btn-link text-dark Commentable-replies-toggler mb-2"
           onClick={this.handleToggleVisibility}
         >
           {isVisible ? (
