@@ -8,12 +8,12 @@
   max-width: 100%;
 }
 
-@keyframes storyContentPlaceholderShimmer{
-  0%{
-      background-position: -690px 0;
+@keyframes storyContentPlaceholderShimmer {
+  0% {
+    background-position: -690px 0;
   }
-  100%{
-      background-position: 690px 0;
+  100% {
+    background-position: 690px 0;
   }
 }
 
