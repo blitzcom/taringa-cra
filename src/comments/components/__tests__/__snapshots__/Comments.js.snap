@@ -2,13 +2,13 @@
 
 exports[`Comments renders default 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-body"
   >
     <div
-      className="card-body"
+      className="Comments"
     >
       <p
         className="text-secondary text-center mb-0"
@@ -22,33 +22,29 @@ exports[`Comments renders default 1`] = `
 
 exports[`Comments renders listing one 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-header bg-transparent"
+  >
+    <h6
+      className="card-title mb-0"
+    >
+      1 comentario
+    </h6>
+  </div>
+  <div
+    className="card-body"
   >
     <div
-      className="card-body"
-    >
-      <h6
-        className="card-title mb-0"
-      >
-        1 comentario
-      </h6>
-    </div>
-    <div
-      className="card-body"
+      className="Comments"
     >
       <Connect(Comment)
         id="foo"
         key="foo"
       />
-    </div>
-    <div
-      className="card-body text-center"
-    >
       <p
-        className="text-secondary mb-0"
+        className="text-secondary text-center mb-0"
       >
         No hay más comentarios
       </p>
@@ -59,22 +55,22 @@ exports[`Comments renders listing one 1`] = `
 
 exports[`Comments renders listing two 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-header bg-transparent"
+  >
+    <h6
+      className="card-title mb-0"
+    >
+      2 comentarios
+    </h6>
+  </div>
+  <div
+    className="card-body"
   >
     <div
-      className="card-body"
-    >
-      <h6
-        className="card-title mb-0"
-      >
-        2 comentarios
-      </h6>
-    </div>
-    <div
-      className="card-body"
+      className="Comments"
     >
       <Connect(Comment)
         id="foo"
@@ -84,12 +80,8 @@ exports[`Comments renders listing two 1`] = `
         id="bar"
         key="bar"
       />
-    </div>
-    <div
-      className="card-body text-center"
-    >
       <p
-        className="text-secondary mb-0"
+        className="text-secondary text-center mb-0"
       >
         No hay más comentarios
       </p>
@@ -100,22 +92,22 @@ exports[`Comments renders listing two 1`] = `
 
 exports[`Comments renders listing two and load more 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-header bg-transparent"
+  >
+    <h6
+      className="card-title mb-0"
+    >
+      2 comentarios
+    </h6>
+  </div>
+  <div
+    className="card-body"
   >
     <div
-      className="card-body"
-    >
-      <h6
-        className="card-title mb-0"
-      >
-        2 comentarios
-      </h6>
-    </div>
-    <div
-      className="card-body"
+      className="Comments"
     >
       <Connect(Comment)
         id="foo"
@@ -125,13 +117,13 @@ exports[`Comments renders listing two and load more 1`] = `
         id="bar"
         key="bar"
       />
-    </div>
-    <div
-      className="card-body text-center"
-    >
-      <i
-        className="fa fa-circle-notch fa-spin"
-      />
+      <p
+        className="text-secondary text-center mb-0"
+      >
+        <i
+          className="fa fa-circle-notch fa-spin"
+        />
+      </p>
     </div>
   </div>
 </div>
@@ -139,46 +131,47 @@ exports[`Comments renders listing two and load more 1`] = `
 
 exports[`Comments renders with error 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-header bg-transparent"
+  >
+    <h6
+      className="card-title mb-0"
+    >
+      1 comentario
+    </h6>
+  </div>
+  <div
+    className="card-body"
   >
     <div
-      className="card-body"
-    >
-      <h6
-        className="card-title mb-0"
-      >
-        1 comentario
-      </h6>
-    </div>
-    <div
-      className="card-body"
+      className="Comments"
     >
       <Connect(Comment)
         id="foo"
         key="foo"
       />
-    </div>
-    <div
-      className="card-body text-center"
-    >
       <p
-        className="text-danger"
-      >
-        ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
-      </p>
-      <p
-        className="my-0"
-      >
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={[Function]}
+        className="text-secondary text-center mb-0"
+      />
+      <React.Fragment>
+        <p
+          className="text-danger"
         >
-          Volver a intentar
-        </button>
-      </p>
+          ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
+        </p>
+        <p
+          className="my-0"
+        >
+          <button
+            className="btn btn-outline-secondary btn-sm"
+            onClick={[Function]}
+          >
+            Volver a intentar
+          </button>
+        </p>
+      </React.Fragment>
     </div>
   </div>
 </div>
@@ -186,29 +179,34 @@ exports[`Comments renders with error 1`] = `
 
 exports[`Comments renders with initial error 1`] = `
 <div
-  className="Comments mt-4"
+  className="card mt-4"
 >
   <div
-    className="card bg-light"
+    className="card-body"
   >
     <div
-      className="card-body text-center"
+      className="Comments"
     >
       <p
-        className="text-danger"
-      >
-        ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
-      </p>
-      <p
-        className="my-0"
-      >
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={[Function]}
+        className="text-secondary text-center mb-0"
+      />
+      <React.Fragment>
+        <p
+          className="text-danger"
         >
-          Volver a intentar
-        </button>
-      </p>
+          ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
+        </p>
+        <p
+          className="my-0"
+        >
+          <button
+            className="btn btn-outline-secondary btn-sm"
+            onClick={[Function]}
+          >
+            Volver a intentar
+          </button>
+        </p>
+      </React.Fragment>
     </div>
   </div>
 </div>

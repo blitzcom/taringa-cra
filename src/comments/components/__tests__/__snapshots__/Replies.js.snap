@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Replies renders default 1`] = `<React.Fragment />`;
+
+exports[`Replies renders items on toggle visibility 1`] = `
+<React.Fragment>
+  <button
+    className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+    onClick={[Function]}
+  >
+    <span>
+      Ver 2 respuestas 
+      <i
+        className="fa fa-chevron-down"
+      />
+    </span>
+  </button>
+</React.Fragment>
+`;
+
+exports[`Replies renders items on toggle visibility 2`] = `
+<React.Fragment>
+  <button
+    className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+    onClick={[Function]}
+  >
+    <span>
+      Ocultar respuestas 
+      <i
+        className="fa fa-chevron-up"
+      />
+    </span>
+  </button>
+  <Connect(Reply)
+    id="foo"
+    key="foo"
+  />
+  <Connect(Reply)
+    id="bar"
+    key="bar"
+  />
+</React.Fragment>
+`;
+
+exports[`Replies renders items on toggle visibility 3`] = `
+<React.Fragment>
+  <button
+    className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+    onClick={[Function]}
+  >
+    <span>
+      Ver 2 respuestas 
+      <i
+        className="fa fa-chevron-down"
+      />
+    </span>
+  </button>
+</React.Fragment>
+`;
+
+exports[`Replies renders toggler when has more than item 1`] = `
+<React.Fragment>
+  <button
+    className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+    onClick={[Function]}
+  >
+    <span>
+      Ver respuesta 
+      <i
+        className="fa fa-chevron-down"
+      />
+    </span>
+  </button>
+</React.Fragment>
+`;

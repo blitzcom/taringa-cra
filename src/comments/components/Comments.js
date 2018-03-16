@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
+import './Comments.css'
 import Comment from './CommentContainer'
 
 const Comments = ({ items, onRetry, status, totalCount }) => {
@@ -12,62 +13,48 @@ const Comments = ({ items, onRetry, status, totalCount }) => {
   const canFetch = count < totalCount
 
   return (
-    <div className="Comments mt-4">
-      <div className="card bg-light">
-        {hasComments && (
-          <div className="card-body">
-            <h6 className="card-title mb-0">
-              {totalCount.pluralize('comentario')}
-            </h6>
-          </div>
-        )}
+    <div className="card mt-4">
+      {hasComments && (
+        <div className="card-header bg-transparent">
+          <h6 className="card-title mb-0">
+            {totalCount.pluralize('comentario')}
+          </h6>
+        </div>
+      )}
 
-        {hasComments && (
-          <div className="card-body">
-            {items.map(i => <Comment key={i} id={i} />)}
-          </div>
-        )}
+      <div className="card-body">
+        <div className="Comments">
+          {hasComments && items.map(i => <Comment key={i} id={i} />)}
 
-        {isEmpty &&
-          hasSuccess && (
-            <div className="card-body">
-              <p className="text-secondary text-center mb-0">
-                No hay comentarios
+          <p className="text-secondary text-center mb-0">
+            {isEmpty && hasSuccess && 'No hay comentarios'}
+
+            {isFetching && <i className="fa fa-circle-notch fa-spin" />}
+
+            {!canFetch &&
+              !isEmpty &&
+              !isFetching &&
+              !hasFailure &&
+              'No hay más comentarios'}
+          </p>
+
+          {hasFailure && (
+            <Fragment>
+              <p className="text-danger">
+                ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el
+                siguiente botón.
               </p>
-            </div>
+              <p className="my-0">
+                <button
+                  onClick={onRetry}
+                  className="btn btn-outline-secondary btn-sm"
+                >
+                  Volver a intentar
+                </button>
+              </p>
+            </Fragment>
           )}
-
-        {isFetching && (
-          <div className="card-body text-center">
-            <i className="fa fa-circle-notch fa-spin" />
-          </div>
-        )}
-
-        {!canFetch &&
-          !isEmpty &&
-          !isFetching &&
-          !hasFailure && (
-            <div className="card-body text-center">
-              <p className="text-secondary mb-0">No hay más comentarios</p>
-            </div>
-          )}
-
-        {hasFailure && (
-          <div className="card-body text-center">
-            <p className="text-danger">
-              ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el
-              siguiente botón.
-            </p>
-            <p className="my-0">
-              <button
-                onClick={onRetry}
-                className="btn btn-outline-secondary btn-sm"
-              >
-                Volver a intentar
-              </button>
-            </p>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   )

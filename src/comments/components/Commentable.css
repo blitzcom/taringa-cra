@@ -1,0 +1,75 @@
+.Commentable {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.Commentable .btn-light {
+  font-size: 13px;
+}
+
+.Commentable:last-child {
+  margin-bottom: 0 !important;
+}
+
+.Commentable-avatar {
+  max-width: 32px;
+  max-height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.Commentable-author {
+  margin-bottom: 0;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+@media (min-width: 992px) {
+  .Commentable-avatar {
+    max-width: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+.Commentable-meta-created {
+  color: #a6a6a6;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.Commentable-body img {
+  max-width: 100%;
+}
+
+.Commentable iframe {
+  max-width: 100%;
+}
+
+.Commentable-body {
+  font-size: 95%;
+  word-break: break-word;
+}
+
+.Commentable-body span[style^='position:relative'] {
+  overflow: hidden;
+  height: 16px;
+}
+
+.Commentable-replies-toggler {
+  padding: 0;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 95%;
+}
+
+.Commentable-replies-toggler .fa {
+  margin-left: 4px;
+}
+
+.Commentable-replies-toggler:hover,
+.Commentable-replies-toggler:focus,
+.Commentable-replies-toggler:active {
+  text-decoration: none;
+}

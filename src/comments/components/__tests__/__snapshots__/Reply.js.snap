@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comment renders default 1`] = `
+exports[`Reply passes props 1`] = `
+<Commentable
+  comment={
+    Object {
+      "body": "#BODY",
+      "create": 0,
+      "downvotes": 0,
+      "upvotes": 0,
+    }
+  }
+  foo="bar"
+  owner={
+    Object {
+      "avatar": "#AVATAR",
+      "username": "#USERNAME",
+    }
+  }
+/>
+`;
+
+exports[`Reply renders default 1`] = `
 <Commentable
   comment={
     Object {
@@ -17,24 +37,4 @@ exports[`Comment renders default 1`] = `
     }
   }
 />
-`;
-
-exports[`Comment renders with replies 1`] = `
-<Commentable
-  comment={
-    Object {
-      "replies": "foo",
-    }
-  }
-  owner={
-    Object {
-      "avatar": "#AVATAR",
-      "username": "#USERNAME",
-    }
-  }
->
-  <Connect(Replies)
-    id="foo"
-  />
-</Commentable>
 `;
