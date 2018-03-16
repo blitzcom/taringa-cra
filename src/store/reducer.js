@@ -2,7 +2,11 @@ import { combineReducers } from 'redux'
 
 import { summariesEntities, summariesFetchControl } from '../summaries/reducers'
 import { storiesEntities, storiesFetchControl } from '../stories/reducers'
-import { commentsEntities, commentsFetchControl } from '../comments/reducers'
+import {
+  commentsEntities,
+  commentsFetchControl,
+  repliesFetchControl,
+} from '../comments/reducers'
 import { itemSize } from '../settings/reducers'
 import { flash } from '../flash/reducers'
 import { usersEntities, usersFetchControl } from '../users/reducers'
@@ -25,6 +29,7 @@ const entities = combineReducers({
 const control = combineReducers({
   channelsFetch: channelsFetchControl,
   commentsFetch: commentsFetchControl,
+  repliesFetch: repliesFetchControl,
   searchFetch: searchControl,
   storiesFetch: storiesFetchControl,
   usersFetch: usersFetchControl,

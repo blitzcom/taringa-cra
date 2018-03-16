@@ -1,7 +1,12 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 
+const defaultCanFetch = ({ control: { hasMoreContent, status } }) => {
+  return hasMoreContent && status !== 'fetching'
+}
+
 const infiniteScroll = (
+  canFetch = defaultCanFetch,
   throttleDelay = 250,
   threshold = 400
 ) => WrappedComponent => {
@@ -24,13 +29,7 @@ const infiniteScroll = (
     }
 
     handleScroll() {
-      const { control: { hasMoreContent, status } } = this.props
-
-      if (
-        global.Viewport.scrolledToBottom(threshold) &&
-        hasMoreContent &&
-        status !== 'fetching'
-      ) {
+      if (global.Viewport.scrolledToBottom(threshold) && canFetch(this.props)) {
         this.removeEvents()
         this.props.onLoadMore()
       }

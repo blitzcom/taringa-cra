@@ -1,14 +1,13 @@
 import _ from 'lodash'
-import { normalize } from 'normalizr'
 import { call, put, select } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
-import { comment as commentSchema } from './schemas'
+import { normalizeComments } from './schemas'
 
 export const getCommentsControl = (state, id) => state.control.commentsFetch[id]
 
-export function* loadComments({ id }) {
+export function* loadComments({ id, strategy }) {
   const control = yield select(getCommentsControl, id)
 
   let params = {}
@@ -20,13 +19,12 @@ export function* loadComments({ id }) {
   try {
     yield put(actions.fetchRequest(id))
 
-    const { items, ...rest } = yield call(Taringa.story.comments, id, params)
+    const result = yield call(Taringa.story.comments, id, params)
 
     const action = _.assign(
       {},
-      normalize(items, [commentSchema]),
-      actions.fetchSuccess(id),
-      rest
+      normalizeComments(result, id),
+      actions.fetchSuccess(id, strategy)
     )
 
     yield put(action)

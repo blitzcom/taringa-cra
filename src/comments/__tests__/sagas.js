@@ -26,17 +26,20 @@ describe('Load comments saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.story.comments, id, {}))
 
-      return { items: [{ id: 2 }], before: 2 }
+      return { id, items: [{ id: 2 }], before: 3 }
     })
 
     it('puts fetch success action', result => {
       expect(result).toEqual(
         put({
           type: 'comments/FETCH_SUCCESS',
-          before: 2,
-          entities: { comments: { 2: { id: 2 } } },
+          entities: {
+            comments: { 2: { id: 2 } },
+            commentRoot: { [id]: { id, items: [2], before: 3 } },
+          },
+          strategy: 'REPLACE',
           id: id,
-          result: [2],
+          result: id,
         })
       )
     })
@@ -80,9 +83,9 @@ describe('Load comments saga', () => {
     })
   })
 
-  describe('(c) loads with success', () => {
+  describe('(c) uses PUSH strategy', () => {
     const id = 'c'
-    const it = sagaHelper(loadComments({ id }))
+    const it = sagaHelper(loadComments({ id, strategy: 'PUSH' }))
 
     it('selects control', result => {
       expect(result).toEqual(select(getCommentsControl, id))
@@ -102,17 +105,20 @@ describe('Load comments saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.story.comments, id, { after: 'c' }))
 
-      return { items: [{ id: 2 }], before: 2 }
+      return { id, items: [{ id: 2 }], before: 3 }
     })
 
     it('puts fetch success action', result => {
       expect(result).toEqual(
         put({
           type: 'comments/FETCH_SUCCESS',
-          before: 2,
-          entities: { comments: { 2: { id: 2 } } },
+          entities: {
+            comments: { 2: { id: 2 } },
+            commentRoot: { [id]: { id, items: [2], before: 3 } },
+          },
+          strategy: 'PUSH',
           id: id,
-          result: [2],
+          result: id,
         })
       )
     })
