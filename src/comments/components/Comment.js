@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 
-import './Comment.css'
 import Replies from './RepliesContainer'
 import Commentable from './Commentable'
 

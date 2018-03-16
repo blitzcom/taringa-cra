@@ -17,7 +17,7 @@
 }
 
 .Card .card-subtitle {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .Card-cover {
@@ -40,12 +40,12 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes cardPlaceholderShimmer{
-  0%{
-      background-position: -348px 0
+@keyframes cardPlaceholderShimmer {
+  0% {
+    background-position: -348px 0;
   }
-  100%{
-      background-position: 348px 0
+  100% {
+    background-position: 348px 0;
   }
 }
 
