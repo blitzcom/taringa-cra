@@ -1,54 +1,33 @@
-import _ from 'lodash'
-import { createSelector } from 'reselect'
+import { createSelector } from '../utils/Selectors'
 
-const commentsState = state => state.entities.comments
-const commentsFetchState = (state, storyId) =>
-  state.control.commentsFetch[storyId]
+const fetchState = (state, ownProps) =>
+  state.control.commentsFetch[ownProps.storyId]
 
-export const commentsStatusSelector = createSelector(
-  commentsFetchState,
-  state => {
-    if (state) {
-      return _.assign({}, state, {
-        hasMoreContent: state.ids.length < state.totalCount,
-      })
-    }
+export const commentsSelector = createSelector(fetchState, control => {
+  return control || { status: 'fetching', items: [], totalCount: 0 }
+})
 
-    return {
-      status: 'fetching',
-      error: '',
-      ids: [],
-      totalCount: 0,
-      hasMoreContent: true,
-    }
-  }
-)
+const commentState = (state, ownProps) => state.entities.comments[ownProps.id]
 
-export const commentsSelector = createSelector(
-  commentsFetchState,
-  commentsState,
-  (control, comments) => {
-    if (control) {
-      const denormalizedComments = _.map(control.ids, i => {
-        const currentComment = comments[i]
+export const makeCommentSelector = () => {
+  return createSelector(commentState, comment => {
+    return comment || {}
+  })
+}
 
-        const denormalizedReplies = _.map(
-          currentComment.replies.items,
-          r => comments[r]
-        )
+const ownerState = (state, owner) => state.entities.users[owner]
 
-        const mergedDenormalizedReplies = _.assign({}, currentComment, {
-          replies: _.assign({}, currentComment.replies, {
-            items: denormalizedReplies,
-          }),
-        })
+export const makeOwnerSelector = () => {
+  return createSelector(ownerState, owner => {
+    return owner || {}
+  })
+}
 
-        return mergedDenormalizedReplies
-      })
+const repliesState = (state, ownProps) =>
+  state.control.repliesFetch[ownProps.id]
 
-      return denormalizedComments
-    }
-
-    return []
-  }
-)
+export const makeRepliesSelector = () => {
+  return createSelector(repliesState, control => {
+    return control || {}
+  })
+}

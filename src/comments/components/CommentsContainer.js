@@ -4,15 +4,10 @@ import infiniteScroll from '../../HOC/InfiniteScroll'
 import Comments from './Comments'
 import { load } from '../actions'
 import { PUSH } from '../../constants'
+import { commentsSelector } from '../selectors'
 
-const mapStateToProps = (state, { storyId }) => {
-  return (
-    state.control.commentsFetch[storyId] || {
-      status: 'fetching',
-      items: [],
-      totalCount: 0,
-    }
-  )
+const mapStateToProps = (state, ownProps) => {
+  return commentsSelector(state, ownProps)
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
