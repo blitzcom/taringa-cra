@@ -33,7 +33,6 @@ const infiniteScroll = (
         getStatus(this.props) !== 'fetching' && getHasMoreContent(this.props)
 
       if (global.Viewport.scrolledToBottom(threshold) && canLoadMore) {
-        console.log('removing')
         this.removeEvents()
         this.props.onLoadMore()
       }
