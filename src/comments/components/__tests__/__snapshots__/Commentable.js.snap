@@ -7,10 +7,8 @@ exports[`Commentable renders default 1`] = `
   <div
     className="Commentable-avatar mr-2 mr-lg-3"
   >
-    <img
-      alt="#USERNAME"
-      className="rounded Commentable-avatar"
-      src="#AVATAR"
+    <Connect(Avatar)
+      id="#OWNER"
     />
   </div>
   <div
@@ -19,16 +17,14 @@ exports[`Commentable renders default 1`] = `
     <p
       className="Commentable-author"
     >
-      <Link
+      <Connect(UsernameLink)
         className="text-dark"
-        replace={false}
-        to="/u/#USERNAME"
-      >
-        #USERNAME
-      </Link>
+        id="#OWNER"
+      />
       <TimeAgo
         className="Commentable-meta-created"
         component="time"
+        date={0}
         formatter={[Function]}
         live={true}
         maxPeriod={Infinity}
@@ -80,10 +76,8 @@ exports[`Commentable renders with given comment 1`] = `
   <div
     className="Commentable-avatar mr-2 mr-lg-3"
   >
-    <img
-      alt="#USERNAME"
-      className="rounded Commentable-avatar"
-      src="#AVATAR"
+    <Connect(Avatar)
+      id="#OWNER"
     />
   </div>
   <div
@@ -92,16 +86,14 @@ exports[`Commentable renders with given comment 1`] = `
     <p
       className="Commentable-author"
     >
-      <Link
+      <Connect(UsernameLink)
         className="text-dark"
-        replace={false}
-        to="/u/#USERNAME"
-      >
-        #USERNAME
-      </Link>
+        id="#OWNER"
+      />
       <TimeAgo
         className="Commentable-meta-created"
         component="time"
+        date={0}
         formatter={[Function]}
         live={true}
         maxPeriod={Infinity}
@@ -113,7 +105,7 @@ exports[`Commentable renders with given comment 1`] = `
       className="Commentable-body"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "foo",
+          "__html": "#BODY",
         }
       }
     />
@@ -124,13 +116,13 @@ exports[`Commentable renders with given comment 1`] = `
         className="mr-3"
         icon="far fa-thumbs-up"
       >
-        5
+        0
       </Action>
       <Action
         className="mr-3"
         icon="far fa-thumbs-down"
       >
-        2
+        0
       </Action>
       <Action
         className="d-none d-sm-inline"
@@ -153,10 +145,13 @@ exports[`Commentable renders with user 1`] = `
   <div
     className="Commentable-avatar mr-2 mr-lg-3"
   >
-    <img
-      alt="foo"
-      className="rounded Commentable-avatar"
-      src="bar"
+    <Connect(Avatar)
+      id={
+        Object {
+          "avatar": "bar",
+          "username": "foo",
+        }
+      }
     />
   </div>
   <div
@@ -165,16 +160,19 @@ exports[`Commentable renders with user 1`] = `
     <p
       className="Commentable-author"
     >
-      <Link
+      <Connect(UsernameLink)
         className="text-dark"
-        replace={false}
-        to="/u/foo"
-      >
-        foo
-      </Link>
+        id={
+          Object {
+            "avatar": "bar",
+            "username": "foo",
+          }
+        }
+      />
       <TimeAgo
         className="Commentable-meta-created"
         component="time"
+        date={0}
         formatter={[Function]}
         live={true}
         maxPeriod={Infinity}

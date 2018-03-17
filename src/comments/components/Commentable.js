@@ -1,72 +1,62 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import TimeAgo from 'react-timeago'
-import { Link } from 'react-router-dom'
 
 import './Commentable.css'
 import Action from '../../common/Action.js'
+import Avatar from '../../users/components/Avatar'
+import UsernameLink from '../../users/components/UsernameLink'
 
-const Commentable = ({
-  children,
-  comment: { body, created, downvotes, upvotes },
-  owner,
-}) => {
-  return (
-    <div className="Commentable">
-      <div className="Commentable-avatar mr-2 mr-lg-3">
-        <img
-          alt={owner.username}
-          className="rounded Commentable-avatar"
-          src={owner.avatar}
-        />
-      </div>
-      <div className="Commentable-content">
-        <p className="Commentable-author">
-          <Link className="text-dark" to={`/u/${owner.username}`}>
-            {owner.username}
-          </Link>
+class Commentable extends PureComponent {
+  render() {
+    const { body, children, created, downvotes, owner, upvotes } = this.props
 
-          <TimeAgo
-            className="Commentable-meta-created"
-            date={created}
-            formatter={Intl.ES()}
+    return (
+      <div className="Commentable">
+        <div className="Commentable-avatar mr-2 mr-lg-3">
+          <Avatar id={owner} />
+        </div>
+        <div className="Commentable-content">
+          <p className="Commentable-author">
+            <UsernameLink className="text-dark" id={owner} />
+
+            <TimeAgo
+              className="Commentable-meta-created"
+              date={created}
+              formatter={Intl.ES()}
+            />
+          </p>
+
+          <div
+            className="Commentable-body"
+            dangerouslySetInnerHTML={{ __html: body }}
           />
-        </p>
 
-        <div
-          className="Commentable-body"
-          dangerouslySetInnerHTML={{ __html: body }}
-        />
+          <p className="my-1">
+            <Action className="mr-3" icon="far fa-thumbs-up">
+              {upvotes.humanize()}
+            </Action>
 
-        <p className="my-1">
-          <Action className="mr-3" icon="far fa-thumbs-up">
-            {upvotes.humanize()}
-          </Action>
+            <Action className="mr-3" icon="far fa-thumbs-down">
+              {downvotes.humanize()}
+            </Action>
 
-          <Action className="mr-3" icon="far fa-thumbs-down">
-            {downvotes.humanize()}
-          </Action>
+            <Action className="d-none d-sm-inline">RESPONDER</Action>
+            <Action className="d-sm-none" icon="far fa-comment-alt" />
+          </p>
 
-          <Action className="d-none d-sm-inline">RESPONDER</Action>
-          <Action className="d-sm-none" icon="far fa-comment-alt" />
-        </p>
-
-        {children}
+          {children}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Commentable.defaultProps = {
-  comment: {
-    body: '#BODY',
-    create: 0,
-    downvotes: 0,
-    upvotes: 0,
-  },
-  owner: {
-    avatar: '#AVATAR',
-    username: '#USERNAME',
-  },
+  body: '#BODY',
+  created: 0,
+  downvotes: 0,
+  owner: '#OWNER',
+  upvotes: 0,
 }
 
 export default Commentable

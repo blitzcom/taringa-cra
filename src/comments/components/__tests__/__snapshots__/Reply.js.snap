@@ -2,39 +2,21 @@
 
 exports[`Reply passes props 1`] = `
 <Commentable
-  comment={
-    Object {
-      "body": "#BODY",
-      "create": 0,
-      "downvotes": 0,
-      "upvotes": 0,
-    }
-  }
+  body="#BODY"
+  created={0}
+  downvotes={0}
   foo="bar"
-  owner={
-    Object {
-      "avatar": "#AVATAR",
-      "username": "#USERNAME",
-    }
-  }
+  owner="#OWNER"
+  upvotes={0}
 />
 `;
 
 exports[`Reply renders default 1`] = `
 <Commentable
-  comment={
-    Object {
-      "body": "#BODY",
-      "create": 0,
-      "downvotes": 0,
-      "upvotes": 0,
-    }
-  }
-  owner={
-    Object {
-      "avatar": "#AVATAR",
-      "username": "#USERNAME",
-    }
-  }
+  body="#BODY"
+  created={0}
+  downvotes={0}
+  owner="#OWNER"
+  upvotes={0}
 />
 `;

@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 
 import Reply from './ReplyContainer'
 
-class Replies extends Component {
+class Replies extends PureComponent {
   constructor(props) {
     super(props)
 
