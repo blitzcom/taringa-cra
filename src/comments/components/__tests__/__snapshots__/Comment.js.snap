@@ -2,39 +2,25 @@
 
 exports[`Comment renders default 1`] = `
 <Commentable
-  comment={
-    Object {
-      "body": "#BODY",
-      "create": 0,
-      "downvotes": 0,
-      "upvotes": 0,
-    }
-  }
-  owner={
-    Object {
-      "avatar": "#AVATAR",
-      "username": "#USERNAME",
-    }
-  }
+  body="#BODY"
+  created={0}
+  downvotes={0}
+  owner="#OWNER"
+  upvotes={0}
 />
 `;
 
 exports[`Comment renders with replies 1`] = `
 <Commentable
+  body="#BODY"
   comment={
     Object {
       "replies": "foo",
     }
   }
-  owner={
-    Object {
-      "avatar": "#AVATAR",
-      "username": "#USERNAME",
-    }
-  }
->
-  <Connect(Replies)
-    id="foo"
-  />
-</Commentable>
+  created={0}
+  downvotes={0}
+  owner="#OWNER"
+  upvotes={0}
+/>
 `;

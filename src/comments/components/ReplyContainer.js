@@ -1,23 +1,9 @@
 import { connect } from 'react-redux'
 
 import Reply from './Reply'
-import { makeCommentSelector, makeOwnerSelector } from '../selectors'
 
-const makeMapStateToProps = () => {
-  const commentSelector = makeCommentSelector()
-  const ownerSelector = makeOwnerSelector()
-
-  const mapStateToProps = (state, ownProps) => {
-    const comment = commentSelector(state, ownProps)
-    const owner = ownerSelector(state, comment.owner)
-
-    return {
-      comment: comment,
-      owner: owner,
-    }
-  }
-
-  return mapStateToProps
+const mapStateToProps = (state, ownProps) => {
+  return state.entities.comments[ownProps.id]
 }
 
-export default connect(makeMapStateToProps)(Reply)
+export default connect(mapStateToProps)(Reply)
