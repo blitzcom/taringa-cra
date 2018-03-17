@@ -13,7 +13,7 @@ const Comments = ({ items, onRetry, status, totalCount }) => {
   const canFetch = count < totalCount
 
   return (
-    <div className="card mt-4">
+    <div className="card my-4">
       {hasComments && (
         <div className="card-header bg-transparent">
           <h6 className="card-title mb-0">

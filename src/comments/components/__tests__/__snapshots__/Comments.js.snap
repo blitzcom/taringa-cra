@@ -2,7 +2,7 @@
 
 exports[`Comments renders default 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-body"
@@ -22,7 +22,7 @@ exports[`Comments renders default 1`] = `
 
 exports[`Comments renders listing one 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-header bg-transparent"
@@ -55,7 +55,7 @@ exports[`Comments renders listing one 1`] = `
 
 exports[`Comments renders listing two 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-header bg-transparent"
@@ -92,7 +92,7 @@ exports[`Comments renders listing two 1`] = `
 
 exports[`Comments renders listing two and load more 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-header bg-transparent"
@@ -131,7 +131,7 @@ exports[`Comments renders listing two and load more 1`] = `
 
 exports[`Comments renders with error 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-header bg-transparent"
@@ -179,7 +179,7 @@ exports[`Comments renders with error 1`] = `
 
 exports[`Comments renders with initial error 1`] = `
 <div
-  className="card mt-4"
+  className="card my-4"
 >
   <div
     className="card-body"
