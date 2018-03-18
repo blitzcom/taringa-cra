@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Username Link renders default 1`] = `
+<Link
+  replace={false}
+  to="/u/#USERNAME"
+>
+  #USERNAME
+</Link>
+`;
+
+exports[`Username Link renders username 1`] = `
+<Link
+  replace={false}
+  to="/u/foo"
+>
+  foo
+</Link>
+`;
+
+exports[`Username Link renders with addition class 1`] = `
+<Link
+  className="bar"
+  replace={false}
+  to="/u/foo"
+>
+  foo
+</Link>
+`;
