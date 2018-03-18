@@ -49,6 +49,10 @@
   line-height: 1;
 }
 
+.item-big .StoryMeta {
+  order: 1;
+}
+
 .StoryActions {
   display: none;
 }
@@ -68,6 +72,10 @@
 .item-medium .StoryActions {
   display: block;
   margin-left: 0;
+}
+
+.item-big .StoryActions {
+  order: 4;
 }
 
 .StoryAction-shares {
