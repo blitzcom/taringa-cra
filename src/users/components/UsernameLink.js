@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 export class UsernameLink extends PureComponent {
+  static defaultProps = {
+    username: '#USERNAME',
+  }
+
   render() {
     const { username, className } = this.props
 

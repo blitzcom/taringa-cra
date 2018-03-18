@@ -2,6 +2,12 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 export class Avatar extends PureComponent {
+  static defaultProps = {
+    avatar: '#AVATAR',
+    firstname: '#FIRSTNAME',
+    lastname: '#LASTNAME',
+  }
+
   render() {
     const { firstname, lastname, avatar } = this.props
     const fullname = `${firstname} ${lastname}`
