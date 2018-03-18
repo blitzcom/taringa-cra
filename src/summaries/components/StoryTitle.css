@@ -11,12 +11,15 @@
 
 .item-big .StoryTitle,
 .item-medium .StoryTitle {
-  font-size: 100%;
+  font-size: 95%;
   overflow: initial;
   text-overflow: initial;
   white-space: initial !important;
 }
 
 .item-big .StoryTitle {
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 0.25rem !important;
+  order: 2;
 }

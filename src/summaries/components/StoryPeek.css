@@ -4,12 +4,18 @@
   margin-top: 1rem;
 }
 
+.StoryPeek img {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .StoryPeek p {
-  color: #6c757d;
-  font-size: 97%;
+  font-size: 95%;
   margin-bottom: 0.5rem;
 }
 
 .item-big .StoryPeek {
   display: block;
+  margin-top: 0.25rem !important;
+  order: 3;
 }
