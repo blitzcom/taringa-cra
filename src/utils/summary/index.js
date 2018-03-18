@@ -2,12 +2,14 @@ import Summary from './Summary'
 
 import Article from './Article'
 import Image from './Image'
+import Text from './Text'
 
 class Normalizer {
   constructor() {
     this.strategies = {
       article: Article,
       image: Image,
+      text: Text,
     }
   }
 
