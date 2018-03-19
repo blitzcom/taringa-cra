@@ -148,6 +148,7 @@ exports[`Search Title when has users and stories and is fetching renders message
       title="Posts"
     >
       <Summaries
+        ids={Array []}
         items={
           Array [
             Object {
@@ -255,6 +256,7 @@ exports[`Search Title when has users and stories renders message 1`] = `
       title="Posts"
     >
       <Summaries
+        ids={Array []}
         items={
           Array [
             Object {
@@ -362,6 +364,7 @@ exports[`Search Title when has users renders message 1`] = `
       title="Posts"
     >
       <Summaries
+        ids={Array []}
         items={
           Array [
             Object {
@@ -511,6 +514,7 @@ exports[`Search renders 1`] = `
       title="Posts"
     >
       <Summaries
+        ids={Array []}
         items={Array []}
         onRetry={[Function]}
         placeholderCount={3}

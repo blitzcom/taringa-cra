@@ -1,15 +1,8 @@
-import _ from 'lodash'
 import { createSelector } from 'reselect'
 
-const feedState = (state, ownProps) =>
-  state.feed[ownProps.feedId] || { status: 'fetching', ids: [], totalCount: 0 }
+const feedState = (state, ownProps) => state.feed[ownProps.feedId]
 
-const summariesState = state => state.entities.summaries
-
-export const itemsSelector = createSelector(
+export const summariesSelector = createSelector(
   feedState,
-  summariesState,
-  (feed, summaries) => {
-    return _.map(feed.ids, id => summaries[id])
-  }
+  feed => feed || { status: 'fetching', ids: [], totalCount: 0 }
 )

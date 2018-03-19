@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import TimeAgo from 'react-timeago'
 import classNames from 'classnames'
@@ -15,7 +15,7 @@ import StoryThumbnail from './StoryThumbnail'
 import StoryTitle from './StoryTitle'
 import Votes from './Votes'
 
-class Summary extends React.PureComponent {
+class Summary extends PureComponent {
   static contextTypes = Link.contextTypes
 
   constructor(props) {

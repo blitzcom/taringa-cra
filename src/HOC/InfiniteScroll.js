@@ -2,8 +2,9 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 
 const infiniteScroll = (
-  getStatus = props => props.control.status,
-  getHasMoreContent = props => props.control.hasMoreContent,
+  getStatus = () => 'success',
+  getHasMoreContent = () => false,
+  getWillReload = () => false,
   throttleDelay = 250,
   threshold = 400
 ) => WrappedComponent => {
@@ -14,15 +15,30 @@ const infiniteScroll = (
       this.handleScrollThrottle = _.throttle(this.handleScroll, throttleDelay)
     }
 
+    componentDidMount() {
+      this.props.onLoad()
+    }
+
     componentWillUnmount() {
       this.handleScrollThrottle.cancel()
       this.removeEvents()
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
+      const willReload = getWillReload(
+        this.props,
+        prevProps,
+        this.state,
+        prevState
+      )
+
+      if (willReload) {
+        this.props.onLoad()
+      }
+
       if (
-        getStatus(this.props) === 'success' &&
-        getStatus(prevProps) === 'fetching'
+        getStatus(prevProps) === 'fetching' &&
+        getStatus(this.props) === 'success'
       ) {
         this.addEvents()
       }
@@ -52,7 +68,7 @@ const infiniteScroll = (
   }
 
   InfiniteScroll.defaultProps = {
-    onLoadMore: () => {},
+    onLoad: () => {},
   }
 
   return InfiniteScroll
