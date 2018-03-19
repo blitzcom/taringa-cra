@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../../settings/constants'
-import Summary from './Summary'
+import Summary from './SummaryContainer'
 
 const placeholdersByItemSize = {
   [ITEM_BIG]: 3,
@@ -11,13 +11,13 @@ const placeholdersByItemSize = {
   [ITEM_SMALL]: 19,
 }
 
-const Summaries = ({ items, onRetry, size, status }) => {
+const Summaries = ({ ids, onRetry, size, status }) => {
   const isFetching = status === 'fetching'
   const hasFailure = status === 'failure'
-  const itemsLength = items.length
+  const idsLength = ids.length
 
   const makePlaceholders = () => {
-    const effectiveCount = itemsLength > 0 ? 1 : placeholdersByItemSize[size]
+    const effectiveCount = idsLength > 0 ? 1 : placeholdersByItemSize[size]
 
     return _.times(effectiveCount, index => (
       <Summary key={index} isPlaceholder size={size} />
@@ -32,10 +32,10 @@ const Summaries = ({ items, onRetry, size, status }) => {
 
   return (
     <div className={classes}>
-      {(!hasFailure || itemsLength > 0) && (
+      {(!hasFailure || idsLength > 0) && (
         <div className="card">
           <ul className="list-group list-group-flush">
-            {items.map(item => <Summary key={item.id} {...item} />)}
+            {ids.map(id => <Summary key={id} id={id} />)}
 
             {isFetching && makePlaceholders()}
           </ul>
@@ -59,7 +59,7 @@ const Summaries = ({ items, onRetry, size, status }) => {
 }
 
 Summaries.defaultProps = {
-  items: [],
+  ids: [],
   onRetry: () => {},
   size: ITEM_MEDIUM,
   status: 'success',

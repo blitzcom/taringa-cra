@@ -21,37 +21,40 @@ describe('Summaries', () => {
 
   describe('Failure', () => {
     it('renders error', () => {
-      const wrapper = shallow(<Summaries status="failure" />)
+      const props = {
+        ids: [],
+        status: 'failure',
+      }
+
+      const wrapper = shallow(<Summaries {...props} />)
 
       expect(wrapper).toMatchSnapshot()
     })
 
     it('renders error whan has items', () => {
-      const wrapper = shallow(
-        <Summaries status="failure" items={[normalizeStory(image)]} />
-      )
+      const props = {
+        ids: [1, 2, 3],
+        status: 'failure',
+      }
+
+      const wrapper = shallow(<Summaries {...props} />)
 
       expect(wrapper).toMatchSnapshot()
     })
   })
 
   it('renders summaries', () => {
-    const wrapper = shallow(
-      <Summaries status="success" items={[normalizeStory(image)]} />
-    )
+    const props = {
+      ids: [1, 2, 3],
+      status: 'success',
+    }
+
+    const wrapper = shallow(<Summaries {...props} />)
 
     expect(wrapper).toMatchSnapshot()
   })
 
   describe('Placeholder', () => {
-    it('renders given placeholders', () => {
-      const wrapper = shallow(
-        <Summaries status="fetching" placeholderCount={10} />
-      )
-
-      expect(wrapper).toMatchSnapshot()
-    })
-
     it('renders 3 placeholders when size is big', () => {
       const wrapper = shallow(<Summaries status="fetching" size={ITEM_BIG} />)
 
@@ -79,9 +82,12 @@ describe('Summaries', () => {
     })
 
     it('renders 1 placeholder when has items and is fetching', () => {
-      const wrapper = shallow(
-        <Summaries status="fetching" items={[normalizeStory(image)]} />
-      )
+      const props = {
+        ids: [1, 2, 3],
+        status: 'fetching',
+      }
+
+      const wrapper = shallow(<Summaries {...props} />)
 
       expect(wrapper).toMatchSnapshot()
     })
