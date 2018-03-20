@@ -1,4 +1,9 @@
+import _ from 'lodash'
+import { normalize } from 'normalizr'
+
 import * as types from './types'
+import { summary } from '../summaries/schemas'
+import { user } from '../users/schemas'
 
 export const searchTrigger = q => ({
   type: types.SEARCH_TRIGGER,
@@ -19,10 +24,13 @@ export const searchUsersRequest = q => ({
   q: q,
 })
 
-export const searchUsersSuccess = payload => ({
-  type: types.SEARCH_USERS_SUCCESS,
-  payload: payload,
-})
+export const searchUsersSuccess = ({ items, ...rest }) => {
+  return _.assign(
+    { type: types.SEARCH_USERS_SUCCESS },
+    normalize(items, [user]),
+    rest
+  )
+}
 
 export const searchUsersFailure = message => ({
   type: types.SEARCH_USERS_FAILURE,
@@ -34,10 +42,13 @@ export const searchStoriesRequest = q => ({
   q: q,
 })
 
-export const searchStoriesSuccess = payload => ({
-  type: types.SEARCH_STORIES_SUCCESS,
-  payload: payload,
-})
+export const searchStoriesSuccess = ({ items, ...rest }) => {
+  return _.assign(
+    { type: types.SEARCH_STORIES_SUCCESS },
+    normalize(items, [summary]),
+    rest
+  )
+}
 
 export const searchStoriesFailure = message => ({
   type: types.SEARCH_STORIES_FAILURE,

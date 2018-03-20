@@ -1,0 +1,16 @@
+.Stat {
+  display: inline-block;
+}
+
+.Stat-count {
+  color: #6c757d !important;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.Stat-label {
+  color: #6c757d !important;
+  font-size: 80%;
+  line-height: 1;
+}

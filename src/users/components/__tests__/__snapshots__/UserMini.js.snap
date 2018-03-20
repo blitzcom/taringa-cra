@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserMini renders default 1`] = `
+<div
+  className="col-12 col-md-6 mb-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body p-2 d-flex"
+    >
+      <img
+        className="rounded mr-3 border"
+        style={
+          Object {
+            "height": 68,
+            "maxHeight": 68,
+            "maxWidth": 68,
+            "minHeight": 68,
+            "minWidth": 68,
+            "width": 68,
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <h6
+          className="m-0 text-truncate"
+          style={
+            Object {
+              "fontSize": "90%",
+            }
+          }
+          title="undefined undefined"
+        >
+          undefined undefined
+        </h6>
+        <Link
+          replace={false}
+          style={
+            Object {
+              "display": "block",
+              "fontSize": "85%",
+              "lineHeight": 1.2,
+            }
+          }
+          to="/u/undefined"
+        >
+          @
+        </Link>
+        <div
+          className="mt-2"
+        >
+          <Stat
+            label="seguidor"
+            plural="seguidores"
+          />
+          <Stat
+            className="ml-3"
+            label="siguiendo"
+            plural="siguiendo"
+          />
+          <Stat
+            className="ml-3"
+            label="post"
+            plural={null}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

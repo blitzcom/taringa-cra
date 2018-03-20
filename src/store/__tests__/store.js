@@ -27,18 +27,24 @@ describe('Store', () => {
       search: {
         channels: {
           error: '',
+          items: [],
           q: '',
           status: 'success',
+          totalCount: null,
         },
         stories: {
           error: '',
+          items: [],
           q: '',
           status: 'success',
+          totalCount: null,
         },
         users: {
           error: '',
+          items: [],
           q: '',
           status: 'success',
+          totalCount: null,
         },
       },
       entities: {

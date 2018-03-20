@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabButton renders active class when is active 1`] = `
+<a
+  className="nav-item nav-link active"
+  onClick={[Function]}
+>
+  #LABEL
+</a>
+`;
+
+exports[`TabButton renders default 1`] = `
+<a
+  className="nav-item nav-link"
+  onClick={[Function]}
+>
+  #LABEL
+</a>
+`;
+
+exports[`TabButton renders totalCount next to label 1`] = `
+<a
+  className="nav-item nav-link"
+  onClick={[Function]}
+>
+  foo
+  <span
+    className="small text-secondary ml-1"
+  >
+    (
+    10
+    )
+  </span>
+</a>
+`;
+
+exports[`TabButton renders with additional classnames 1`] = `
+<a
+  className="nav-item nav-link foo"
+  onClick={[Function]}
+>
+  #LABEL
+</a>
+`;

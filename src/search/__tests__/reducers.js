@@ -71,8 +71,10 @@ describe('Search Users', () => {
   it('returns initial state', () => {
     expect(searchUsers(undefined, {})).toEqual({
       error: '',
+      items: [],
       q: '',
       status: 'success',
+      totalCount: null,
     })
   })
 
@@ -82,23 +84,23 @@ describe('Search Users', () => {
       q: 'foo',
     }
 
-    const state = {
-      error: 'foo',
-      q: '',
-      status: 'success',
-    }
-
-    expect(searchUsers(state, action)).toEqual({
+    expect(searchUsers(undefined, action)).toEqual({
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     })
   })
 
   it('handles SEARCH_USERS_SUCCESS', () => {
     const action = {
       type: types.SEARCH_USERS_SUCCESS,
-      payload: { foo: 'bar' },
+      after: 2,
+      before: 1,
+      count: 2,
+      result: [1],
+      totalCount: 4,
     }
 
     const state = {
@@ -108,10 +110,14 @@ describe('Search Users', () => {
     }
 
     expect(searchUsers(state, action)).toEqual({
+      after: 2,
+      before: 1,
+      count: 2,
       error: '',
+      items: [1],
       q: 'foo',
       status: 'success',
-      foo: 'bar',
+      totalCount: 4,
     })
   })
 
@@ -163,8 +169,10 @@ describe('Search Stories', () => {
   it('returns initial state', () => {
     expect(searchStories(undefined, {})).toEqual({
       error: '',
+      items: [],
       q: '',
       status: 'success',
+      totalCount: null,
     })
   })
 
@@ -176,34 +184,48 @@ describe('Search Stories', () => {
 
     const state = {
       error: 'foo',
+      items: [],
       q: '',
       status: 'success',
+      totalCount: null,
     }
 
     expect(searchStories(state, action)).toEqual({
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     })
   })
 
   it('handles SEARCH_STORIES_SUCCESS', () => {
     const action = {
       type: types.SEARCH_STORIES_SUCCESS,
-      payload: { foo: 'bar' },
+      after: 1,
+      before: 2,
+      count: 2,
+      result: [1, 2, 3],
+      totalCount: 4,
     }
 
     const state = {
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     }
 
     expect(searchStories(state, action)).toEqual({
+      after: 1,
+      before: 2,
+      count: 2,
       error: '',
+      items: [1, 2, 3],
       q: 'foo',
       status: 'success',
-      foo: 'bar',
+      totalCount: 4,
     })
   })
 
@@ -215,14 +237,18 @@ describe('Search Stories', () => {
 
     const state = {
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     }
 
     expect(searchStories(state, action)).toEqual({
       error: 'bar',
+      items: [],
       q: 'foo',
       status: 'failure',
+      totalCount: null,
     })
   })
 
@@ -233,16 +259,20 @@ describe('Search Stories', () => {
 
     const state = {
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
       foo: 'bar',
+      totalCount: null,
     }
 
     expect(searchStories(state, action)).toEqual({
       error: '',
+      items: [],
       q: '',
       status: 'success',
       foo: 'bar',
+      totalCount: null,
     })
   })
 })
@@ -255,8 +285,10 @@ describe('Search channels', () => {
   it('returns inital state', () => {
     expect(searchChannels(undefined, {})).toEqual({
       error: '',
+      items: [],
       q: '',
       status: 'success',
+      totalCount: null,
     })
   })
 
@@ -268,8 +300,10 @@ describe('Search channels', () => {
 
     expect(searchChannels(undefined, action)).toEqual({
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     })
   })
 
