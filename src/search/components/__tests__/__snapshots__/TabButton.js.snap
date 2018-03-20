@@ -2,7 +2,8 @@
 
 exports[`TabButton renders active class when is active 1`] = `
 <a
-  className="nav-item nav-link active"
+  className="nav-item nav-link text-dark active"
+  href="/"
   onClick={[Function]}
 >
   #LABEL
@@ -11,7 +12,8 @@ exports[`TabButton renders active class when is active 1`] = `
 
 exports[`TabButton renders default 1`] = `
 <a
-  className="nav-item nav-link"
+  className="nav-item nav-link text-dark"
+  href="/"
   onClick={[Function]}
 >
   #LABEL
@@ -20,7 +22,8 @@ exports[`TabButton renders default 1`] = `
 
 exports[`TabButton renders totalCount next to label 1`] = `
 <a
-  className="nav-item nav-link"
+  className="nav-item nav-link text-dark"
+  href="/"
   onClick={[Function]}
 >
   foo
@@ -36,7 +39,8 @@ exports[`TabButton renders totalCount next to label 1`] = `
 
 exports[`TabButton renders with additional classnames 1`] = `
 <a
-  className="nav-item nav-link foo"
+  className="nav-item nav-link text-dark foo"
+  href="/"
   onClick={[Function]}
 >
   #LABEL

@@ -35,7 +35,7 @@ class Search extends Component {
     return (
       <div className="row">
         <div className="col-12 col-lg-8">
-          <div className="card">
+          <div className="card mb-4">
             <div className="card-header">
               <div className="nav nav-tabs card-header-tabs" role="tablist">
                 <TabButton

@@ -67,7 +67,7 @@ exports[`UserMini renders default 1`] = `
             plural="siguiendo"
           />
           <Stat
-            className="ml-3"
+            className="ml-3 d-lg-block ml-lg-0 d-xl-inline-block ml-xl-3"
             label="post"
             plural={null}
           />
