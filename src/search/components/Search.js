@@ -4,8 +4,10 @@ import Ad from '../../ads/components/Ad'
 import TabButton from './TabButtonContainer'
 import StoriesTab from './StoriesTab'
 import UsersTab from './UsersTab'
+import ChannelsTab from './ChannelsTab'
 
 const tabs = {
+  channels: ChannelsTab,
   stories: StoriesTab,
   users: UsersTab,
 }

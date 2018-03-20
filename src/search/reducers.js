@@ -91,9 +91,21 @@ export const searchStories = (state = searchGroupState, action) => {
 export const searchChannels = (state = searchGroupState, action) => {
   switch (action.type) {
     case types.SEARCH_CHANNELS_REQUEST:
-      return _.assign({}, state, { error: '', q: action.q, status: 'fetching' })
+      return _.assign({}, state, {
+        error: '',
+        q: action.q,
+        status: 'fetching',
+        totalCount: null,
+      })
     case types.SEARCH_CHANNELS_SUCCESS:
-      return _.assign({}, state, { status: 'success' }, action.payload)
+      return _.assign({}, state, {
+        after: action.after,
+        before: action.before,
+        count: action.count,
+        items: action.result,
+        status: 'success',
+        totalCount: action.totalCount,
+      })
     case types.SEARCH_CHANNELS_FAILURE:
       return _.assign({}, state, { error: action.message, status: 'failure' })
     case types.SEARCH_CLEAR:
