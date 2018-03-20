@@ -49,23 +49,3 @@ export const fetchListFailure = message => ({
   type: types.FETCH_LIST_FAILURE,
   message: message,
 })
-
-export const fetchListTailTrigger = url => ({
-  type: types.FETCH_LIST_TAIL_TRIGGER,
-  url: url,
-})
-
-export const fetchListTailRequest = () => ({
-  type: types.FETCH_LIST_TAIL_REQUEST,
-})
-
-export const fetchListTailSuccess = ({ items, ...rest }) => {
-  return _.assign({}, normalize(items, [channelSchema]), rest, {
-    type: types.FETCH_LIST_TAIL_SUCCESS,
-  })
-}
-
-export const fetchListTailFailure = message => ({
-  type: types.FETCH_LIST_TAIL_FAILURE,
-  message: message,
-})

@@ -71,19 +71,6 @@ export const channelListFetch = (
       })
     case types.FETCH_LIST_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
-    case types.FETCH_LIST_TAIL_REQUEST:
-      return _.assign({}, state, { status: 'fetching', error: '' })
-    case types.FETCH_LIST_TAIL_SUCCESS:
-      return _.assign({}, state, {
-        after: action.after,
-        before: action.before,
-        count: action.count,
-        ids: _.union(state.ids, action.result),
-        status: 'success',
-        totalCount: action.totalCount,
-      })
-    case types.FETCH_LIST_TAIL_FAILURE:
-      return _.assign({}, state, { status: 'failure', error: action.message })
     default:
       return state
   }

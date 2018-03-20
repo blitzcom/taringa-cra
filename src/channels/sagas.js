@@ -26,7 +26,7 @@ export function* fetchList({ url, strategy }) {
     return
   }
 
-  let params ={}
+  let params = {}
 
   if (strategy === PUSH) {
     params = _.assign({}, params, { after: after })
@@ -40,26 +40,5 @@ export function* fetchList({ url, strategy }) {
     yield put(actions.fetchListSuccess(channels, strategy))
   } catch (e) {
     yield put(actions.fetchListFailure(e.message))
-  }
-}
-
-
-export function* fetchListTail({ url }) {
-  const list = yield select(getList)
-
-  if (list.status === 'fetching') {
-    return
-  }
-
-  const params = { after: list.after }
-
-  try {
-    yield put(actions.fetchListTailRequest())
-
-    const channels = yield call(Taringa.url, url, params)
-
-    yield put(actions.fetchListTailSuccess(channels))
-  } catch (e) {
-    yield put(actions.fetchListTailFailure(e.message))
   }
 }

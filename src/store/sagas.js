@@ -18,8 +18,8 @@ import { fetch as fetchUser } from '../users/sagas'
 import { FETCH_TRIGGER as FETCH_CHANNEL_TRIGGER } from '../channels/types'
 import { fetch as fetchChannel } from '../channels/sagas'
 
-import { FETCH_LIST_TAIL_TRIGGER, FETCH_LIST_TRIGGER } from '../channels/types'
-import { fetchList, fetchListTail } from '../channels/sagas'
+import { FETCH_LIST_TRIGGER } from '../channels/types'
+import { fetchList } from '../channels/sagas'
 
 export default function* rootSaga() {
   yield all([
@@ -30,6 +30,5 @@ export default function* rootSaga() {
     takeLatest(FETCH_USER_TRIGGER, fetchUser),
     takeLatest(FETCH_CHANNEL_TRIGGER, fetchChannel),
     takeLatest(FETCH_LIST_TRIGGER, fetchList),
-    takeLatest(FETCH_LIST_TAIL_TRIGGER, fetchListTail),
   ])
 }
