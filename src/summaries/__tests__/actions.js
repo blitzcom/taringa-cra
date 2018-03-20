@@ -13,7 +13,7 @@ describe('Summaries actions', () => {
     const result = {
       after: 2,
       before: 1,
-      items: []
+      items: [],
     }
 
     expect(actions.fetchSuccess(1, result)).toEqual({

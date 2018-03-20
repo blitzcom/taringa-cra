@@ -36,14 +36,3 @@ export const fetchFailure = (id, message) => ({
   message: message,
   id: id,
 })
-
-export const clearTail = id => ({
-  type: types.CLEAR_TAIL,
-  id: id,
-})
-
-export const clearTailIds = (id, ids) => ({
-  type: types.CLEAR_TAIL_IDS,
-  id: id,
-  ids: ids,
-})

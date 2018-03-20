@@ -1,7 +1,7 @@
-import { all, takeLatest, takeEvery } from 'redux-saga/effects'
+import { all, takeLatest } from 'redux-saga/effects'
 
-import { LOAD, CLEAR_TAIL } from '../summaries/types'
-import { loadFeed, clearFeedTail } from '../summaries/sagas'
+import { LOAD } from '../summaries/types'
+import { loadFeed } from '../summaries/sagas'
 
 import { LOAD as LOAD_STORY } from '../stories/types'
 import { loadStory } from '../stories/sagas'
@@ -23,7 +23,6 @@ import { fetchList, fetchListTail } from '../channels/sagas'
 
 export default function* rootSaga() {
   yield all([
-    takeEvery(CLEAR_TAIL, clearFeedTail),
     takeLatest(LOAD, loadFeed),
     takeLatest(LOAD_STORY, loadStory),
     takeLatest(FETCH_TRIGGER, loadComments),

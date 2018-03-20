@@ -47,8 +47,6 @@ const fetchingControl = (state = fetchControlInitialState, action) => {
       })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
-    case types.CLEAR_TAIL_IDS:
-      return _.assign({}, state, { ids: action.ids })
     default:
       return state
   }
@@ -59,7 +57,6 @@ export const summariesFetchControl = (state = {}, action) => {
     case types.FETCH_REQUEST:
     case types.FETCH_SUCCESS:
     case types.FETCH_FAILURE:
-    case types.CLEAR_TAIL_IDS:
       return _.assign({}, state, {
         [action.id]: fetchingControl(state[action.id], action),
       })
