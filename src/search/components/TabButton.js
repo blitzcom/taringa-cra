@@ -17,7 +17,7 @@ const TabButton = ({ className, id, isActive, label, onClick, totalCount }) => {
   return (
     <a className={classes} onClick={handleOnClick}>
       {label}
-      {totalCount && (
+      {totalCount !== null && (
         <span className="small text-secondary ml-1">({totalCount})</span>
       )}
     </a>
@@ -29,7 +29,7 @@ TabButton.defaultProps = {
   isActive: false,
   label: '#LABEL',
   onClick: () => {},
-  totalCount: undefined,
+  totalCount: null,
 }
 
 export default TabButton
