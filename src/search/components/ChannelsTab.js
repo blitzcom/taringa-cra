@@ -8,7 +8,7 @@ const ChannelsTab = ({ items, ...rest }) => {
   return (
     <Tab className="card-body row" {...rest}>
       {items.map(id => (
-        <div className="col-6 mb-4" key={id}>
+        <div className="col-12 col-md-6 mb-4" key={id}>
           <ChannelCard id={id} />
         </div>
       ))}

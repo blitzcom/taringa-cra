@@ -51,7 +51,11 @@ export const UserMini = props => {
                 label="siguiendo"
                 plural="siguiendo"
               />
-              <Stat className="ml-3" count={props.stories} label="post" />
+              <Stat
+                className="ml-3 d-lg-block ml-lg-0 d-xl-inline-block ml-xl-3"
+                count={props.stories}
+                label="post"
+              />
             </div>
           </div>
         </div>

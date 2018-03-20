@@ -19,8 +19,12 @@ class Tab extends PureComponent {
     const hasResults = hasSuccess && totalCount !== null && totalCount > 0
     const isEmpty = hasSuccess && totalCount !== null && totalCount === 0
 
+    if (hasResults) {
+      return <div className={classes}>{children}</div>
+    }
+
     return (
-      <div className={classes}>
+      <div className="card-body">
         {isFetching && (
           <p className="Tab-slate">
             <i className="fa fa-circle-notch fa-spin mr-1" />
@@ -33,8 +37,6 @@ class Tab extends PureComponent {
         )}
 
         {isEmpty && <p className="Tab-slate">No hay resultados</p>}
-
-        {hasResults && children}
 
         {hasFailure && (
           <p className="Tab-slate text-danger">

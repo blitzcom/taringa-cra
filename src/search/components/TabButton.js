@@ -10,12 +10,12 @@ const TabButton = ({ className, id, isActive, label, onClick, totalCount }) => {
     onClick(id)
   }
 
-  const classes = classNames('nav-item nav-link', className, {
+  const classes = classNames('nav-item nav-link text-dark', className, {
     active: isActive,
   })
 
   return (
-    <a className={classes} onClick={handleOnClick}>
+    <a href="/" className={classes} onClick={handleOnClick}>
       {label}
       {totalCount !== null && (
         <span className="small text-secondary ml-1">({totalCount})</span>
