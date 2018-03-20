@@ -37,28 +37,6 @@ export const fetchFailure = (id, message) => ({
   id: id,
 })
 
-export const loadTail = (id, url) => ({
-  type: types.LOAD_TAIL,
-  id: id,
-  url: url,
-})
-
-export const fetchTailRequest = id => ({
-  type: types.FETCH_TAIL_REQUEST,
-  id: id,
-})
-
-export const fetchTailSuccess = id => ({
-  type: types.FETCH_TAIL_SUCCESS,
-  id: id,
-})
-
-export const fetchTailFailure = (id, message) => ({
-  type: types.FETCH_TAIL_FAILURE,
-  id: id,
-  message: message,
-})
-
 export const clearTail = id => ({
   type: types.CLEAR_TAIL,
   id: id,

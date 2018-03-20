@@ -1,9 +1,7 @@
 import _ from 'lodash'
-import { normalize } from 'normalizr'
 import { call, put, select } from 'redux-saga/effects'
 
 import * as actions from './actions'
-import { summary } from './schemas'
 import Taringa from '../api'
 import { PUSH } from '../constants'
 
@@ -30,33 +28,6 @@ export function* loadFeed({ id, url, strategy }) {
     yield put(actions.fetchSuccess(id, result, strategy))
   } catch (e) {
     yield put(actions.fetchFailure(id, e.message))
-  }
-}
-
-export function* loadFeedTail({ id, url }) {
-  const feed = yield select(getFeed, id)
-
-  if (feed.status === 'fetching') {
-    return
-  }
-
-  const params = { after: feed.after }
-
-  try {
-    yield put(actions.fetchTailRequest(id))
-
-    const { items, ...rest } = yield call(Taringa.url, url, params)
-
-    const action = _.assign(
-      {},
-      normalize(items, [summary]),
-      actions.fetchTailSuccess(id),
-      rest
-    )
-
-    yield put(action)
-  } catch (e) {
-    yield put(actions.fetchTailFailure(id, e.message))
   }
 }
 

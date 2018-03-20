@@ -7,7 +7,6 @@ import {
   getFeed,
   getFeeds,
   loadFeed,
-  loadFeedTail,
 } from '../sagas'
 import { call, put, select } from 'redux-saga/effects'
 import Taringa from '../../api'
@@ -116,98 +115,6 @@ describe('Load feed saga', () => {
           id: 1,
           message: 'Network Error',
           type: 'summaries/FETCH_FAILURE',
-        })
-      )
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
-    })
-  })
-})
-
-describe('Load feed tail saga', () => {
-  describe('(a) loads feed tail', () => {
-    const it = sagaHelper(loadFeedTail({ id: 1, url: '/' }))
-
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-
-      return { status: 'success', after: 'a' }
-    })
-
-    it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({ type: 'summaries/FETCH_TAIL_REQUEST', id: 1 })
-      )
-    })
-
-    it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', { after: 'a' }))
-
-      return { after: 'd', before: 'a', items: [], totalCount: 0 }
-    })
-
-    it('puts fetch success action', result => {
-      expect(result).toEqual(
-        put({
-          after: 'd',
-          before: 'a',
-          entities: {},
-          id: 1,
-          result: [],
-          totalCount: 0,
-          type: 'summaries/FETCH_TAIL_SUCCESS',
-        })
-      )
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
-    })
-  })
-
-  describe('(b) skips if already fetching', () => {
-    const it = sagaHelper(loadFeedTail({ id: 1, url: '/', after: 'a' }))
-
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-
-      return { status: 'fetching' }
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
-    })
-  })
-
-  describe('(c) returns failure', () => {
-    const it = sagaHelper(loadFeedTail({ id: 1, url: '/', after: 'a' }))
-
-    it('selects feed', result => {
-      expect(result).toEqual(select(getFeed, 1))
-
-      return { status: 'success', after: 'a' }
-    })
-
-    it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({ type: 'summaries/FETCH_TAIL_REQUEST', id: 1 })
-      )
-    })
-
-    it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', { after: 'a' }))
-
-      return new Error('Network Error')
-    })
-
-    it('puts fetch success action', result => {
-      expect(result).toEqual(
-        put({
-          id: 1,
-          message: 'Network Error',
-          type: 'summaries/FETCH_TAIL_FAILURE',
         })
       )
     })
