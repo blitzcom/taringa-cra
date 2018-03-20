@@ -310,20 +310,30 @@ describe('Search channels', () => {
   it('handles SEARCH_CHANNELS_SUCCESS', () => {
     const action = {
       type: types.SEARCH_CHANNELS_SUCCESS,
-      payload: { foo: 'bar' },
+      after: 1,
+      before: 2,
+      count: 2,
+      result: [1, 2, 3],
+      totalCount: 4,
     }
 
     const state = {
       error: '',
+      items: [],
       q: 'foo',
       status: 'fetching',
+      totalCount: null,
     }
 
     expect(searchChannels(state, action)).toEqual({
+      after: 1,
+      before: 2,
+      count: 2,
       error: '',
-      foo: 'bar',
+      items: [1, 2, 3],
       q: 'foo',
       status: 'success',
+      totalCount: 4,
     })
   })
 

@@ -4,6 +4,7 @@ import { normalize } from 'normalizr'
 import * as types from './types'
 import { summary } from '../summaries/schemas'
 import { user } from '../users/schemas'
+import { channel } from '../channels/schemas'
 
 export const searchTrigger = q => ({
   type: types.SEARCH_TRIGGER,
@@ -60,10 +61,13 @@ export const searchChannelsRequest = q => ({
   q: q,
 })
 
-export const searchChannelsSuccess = payload => ({
-  type: types.SEARCH_CHANNELS_SUCCESS,
-  payload: payload,
-})
+export const searchChannelsSuccess = ({ items, ...rest }) => {
+  return _.assign(
+    { type: types.SEARCH_CHANNELS_SUCCESS },
+    normalize(items, [channel]),
+    rest
+  )
+}
 
 export const searchChannelsFailure = message => ({
   type: types.SEARCH_CHANNELS_FAILURE,
