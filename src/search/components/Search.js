@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 
 import Ad from '../../ads/components/Ad'
 import TabButton from './TabButtonContainer'
+import StoriesTab from './StoriesTab'
 
-const tabs = {}
+const tabs = {
+  stories: StoriesTab,
+}
 
 class Search extends Component {
   constructor(props) {
@@ -54,7 +57,7 @@ class Search extends Component {
               </div>
             </div>
 
-            <div className="card-body">{CurrentTab && <CurrentTab />}</div>
+            {CurrentTab && <CurrentTab />}
           </div>
         </div>
 

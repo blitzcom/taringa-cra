@@ -28,8 +28,10 @@ export const searchControl = (state = searchControlState, action) => {
 
 const searchGroupState = {
   error: '',
+  items: [],
   q: '',
   status: 'success',
+  totalCount: null,
 }
 
 export const searchUsers = (state = searchGroupState, action) => {
@@ -50,9 +52,25 @@ export const searchUsers = (state = searchGroupState, action) => {
 export const searchStories = (state = searchGroupState, action) => {
   switch (action.type) {
     case types.SEARCH_STORIES_REQUEST:
-      return _.assign({}, state, { error: '', q: action.q, status: 'fetching' })
+      return _.assign({}, state, {
+        error: '',
+        q: action.q,
+        status: 'fetching',
+        totalCount: null,
+      })
     case types.SEARCH_STORIES_SUCCESS:
-      return _.assign({}, state, { status: 'success' }, action.payload)
+      return _.assign(
+        {},
+        state,
+        { status: 'success' },
+        {
+          items: action.result,
+          after: action.after,
+          before: action.before,
+          count: action.count,
+          totalCount: action.totalCount,
+        }
+      )
     case types.SEARCH_STORIES_FAILURE:
       return _.assign({}, state, { error: action.message, status: 'failure' })
     case types.SEARCH_CLEAR:
