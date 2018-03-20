@@ -1,10 +1,7 @@
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 
-import { Search } from '../Search'
-import { user as userSample } from '../data'
-import { image as summary } from '../../../summaries/components/data'
-import { normalizeStory } from '../../../summaries/utils'
+import Search from '../Search'
 
 describe('Search', () => {
   it('exists', () => {
@@ -12,155 +9,21 @@ describe('Search', () => {
   })
 
   it('renders', () => {
-    const tree = shallow(<Search />)
-    expect(tree).toMatchSnapshot()
+    const wrapper = shallow(<Search />)
+    expect(wrapper).toMatchSnapshot()
   })
 
-  it('clears on component will unmoun', () => {
-    const mock = jest.fn()
-    const wrapper = mount(<Search clear={mock} />)
-    wrapper.unmount()
-    expect(mock).toBeCalled()
-  })
-
-  describe('Title', () => {
+  it('changes tabs', () => {
     const wrapper = shallow(<Search />)
 
-    describe('when is idle', () => {
-      it('renders message', () => {
-        const stories = {
-          status: 'success',
-        }
-
-        const users = {
-          status: 'success',
-        }
-
-        wrapper.setProps({ stories, users })
-        expect(wrapper).toMatchSnapshot()
-      })
+    expect(wrapper.state()).toEqual({
+      activeTab: 'stories',
     })
 
-    describe('when has failure', () => {
-      it('renders message', () => {
-        const stories = {
-          status: 'failure',
-        }
+    wrapper.instance().handleTabClick('users')
 
-        const users = {
-          status: 'failure',
-        }
-
-        wrapper.setProps({ stories, users })
-        expect(wrapper).toMatchSnapshot()
-      })
-    })
-
-    describe('when is fetching', () => {
-      it('renders message', () => {
-        const stories = {
-          status: 'fetching',
-        }
-
-        const users = {
-          status: 'fetching',
-        }
-
-        const search = {
-          status: 'fetching',
-        }
-
-        wrapper.setProps({ stories, users, search })
-        expect(wrapper).toMatchSnapshot()
-      })
-    })
-
-    describe('when has stories', () => {
-      it('renders message', () => {
-        const stories = {
-          status: 'success',
-        }
-
-        const users = {
-          items: [userSample],
-          status: 'success',
-          totalCount: 1,
-        }
-
-        const search = {
-          status: 'success',
-        }
-
-        wrapper.setProps({ stories, users, search })
-        expect(wrapper).toMatchSnapshot()
-      })
-    })
-
-    describe('when has users', () => {
-      it('renders message', () => {
-        const stories = {
-          items: [normalizeStory(summary)],
-          status: 'success',
-          totalCount: 1,
-        }
-
-        const users = {
-          status: 'success',
-        }
-
-        const search = {
-          status: 'success',
-        }
-
-        wrapper.setProps({ stories, users, search })
-        expect(wrapper).toMatchSnapshot()
-      })
-    })
-
-    describe('when has users and stories', () => {
-      it('renders message', () => {
-        const stories = {
-          items: [normalizeStory(summary)],
-          status: 'success',
-          totalCount: 1,
-        }
-
-        const users = {
-          items: [userSample],
-          status: 'success',
-          totalCount: 1,
-        }
-
-        const search = {
-          status: 'success',
-        }
-
-        wrapper.setProps({ stories, users, search })
-        expect(wrapper).toMatchSnapshot()
-      })
-    })
-
-    describe('when has users and stories and is fetching', () => {
-      it('renders message', () => {
-        const stories = {
-          items: [normalizeStory(summary)],
-          status: 'fetching',
-          totalCount: 1,
-        }
-
-        const users = {
-          items: [userSample],
-          status: 'fetching',
-          totalCount: 1,
-        }
-
-        const search = {
-          status: 'fetching',
-        }
-
-        wrapper.setProps({ stories, users, search })
-        expect(wrapper).toMatchSnapshot()
-      })
+    expect(wrapper.state()).toEqual({
+      activeTab: 'users',
     })
   })
 })
