@@ -18,7 +18,9 @@ const mapDispatchToProps = (dispatch, { feedId, url }) => {
 }
 
 const getStatus = props => props.status
-const getHasMoreContent = props => props.ids.length < props.totalCount
+const getHasMoreContent = ({ ids, totalCount, count }) => {
+  return (totalCount && ids.length < totalCount) || (!totalCount && count >= 20)
+}
 const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
 
 export default connect(mapStateToProps, mapDispatchToProps)(
