@@ -30,9 +30,17 @@ describe('Search actions', () => {
   })
 
   it('creates an action to finish users search with success', () => {
-    expect(actions.searchUsersSuccess('payload')).toEqual({
+    const payload = {
+      after: 2,
+      before: 1,
+      items: [],
+    }
+    expect(actions.searchUsersSuccess(payload)).toEqual({
       type: types.SEARCH_USERS_SUCCESS,
-      payload: 'payload',
+      after: 2,
+      before: 1,
+      entities: {},
+      result: [],
     })
   })
 

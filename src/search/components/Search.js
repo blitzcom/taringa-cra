@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import Ad from '../../ads/components/Ad'
 import TabButton from './TabButtonContainer'
 import StoriesTab from './StoriesTab'
+import UsersTab from './UsersTab'
 
 const tabs = {
   stories: StoriesTab,
+  users: UsersTab,
 }
 
 class Search extends Component {

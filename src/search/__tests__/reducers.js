@@ -96,7 +96,11 @@ describe('Search Users', () => {
   it('handles SEARCH_USERS_SUCCESS', () => {
     const action = {
       type: types.SEARCH_USERS_SUCCESS,
-      payload: { foo: 'bar' },
+      after: 2,
+      before: 1,
+      count: 2,
+      result: [1],
+      totalCount: 4,
     }
 
     const state = {
@@ -106,10 +110,14 @@ describe('Search Users', () => {
     }
 
     expect(searchUsers(state, action)).toEqual({
+      after: 2,
+      before: 1,
+      count: 2,
       error: '',
+      items: [1],
       q: 'foo',
       status: 'success',
-      foo: 'bar',
+      totalCount: 4,
     })
   })
 
