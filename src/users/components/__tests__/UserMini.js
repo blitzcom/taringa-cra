@@ -2,7 +2,6 @@ import React from 'react'
 
 import { UserMini } from '../UserMini'
 
-
 describe('UserMini', () => {
   it('exists', () => {
     expect(UserMini).toBeDefined()
