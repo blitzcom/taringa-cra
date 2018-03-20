@@ -50,8 +50,9 @@ describe('Channel actions', () => {
     })
 
     it('creates an action to start a fetch request', () => {
-      expect(actions.fetchListRequest()).toEqual({
+      expect(actions.fetchListRequest('foo')).toEqual({
         type: types.FETCH_LIST_REQUEST,
+        strategy: 'foo',
       })
     })
 
@@ -62,7 +63,7 @@ describe('Channel actions', () => {
         items: [{ name: 'foo', cover: 'bar' }],
       }
 
-      expect(actions.fetchListSuccess(channels)).toEqual({
+      expect(actions.fetchListSuccess(channels, 'foo')).toEqual({
         type: types.FETCH_LIST_SUCCESS,
         after: 'b',
         before: 'a',
@@ -72,54 +73,13 @@ describe('Channel actions', () => {
           },
         },
         result: ['foo'],
+        strategy: 'foo',
       })
     })
 
     it('creates an action to finish a fetch with failure', () => {
       expect(actions.fetchListFailure('Network Error')).toEqual({
         type: types.FETCH_LIST_FAILURE,
-        message: 'Network Error',
-      })
-    })
-  })
-
-  describe('Fetch list tail', () => {
-    it('creates an action to trigger a fetch request', () => {
-      expect(actions.fetchListTailTrigger('foo')).toEqual({
-        type: types.FETCH_LIST_TAIL_TRIGGER,
-        url: 'foo',
-      })
-    })
-
-    it('creates an action to start a fetch request', () => {
-      expect(actions.fetchListTailRequest()).toEqual({
-        type: types.FETCH_LIST_TAIL_REQUEST,
-      })
-    })
-
-    it('creates an action to finish a fetch with success', () => {
-      const channels = {
-        before: 'a',
-        after: 'b',
-        items: [{ name: 'foo', cover: 'bar' }],
-      }
-
-      expect(actions.fetchListTailSuccess(channels)).toEqual({
-        type: types.FETCH_LIST_TAIL_SUCCESS,
-        after: 'b',
-        before: 'a',
-        entities: {
-          channels: {
-            foo: { name: 'foo', cover: 'bar' },
-          },
-        },
-        result: ['foo'],
-      })
-    })
-
-    it('creates an action to finish a fetch with failure', () => {
-      expect(actions.fetchListTailFailure('Network Error')).toEqual({
-        type: types.FETCH_LIST_TAIL_FAILURE,
         message: 'Network Error',
       })
     })

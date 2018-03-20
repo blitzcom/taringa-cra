@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/FilterableInfiniteScroll'
 import ChannelList from './ChannelList'
-import { fetchListTailTrigger, fetchListTrigger } from '../actions'
+import { fetchListTrigger } from '../actions'
+import { PUSH } from '../../constants'
 
 const mapStateToProps = state => {
   const page = state.channels
@@ -20,8 +21,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onLoad: () => dispatch(fetchListTrigger(ownProps.url)),
-    onLoadMore: () => dispatch(fetchListTailTrigger(ownProps.url)),
-    onRetry: () => dispatch(fetchListTailTrigger(ownProps.url)),
+    onLoadMore: () => dispatch(fetchListTrigger(ownProps.url, PUSH)),
+    onRetry: () => dispatch(fetchListTrigger(ownProps.url, PUSH)),
   }
 }
 
