@@ -3,6 +3,7 @@ import { normalize } from 'normalizr'
 
 import * as types from './types'
 import { channel as channelSchema } from './schemas'
+import { REPLACE } from '../constants'
 
 export const fetchTrigger = name => ({
   type: types.FETCH_TRIGGER,
@@ -26,18 +27,21 @@ export const fetchFailure = (name, message) => ({
   message: message,
 })
 
-export const fetchListTrigger = url => ({
+export const fetchListTrigger = (url, strategy) => ({
   type: types.FETCH_LIST_TRIGGER,
+  strategy: strategy,
   url: url,
 })
 
-export const fetchListRequest = () => ({
+export const fetchListRequest = (strategy = REPLACE) => ({
   type: types.FETCH_LIST_REQUEST,
+  strategy: strategy,
 })
 
-export const fetchListSuccess = ({ items, ...rest }) => {
+export const fetchListSuccess = ({ items, ...rest }, strategy = REPLACE) => {
   return _.assign({}, normalize(items, [channelSchema]), rest, {
     type: types.FETCH_LIST_SUCCESS,
+    strategy: strategy,
   })
 }
 

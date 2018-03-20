@@ -50,8 +50,9 @@ describe('Channel actions', () => {
     })
 
     it('creates an action to start a fetch request', () => {
-      expect(actions.fetchListRequest()).toEqual({
+      expect(actions.fetchListRequest('foo')).toEqual({
         type: types.FETCH_LIST_REQUEST,
+        strategy: 'foo',
       })
     })
 
@@ -62,7 +63,7 @@ describe('Channel actions', () => {
         items: [{ name: 'foo', cover: 'bar' }],
       }
 
-      expect(actions.fetchListSuccess(channels)).toEqual({
+      expect(actions.fetchListSuccess(channels, 'foo')).toEqual({
         type: types.FETCH_LIST_SUCCESS,
         after: 'b',
         before: 'a',
@@ -72,6 +73,7 @@ describe('Channel actions', () => {
           },
         },
         result: ['foo'],
+        strategy: 'foo',
       })
     })
 
