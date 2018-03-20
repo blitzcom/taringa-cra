@@ -10,9 +10,20 @@ describe('Summaries actions', () => {
   })
 
   it('creates an action to finish fetching summaries with success', () => {
-    expect(actions.fetchSuccess(1)).toEqual({
+    const result = {
+      after: 2,
+      before: 1,
+      items: []
+    }
+
+    expect(actions.fetchSuccess(1, result)).toEqual({
       type: types.FETCH_SUCCESS,
+      after: 2,
+      before: 1,
+      entities: {},
       id: 1,
+      result: [],
+      strategy: 'REPLACE',
     })
   })
 

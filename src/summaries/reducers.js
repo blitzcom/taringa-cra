@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import * as types from './types'
+import { PUSH } from '../constants'
 
 export const summariesEntities = (state = {}, action) => {
   switch (action.type) {
@@ -27,13 +28,20 @@ const fetchControlInitialState = {
 const fetchingControl = (state = fetchControlInitialState, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
-      return _.assign({}, state, { error: '', ids: [], status: 'fetching' })
+      return _.assign({}, state, {
+        error: '',
+        status: 'fetching',
+        ids: action.strategy === PUSH ? state.ids : [],
+      })
     case types.FETCH_SUCCESS:
       return _.assign({}, state, {
         after: action.after,
         before: action.before,
         count: action.count,
-        ids: action.result,
+        ids:
+          action.strategy === PUSH
+            ? _.concat(state.ids, action.result)
+            : action.result,
         status: 'success',
         totalCount: action.totalCount,
       })
