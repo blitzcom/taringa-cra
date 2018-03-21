@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import LazyLoad from 'react-lazyload'
 import { connect } from 'react-redux'
 
 export class Avatar extends PureComponent {
@@ -13,12 +14,14 @@ export class Avatar extends PureComponent {
     const fullname = `${firstname} ${lastname}`
 
     return (
-      <img
-        alt={fullname}
-        className="rounded Commentable-avatar"
-        src={avatar}
-        title={fullname}
-      />
+      <LazyLoad offset={100} height={40} once>
+        <img
+          alt={fullname}
+          className="rounded Commentable-avatar"
+          src={avatar}
+          title={fullname}
+        />
+      </LazyLoad>
     )
   }
 }

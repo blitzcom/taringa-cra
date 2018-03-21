@@ -37,7 +37,7 @@ class Summary {
   }
 
   getPreview() {
-    return null
+    return this.getFirstSummaryImage()
   }
 
   getThumbnail() {

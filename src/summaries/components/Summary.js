@@ -87,7 +87,7 @@ class Summary extends PureComponent {
             />
           </div>
 
-          <StoryPeek preview={preview} excerpt={excerpt} />
+          <StoryPeek {...preview} excerpt={excerpt} />
 
           <div className="StoryActions">
             <Action className="StoryAction-comments" icon="far fa-comment">
@@ -100,7 +100,7 @@ class Summary extends PureComponent {
           </div>
         </div>
 
-        {isPreviewOpen && <StoryPreview src={preview} />}
+        {isPreviewOpen && <StoryPreview {...preview} />}
       </Fragment>
     )
   }

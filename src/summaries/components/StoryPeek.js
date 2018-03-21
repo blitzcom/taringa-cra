@@ -1,12 +1,17 @@
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 import './StoryPeek.css'
 
-const StoryPeek = ({ excerpt, preview }) => {
+const StoryPeek = ({ excerpt, url, height }) => {
   return (
     <div className="StoryPeek">
       {excerpt && <p>{excerpt}</p>}
-      {preview && <img src={preview} alt={preview} className="img-fluid" />}
+      {url && (
+        <LazyLoad height={height} once>
+          <img src={url} alt={url} height={height} className="img-fluid" />
+        </LazyLoad>
+      )}
     </div>
   )
 }

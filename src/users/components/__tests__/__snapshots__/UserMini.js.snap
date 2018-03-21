@@ -10,19 +10,29 @@ exports[`UserMini renders default 1`] = `
     <div
       className="card-body p-2 d-flex"
     >
-      <img
-        className="rounded mr-3 border"
-        style={
-          Object {
-            "height": 68,
-            "maxHeight": 68,
-            "maxWidth": 68,
-            "minHeight": 68,
-            "minWidth": 68,
-            "width": 68,
+      <LazyLoad
+        height={68}
+        offset={100}
+        once={true}
+        overflow={false}
+        resize={false}
+        scroll={true}
+        unmountIfInvisible={false}
+      >
+        <img
+          className="rounded mr-3 border"
+          style={
+            Object {
+              "height": 68,
+              "maxHeight": 68,
+              "maxWidth": 68,
+              "minHeight": 68,
+              "minWidth": 68,
+              "width": 68,
+            }
           }
-        }
-      />
+        />
+      </LazyLoad>
       <div
         style={
           Object {

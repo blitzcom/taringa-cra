@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { forceCheck } from 'react-lazyload'
 import React, { Component } from 'react'
 
 const infiniteScroll = (
@@ -13,14 +14,21 @@ const infiniteScroll = (
       super(props)
       this.handleScroll = this.handleScroll.bind(this)
       this.handleScrollThrottle = _.throttle(this.handleScroll, throttleDelay)
+      this.forceCheck = this.forceCheck.bind(this)
+      this.forceCheckDebounce = _.debounce(this.forceCheck, 250)
     }
 
     componentDidMount() {
       this.props.onLoad()
     }
 
+    forceCheck() {
+      forceCheck()
+    }
+
     componentWillUnmount() {
       this.handleScrollThrottle.cancel()
+      this.forceCheckDebounce.cancel()
       this.removeEvents()
     }
 
@@ -31,6 +39,10 @@ const infiniteScroll = (
         this.state,
         prevState
       )
+
+      if (this.props.size !== prevProps.size) {
+        this.forceCheckDebounce()
+      }
 
       if (willReload) {
         this.props.onLoad()
