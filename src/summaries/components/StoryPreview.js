@@ -2,10 +2,10 @@ import React from 'react'
 
 import './StoryPreview.css'
 
-const StoryPreview = ({ src }) => {
+const StoryPreview = ({ url }) => {
   return (
     <div className="StoryPreview">
-      <img src={src} alt={src} className="img-fluid" />
+      <img src={url} alt={url} className="img-fluid" />
     </div>
   )
 }

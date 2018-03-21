@@ -6,15 +6,7 @@ class Article extends Summary {
   }
 
   getPreview() {
-    const image = this.getFirstLinkImage() || this.getFirstSummaryImage()
-
-    if (image) {
-      const { url } = image
-
-      return url
-    }
-
-    return null
+    return this.getFirstLinkImage() || this.getFirstSummaryImage()
   }
 
   getTitle() {
