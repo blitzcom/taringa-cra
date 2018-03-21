@@ -28,7 +28,7 @@ const commentFetchControl = (
 
           return _.assign({}, state, root, {
             status: 'success',
-            items: _.concat(state.items, root.items),
+            items: _.union(state.items, root.items),
           })
         }
 

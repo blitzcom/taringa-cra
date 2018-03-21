@@ -40,7 +40,7 @@ const fetchingControl = (state = fetchControlInitialState, action) => {
         count: action.count,
         ids:
           action.strategy === PUSH
-            ? _.concat(state.ids, action.result)
+            ? _.union(state.ids, action.result)
             : action.result,
         status: 'success',
         totalCount: action.totalCount,
