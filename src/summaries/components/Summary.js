@@ -68,6 +68,11 @@ class Summary extends PureComponent {
       upvotes,
     } = this.props
 
+    const togglerIcon = classNames('fa', {
+      'fa-expand': !isPreviewOpen,
+      'fa-compress': isPreviewOpen,
+    })
+
     return (
       <Fragment>
         <Votes downvotes={downvotes} upvotes={upvotes} />
@@ -94,6 +99,14 @@ class Summary extends PureComponent {
           <StoryPeek {...preview} excerpt={excerpt} />
 
           <div className="StoryActions">
+            {preview && (
+              <Action
+                className="StoryAction-preview"
+                onClick={this.handleTogglePreview}
+                icon={togglerIcon}
+              />
+            )}
+
             <Action className="StoryAction-comments" icon="far fa-comment">
               {comments.humanize()}
             </Action>
