@@ -33,7 +33,11 @@ class Summary extends PureComponent {
     e.preventDefault()
     e.stopPropagation()
 
-    this.setState({ isPreviewOpen: !this.state.isPreviewOpen })
+    const { preview } = this.props
+
+    if (preview) {
+      this.setState({ isPreviewOpen: !this.state.isPreviewOpen })
+    }
   }
 
   handleClick(e) {
