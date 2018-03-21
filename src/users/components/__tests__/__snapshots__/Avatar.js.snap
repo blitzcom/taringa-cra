@@ -1,19 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Avatar renders default 1`] = `
-<img
-  alt="#FIRSTNAME #LASTNAME"
-  className="rounded Commentable-avatar"
-  src="#AVATAR"
-  title="#FIRSTNAME #LASTNAME"
-/>
+<LazyLoad
+  height={40}
+  offset={100}
+  once={true}
+  overflow={false}
+  resize={false}
+  scroll={true}
+  unmountIfInvisible={false}
+>
+  <img
+    alt="#FIRSTNAME #LASTNAME"
+    className="rounded Commentable-avatar"
+    src="#AVATAR"
+    title="#FIRSTNAME #LASTNAME"
+  />
+</LazyLoad>
 `;
 
 exports[`Avatar renders with props 1`] = `
-<img
-  alt="foo bar"
-  className="rounded Commentable-avatar"
-  src="baz"
-  title="foo bar"
-/>
+<LazyLoad
+  height={40}
+  offset={100}
+  once={true}
+  overflow={false}
+  resize={false}
+  scroll={true}
+  unmountIfInvisible={false}
+>
+  <img
+    alt="foo bar"
+    className="rounded Commentable-avatar"
+    src="baz"
+    title="foo bar"
+  />
+</LazyLoad>
 `;
