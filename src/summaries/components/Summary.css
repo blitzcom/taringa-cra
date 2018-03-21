@@ -78,6 +78,15 @@
   order: 4;
 }
 
+.StoryAction-preview {
+  display: none;
+}
+
+.item-medium .StoryAction-preview {
+  display: initial;
+  margin-right: 1.5rem;
+}
+
 .StoryAction-shares {
   display: none;
 }
