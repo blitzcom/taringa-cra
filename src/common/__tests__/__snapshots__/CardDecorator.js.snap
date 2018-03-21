@@ -22,16 +22,36 @@ exports[`CardDecorator renders as a link 1`] = `
   className="Card card link"
   onClick={[Function]}
 >
-  <img
-    alt="Avatar"
-    className="Card-avatar rounded"
-    src="https://placehold.it/64"
-  />
-  <img
-    alt="Cover"
-    className="Card-cover card-img-top"
-    src="https://placehold.it/600x200"
-  />
+  <LazyLoad
+    height={64}
+    offset={100}
+    once={true}
+    overflow={false}
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
+  >
+    <img
+      alt="Avatar"
+      className="Card-avatar rounded"
+      src="https://placehold.it/64"
+    />
+  </LazyLoad>
+  <LazyLoad
+    height={100}
+    offset={100}
+    once={true}
+    overflow={false}
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
+  >
+    <img
+      alt="Cover"
+      className="Card-cover card-img-top"
+      src="https://placehold.it/600x200"
+    />
+  </LazyLoad>
   bar
 </div>
 `;
@@ -41,16 +61,36 @@ exports[`CardDecorator renders with custom params 1`] = `
   className="Card card foo"
   onClick={[Function]}
 >
-  <img
-    alt="Avatar"
-    className="Card-avatar rounded"
-    src="https://placehold.it/64"
-  />
-  <img
-    alt="Cover"
-    className="Card-cover card-img-top"
-    src="https://placehold.it/600x200"
-  />
+  <LazyLoad
+    height={64}
+    offset={100}
+    once={true}
+    overflow={false}
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
+  >
+    <img
+      alt="Avatar"
+      className="Card-avatar rounded"
+      src="https://placehold.it/64"
+    />
+  </LazyLoad>
+  <LazyLoad
+    height={100}
+    offset={100}
+    once={true}
+    overflow={false}
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
+  >
+    <img
+      alt="Cover"
+      className="Card-cover card-img-top"
+      src="https://placehold.it/600x200"
+    />
+  </LazyLoad>
   bar
 </div>
 `;

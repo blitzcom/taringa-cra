@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import LazyLoad from 'react-lazyload'
 
 import './CardDecorator.css'
 
@@ -39,13 +40,18 @@ const CardDecorator = ({
   return (
     <div {...rest} onClick={handleOnClick} className={classes}>
       {avatar && (
-        <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
+        <LazyLoad height={64} offset={100} once>
+          <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
+        </LazyLoad>
       )}
-      <img
-        alt="Cover"
-        className="Card-cover card-img-top"
-        src={cover || 'https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png'}
-      />
+
+      <LazyLoad height={100} offset={100} once>
+        <img
+          alt="Cover"
+          className="Card-cover card-img-top"
+          src={cover || 'https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png'}
+        />
+      </LazyLoad>
       {children}
     </div>
   )
