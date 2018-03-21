@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import LazyLoad from 'react-lazyload'
 
 import Stat from '../../common/Stat'
 
@@ -11,19 +12,22 @@ export const UserMini = props => {
     <div className="col-12 col-md-6 mb-4">
       <div className="card">
         <div className="card-body p-2 d-flex">
-          <img
-            src={props.avatar}
-            className="rounded mr-3 border"
-            alt={props.username}
-            style={{
-              height: 68,
-              maxHeight: 68,
-              maxWidth: 68,
-              minHeight: 68,
-              minWidth: 68,
-              width: 68,
-            }}
-          />
+          <LazyLoad height={68} offset={100} once>
+            <img
+              src={props.avatar}
+              className="rounded mr-3 border"
+              alt={props.username}
+              style={{
+                height: 68,
+                maxHeight: 68,
+                maxWidth: 68,
+                minHeight: 68,
+                minWidth: 68,
+                width: 68,
+              }}
+            />
+          </LazyLoad>
+
           <div style={{ overflow: 'hidden' }}>
             <h6
               className="m-0 text-truncate"
