@@ -2,7 +2,7 @@ import React from 'react'
 
 import Feed from '../../feed/components/Feed'
 import Filterable from '../../filters/components/Filterable'
-import ChannelCardContainer from './ChannelCardContainer'
+import ChannelCard from './ChannelCardResource'
 
 const Channel = ({ match }) => {
   const channel = match.params.channel
@@ -43,7 +43,7 @@ const Channel = ({ match }) => {
       </div>
 
       <div className="col-12 col-lg-4 mb-4 mb-lg-0 order-first order-lg-last">
-        <ChannelCardContainer id={channel} />
+        <ChannelCard id={channel} />
       </div>
     </div>
   )

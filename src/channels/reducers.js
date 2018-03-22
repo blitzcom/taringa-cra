@@ -13,11 +13,12 @@ export const channelEntities = (state = {}, action) => {
 
 const channelFetch = (state = { status: 'fetching', error: '' }, action) => {
   switch (action.type) {
+    case types.FETCH_REQUEST:
+      return _.assign({}, state, { status: 'fetching' })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
     case types.FETCH_SUCCESS:
       return _.assign({}, state, { status: 'success' })
-    case types.FETCH_REQUEST:
     default:
       return state
   }
