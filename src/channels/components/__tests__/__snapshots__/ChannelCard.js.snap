@@ -2,21 +2,16 @@
 
 exports[`Channel Card renders 1`] = `
 <CardDecorator
-  avatar="foo"
-  cover="bar"
   link={true}
   placeholder={false}
-  to="/c/foo"
+  to="/c/undefined"
 >
   <div
     className="card-body"
   >
     <h5
       className="card-title text-truncate"
-      title="baz"
-    >
-      baz
-    </h5>
+    />
     <button
       className="btn btn-primary btn-block btn-sm font-weight-bold mt-4 mb-2"
     >
@@ -34,7 +29,7 @@ exports[`Channel Card renders 1`] = `
 exports[`Channel Card renders placeholder 1`] = `
 <CardDecorator
   link={true}
-  placeholder={true}
+  placeholder={false}
   to="/c/undefined"
 >
   <div
