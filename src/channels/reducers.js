@@ -41,7 +41,7 @@ const channelListFetchInitialState = {
   before: null,
   count: 0,
   error: '',
-  ids: [],
+  items: [],
   status: 'success',
   totalCount: 0,
 }
@@ -54,7 +54,7 @@ export const channelListFetch = (
     case types.FETCH_LIST_REQUEST:
       return _.assign({}, state, {
         error: '',
-        ids: action.strategy === PUSH ? state.ids : [],
+        items: action.strategy === PUSH ? state.items : [],
         status: 'fetching',
       })
     case types.FETCH_LIST_SUCCESS:
@@ -62,9 +62,9 @@ export const channelListFetch = (
         after: action.after,
         before: action.before,
         count: action.count,
-        ids:
+        items:
           action.strategy === PUSH
-            ? _.union(state.ids, action.result)
+            ? _.union(state.items, action.result)
             : action.result,
         status: 'success',
         totalCount: action.totalCount,

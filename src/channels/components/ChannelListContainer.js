@@ -6,16 +6,7 @@ import { fetchListTrigger } from '../actions'
 import { PUSH } from '../../constants'
 
 const mapStateToProps = state => {
-  const page = state.channels
-  const channels = state.entities.channels
-  const items = page.ids.map(i => channels[i])
-  const hasMoreContent = page.ids.length < page.totalCount
-
-  return {
-    hasMoreContent: hasMoreContent,
-    items: items,
-    status: page.status,
-  }
+  return state.channels
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -3,17 +3,23 @@
 exports[`CardDecorator renders 1`] = `
 <div
   className="Card card"
+  onClick={[Function]}
 >
-  <div
-    className="Card-animated-background"
+  <LazyLoad
+    height={100}
+    offset={100}
+    once={true}
+    overflow={false}
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
   >
-    <div
-      className="Card-ph-body"
+    <img
+      alt="Cover"
+      className="Card-cover card-img-top"
+      src="https://k60.kn3.net/taringa/0/C/B/5/A/D/9AA.png"
     />
-    <div
-      className="Card-ph-avatar rounded"
-    />
-  </div>
+  </LazyLoad>
 </div>
 `;
 

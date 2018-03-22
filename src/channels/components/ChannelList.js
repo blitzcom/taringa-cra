@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 
-import ChannelCard from './ChannelCard'
+import ChannelCard from './ChannelCardContainer'
 
 const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
   const isFetching = status === 'fetching'
@@ -12,7 +12,7 @@ const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
     const effectiveCount = itemsLength > 0 ? 2 : placeholderCount
     return _.times(effectiveCount, index => (
       <div key={index} className="col-12 col-md-6 mb-4">
-        <ChannelCard />
+        <ChannelCard placeholder={true} />
       </div>
     ))
   }
@@ -21,9 +21,9 @@ const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
     <div>
       {(!hasFailure || itemsLength > 0) && (
         <div className="row">
-          {items.map(item => (
-            <div key={item.id} className="col-12 col-md-6 mb-4">
-              <ChannelCard channel={item} control={{ status: 'success' }} />
+          {items.map(id => (
+            <div key={id} className="col-12 col-md-6 mb-4">
+              <ChannelCard id={id} />
             </div>
           ))}
 

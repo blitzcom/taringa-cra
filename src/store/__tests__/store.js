@@ -11,7 +11,7 @@ describe('Store', () => {
         before: null,
         count: 0,
         error: '',
-        ids: [],
+        items: [],
         status: 'success',
         totalCount: 0,
       },

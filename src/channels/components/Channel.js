@@ -43,7 +43,7 @@ const Channel = ({ match }) => {
       </div>
 
       <div className="col-12 col-lg-4 mb-4 mb-lg-0 order-first order-lg-last">
-        <ChannelCardContainer channel={channel} />
+        <ChannelCardContainer id={channel} />
       </div>
     </div>
   )

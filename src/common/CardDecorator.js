@@ -58,7 +58,7 @@ const CardDecorator = ({
 }
 
 CardDecorator.defaultProps = {
-  placeholder: true,
+  placeholder: false,
 }
 
 export default CardDecorator

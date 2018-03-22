@@ -2,18 +2,25 @@ import React from 'react'
 
 import CardDecorator from '../../common/CardDecorator'
 
-const ChannelCard = ({ channel, control, link }) => {
+const ChannelCard = ({
+  background,
+  link,
+  name,
+  placeholder,
+  thumbnail,
+  title,
+}) => {
   return (
     <CardDecorator
-      avatar={channel.thumbnail}
-      cover={channel.background}
+      avatar={thumbnail}
+      cover={background}
+      placeholder={placeholder}
       link={link}
-      placeholder={control.status === 'fetching'}
-      to={`/c/${channel.name}`}
+      to={`/c/${name}`}
     >
       <div className="card-body">
-        <h5 className="card-title text-truncate" title={channel.title}>
-          {channel.title}
+        <h5 className="card-title text-truncate" title={title}>
+          {title}
         </h5>
 
         <button className="btn btn-primary btn-block btn-sm font-weight-bold mt-4 mb-2">
@@ -30,8 +37,6 @@ const ChannelCard = ({ channel, control, link }) => {
 }
 
 ChannelCard.defaultProps = {
-  channel: {},
-  control: { status: 'fetching' },
   link: true,
 }
 
