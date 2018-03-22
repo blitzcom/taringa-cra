@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Tab from './Tab'
-import ChannelCard from '../../channels/components/ChannelMini'
+import ChannelCard from '../../channels/components/ChannelCardContainer'
 
 const ChannelsTab = ({ items, ...rest }) => {
   return (
