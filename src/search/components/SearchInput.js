@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
@@ -16,25 +15,36 @@ export class SearchInput extends Component {
       value: '',
     }
 
+    this.handleKeyUp = this.handleKeyUp.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleClear = this.handleClear.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.redirect = this.redirect.bind(this)
-    this.emitChangeDebounced = _.debounce(this.emitChange, 250)
-  }
-
-  componentWillUnmount() {
-    this.emitChangeDebounced.cancel()
   }
 
   handleChange(e) {
     const value = e.target.value
-    this.setState({ value }, () => {
-      this.emitChangeDebounced(value)
-    })
+    this.setState({ value })
+  }
+
+  handleKeyUp(e) {
+    const { value } = this.state
+
+    switch (e.which) {
+      case 27:
+        return this.handleClear()
+      case 13:
+        return this.emitChange(value)
+      default:
+        return
+    }
   }
 
   handleClear() {
+    if (!this.state.value) {
+      return
+    }
+
     this.setState({ value: '' }, () => {
       this.props.onClear()
       this.input && this.input.focus()
@@ -83,6 +93,7 @@ export class SearchInput extends Component {
         <input
           className="form-control"
           onChange={this.handleChange}
+          onKeyUp={this.handleKeyUp}
           placeholder="Buscar canal, post o usuario"
           ref={i => (this.input = i)}
           type="text"
@@ -118,7 +129,7 @@ const mapDispatchToProps = dispatch => {
       value.length > 0
         ? dispatch(searchTrigger(value))
         : dispatch(searchClear()),
-    onClear: value => dispatch(searchClear()),
+    onClear: () => dispatch(searchClear()),
   }
 }
 
