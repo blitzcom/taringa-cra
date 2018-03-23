@@ -38,18 +38,51 @@ describe('Search Stories saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.story, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.story, 'foo', cancelToken.token),
+        })
       )
 
-      return data
+      return { result: data }
     })
 
     it('puts search stories success action', result => {
       expect(result).toEqual(put(actions.searchStoriesSuccess(data)))
     })
 
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
+    it('ends', result => {
+      expect(result).toBeUndefined()
+    })
+  })
+
+  describe('clears search', () => {
+    const it = sagaHelper(searchStories({ q: 'foo' }))
+    const cancelToken = axios.CancelToken.source()
+    const data = { totalCount: 0, items: [] }
+
+    it('gets a cancel token', result => {
+      expect(result).toEqual(call(axios.CancelToken.source))
+      return cancelToken
+    })
+
+    it('puts search stories request action', result => {
+      expect(result).toEqual(put(actions.searchStoriesRequest('foo')))
+    })
+
+    it('takes SEARCH_CLEAR', result => {
+      expect(result).toEqual(
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.story, 'foo', cancelToken.token),
+        })
+      )
+
+      return { clear: { type: SEARCH_CLEAR } }
+    })
+
+    it('cancels api call', result => {
+      expect(result).toEqual(call(cancelToken.cancel))
     })
 
     it('ends', result => {
@@ -73,7 +106,10 @@ describe('Search Stories saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.story, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.story, 'foo', cancelToken.token),
+        })
       )
 
       return new Error('Network Error')
@@ -81,10 +117,6 @@ describe('Search Stories saga', () => {
 
     it('puts search stories failure action', result => {
       expect(result).toEqual(put(actions.searchStoriesFailure('Network Error')))
-    })
-
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
     })
 
     it('ends', result => {
@@ -114,18 +146,17 @@ describe('Search Users saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.user, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.user, 'foo', cancelToken.token),
+        })
       )
 
-      return data
+      return { result: data }
     })
 
     it('puts search stories success action', result => {
       expect(result).toEqual(put(actions.searchUsersSuccess(data)))
-    })
-
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
     })
 
     it('ends', result => {
@@ -149,7 +180,10 @@ describe('Search Users saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.user, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.user, 'foo', cancelToken.token),
+        })
       )
 
       return new Error('Network Error')
@@ -157,10 +191,6 @@ describe('Search Users saga', () => {
 
     it('puts search stories failure action', result => {
       expect(result).toEqual(put(actions.searchUsersFailure('Network Error')))
-    })
-
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
     })
 
     it('ends', result => {
@@ -190,18 +220,17 @@ describe('Search Channels saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.channel, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.channel, 'foo', cancelToken.token),
+        })
       )
 
-      return data
+      return { result: data }
     })
 
     it('puts search channels success action', result => {
       expect(result).toEqual(put(actions.searchChannelsSuccess(data)))
-    })
-
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
     })
 
     it('ends', result => {
@@ -225,7 +254,10 @@ describe('Search Channels saga', () => {
 
     it('calls api', result => {
       expect(result).toEqual(
-        call(Taringa.search.channel, 'foo', cancelToken.token)
+        race({
+          clear: take(SEARCH_CLEAR),
+          result: call(Taringa.search.channel, 'foo', cancelToken.token),
+        })
       )
 
       return new Error('Network Error')
@@ -235,10 +267,6 @@ describe('Search Channels saga', () => {
       expect(result).toEqual(
         put(actions.searchChannelsFailure('Network Error'))
       )
-    })
-
-    it('checks for cancel', result => {
-      expect(result).toEqual(cancelled())
     })
 
     it('ends', result => {
@@ -279,72 +307,8 @@ describe('Search saga', () => {
     })
 
     it('creates a race effect', result => {
-      expect(result).toEqual(
-        race({
-          clear: take(SEARCH_CLEAR),
-          complete: join(storiesTask, usersTask, channelsTask),
-        })
-      )
-
+      expect(result).toEqual(join(storiesTask, usersTask, channelsTask))
       return {}
-    })
-
-    it('puts search finish action', result => {
-      expect(result).toEqual(put(actions.searchFinish()))
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
-    })
-  })
-
-  describe('cancels search', () => {
-    const action = { q: 'foo' }
-    const it = sagaHelper(search(action))
-    const storiesTask = createMockTask()
-    const usersTask = createMockTask()
-    const channelsTask = createMockTask()
-
-    it('puts a search start action', result => {
-      expect(result).toEqual(put(actions.searchStart(action.q)))
-    })
-
-    it('forks search stories', result => {
-      expect(result).toEqual(fork(searchStories, action))
-      return storiesTask
-    })
-
-    it('forks search users', result => {
-      expect(result).toEqual(fork(searchUsers, action))
-      return usersTask
-    })
-
-    it('forks search channels', result => {
-      expect(result).toEqual(fork(searchChannels, action))
-      return channelsTask
-    })
-
-    it('creates a race effect', result => {
-      expect(result).toEqual(
-        race({
-          clear: take(SEARCH_CLEAR),
-          complete: join(storiesTask, usersTask, channelsTask),
-        })
-      )
-
-      return { clear: take(SEARCH_CLEAR) }
-    })
-
-    it('cancels search stories', result => {
-      expect(result).toEqual(cancel(storiesTask))
-    })
-
-    it('cancels search users', result => {
-      expect(result).toEqual(cancel(usersTask))
-    })
-
-    it('cancels search channels', result => {
-      expect(result).toEqual(cancel(channelsTask))
     })
 
     it('puts search finish action', result => {
