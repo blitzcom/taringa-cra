@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import TabButton from './TabButton'
 
 const mapStateToProps = (state, ownProps) => {
-  return state.search[ownProps.id]
+  return state.searching[ownProps.id] || {}
 }
 
 const mapDispatchToProps = () => {

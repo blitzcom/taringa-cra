@@ -1,10 +1,11 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
 import './SearchInput.css'
-import { searchTrigger, searchClear } from '../actions'
+import { searchCancel, searchClear, searchTrigger } from '../actions'
 
 export class SearchInput extends Component {
   static contextTypes = Link.contextTypes
@@ -119,17 +120,27 @@ SearchInput.defaultProps = {
 
 const mapStateToProps = state => {
   return {
-    isSearching: state.control.searchFetch.status === 'fetching',
+    isSearching:
+      _.size(state.searching) > 0 &&
+      _.every(state.searching, { status: 'fetching' }),
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onChange: value =>
-      value.length > 0
-        ? dispatch(searchTrigger(value))
-        : dispatch(searchClear()),
-    onClear: () => dispatch(searchClear()),
+    onChange: value => {
+      if (value.length > 0) {
+        dispatch(searchClear('stories'))
+        dispatch(searchTrigger('stories', value))
+        dispatch(searchClear('users'))
+        dispatch(searchTrigger('users', value))
+        dispatch(searchClear('channels'))
+        dispatch(searchTrigger('channels', value))
+      }
+    },
+    onClear: () => {
+      dispatch(searchCancel())
+    },
   }
 }
 

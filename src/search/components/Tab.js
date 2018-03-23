@@ -1,26 +1,27 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
 import './Tab.css'
 
-class Tab extends PureComponent {
+export class Tab extends PureComponent {
   static defaultProps = {
+    items: [],
     status: 'success',
-    totalCount: null,
   }
 
   render() {
-    const { status, className, totalCount, children } = this.props
+    const { status, className, totalCount, items, children } = this.props
 
     const classes = className || 'card-body'
     const isFetching = status === 'fetching'
     const hasSuccess = status === 'success'
     const hasFailure = status === 'failure'
-    const isInitial = hasSuccess && totalCount === null
-    const hasResults = hasSuccess && totalCount !== null && totalCount > 0
-    const isEmpty = hasSuccess && totalCount !== null && totalCount === 0
+    const isInitial = hasSuccess && totalCount === undefined
+    const hasResults = hasSuccess && totalCount !== undefined && totalCount > 0
+    const isEmpty = hasSuccess && totalCount !== undefined && totalCount === 0
 
     if (hasResults) {
-      return <div className={classes}>{children}</div>
+      return <div className={classes}>{children(items)}</div>
     }
 
     return (
@@ -48,4 +49,9 @@ class Tab extends PureComponent {
   }
 }
 
-export default Tab
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.searching[ownProps.id])
+  return state.searching[ownProps.id] || {}
+}
+
+export default connect(mapStateToProps)(Tab)

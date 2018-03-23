@@ -1,83 +1,35 @@
 import axios from 'axios'
-import { call, fork, join, put, race, take } from 'redux-saga/effects'
+import { call, put, race, take } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
-import { SEARCH_CLEAR } from './types'
+import { SEARCH_CANCEL } from './types'
 
-export function* searchStories({ q }) {
+export const searchEndPoints = {
+  channels: Taringa.search.channel,
+  stories: Taringa.search.story,
+  users: Taringa.search.user,
+}
+
+export function* searching({ id, q }) {
   const cancelToken = yield call(axios.CancelToken.source)
 
   try {
-    yield put(actions.searchStoriesRequest(q))
+    yield put(actions.searchRequest(id, q))
 
-    const { clear, result } = yield race({
-      clear: take(SEARCH_CLEAR),
-      result: call(Taringa.search.story, q, cancelToken.token),
+    const { cancel, result } = yield race({
+      cancel: take(SEARCH_CANCEL),
+      result: call(searchEndPoints[id], q, cancelToken.token),
     })
 
-    if (clear && cancelToken) {
+    if (cancel && cancelToken) {
       yield call(cancelToken.cancel)
+      yield put(actions.searchClear(id))
       return
     }
 
-    yield put(actions.searchStoriesSuccess(result))
+    yield put(actions.searchSuccess(id, result))
   } catch (e) {
-    yield put(actions.searchStoriesFailure(e.message))
+    yield put(actions.searchFailure(id, e.message))
   }
-}
-
-export function* searchUsers({ q }) {
-  const cancelToken = yield call(axios.CancelToken.source)
-
-  try {
-    yield put(actions.searchUsersRequest(q))
-
-    const { clear, result } = yield race({
-      clear: take(SEARCH_CLEAR),
-      result: call(Taringa.search.user, q, cancelToken.token),
-    })
-
-    if (clear && cancelToken) {
-      yield call(cancelToken.cancel)
-      return
-    }
-
-    yield put(actions.searchUsersSuccess(result))
-  } catch (e) {
-    yield put(actions.searchUsersFailure(e.message))
-  }
-}
-
-export function* searchChannels({ q }) {
-  const cancelToken = yield call(axios.CancelToken.source)
-
-  try {
-    yield put(actions.searchChannelsRequest(q))
-
-    const { clear, result } = yield race({
-      clear: take(SEARCH_CLEAR),
-      result: call(Taringa.search.channel, q, cancelToken.token),
-    })
-
-    if (clear && cancelToken) {
-      yield call(cancelToken.cancel)
-      return
-    }
-
-    yield put(actions.searchChannelsSuccess(result))
-  } catch (e) {
-    yield put(actions.searchChannelsFailure(e.message))
-  }
-}
-
-export function* search({ q }) {
-  yield put(actions.searchStart(q))
-
-  const storiesTask = yield fork(searchStories, { q })
-  const usersTask = yield fork(searchUsers, { q })
-  const channelsTask = yield fork(searchChannels, { q })
-
-  yield join(storiesTask, usersTask, channelsTask)
-  yield put(actions.searchFinish())
 }
