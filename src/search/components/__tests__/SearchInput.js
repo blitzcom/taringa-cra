@@ -2,8 +2,6 @@ import React from 'react'
 
 import { SearchInput } from '../SearchInput'
 
-jest.useFakeTimers()
-
 describe('Search Input', () => {
   it('exists', () => {
     expect(SearchInput).toBeDefined()
@@ -43,7 +41,7 @@ describe('Search Input', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('handles input with 250ms debounce', () => {
+  it('fires search when press enter key', () => {
     const mock = jest.fn()
 
     const history = {
@@ -61,12 +59,35 @@ describe('Search Input', () => {
     const event = { target: { value: 'foo' } }
 
     wrapper.find('input').simulate('change', event)
-
-    expect(setTimeout).toBeCalledWith(expect.any(Function), 250)
-
-    jest.runAllTimers()
+    wrapper.find('input').simulate('keyUp', { which: 13 })
 
     expect(mock).toBeCalledWith('foo')
+  })
+
+  it('clears when press esc key and has content', () => {
+    const mock = jest.fn()
+
+    const history = {
+      createHref: () => {},
+      location: { pathname: '/search' },
+      push: () => {},
+      replace: () => {},
+    }
+
+    const options = {
+      context: { router: { history } },
+    }
+
+    const wrapper = mount(<SearchInput onClear={mock} />, options)
+    wrapper.find('input').simulate('keyUp', { which: 27 })
+
+    expect(mock).not.toHaveBeenCalled()
+
+    const event = { target: { value: 'foo' } }
+    wrapper.find('input').simulate('change', event)
+    wrapper.find('input').simulate('keyUp', { which: 27 })
+
+    expect(mock).toHaveBeenCalled()
   })
 
   it('shows clear button', () => {
@@ -164,10 +185,7 @@ describe('Search Input', () => {
         const event = { target: { value: 'foo' } }
 
         wrapper.find('input').simulate('change', event)
-
-        expect(setTimeout).toBeCalledWith(expect.any(Function), 250)
-
-        jest.runAllTimers()
+        wrapper.find('input').simulate('keyUp', { which: 13 })
 
         expect(mock).not.toBeCalled()
       })
@@ -192,10 +210,7 @@ describe('Search Input', () => {
         const event = { target: { value: 'foo' } }
 
         wrapper.find('input').simulate('change', event)
-
-        expect(setTimeout).toBeCalledWith(expect.any(Function), 250)
-
-        jest.runAllTimers()
+        wrapper.find('input').simulate('keyUp', { which: 13 })
 
         expect(mock).toBeCalledWith('/search')
       })

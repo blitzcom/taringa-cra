@@ -25,6 +25,7 @@ exports[`Search Input clears search input 1`] = `
     <input
       className="form-control"
       onChange={[Function]}
+      onKeyUp={[Function]}
       placeholder="Buscar canal, post o usuario"
       type="text"
       value="foo"
@@ -71,6 +72,7 @@ exports[`Search Input clears search input 2`] = `
     <input
       className="form-control"
       onChange={[Function]}
+      onKeyUp={[Function]}
       placeholder="Buscar canal, post o usuario"
       type="text"
       value=""
@@ -99,6 +101,7 @@ exports[`Search Input renders 1`] = `
   <input
     className="form-control"
     onChange={[Function]}
+    onKeyUp={[Function]}
     placeholder="Buscar canal, post o usuario"
     type="text"
     value=""
@@ -126,6 +129,7 @@ exports[`Search Input renders spinner 1`] = `
   <input
     className="form-control"
     onChange={[Function]}
+    onKeyUp={[Function]}
     placeholder="Buscar canal, post o usuario"
     type="text"
     value=""
@@ -153,6 +157,7 @@ exports[`Search Input shows clear button 1`] = `
   <input
     className="form-control"
     onChange={[Function]}
+    onKeyUp={[Function]}
     placeholder="Buscar canal, post o usuario"
     type="text"
     value=""
@@ -180,6 +185,7 @@ exports[`Search Input shows clear button 2`] = `
   <input
     className="form-control"
     onChange={[Function]}
+    onKeyUp={[Function]}
     placeholder="Buscar canal, post o usuario"
     type="text"
     value="foo"
