@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Tab from '../Tab'
+import { Tab } from '../Tab'
 
 describe('Tab', () => {
   it('exists', () => {
@@ -23,7 +23,7 @@ describe('Tab', () => {
 
   it('renders children when has success', () => {
     const props = {
-      children: 'foo',
+      children: () => 'foo',
       status: 'success',
       totalCount: 2,
     }

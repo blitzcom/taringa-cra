@@ -3,118 +3,52 @@ import * as types from '../types'
 
 describe('Search actions', () => {
   it('creates an action to trigger a search', () => {
-    expect(actions.searchTrigger('foo')).toEqual({
+    expect(actions.searchTrigger('foo', 'bar')).toEqual({
       type: types.SEARCH_TRIGGER,
-      q: 'foo',
+      id: 'foo',
+      q: 'bar',
     })
   })
 
-  it('creates an action to start a search', () => {
-    expect(actions.searchStart('foo')).toEqual({
-      type: types.SEARCH_START,
-      q: 'foo',
+  it('creates an action to start a search request', () => {
+    expect(actions.searchRequest('foo', 'bar')).toEqual({
+      type: types.SEARCH_REQUEST,
+      id: 'foo',
+      q: 'bar',
     })
   })
 
-  it('creates an action to finish a search', () => {
-    expect(actions.searchFinish()).toEqual({
-      type: types.SEARCH_FINISH,
-    })
-  })
-
-  it('creates an action to start an users search request', () => {
-    expect(actions.searchUsersRequest('foo')).toEqual({
-      type: types.SEARCH_USERS_REQUEST,
-      q: 'foo',
-    })
-  })
-
-  it('creates an action to finish users search with success', () => {
-    const payload = {
-      after: 2,
-      before: 1,
-      items: [],
-    }
-
-    expect(actions.searchUsersSuccess(payload)).toEqual({
-      type: types.SEARCH_USERS_SUCCESS,
-      after: 2,
-      before: 1,
+  it('craetes an action to finish a search with success', () => {
+    expect(
+      actions.searchSuccess('foo', { items: [], after: 1, before: 2 })
+    ).toEqual({
+      type: types.SEARCH_SUCCESS,
+      after: 1,
+      before: 2,
       entities: {},
+      id: 'foo',
       result: [],
     })
   })
 
-  it('creates an action to finish users search with failure', () => {
-    expect(actions.searchUsersFailure('foo')).toEqual({
-      type: types.SEARCH_USERS_FAILURE,
-      message: 'foo',
+  it('creates an action to finish a search with failure', () => {
+    expect(actions.searchFailure('foo', 'baz')).toEqual({
+      type: types.SEARCH_FAILURE,
+      id: 'foo',
+      message: 'baz',
     })
   })
 
-  it('creates an action to start a stories search request', () => {
-    expect(actions.searchStoriesRequest('foo')).toEqual({
-      type: types.SEARCH_STORIES_REQUEST,
-      q: 'foo',
-    })
-  })
-
-  it('creates an action to finish stories search with success', () => {
-    const payload = {
-      after: 2,
-      before: 1,
-      items: [],
-    }
-
-    expect(actions.searchStoriesSuccess(payload)).toEqual({
-      type: types.SEARCH_STORIES_SUCCESS,
-      after: 2,
-      before: 1,
-      entities: {},
-      result: [],
-    })
-  })
-
-  it('creates an action to finish stories search with failure', () => {
-    expect(actions.searchStoriesFailure('foo')).toEqual({
-      type: types.SEARCH_STORIES_FAILURE,
-      message: 'foo',
-    })
-  })
-
-  it('creates an action to start channels search request', () => {
-    expect(actions.searchChannelsRequest('foo')).toEqual({
-      type: types.SEARCH_CHANNELS_REQUEST,
-      q: 'foo',
-    })
-  })
-
-  it('creates an action to finish channels search with success', () => {
-    const payload = {
-      after: 2,
-      before: 1,
-      items: [],
-    }
-
-    expect(actions.searchChannelsSuccess(payload)).toEqual({
-      type: types.SEARCH_CHANNELS_SUCCESS,
-      after: 2,
-      before: 1,
-      entities: {},
-      result: [],
-    })
-  })
-
-  it('creates an action to finish channels search with failure', () => {
-    expect(actions.searchChannelsFailure('Network Error')).toEqual({
-      type: types.SEARCH_CHANNELS_FAILURE,
-      message: 'Network Error',
+  it('creates an action to cancels a search', () => {
+    expect(actions.searchCancel()).toEqual({
+      type: types.SEARCH_CANCEL,
     })
   })
 
   it('creates an action to clear search', () => {
-    expect(actions.searchClear()).toEqual({
+    expect(actions.searchClear('foo')).toEqual({
       type: types.SEARCH_CLEAR,
+      id: 'foo',
     })
   })
 })

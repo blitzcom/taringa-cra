@@ -6,74 +6,44 @@ import { summary } from '../summaries/schemas'
 import { user } from '../users/schemas'
 import { channel } from '../channels/schemas'
 
-export const searchTrigger = q => ({
+const schemas = {
+  channels: channel,
+  stories: summary,
+  users: user,
+}
+
+export const searchTrigger = (id, q) => ({
   type: types.SEARCH_TRIGGER,
+  id: id,
   q: q,
 })
 
-export const searchStart = q => ({
-  type: types.SEARCH_START,
+export const searchRequest = (id, q) => ({
+  type: types.SEARCH_REQUEST,
+  id: id,
   q: q,
 })
 
-export const searchFinish = () => ({
-  type: types.SEARCH_FINISH,
-})
-
-export const searchUsersRequest = q => ({
-  type: types.SEARCH_USERS_REQUEST,
-  q: q,
-})
-
-export const searchUsersSuccess = ({ items, ...rest }) => {
+export const searchSuccess = (id, { items, ...rest }) => {
+  const schema = schemas[id]
   return _.assign(
-    { type: types.SEARCH_USERS_SUCCESS },
-    normalize(items, [user]),
+    { type: types.SEARCH_SUCCESS, id: id },
+    normalize(items, [schema]),
     rest
   )
 }
 
-export const searchUsersFailure = message => ({
-  type: types.SEARCH_USERS_FAILURE,
+export const searchFailure = (id, message) => ({
+  type: types.SEARCH_FAILURE,
+  id: id,
   message: message,
 })
 
-export const searchStoriesRequest = q => ({
-  type: types.SEARCH_STORIES_REQUEST,
-  q: q,
+export const searchCancel = () => ({
+  type: types.SEARCH_CANCEL,
 })
 
-export const searchStoriesSuccess = ({ items, ...rest }) => {
-  return _.assign(
-    { type: types.SEARCH_STORIES_SUCCESS },
-    normalize(items, [summary]),
-    rest
-  )
-}
-
-export const searchStoriesFailure = message => ({
-  type: types.SEARCH_STORIES_FAILURE,
-  message: message,
-})
-
-export const searchChannelsRequest = q => ({
-  type: types.SEARCH_CHANNELS_REQUEST,
-  q: q,
-})
-
-export const searchChannelsSuccess = ({ items, ...rest }) => {
-  return _.assign(
-    { type: types.SEARCH_CHANNELS_SUCCESS },
-    normalize(items, [channel]),
-    rest
-  )
-}
-
-export const searchChannelsFailure = message => ({
-  type: types.SEARCH_CHANNELS_FAILURE,
-  message: message,
-})
-
-export const searchClear = () => ({
+export const searchClear = id => ({
   type: types.SEARCH_CLEAR,
+  id: id,
 })
