@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { call, put, race, take } from 'redux-saga/effects'
+import { call, put, race, take, select } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
@@ -11,15 +11,22 @@ export const searchEndPoints = {
   users: Taringa.search.user,
 }
 
+export const getState = (state, id) => state.searching[id] || {}
+
 export function* searching({ id, q }) {
   const cancelToken = yield call(axios.CancelToken.source)
 
+  const state = yield select(getState, id)
+
+  const params = { after: state.after }
+  const keywork = q || state.q
+
   try {
-    yield put(actions.searchRequest(id, q))
+    yield put(actions.searchRequest(id, keywork))
 
     const { cancel, result } = yield race({
       cancel: take(SEARCH_CANCEL),
-      result: call(searchEndPoints[id], q, cancelToken.token),
+      result: call(searchEndPoints[id], keywork, cancelToken.token, params),
     })
 
     if (cancel && cancelToken) {

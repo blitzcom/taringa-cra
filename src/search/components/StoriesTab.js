@@ -1,14 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'recompose'
 
-import Tab from './Tab'
 import Summary from '../../summaries/components/SummaryContainer'
+import { searchTrigger } from '../actions'
+import withSearch from './withSearch'
 
-const StoriesTab = () => {
+export const StoriesTab = ({ items }) => {
   return (
-    <Tab className="list-group list-group-flush" id="stories">
-      {items => items.map(id => <Summary key={id} id={id} />)}
-    </Tab>
+    <div className="list-group list-group-flush">
+      {items.map(id => <Summary key={id} id={id} />)}
+    </div>
   )
 }
 
-export default StoriesTab
+StoriesTab.defaultProps = {
+  items: [],
+}
+
+const enhance = compose(
+  connect(
+    state => state.searching.stories || {},
+    dispatch => ({
+      onLoad: () => dispatch(searchTrigger('stories')),
+    })
+  ),
+  withSearch()
+)
+
+export default enhance(StoriesTab)

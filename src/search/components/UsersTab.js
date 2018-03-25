@@ -1,14 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'recompose'
 
-import Tab from './Tab'
 import User from '../../users/components/UserMini'
+import { searchTrigger } from '../actions'
+import withSearch from './withSearch'
 
-const UsersTab = () => {
+const UsersTab = ({ items }) => {
   return (
-    <Tab className="card-body row" id="users">
-      {items => items.map(id => <User key={id} id={id} />)}
-    </Tab>
+    <div className="card-body row">
+      {items.map(id => <User key={id} id={id} />)}
+    </div>
   )
 }
 
-export default UsersTab
+const enhance = compose(
+  connect(
+    state => state.searching.users || {},
+    dispatch => ({
+      onLoad: () => dispatch(searchTrigger('users')),
+    })
+  ),
+  withSearch()
+)
+
+export default enhance(UsersTab)

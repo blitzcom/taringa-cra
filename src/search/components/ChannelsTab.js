@@ -1,20 +1,35 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'recompose'
 
-import Tab from './Tab'
 import ChannelCard from '../../channels/components/ChannelCardContainer'
+import { searchTrigger } from '../actions'
+import withSearch from './withSearch'
 
-const ChannelsTab = () => {
+export const ChannelsTab = ({ items }) => {
   return (
-    <Tab className="card-body row" id="channels">
-      {items =>
-        items.map(id => (
-          <div className="col-12 col-md-6 mb-4" key={id}>
-            <ChannelCard id={id} />
-          </div>
-        ))
-      }
-    </Tab>
+    <div className="card-body row">
+      {items.map(id => (
+        <div className="col-12 col-md-6 mb-4" key={id}>
+          <ChannelCard id={id} />
+        </div>
+      ))}
+    </div>
   )
 }
 
-export default ChannelsTab
+ChannelsTab.defaultProps = {
+  items: [],
+}
+
+const enhance = compose(
+  connect(
+    state => state.searching.channels || {},
+    dispatch => ({
+      onLoad: () => dispatch(searchTrigger('channels')),
+    })
+  ),
+  withSearch()
+)
+
+export default enhance(ChannelsTab)
