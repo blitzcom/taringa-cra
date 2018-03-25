@@ -50,7 +50,6 @@ export class Tab extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.searching[ownProps.id])
   return state.searching[ownProps.id] || {}
 }
 

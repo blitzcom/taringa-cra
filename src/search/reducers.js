@@ -17,7 +17,7 @@ const searchingReducer = (state = searchingInitialState, action) => {
         after: action.after,
         before: action.before,
         count: action.count,
-        items: action.result,
+        items: _.union(state.items, action.result),
         status: 'success',
         totalCount: action.totalCount,
       })

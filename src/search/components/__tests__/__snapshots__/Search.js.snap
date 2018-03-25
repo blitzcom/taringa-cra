@@ -37,7 +37,7 @@ exports[`Search renders 1`] = `
           />
         </div>
       </div>
-      <StoriesTab />
+      <Connect(Tab) />
     </div>
   </div>
   <div

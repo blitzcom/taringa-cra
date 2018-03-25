@@ -20,6 +20,7 @@
     "react-scroll": "^1.7.6",
     "react-timeago": "^3.4.3",
     "react-youtube": "^7.5.0",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "redux-saga-testing": "^1.0.5",
