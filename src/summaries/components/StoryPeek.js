@@ -3,13 +3,24 @@ import LazyLoad from 'react-lazyload'
 
 import './StoryPeek.css'
 
-const StoryPeek = ({ excerpt, url, height }) => {
+const StoryPeek = ({ excerpt, url, height, width }) => {
   return (
     <div className="StoryPeek">
       {excerpt && <p>{excerpt}</p>}
       {url && (
-        <LazyLoad height={height} once>
-          <img src={url} alt={url} height={height} className="img-fluid" />
+        <LazyLoad
+          height={0}
+          placeholder={
+            <img
+              alt="placeholder-img"
+              src={`https://placehold.it/${width}x${height}/ffffff/ffffff`}
+              className="img-fluid"
+            />
+          }
+          once
+          offset={200}
+        >
+          <img src={url} alt={url} className="img-fluid" />
         </LazyLoad>
       )}
     </div>
