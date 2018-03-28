@@ -2,6 +2,7 @@
 
 exports[`Avatar renders default 1`] = `
 <LazyLoad
+  debounce={true}
   height={40}
   offset={100}
   once={true}
@@ -21,6 +22,7 @@ exports[`Avatar renders default 1`] = `
 
 exports[`Avatar renders with props 1`] = `
 <LazyLoad
+  debounce={true}
   height={40}
   offset={100}
   once={true}
