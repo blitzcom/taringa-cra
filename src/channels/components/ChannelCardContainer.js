@@ -1,9 +1,16 @@
 import { connect } from 'react-redux'
 
 import ChannelCard from './ChannelCard'
+import { makeChannelSelector } from '../selectors'
 
-const mapStateToProps = (state, { id }) => {
-  return state.entities.channels[id] || {}
+const makeMapStateToProps = () => {
+  const channelSelector = makeChannelSelector()
+
+  const mapStateToProps = (state, ownProps) => {
+    return channelSelector(state, ownProps)
+  }
+
+  return mapStateToProps
 }
 
-export default connect(mapStateToProps)(ChannelCard)
+export default connect(makeMapStateToProps)(ChannelCard)
