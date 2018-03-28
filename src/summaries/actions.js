@@ -3,29 +3,21 @@ import { normalize } from 'normalizr'
 
 import * as types from './types'
 import { summary } from './schemas'
-import { REPLACE } from '../constants'
 
-export const remove = ids => ({
-  type: types.REMOVE,
-  ids: ids,
-})
-
-export const load = (id, url, strategy) => ({
+export const load = (id, url) => ({
   type: types.LOAD,
   id: id,
-  strategy: strategy,
   url: url,
 })
 
-export const fetchRequest = (id, strategy) => ({
+export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
   id: id,
-  strategy: strategy,
 })
 
-export const fetchSuccess = (id, { items, ...rest }, strategy = REPLACE) => {
+export const fetchSuccess = (id, { items, ...rest }) => {
   return _.assign(
-    { type: types.FETCH_SUCCESS, id, strategy },
+    { type: types.FETCH_SUCCESS, id },
     normalize(items, [summary]),
     rest
   )
@@ -34,5 +26,10 @@ export const fetchSuccess = (id, { items, ...rest }, strategy = REPLACE) => {
 export const fetchFailure = (id, message) => ({
   type: types.FETCH_FAILURE,
   message: message,
+  id: id,
+})
+
+export const clear = id => ({
+  type: types.CLEAR,
   id: id,
 })
