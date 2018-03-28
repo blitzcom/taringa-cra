@@ -120,9 +120,7 @@ exports[`Comments renders listing two and load more 1`] = `
       <p
         className="text-secondary text-center mb-0"
       >
-        <i
-          className="fa fa-circle-notch fa-spin"
-        />
+        <Loader />
       </p>
     </div>
   </div>
