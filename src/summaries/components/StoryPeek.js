@@ -18,7 +18,7 @@ const StoryPeek = ({ excerpt, url, height, width }) => {
             />
           }
           once
-          offset={200}
+          debounce
         >
           <img src={url} alt={url} className="img-fluid" />
         </LazyLoad>
