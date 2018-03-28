@@ -1,9 +1,13 @@
 import React from 'react'
+import classNames from 'classnames'
 
-const Loader = () => {
+const Loader = ({ className, size }) => {
+  const classes = classNames('text-center text-dark', className)
+  const icon = classNames('fa fa-spinner fa-spin', size)
+
   return (
-    <div className="text-center text-dark my-4">
-      <i className="fa fa-spinner fa-spin fa-2x" />
+    <div className={classes}>
+      <i className={icon} />
     </div>
   )
 }

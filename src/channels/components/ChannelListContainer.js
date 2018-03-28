@@ -25,6 +25,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   infiniteScroll(),
-  withLoader(),
+  withLoader('mb-4', 'fa-2x'),
   withError()
 )(ChannelList)
