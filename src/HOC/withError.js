@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
 
-const withError = () => BaseComponent => props => {
+const withError = () => BaseComponent => ({ onRetry, ...rest }) => {
   return (
     <Fragment>
-      <BaseComponent {...props} />
+      <BaseComponent {...rest} />
 
-      {props.status === 'failure' && (
+      {rest.status === 'failure' && (
         <div className="my-4 text-center">
           <p className="mb-2 text-danger">
             ¡Ratas! Algo salío mal. Intenta recargar la página o has clic en el
             siguiente botón
           </p>
-          <button onClick={props.onRetry} className="btn btn-sm btn-primary">
+          <button onClick={onRetry} className="btn btn-sm btn-primary">
             Reintentar
           </button>
         </div>
