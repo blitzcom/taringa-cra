@@ -4,19 +4,19 @@ import classNames from 'classnames'
 import { ITEM_BIG, ITEM_MEDIUM, ITEM_SMALL } from '../../settings/constants'
 import Summary from './SummaryContainer'
 
-const Summaries = ({ ids, onRetry, size, status }) => {
+const Summaries = ({ items, onRetry, size, status }) => {
   const classes = classNames('Summaries', {
     'item-big': size === ITEM_BIG,
     'item-medium': size === ITEM_MEDIUM,
     'item-small': size === ITEM_SMALL,
   })
 
-  if (ids.length > 0) {
+  if (items.length > 0) {
     return (
       <div className={classes}>
         <div className="card">
           <ul className="list-group list-group-flush">
-            {ids.map(id => <Summary key={id} id={id} />)}
+            {items.map(id => <Summary key={id} id={id} />)}
           </ul>
         </div>
       </div>
@@ -27,7 +27,7 @@ const Summaries = ({ ids, onRetry, size, status }) => {
 }
 
 Summaries.defaultProps = {
-  ids: [],
+  items: [],
   onRetry: () => {},
   size: ITEM_MEDIUM,
   status: 'success',

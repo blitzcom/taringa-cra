@@ -10,7 +10,7 @@ import { load, clear } from '../../summaries/actions'
 
 const mapStateToProps = (state, ownProps) => {
   return _.assign(
-    { ids: [], status: 'fetching', totalCount: 0 },
+    { items: [], status: 'fetching', totalCount: 0 },
     state.feed[ownProps.feedId],
     { size: state.settings.itemSize }
   )
@@ -28,8 +28,10 @@ const mapDispatchToProps = (dispatch, { feedId, url }) => {
 }
 
 const getStatus = props => props.status
-const getHasMoreContent = ({ ids, totalCount, count }) => {
-  return (totalCount && ids.length < totalCount) || (!totalCount && count >= 20)
+const getHasMoreContent = ({ items, totalCount, count }) => {
+  return (
+    (totalCount && items.length < totalCount) || (!totalCount && count >= 20)
+  )
 }
 const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
 

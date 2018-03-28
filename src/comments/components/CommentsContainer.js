@@ -10,8 +10,9 @@ import { load, clear } from '../actions'
 const mapStateToProps = (state, ownProps) => {
   return (
     state.control.commentsFetch[ownProps.storyId] || {
-      status: 'fetching',
+      error: '',
       items: [],
+      status: 'fetching',
       totalCount: 0,
     }
   )

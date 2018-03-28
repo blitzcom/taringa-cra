@@ -17,7 +17,7 @@ const fetchControlInitialState = {
   before: null,
   count: 0,
   error: '',
-  ids: [],
+  items: [],
   status: 'success',
   totalCount: 0,
 }
@@ -31,7 +31,7 @@ const fetchingControl = (state = fetchControlInitialState, action) => {
         after: action.after,
         before: action.before,
         count: action.count,
-        ids: _.union(state.ids, action.result),
+        items: _.union(state.items, action.result),
         status: 'success',
         totalCount: action.totalCount,
       })
