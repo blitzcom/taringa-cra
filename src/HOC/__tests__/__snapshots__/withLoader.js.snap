@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withLoader does not render loader when has failure and more content 1`] = `
+<React.Fragment>
+  <BaseComponent
+    items={
+      Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+      ]
+    }
+    status="failure"
+    totalCount={10}
+  />
+</React.Fragment>
+`;
+
+exports[`withLoader does not render loader when has success and no more content 1`] = `
+<React.Fragment>
+  <BaseComponent
+    items={
+      Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+      ]
+    }
+    status="success"
+    totalCount={5}
+  />
+</React.Fragment>
+`;
+
+exports[`withLoader renders default 1`] = `
+<React.Fragment>
+  <BaseComponent
+    items={Array []}
+    status="success"
+    totalCount={0}
+  />
+</React.Fragment>
+`;
+
+exports[`withLoader renders loader when has success and has more content 1`] = `
+<React.Fragment>
+  <BaseComponent
+    items={
+      Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+      ]
+    }
+    status="success"
+    totalCount={10}
+  />
+  <Loader />
+</React.Fragment>
+`;
+
+exports[`withLoader renders loader when is fetching 1`] = `
+<React.Fragment>
+  <BaseComponent
+    items={Array []}
+    status="fetching"
+    totalCount={0}
+  />
+  <Loader />
+</React.Fragment>
+`;
