@@ -2,11 +2,11 @@ import React, { Fragment } from 'react'
 
 import Loader from '../common/Loader'
 
-const withLoader = () => BaseComponent => ({ status, ...rest }) => {
+const withLoader = () => BaseComponent => props => {
   return (
     <Fragment>
-      <BaseComponent {...rest} />
-      {status === 'fetching' && <Loader />}
+      <BaseComponent {...props} />
+      {props.status === 'fetching' && <Loader />}
     </Fragment>
   )
 }
