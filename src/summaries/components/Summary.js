@@ -131,9 +131,9 @@ class Summary extends PureComponent {
     })
 
     return (
-      <div className={classes} onClick={this.handleClick}>
+      <li className={classes} onClick={this.handleClick}>
         {isPlaceholder ? <StoryPlaceholder /> : this.renderContent()}
-      </div>
+      </li>
     )
   }
 }

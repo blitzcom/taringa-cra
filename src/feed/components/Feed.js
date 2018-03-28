@@ -1,12 +1,19 @@
 import { connect } from 'react-redux'
+import { compose } from 'recompose'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
+import withLoader from '../../HOC/withLoader'
 import Summaries from '../../summaries/components/Summaries'
 import { load, clear } from '../../summaries/actions'
-import { summariesSelector } from '../selectors'
 
 const mapStateToProps = (state, ownProps) => {
-  return summariesSelector(state, ownProps)
+  return (
+    state.feed[ownProps.feedId] || {
+      ids: [],
+      status: 'fetching',
+      totalCount: 0,
+    }
+  )
 }
 
 const mapDispatchToProps = (dispatch, { feedId, url }) => {
@@ -26,6 +33,8 @@ const getHasMoreContent = ({ ids, totalCount, count }) => {
 }
 const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  infiniteScroll(getStatus, getHasMoreContent, getWillReload)(Summaries)
-)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  infiniteScroll(getStatus, getHasMoreContent, getWillReload),
+  withLoader()
+)(Summaries)
