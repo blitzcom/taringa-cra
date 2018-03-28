@@ -1,7 +1,6 @@
 import _ from 'lodash'
 
 import * as types from './types'
-import { PUSH } from '../constants'
 
 export const channelEntities = (state = {}, action) => {
   if (action.entities && action.entities.channels) {
@@ -53,25 +52,20 @@ export const channelListFetch = (
 ) => {
   switch (action.type) {
     case types.FETCH_LIST_REQUEST:
-      return _.assign({}, state, {
-        error: '',
-        items: action.strategy === PUSH ? state.items : [],
-        status: 'fetching',
-      })
+      return _.assign({}, state, { error: '', status: 'fetching' })
     case types.FETCH_LIST_SUCCESS:
       return _.assign({}, state, {
         after: action.after,
         before: action.before,
         count: action.count,
-        items:
-          action.strategy === PUSH
-            ? _.union(state.items, action.result)
-            : action.result,
+        items: _.union(state.items, action.result),
         status: 'success',
         totalCount: action.totalCount,
       })
     case types.FETCH_LIST_FAILURE:
       return _.assign({}, state, { status: 'failure', error: action.message })
+    case types.CLEAR_LIST:
+      return channelListFetchInitialState
     default:
       return state
   }

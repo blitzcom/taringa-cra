@@ -1,9 +1,7 @@
-import _ from 'lodash'
 import { call, put, select } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
-import { PUSH } from '../constants'
 
 export function* fetch({ name }) {
   try {
@@ -19,25 +17,21 @@ export function* fetch({ name }) {
 
 const getList = state => state.channels
 
-export function* fetchList({ url, strategy }) {
+export function* fetchList({ url }) {
   const { after, status } = yield select(getList)
 
   if (status === 'fetching') {
     return
   }
 
-  let params = {}
-
-  if (strategy === PUSH) {
-    params = _.assign({}, params, { after: after })
-  }
+  const params = { after: after }
 
   try {
-    yield put(actions.fetchListRequest(strategy))
+    yield put(actions.fetchListRequest())
 
     const channels = yield call(Taringa.url, url, params)
 
-    yield put(actions.fetchListSuccess(channels, strategy))
+    yield put(actions.fetchListSuccess(channels))
   } catch (e) {
     yield put(actions.fetchListFailure(e.message))
   }
