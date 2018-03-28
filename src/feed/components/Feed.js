@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 
@@ -8,12 +9,10 @@ import Summaries from '../../summaries/components/Summaries'
 import { load, clear } from '../../summaries/actions'
 
 const mapStateToProps = (state, ownProps) => {
-  return (
-    state.feed[ownProps.feedId] || {
-      ids: [],
-      status: 'fetching',
-      totalCount: 0,
-    }
+  return _.assign(
+    { ids: [], status: 'fetching', totalCount: 0 },
+    state.feed[ownProps.feedId],
+    { size: state.settings.itemSize }
   )
 }
 
