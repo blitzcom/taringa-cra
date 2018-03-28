@@ -12,6 +12,8 @@ describe('Load comments saga', () => {
 
     it('selects control', result => {
       expect(result).toEqual(select(getCommentsControl, id))
+
+      return {}
     })
 
     it('puts fetch request action', result => {
@@ -37,7 +39,6 @@ describe('Load comments saga', () => {
             comments: { 2: { id: 2 } },
             commentRoot: { [id]: { id, items: [2], before: 3 } },
           },
-          strategy: 'REPLACE',
           id: id,
           result: id,
         })
@@ -55,6 +56,7 @@ describe('Load comments saga', () => {
 
     it('selects control', result => {
       expect(result).toEqual(select(getCommentsControl, id))
+      return {}
     })
 
     it('puts fetch request action', result => {
@@ -80,51 +82,6 @@ describe('Load comments saga', () => {
           message: 'Network Error',
         })
       )
-    })
-  })
-
-  describe('(c) uses PUSH strategy', () => {
-    const id = 'c'
-    const it = sagaHelper(loadComments({ id, strategy: 'PUSH' }))
-
-    it('selects control', result => {
-      expect(result).toEqual(select(getCommentsControl, id))
-
-      return { after: 'c' }
-    })
-
-    it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({
-          type: 'comments/FETCH_REQUEST',
-          id: id,
-        })
-      )
-    })
-
-    it('calls api', result => {
-      expect(result).toEqual(call(Taringa.story.comments, id, { after: 'c' }))
-
-      return { id, items: [{ id: 2 }], before: 3 }
-    })
-
-    it('puts fetch success action', result => {
-      expect(result).toEqual(
-        put({
-          type: 'comments/FETCH_SUCCESS',
-          entities: {
-            comments: { 2: { id: 2 } },
-            commentRoot: { [id]: { id, items: [2], before: 3 } },
-          },
-          strategy: 'PUSH',
-          id: id,
-          result: id,
-        })
-      )
-    })
-
-    it('ends', result => {
-      expect(result).toBeUndefined()
     })
   })
 })

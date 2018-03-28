@@ -5,16 +5,13 @@ import Taringa from '../api'
 import * as actions from './actions'
 import { normalizeComments } from './schemas'
 
-export const getCommentsControl = (state, id) => state.control.commentsFetch[id]
+export const getCommentsControl = (state, id) =>
+  state.control.commentsFetch[id] || {}
 
-export function* loadComments({ id, strategy }) {
+export function* loadComments({ id }) {
   const control = yield select(getCommentsControl, id)
 
-  let params = {}
-
-  if (control && control.after) {
-    params = _.assign({}, params, { after: control.after })
-  }
+  const params = { after: control.after }
 
   try {
     yield put(actions.fetchRequest(id))
@@ -24,7 +21,7 @@ export function* loadComments({ id, strategy }) {
     const action = _.assign(
       {},
       normalizeComments(result, id),
-      actions.fetchSuccess(id, strategy)
+      actions.fetchSuccess(id)
     )
 
     yield put(action)

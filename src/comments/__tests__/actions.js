@@ -10,21 +10,10 @@ describe('Comments actions', () => {
     })
   })
 
-  describe('creates an action to stop fetching comments with success', () => {
-    it('creates default', () => {
-      expect(actions.fetchSuccess(1)).toEqual({
-        type: types.FETCH_SUCCESS,
-        id: 1,
-        strategy: REPLACE,
-      })
-    })
-
-    it('changes strategy', () => {
-      expect(actions.fetchSuccess(1, PUSH)).toEqual({
-        type: types.FETCH_SUCCESS,
-        id: 1,
-        strategy: PUSH,
-      })
+  it('creates an action to stop fetching comments with success', () => {
+    expect(actions.fetchSuccess(1)).toEqual({
+      type: types.FETCH_SUCCESS,
+      id: 1,
     })
   })
 
@@ -36,21 +25,17 @@ describe('Comments actions', () => {
     })
   })
 
-  describe('creates an action to trigger load comments', () => {
-    it('creates default', () => {
-      expect(actions.load(1)).toEqual({
-        type: types.FETCH_TRIGGER,
-        id: 1,
-        strategy: REPLACE,
-      })
+  it('creates an action to trigger load comments', () => {
+    expect(actions.load(1)).toEqual({
+      type: types.FETCH_TRIGGER,
+      id: 1,
     })
+  })
 
-    it('changes strategy', () => {
-      expect(actions.load(1, PUSH)).toEqual({
-        type: types.FETCH_TRIGGER,
-        id: 1,
-        strategy: PUSH,
-      })
+  it('creates an action to clear a comments list', () => {
+    expect(actions.clear(1)).toEqual({
+      type: types.CLEAR,
+      id: 1,
     })
   })
 })
