@@ -52,7 +52,6 @@ describe('Channel actions', () => {
     it('creates an action to start a fetch request', () => {
       expect(actions.fetchListRequest('foo')).toEqual({
         type: types.FETCH_LIST_REQUEST,
-        strategy: 'foo',
       })
     })
 
@@ -73,7 +72,6 @@ describe('Channel actions', () => {
           },
         },
         result: ['foo'],
-        strategy: 'foo',
       })
     })
 

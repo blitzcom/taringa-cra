@@ -6,8 +6,9 @@ exports[`CardDecorator renders 1`] = `
   onClick={[Function]}
 >
   <LazyLoad
+    debounce={true}
     height={100}
-    offset={100}
+    offset={0}
     once={true}
     overflow={false}
     resize={false}
@@ -29,10 +30,15 @@ exports[`CardDecorator renders as a link 1`] = `
   onClick={[Function]}
 >
   <LazyLoad
-    height={64}
-    offset={100}
+    debounce={true}
+    offset={0}
     once={true}
     overflow={false}
+    placeholder={
+      <div
+        className="Card-avatar"
+      />
+    }
     resize={false}
     scroll={true}
     unmountIfInvisible={false}
@@ -44,8 +50,9 @@ exports[`CardDecorator renders as a link 1`] = `
     />
   </LazyLoad>
   <LazyLoad
+    debounce={true}
     height={100}
-    offset={100}
+    offset={0}
     once={true}
     overflow={false}
     resize={false}
@@ -68,10 +75,15 @@ exports[`CardDecorator renders with custom params 1`] = `
   onClick={[Function]}
 >
   <LazyLoad
-    height={64}
-    offset={100}
+    debounce={true}
+    offset={0}
     once={true}
     overflow={false}
+    placeholder={
+      <div
+        className="Card-avatar"
+      />
+    }
     resize={false}
     scroll={true}
     unmountIfInvisible={false}
@@ -83,8 +95,9 @@ exports[`CardDecorator renders with custom params 1`] = `
     />
   </LazyLoad>
   <LazyLoad
+    debounce={true}
     height={100}
-    offset={100}
+    offset={0}
     once={true}
     overflow={false}
     resize={false}

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
+import { compose } from 'recompose'
 
 import infiniteScroll from '../../HOC/FilterableInfiniteScroll'
+import withLoader from '../../HOC/withLoader'
 import ChannelList from './ChannelList'
-import { fetchListTrigger } from '../actions'
-import { PUSH } from '../../constants'
+import { fetchListTrigger, clearList } from '../actions'
 
 const mapStateToProps = state => {
   return state.channels
@@ -11,12 +12,17 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onLoad: () => dispatch(fetchListTrigger(ownProps.url)),
-    onLoadMore: () => dispatch(fetchListTrigger(ownProps.url, PUSH)),
-    onRetry: () => dispatch(fetchListTrigger(ownProps.url, PUSH)),
+    onLoad: () => {
+      dispatch(clearList())
+      dispatch(fetchListTrigger(ownProps.url))
+    },
+    onLoadMore: () => dispatch(fetchListTrigger(ownProps.url)),
+    onRetry: () => dispatch(fetchListTrigger(ownProps.url)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  infiniteScroll()(ChannelList)
-)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  infiniteScroll(),
+  withLoader()
+)(ChannelList)

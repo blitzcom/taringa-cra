@@ -1,64 +1,21 @@
-import _ from 'lodash'
 import React from 'react'
 
 import ChannelCard from './ChannelCardContainer'
 
-const ChannelList = ({ items, onRetry, placeholderCount, status }) => {
-  const isFetching = status === 'fetching'
-  const hasFailure = status === 'failure'
-  const itemsLength = items.length
-
-  const makePlaceholders = () => {
-    const effectiveCount = itemsLength > 0 ? 2 : placeholderCount
-    return _.times(effectiveCount, index => (
-      <div key={index} className="col-12 col-md-6 mb-4">
-        <ChannelCard placeholder={true} />
-      </div>
-    ))
-  }
-
+const ChannelList = ({ items }) => {
   return (
-    <div>
-      {(!hasFailure || itemsLength > 0) && (
-        <div className="row">
-          {items.map(id => (
-            <div key={id} className="col-12 col-md-6 mb-4">
-              <ChannelCard id={id} />
-            </div>
-          ))}
-
-          {isFetching && makePlaceholders()}
+    <div className="row">
+      {items.map(id => (
+        <div key={id} className="col-12 col-md-6 mb-4">
+          <ChannelCard id={id} />
         </div>
-      )}
-
-      {hasFailure && (
-        <div className="row">
-          <div className="col-12">
-            <div className="my-4 text-center">
-              <div className="my-3 text-danger">
-                ¡Ratas! Parece que no estás conectado a internet. Refresca la
-                página o pulsa el siguiente botón.
-              </div>
-
-              <button
-                className="btn btn-outline-primary btn-sm"
-                onClick={onRetry}
-              >
-                Volver a intentar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      ))}
     </div>
   )
 }
 
 ChannelList.defaultProps = {
   items: [],
-  onRetry: () => {},
-  placeholderCount: 6,
-  status: 'fetching',
 }
 
 export default ChannelList

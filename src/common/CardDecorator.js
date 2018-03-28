@@ -40,12 +40,12 @@ const CardDecorator = ({
   return (
     <div {...rest} onClick={handleOnClick} className={classes}>
       {avatar && (
-        <LazyLoad height={64} offset={100} once>
+        <LazyLoad placeholder={<div className="Card-avatar" />} debounce once>
           <img src={avatar} className="Card-avatar rounded" alt="Avatar" />
         </LazyLoad>
       )}
 
-      <LazyLoad height={100} offset={100} once>
+      <LazyLoad height={100} debounce once>
         <img
           alt="Cover"
           className="Card-cover card-img-top"
