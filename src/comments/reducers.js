@@ -1,7 +1,6 @@
 import _ from 'lodash'
 
 import * as types from './types'
-import { PUSH } from '../constants'
 
 export const commentsEntities = (state = {}, action) => {
   if (
@@ -14,35 +13,27 @@ export const commentsEntities = (state = {}, action) => {
   return state
 }
 
-const commentFetchControl = (
-  state = { error: '', items: [], status: 'success', totalCount: 0 },
-  action
-) => {
+const initialState = {
+  error: '',
+  items: [],
+  status: 'success',
+  totalCount: 0,
+}
+
+const commentFetchControl = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
       return _.assign({}, state, { error: '', status: 'fetching' })
     case types.FETCH_SUCCESS:
-      if (action.entities && action.entities.commentRoot) {
-        if (action.strategy === PUSH) {
-          const root = action.entities.commentRoot[action.result]
-
-          return _.assign({}, state, root, {
-            status: 'success',
-            items: _.union(state.items, root.items),
-          })
-        }
-
-        return _.assign({}, state, action.entities.commentRoot[action.result], {
-          status: 'success',
-        })
-      }
-
-      return _.assign({}, state, {
+      const root = action.entities.commentRoot[action.result]
+      return _.assign({}, state, root, {
         status: 'success',
-        items: action.result,
+        items: _.union(state.items, root.items),
       })
     case types.FETCH_FAILURE:
       return _.assign({}, state, { error: action.message, status: 'failure' })
+    case types.CLEAR:
+      return initialState
     default:
       return state
   }
@@ -53,6 +44,7 @@ export const commentsFetchControl = (state = {}, action) => {
     case types.FETCH_REQUEST:
     case types.FETCH_SUCCESS:
     case types.FETCH_FAILURE:
+    case types.CLEAR:
       return _.assign({}, state, {
         [action.id]: commentFetchControl(state[action.id], action),
       })

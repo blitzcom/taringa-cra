@@ -139,67 +139,23 @@ describe('Comments fetch control reducer', () => {
   it('handles FETCH_SUCCESS', () => {
     const action = {
       type: types.FETCH_SUCCESS,
+      entities: {
+        commentRoot: {
+          1: { items: [1, 2, 3, 4] },
+        },
+      },
       id: 1,
-      result: [1, 2, 3, 4, 5],
+      result: 1,
     }
 
     const state = {
-      1: { error: '', items: [], status: 'fetching' },
-      2: { error: '', items: [], status: 'success' },
+      1: { error: '', items: [9, 10], status: 'fetching' },
+      2: { error: '', items: [], status: 'fetching' },
     }
 
     expect(commentsFetchControl(state, action)).toEqual({
-      1: { error: '', items: [1, 2, 3, 4, 5], status: 'success' },
-      2: { error: '', items: [], status: 'success' },
-    })
-  })
-
-  describe('when has commentRoot', () => {
-    it('replaces state', () => {
-      const action = {
-        type: types.FETCH_SUCCESS,
-        entities: {
-          commentRoot: {
-            1: { items: [1, 2, 3, 4] },
-          },
-        },
-        id: 1,
-        result: 1,
-      }
-
-      const state = {
-        1: { error: '', items: [9, 10], status: 'fetching' },
-        2: { error: '', items: [], status: 'fetching' },
-      }
-
-      expect(commentsFetchControl(state, action)).toEqual({
-        1: { error: '', items: [1, 2, 3, 4], status: 'success' },
-        2: { error: '', items: [], status: 'fetching' },
-      })
-    })
-
-    it('appends items when strategy is PUSH', () => {
-      const action = {
-        type: types.FETCH_SUCCESS,
-        entities: {
-          commentRoot: {
-            1: { items: [1, 2, 3, 4] },
-          },
-        },
-        id: 1,
-        result: 1,
-        strategy: 'PUSH',
-      }
-
-      const state = {
-        1: { error: '', items: [9, 10], status: 'fetching' },
-        2: { error: '', items: [], status: 'fetching' },
-      }
-
-      expect(commentsFetchControl(state, action)).toEqual({
-        1: { error: '', items: [9, 10, 1, 2, 3, 4], status: 'success' },
-        2: { error: '', items: [], status: 'fetching' },
-      })
+      1: { error: '', items: [9, 10, 1, 2, 3, 4], status: 'success' },
+      2: { error: '', items: [], status: 'fetching' },
     })
   })
 
@@ -217,6 +173,23 @@ describe('Comments fetch control reducer', () => {
 
     expect(commentsFetchControl(state, action)).toEqual({
       1: { error: 'Network Error', items: [], status: 'failure' },
+      2: { error: '', items: [], status: 'success' },
+    })
+  })
+
+  it('handles CLEAR', () => {
+    const action = {
+      type: types.CLEAR,
+      id: 1,
+    }
+
+    const state = {
+      1: { error: '', items: [1, 2, 3, 4], status: 'fetching' },
+      2: { error: '', items: [], status: 'success' },
+    }
+
+    expect(commentsFetchControl(state, action)).toEqual({
+      1: { error: '', items: [], status: 'success', totalCount: 0 },
       2: { error: '', items: [], status: 'success' },
     })
   })

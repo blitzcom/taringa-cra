@@ -1,15 +1,13 @@
 import * as types from './types'
-import { REPLACE } from '../constants'
 
 export const fetchRequest = id => ({
   type: types.FETCH_REQUEST,
   id: id,
 })
 
-export const fetchSuccess = (id, strategy = REPLACE) => ({
+export const fetchSuccess = id => ({
   type: types.FETCH_SUCCESS,
   id: id,
-  strategy: strategy,
 })
 
 export const fetchFailure = (id, message) => ({
@@ -18,8 +16,12 @@ export const fetchFailure = (id, message) => ({
   message: message,
 })
 
-export const load = (id, strategy = REPLACE) => ({
+export const load = id => ({
   type: types.FETCH_TRIGGER,
   id: id,
-  strategy: strategy,
+})
+
+export const clear = id => ({
+  type: types.CLEAR,
+  id: id,
 })

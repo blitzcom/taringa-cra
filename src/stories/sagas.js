@@ -1,11 +1,10 @@
 import _ from 'lodash'
 import { normalize } from 'normalizr'
-import { call, fork, put, select } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 
 import Taringa from '../api'
 import * as actions from './actions'
 import { story as storySchema } from './schemas'
-import { loadComments } from '../comments/sagas'
 
 export const getStory = (state, id) => state.entities.stories[id]
 
@@ -28,8 +27,6 @@ export function* loadStory({ id }) {
     )
 
     yield put(action)
-
-    yield fork(loadComments, { id })
   } catch (e) {
     yield put(actions.fetchFailure(id, e.message))
   }

@@ -13,7 +13,12 @@ const Story = ({ match }) => {
     <div className="row">
       <div className="col-12 col-lg-8 mb-4 mb-lg-0 order-2 order-lg-1">
         <StoryContent storyId={storyId} />
-        <Comments storyId={storyId} />
+
+        <div className="card my-4">
+          <div className="card-body">
+            <Comments storyId={storyId} />
+          </div>
+        </div>
       </div>
 
       <div className="col-12 col-lg-4 mb-4 mb-lg-0 order-1 order-lg-2">

@@ -1,211 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comments renders default 1`] = `
-<div
-  className="card my-4"
->
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <p
-        className="text-secondary text-center mb-0"
-      >
-        No hay comentarios
-      </p>
-    </div>
-  </div>
-</div>
-`;
+exports[`Comments renders default 1`] = `""`;
 
 exports[`Comments renders listing one 1`] = `
 <div
-  className="card my-4"
+  className="Comments"
 >
-  <div
-    className="card-header bg-transparent"
-  >
-    <h6
-      className="card-title mb-0"
-    >
-      1 comentario
-    </h6>
-  </div>
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <Connect(Comment)
-        id="foo"
-        key="foo"
-      />
-      <p
-        className="text-secondary text-center mb-0"
-      >
-        No hay más comentarios
-      </p>
-    </div>
-  </div>
+  <Connect(Comment)
+    id="foo"
+    key="foo"
+  />
 </div>
 `;
 
 exports[`Comments renders listing two 1`] = `
 <div
-  className="card my-4"
+  className="Comments"
 >
-  <div
-    className="card-header bg-transparent"
-  >
-    <h6
-      className="card-title mb-0"
-    >
-      2 comentarios
-    </h6>
-  </div>
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <Connect(Comment)
-        id="foo"
-        key="foo"
-      />
-      <Connect(Comment)
-        id="bar"
-        key="bar"
-      />
-      <p
-        className="text-secondary text-center mb-0"
-      >
-        No hay más comentarios
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Comments renders listing two and load more 1`] = `
-<div
-  className="card my-4"
->
-  <div
-    className="card-header bg-transparent"
-  >
-    <h6
-      className="card-title mb-0"
-    >
-      2 comentarios
-    </h6>
-  </div>
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <Connect(Comment)
-        id="foo"
-        key="foo"
-      />
-      <Connect(Comment)
-        id="bar"
-        key="bar"
-      />
-      <p
-        className="text-secondary text-center mb-0"
-      >
-        <Loader />
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Comments renders with error 1`] = `
-<div
-  className="card my-4"
->
-  <div
-    className="card-header bg-transparent"
-  >
-    <h6
-      className="card-title mb-0"
-    >
-      1 comentario
-    </h6>
-  </div>
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <Connect(Comment)
-        id="foo"
-        key="foo"
-      />
-      <p
-        className="text-secondary text-center mb-0"
-      />
-      <React.Fragment>
-        <p
-          className="text-center text-danger"
-        >
-          ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
-        </p>
-        <p
-          className="text-center my-0"
-        >
-          <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={[Function]}
-          >
-            Volver a intentar
-          </button>
-        </p>
-      </React.Fragment>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Comments renders with initial error 1`] = `
-<div
-  className="card my-4"
->
-  <div
-    className="card-body"
-  >
-    <div
-      className="Comments"
-    >
-      <p
-        className="text-secondary text-center mb-0"
-      />
-      <React.Fragment>
-        <p
-          className="text-center text-danger"
-        >
-          ¡Ratas! Algo salío mal. Refresca la página o haz clic sobre el siguiente botón.
-        </p>
-        <p
-          className="text-center my-0"
-        >
-          <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={[Function]}
-          >
-            Volver a intentar
-          </button>
-        </p>
-      </React.Fragment>
-    </div>
-  </div>
+  <Connect(Comment)
+    id="foo"
+    key="foo"
+  />
+  <Connect(Comment)
+    id="bar"
+    key="bar"
+  />
 </div>
 `;
