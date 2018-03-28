@@ -1,12 +1,5 @@
 import React, { PureComponent } from 'react'
-
-const Placeholder = () => {
-  return (
-    <p className="text-center text-secondary">
-      <i className="fa fa-circle-notch fa-spin" />
-    </p>
-  )
-}
+import Loader from '../common/Loader'
 
 const Failure = ({ onRetry }) => {
   return (
@@ -20,7 +13,7 @@ const Failure = ({ onRetry }) => {
 }
 
 const withResource = (
-  PlaceholderComponent = Placeholder,
+  PlaceholderComponent = Loader,
   FailureComponente = Failure
 ) => WrappedComponent => {
   class ResourceHOC extends PureComponent {

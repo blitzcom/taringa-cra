@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 
 import './Comments.css'
 import Comment from './CommentContainer'
+import Loader from '../../common/Loader'
 
 const Comments = ({ items, onRetry, status, totalCount }) => {
   const count = items.length
@@ -29,7 +30,7 @@ const Comments = ({ items, onRetry, status, totalCount }) => {
           <p className="text-secondary text-center mb-0">
             {isEmpty && hasSuccess && 'No hay comentarios'}
 
-            {isFetching && <i className="fa fa-circle-notch fa-spin" />}
+            {isFetching && <Loader />}
 
             {!canFetch &&
               !isEmpty &&

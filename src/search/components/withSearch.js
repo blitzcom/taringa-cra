@@ -2,6 +2,7 @@ import React, { Fragment, PureComponent } from 'react'
 import classNames from 'classnames'
 
 import './Tab.css'
+import Loader from '../../common/Loader'
 
 const withSearch = () => BaseComponent => {
   return class Tab extends PureComponent {
@@ -50,7 +51,7 @@ const withSearch = () => BaseComponent => {
               </button>
             )}
 
-            {isFetching && <i className="fa fa-circle-notch fa-spin" />}
+            {isFetching && <Loader />}
 
             {isInitial && <span>Puedes buscar posts, usuarios o canales</span>}
 
