@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders default 1`] = `
+<div
+  className="text-center text-dark"
+>
+  <i
+    className="fa fa-spinner fa-spin"
+  />
+</div>
+`;
+
+exports[`Loader renders with classes 1`] = `
+<div
+  className="text-center text-dark my-4"
+>
+  <i
+    className="fa fa-spinner fa-spin"
+  />
+</div>
+`;
+
+exports[`Loader renders with different size 1`] = `
+<div
+  className="text-center text-dark"
+>
+  <i
+    className="fa fa-spinner fa-spin fa-2x"
+  />
+</div>
+`;

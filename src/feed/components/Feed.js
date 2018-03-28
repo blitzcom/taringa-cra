@@ -37,6 +37,6 @@ const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   infiniteScroll(getStatus, getHasMoreContent, getWillReload),
-  withLoader(),
+  withLoader('my-4', 'fa-2x'),
   withError()
 )(Summaries)
