@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
+import withError from '../../HOC/withError'
 import withLoader from '../../HOC/withLoader'
 import Summaries from '../../summaries/components/Summaries'
 import { load, clear } from '../../summaries/actions'
@@ -36,5 +37,6 @@ const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   infiniteScroll(getStatus, getHasMoreContent, getWillReload),
-  withLoader()
+  withLoader(),
+  withError()
 )(Summaries)
