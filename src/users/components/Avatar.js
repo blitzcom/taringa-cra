@@ -14,7 +14,7 @@ export class Avatar extends PureComponent {
     const fullname = `${firstname} ${lastname}`
 
     return (
-      <LazyLoad offset={100} height={40} once>
+      <LazyLoad offset={100} height={40} debounce once>
         <img
           alt={fullname}
           className="rounded Commentable-avatar"
