@@ -23,7 +23,6 @@ describe('Summaries actions', () => {
       entities: {},
       id: 1,
       result: [],
-      strategy: 'REPLACE',
     })
   })
 

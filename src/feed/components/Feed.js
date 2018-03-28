@@ -2,8 +2,7 @@ import { connect } from 'react-redux'
 
 import infiniteScroll from '../../HOC/InfiniteScroll'
 import Summaries from '../../summaries/components/Summaries'
-import { load } from '../../summaries/actions'
-import { PUSH, REPLACE } from '../../constants'
+import { load, clear } from '../../summaries/actions'
 import { summariesSelector } from '../selectors'
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,9 +11,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, { feedId, url }) => {
   return {
-    onLoad: () => dispatch(load(feedId, url, REPLACE)),
-    onLoadMore: () => dispatch(load(feedId, url, PUSH)),
-    onRetry: () => dispatch(load(feedId, url, PUSH)),
+    onLoad: () => {
+      dispatch(clear(feedId))
+      dispatch(load(feedId, url))
+    },
+    onLoadMore: () => dispatch(load(feedId, url)),
+    onRetry: () => dispatch(load(feedId, url)),
   }
 }
 

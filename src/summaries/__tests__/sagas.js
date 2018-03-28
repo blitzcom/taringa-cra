@@ -7,7 +7,7 @@ import Taringa from '../../api'
 
 describe('Load feed saga', () => {
   describe('(a) loads initial feed', () => {
-    const it = sagaHelper(loadFeed({ id: 1, url: '/', strategy: 'REPLACE' }))
+    const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
 
     it('loads feed state', result => {
       expect(result).toEqual(select(getFeed, 1))
@@ -15,9 +15,7 @@ describe('Load feed saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({ type: 'summaries/FETCH_REQUEST', id: 1, strategy: 'REPLACE' })
-      )
+      expect(result).toEqual(put({ type: 'summaries/FETCH_REQUEST', id: 1 }))
     })
 
     it('calls api', result => {
@@ -33,7 +31,6 @@ describe('Load feed saga', () => {
           entities: {},
           id: 1,
           result: [],
-          strategy: 'REPLACE',
           totalCount: 0,
           type: 'summaries/FETCH_SUCCESS',
         })
@@ -46,7 +43,7 @@ describe('Load feed saga', () => {
   })
 
   describe('(b) loads with push strategy', () => {
-    const it = sagaHelper(loadFeed({ id: 1, url: '/', strategy: 'PUSH' }))
+    const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
 
     it('loads feed state', result => {
       expect(result).toEqual(select(getFeed, 1))
@@ -54,9 +51,7 @@ describe('Load feed saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({ type: 'summaries/FETCH_REQUEST', id: 1, strategy: 'PUSH' })
-      )
+      expect(result).toEqual(put({ type: 'summaries/FETCH_REQUEST', id: 1 }))
     })
 
     it('calls api', result => {
@@ -72,7 +67,6 @@ describe('Load feed saga', () => {
           entities: {},
           id: 1,
           result: [],
-          strategy: 'PUSH',
           totalCount: 0,
           type: 'summaries/FETCH_SUCCESS',
         })
@@ -85,7 +79,7 @@ describe('Load feed saga', () => {
   })
 
   describe('(c) returns failure', () => {
-    const it = sagaHelper(loadFeed({ id: 1, url: '/', strategy: 'REPLACE' }))
+    const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
 
     it('loads feed state', result => {
       expect(result).toEqual(select(getFeed, 1))
@@ -93,9 +87,7 @@ describe('Load feed saga', () => {
     })
 
     it('puts fetch request action', result => {
-      expect(result).toEqual(
-        put({ type: 'summaries/FETCH_REQUEST', id: 1, strategy: 'REPLACE' })
-      )
+      expect(result).toEqual(put({ type: 'summaries/FETCH_REQUEST', id: 1 }))
     })
 
     it('calls api', result => {
