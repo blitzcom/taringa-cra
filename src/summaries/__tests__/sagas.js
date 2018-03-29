@@ -19,7 +19,9 @@ describe('Load feed saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', {}))
+      expect(result).toEqual(
+        call(Taringa.url, '/', { after: undefined, count: 40 })
+      )
       return { after: 'd', before: 'a', items: [], totalCount: 0 }
     })
 
@@ -42,7 +44,7 @@ describe('Load feed saga', () => {
     })
   })
 
-  describe('(b) loads with push strategy', () => {
+  describe('(b) loads with after cursor', () => {
     const it = sagaHelper(loadFeed({ id: 1, url: '/' }))
 
     it('loads feed state', result => {
@@ -55,7 +57,7 @@ describe('Load feed saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', { after: 'a' }))
+      expect(result).toEqual(call(Taringa.url, '/', { after: 'a', count: 40 }))
       return { after: 'd', before: 'a', items: [], totalCount: 0 }
     })
 
@@ -91,7 +93,9 @@ describe('Load feed saga', () => {
     })
 
     it('calls api', result => {
-      expect(result).toEqual(call(Taringa.url, '/', {}))
+      expect(result).toEqual(
+        call(Taringa.url, '/', { after: undefined, count: 40 })
+      )
       return new Error('Network Error')
     })
 

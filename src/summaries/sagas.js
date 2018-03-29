@@ -12,7 +12,7 @@ export function* loadFeed({ id, url, strategy }) {
     return
   }
 
-  const params = { after: feed.after }
+  const params = { after: feed.after, count: 40 }
 
   try {
     yield put(actions.fetchRequest(id))

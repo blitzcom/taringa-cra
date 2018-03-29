@@ -4,10 +4,9 @@ import Loader from '../common/Loader'
 
 const withLoader = (className, size) => BaseComponent => {
   const LoaderHOC = props => {
-    const { items, totalCount, status } = props
+    const { count, status } = props
     const showLoader =
-      status === 'fetching' ||
-      (items.length < totalCount && status !== 'failure')
+      status === 'fetching' || (count !== 0 && status !== 'failure')
 
     return (
       <Fragment>
@@ -18,9 +17,9 @@ const withLoader = (className, size) => BaseComponent => {
   }
 
   LoaderHOC.defaultProps = {
+    count: 0,
     items: [],
     status: 'success',
-    totalCount: 0,
   }
 
   return LoaderHOC
