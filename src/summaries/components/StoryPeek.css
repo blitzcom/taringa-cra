@@ -4,11 +4,6 @@
   margin-top: 1rem;
 }
 
-.StoryPeek img {
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
 .StoryPeek p {
   font-size: 95%;
   margin-bottom: 0.5rem;

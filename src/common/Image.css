@@ -1,16 +1,18 @@
 .Image-wrapper {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   margin: 0 auto 0 0;
   padding: 0;
 }
 
 .Image-placeholder {
   background: #f0f0f0;
-  border-radius: 0.5rem;
   max-width: 100%;
   position: relative;
 }
 
 .Image-source {
+  border-radius: 0.5rem;
   left: 0;
   max-width: 100%;
   position: absolute;
