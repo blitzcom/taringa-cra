@@ -28,7 +28,7 @@ describe('withLoader', () => {
   it('renders loader when has success and has more content', () => {
     const Component = withLoader()(BaseComponent)
     const wrapper = shallow(
-      <Component status="success" totalCount={10} items={[1, 2, 3, 4, 5]} />
+      <Component status="success" count={5} items={[1, 2, 3, 4, 5]} />
     )
 
     expect(wrapper).toMatchSnapshot()
@@ -37,7 +37,7 @@ describe('withLoader', () => {
   it('does not render loader when has success and no more content', () => {
     const Component = withLoader()(BaseComponent)
     const wrapper = shallow(
-      <Component status="success" totalCount={5} items={[1, 2, 3, 4, 5]} />
+      <Component status="success" count={0} items={[1, 2, 3, 4, 5]} />
     )
 
     expect(wrapper).toMatchSnapshot()
@@ -46,7 +46,7 @@ describe('withLoader', () => {
   it('does not render loader when has failure and more content', () => {
     const Component = withLoader()(BaseComponent)
     const wrapper = shallow(
-      <Component status="failure" totalCount={10} items={[1, 2, 3, 4, 5]} />
+      <Component status="failure" count={5} items={[1, 2, 3, 4, 5]} />
     )
 
     expect(wrapper).toMatchSnapshot()
