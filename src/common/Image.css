@@ -1,0 +1,26 @@
+.Image-wrapper {
+  margin: 0 auto 0 0;
+  padding: 0;
+}
+
+.Image-placeholder {
+  background: #f0f0f0;
+  border-radius: 0.5rem;
+  max-width: 100%;
+  position: relative;
+}
+
+.Image-source {
+  left: 0;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.LazyLoad-placeholder {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
