@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image renders default 1`] = `""`;
+
+exports[`Image renders img 1`] = `
+<div
+  className="Image-wrapper"
+  style={
+    Object {
+      "maxWidth": 1000,
+    }
+  }
+>
+  <div
+    className="Image-placeholder"
+    style={
+      Object {
+        "paddingTop": "72%",
+      }
+    }
+  >
+    <LazyLoad
+      debounce={true}
+      offset={0}
+      once={true}
+      overflow={false}
+      placeholder={
+        <div
+          className="LazyLoad-placeholder"
+        />
+      }
+      resize={false}
+      scroll={true}
+      unmountIfInvisible={false}
+    >
+      <img
+        alt="https://placehold.it/1000x720"
+        className="Image-source"
+        src="https://placehold.it/1000x720"
+      />
+    </LazyLoad>
+  </div>
+</div>
+`;
