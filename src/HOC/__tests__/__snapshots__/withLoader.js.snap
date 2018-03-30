@@ -1,37 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`withLoader does not render loader when has failure and more content 1`] = `
+exports[`withLoader adds custom className en size to Loader 1`] = `
 <React.Fragment>
   <BaseComponent
-    count={5}
-    items={
-      Array [
-        1,
-        2,
-        3,
-        4,
-        5,
-      ]
-    }
-    status="failure"
+    count={0}
+    items={Array []}
+    status="success"
+  />
+  <Loader
+    className="foo"
+    size="bar"
   />
 </React.Fragment>
 `;
 
-exports[`withLoader does not render loader when has success and no more content 1`] = `
+exports[`withLoader adds custom className en size to Loader 2`] = `
 <React.Fragment>
   <BaseComponent
     count={0}
-    items={
-      Array [
-        1,
-        2,
-        3,
-        4,
-        5,
-      ]
-    }
+    foo={false}
+    items={Array []}
     status="success"
+  />
+  <Loader
+    className="foo"
+    size="bar"
   />
 </React.Fragment>
 `;
@@ -46,32 +39,25 @@ exports[`withLoader renders default 1`] = `
 </React.Fragment>
 `;
 
-exports[`withLoader renders loader when has success and has more content 1`] = `
+exports[`withLoader renders loader given getShowLoader 1`] = `
 <React.Fragment>
   <BaseComponent
-    count={5}
-    items={
-      Array [
-        1,
-        2,
-        3,
-        4,
-        5,
-      ]
-    }
+    count={0}
+    foo={true}
+    items={Array []}
     status="success"
   />
   <Loader />
 </React.Fragment>
 `;
 
-exports[`withLoader renders loader when is fetching 1`] = `
+exports[`withLoader renders loader given getShowLoader 2`] = `
 <React.Fragment>
   <BaseComponent
     count={0}
+    foo={false}
     items={Array []}
-    status="fetching"
+    status="success"
   />
-  <Loader />
 </React.Fragment>
 `;

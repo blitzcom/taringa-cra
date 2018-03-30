@@ -30,10 +30,13 @@ const mapDispatchToProps = (dispatch, { feedId, url }) => {
 const getStatus = props => props.status
 const getHasMoreContent = ({ items, count }) => count !== 0
 const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
+const getShowLoader = props =>
+  props.status === 'fetching' ||
+  (getHasMoreContent(props) && props.status !== 'failure')
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   infiniteScroll(getStatus, getHasMoreContent, getWillReload),
-  withLoader('my-4', 'fa-2x'),
+  withLoader(getShowLoader, 'my-4', 'fa-2x'),
   withError()
 )(Summaries)

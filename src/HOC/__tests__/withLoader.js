@@ -18,36 +18,24 @@ describe('withLoader', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('renders loader when is fetching', () => {
-    const Component = withLoader()(BaseComponent)
-    const wrapper = shallow(<Component status="fetching" />)
+  it('renders loader given getShowLoader', () => {
+    const Component = withLoader(props => props.foo)(BaseComponent)
+    const wrapper = shallow(<Component foo={true} />)
+
+    expect(wrapper).toMatchSnapshot()
+
+    wrapper.setProps({ foo: false })
 
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('renders loader when has success and has more content', () => {
-    const Component = withLoader()(BaseComponent)
-    const wrapper = shallow(
-      <Component status="success" count={5} items={[1, 2, 3, 4, 5]} />
-    )
+  it('adds custom className en size to Loader', () => {
+    const Component = withLoader(() => true, 'foo', 'bar')(BaseComponent)
+    const wrapper = shallow(<Component />)
 
     expect(wrapper).toMatchSnapshot()
-  })
 
-  it('does not render loader when has success and no more content', () => {
-    const Component = withLoader()(BaseComponent)
-    const wrapper = shallow(
-      <Component status="success" count={0} items={[1, 2, 3, 4, 5]} />
-    )
-
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('does not render loader when has failure and more content', () => {
-    const Component = withLoader()(BaseComponent)
-    const wrapper = shallow(
-      <Component status="failure" count={5} items={[1, 2, 3, 4, 5]} />
-    )
+    wrapper.setProps({ foo: false })
 
     expect(wrapper).toMatchSnapshot()
   })

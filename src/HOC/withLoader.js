@@ -2,11 +2,13 @@ import React, { Fragment } from 'react'
 
 import Loader from '../common/Loader'
 
-const withLoader = (className, size) => BaseComponent => {
+const withLoader = (
+  getShowLoader = () => false,
+  className,
+  size
+) => BaseComponent => {
   const LoaderHOC = props => {
-    const { count, status } = props
-    const showLoader =
-      status === 'fetching' || (count !== 0 && status !== 'failure')
+    const showLoader = getShowLoader(props)
 
     return (
       <Fragment>
