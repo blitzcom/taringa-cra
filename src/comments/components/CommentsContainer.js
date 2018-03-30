@@ -30,11 +30,13 @@ const mapDispatchToProps = (dispatch, { storyId }) => {
 }
 
 const getStatus = props => props.status
-const getHasMoreContent = props => props.items.length < props.totalCount
+const getHasMoreContent = props => props.count >= 20
+const getShowLoader = props =>
+  props.status === 'fetching' || getHasMoreContent(props)
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   infiniteScroll(getStatus, getHasMoreContent),
-  withLoader(),
+  withLoader(getShowLoader),
   withError()
 )(Comments)
