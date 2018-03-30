@@ -16,15 +16,22 @@ export const replies = new schema.Entity(
   }
 )
 
-export const replyRoot = new schema.Entity('replyRoots', {
-  items: [replies],
-})
+export const replyRoot = new schema.Entity(
+  'replyRoots',
+  {
+    items: [replies],
+  },
+  {
+    idAttribute: (entity, parent) => parent.id,
+    processStrategy: entity => _.assign({}, entity, { status: 'success' }),
+  }
+)
 
 export const comment = new schema.Entity(
   'comments',
   {
-    replies: replyRoot,
     owner: user,
+    replies: replyRoot,
   },
   {
     processStrategy,
@@ -36,16 +43,6 @@ export const commentRoot = new schema.Entity('commentRoot', {
 })
 
 export const normalizeComments = (comments, parentId) => {
-  const items = _.map(comments.items, comment => {
-    if (comment.replies) {
-      const replies = _.assign({}, comment.replies, { id: comment.id })
-      return _.assign({}, comment, { replies })
-    }
-
-    return _.assign({}, comment)
-  })
-
-  const prenormalize = _.assign({}, comments, { items: items, id: parentId })
-
+  const prenormalize = _.assign(comments, { id: parentId })
   return normalize(prenormalize, commentRoot)
 }
