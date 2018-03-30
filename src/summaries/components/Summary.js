@@ -1,7 +1,8 @@
 import React, { Fragment, PureComponent } from 'react'
-import { Link } from 'react-router-dom'
 import TimeAgo from 'react-timeago'
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
+import { forceCheck } from 'react-lazyload'
 
 import './Summary.css'
 
@@ -36,7 +37,11 @@ class Summary extends PureComponent {
     const { preview } = this.props
 
     if (preview) {
-      this.setState({ isPreviewOpen: !this.state.isPreviewOpen })
+      this.setState({ isPreviewOpen: !this.state.isPreviewOpen }, () => {
+        if (!this.state.isPreviewOpen) {
+          forceCheck()
+        }
+      })
     }
   }
 
