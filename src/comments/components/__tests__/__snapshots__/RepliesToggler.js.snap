@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Replies Toggler changes message on visibility 1`] = `
+<button
+  className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+  onClick={[Function]}
+>
+  <span>
+    Ver respuesta 
+    <i
+      className="fa fa-chevron-down"
+    />
+  </span>
+</button>
+`;
+
+exports[`Replies Toggler changes message on visibility 2`] = `
+<button
+  className="btn btn-link text-dark Commentable-replies-toggler mb-2"
+  onClick={[Function]}
+>
+  <span>
+    Ocultar respuesta 
+    <i
+      className="fa fa-chevron-up"
+    />
+  </span>
+</button>
+`;
+
+exports[`Replies Toggler renders nothing if totalCount is zero 1`] = `""`;

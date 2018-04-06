@@ -29,3 +29,22 @@ export function* loadComments({ id }) {
     yield put(actions.fetchFailure(id, e.message))
   }
 }
+
+export const getRepliesControl = (state, id) =>
+  state.control.repliesFetch[id] || {}
+
+export function* fetchReplies({ id }) {
+  const control = yield select(getRepliesControl, id)
+
+  const params = { after: control.after }
+
+  try {
+    yield put(actions.fetchRepliesRequest(id))
+
+    const result = yield call(Taringa.comment.byId, id, params)
+
+    yield put(actions.fetchRepliesSuccess(id, result))
+  } catch (e) {
+    yield put(actions.fetchRepliesFailure(id, e.message))
+  }
+}
