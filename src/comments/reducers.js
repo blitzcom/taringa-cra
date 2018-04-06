@@ -82,10 +82,12 @@ export const repliesFetchControl = (state = {}, action) => {
       })
     case types.FETCH_SUCCESS:
       if (action.entities && action.entities.replyRoots) {
-        return action.entities.replyRoots
+        return _.merge({}, state, action.entities.replyRoots)
       }
 
       return state
+    case types.CLEAR:
+      return {}
     default:
       return state
   }
