@@ -30,9 +30,8 @@ const mapDispatchToProps = (dispatch, { feedId, url }) => {
 const getStatus = props => props.status
 const getHasMoreContent = ({ items, count }) => count !== 0
 const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
-const getShowLoader = props =>
-  props.status === 'fetching' ||
-  (getHasMoreContent(props) && props.status !== 'failure')
+const getShowLoader = ({ status, ...rest }) =>
+  status === 'fetching' || (status === 'success' && getHasMoreContent(rest))
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
