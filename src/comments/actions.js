@@ -1,3 +1,7 @@
+import _ from 'lodash'
+import { normalize } from 'normalizr'
+
+import { comment } from './schemas'
 import * as types from './types'
 
 export const fetchRequest = id => ({
@@ -24,4 +28,30 @@ export const load = id => ({
 export const clear = id => ({
   type: types.CLEAR,
   id: id,
+})
+
+// Replies
+
+export const fetchRepliesTrigger = id => ({
+  type: types.FETCH_REPLIES_TRIGGER,
+  id: id,
+})
+
+export const fetchRepliesRequest = id => ({
+  type: types.FETCH_REPLIES_REQUEST,
+  id: id,
+})
+
+export const fetchRepliesSuccess = (id, result) => {
+  return _.assign(
+    {},
+    { type: types.FETCH_REPLIES_SUCCESS, id },
+    normalize(result, comment)
+  )
+}
+
+export const fetchRepliesFailure = (id, message) => ({
+  type: types.FETCH_REPLIES_FAILURE,
+  id: id,
+  message: message,
 })

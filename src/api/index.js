@@ -1,14 +1,16 @@
 import APIBase from './APIBase'
 
+import Channel from './Channel'
+import Comment from './Comment'
+import Search from './Search'
 import Story from './Story'
 import User from './User'
-import Search from './Search'
-import Channel from './Channel'
 
 class API extends APIBase {
   constructor() {
     super()
     this._channel = new Channel()
+    this._comment = new Comment()
     this._search = new Search()
     this._story = new Story()
     this._user = new User()
@@ -28,6 +30,10 @@ class API extends APIBase {
 
   get user() {
     return this._user
+  }
+
+  get comment() {
+    return this._comment
   }
 
   url(pathname, params = {}) {

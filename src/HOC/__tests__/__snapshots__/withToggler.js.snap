@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withToggler renders default 1`] = `
+<React.Fragment>
+  <Toggler
+    isVisible={false}
+    onToggleVisibility={[Function]}
+  />
+</React.Fragment>
+`;
+
+exports[`withToggler shows base componente when visible 1`] = `
+<React.Fragment>
+  <Toggler
+    isVisible={false}
+    onToggleVisibility={[Function]}
+  />
+</React.Fragment>
+`;
+
+exports[`withToggler shows base componente when visible 2`] = `
+<React.Fragment>
+  <Toggler
+    isVisible={true}
+    onToggleVisibility={[Function]}
+  />
+  <BaseComponent />
+</React.Fragment>
+`;
+
+exports[`withToggler shows base componente when visible 3`] = `
+<React.Fragment>
+  <Toggler
+    isVisible={false}
+    onToggleVisibility={[Function]}
+  />
+</React.Fragment>
+`;

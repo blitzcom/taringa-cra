@@ -53,10 +53,40 @@ export const commentsFetchControl = (state = {}, action) => {
   }
 }
 
-export const repliesFetchControl = (state = {}, action) => {
-  if (action.entities && action.entities.replyRoots) {
-    return _.merge({}, state, action.entities.replyRoots)
-  }
+const replyFetchControl = (state, action) => {
+  switch (action.type) {
+    case types.FETCH_REPLIES_REQUEST:
+      return _.assign({}, state, { error: '', status: 'fetching' })
+    case types.FETCH_REPLIES_SUCCESS:
+      const result = action.result || action.id
+      const replyRoot = action.entities.replyRoots[result]
 
-  return state
+      return _.assign({}, state, replyRoot, {
+        status: 'success',
+        items: _.union(state.items, replyRoot.items),
+      })
+    case types.FETCH_REPLIES_FAILURE:
+      return _.assign({}, state, { status: 'failure', error: action.message })
+    default:
+      return state
+  }
+}
+
+export const repliesFetchControl = (state = {}, action) => {
+  switch (action.type) {
+    case types.FETCH_REPLIES_REQUEST:
+    case types.FETCH_REPLIES_SUCCESS:
+    case types.FETCH_REPLIES_FAILURE:
+      return _.assign({}, state, {
+        [action.id]: replyFetchControl(state[action.id], action),
+      })
+    case types.FETCH_SUCCESS:
+      if (action.entities && action.entities.replyRoots) {
+        return _.merge({}, state, action.entities.replyRoots)
+      }
+
+      return state
+    default:
+      return state
+  }
 }
