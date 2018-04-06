@@ -1,0 +1,14 @@
+.Attachment-iframe-wrapper {
+  height: 0;
+  padding-bottom: 56%;
+  position: relative;
+  width: 100%;
+}
+
+.Attachment-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

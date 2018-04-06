@@ -5,10 +5,19 @@ import './Commentable.css'
 import Action from '../../common/Action.js'
 import Avatar from '../../users/components/Avatar'
 import UsernameLink from '../../users/components/UsernameLink'
+import Attachment from './AttachmentContainer'
 
 class Commentable extends PureComponent {
   render() {
-    const { body, children, created, downvotes, owner, upvotes } = this.props
+    const {
+      attachment,
+      body,
+      children,
+      created,
+      downvotes,
+      owner,
+      upvotes,
+    } = this.props
 
     return (
       <div className="Commentable">
@@ -30,6 +39,8 @@ class Commentable extends PureComponent {
             className="Commentable-body"
             dangerouslySetInnerHTML={{ __html: body }}
           />
+
+          {attachment && <Attachment id={attachment} />}
 
           <p className="my-1">
             <Action className="mr-3" icon="far fa-thumbs-up">

@@ -25,11 +25,12 @@ describe('Store', () => {
       filters: {},
       searching: {},
       entities: {
+        channels: {},
+        commentAttachment: {},
         comments: {},
         stories: {},
         summaries: {},
         users: {},
-        channels: {},
       },
       feed: {},
       flash: {},

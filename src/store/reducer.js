@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import { summariesEntities, summariesFetchControl } from '../summaries/reducers'
 import { storiesEntities, storiesFetchControl } from '../stories/reducers'
 import {
+  commentAttachmentEntities,
   commentsEntities,
   commentsFetchControl,
   repliesFetchControl,
@@ -20,6 +21,7 @@ import { filters } from '../filters/reducers'
 
 const entities = combineReducers({
   channels: channelEntities,
+  commentAttachment: commentAttachmentEntities,
   comments: commentsEntities,
   stories: storiesEntities,
   summaries: summariesEntities,
