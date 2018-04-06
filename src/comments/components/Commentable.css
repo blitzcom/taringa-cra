@@ -20,7 +20,7 @@
 
 .Commentable-author {
   margin-bottom: 0;
-  font-size: 90%;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -37,18 +37,12 @@
   color: #a6a6a6;
   font-weight: normal;
   margin-left: 0.5rem;
-}
-
-.Commentable-body img {
-  max-width: 100%;
-}
-
-.Commentable iframe {
-  max-width: 100%;
+  font-size: 13px;
 }
 
 .Commentable-body {
-  font-size: 95%;
+  font-size: 14px;
+  white-space: pre-wrap;
   word-break: break-word;
 }
 
@@ -61,7 +55,7 @@
   padding: 0;
   font-weight: bold;
   text-decoration: none;
-  font-size: 95%;
+  font-size: 14px;
 }
 
 .Commentable-replies-toggler .fa {
