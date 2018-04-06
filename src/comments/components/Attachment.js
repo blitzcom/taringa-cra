@@ -3,10 +3,18 @@ import React from 'react'
 import './Attachment.css'
 
 const ImageAttachment = ({ url }) => {
-  return <img className="img-fluid" src={url} alt={url} />
+  if (url) {
+    return <img className="img-fluid" src={url} alt={url} />
+  }
+
+  return null
 }
 
 const LinkAttachment = ({ videoId }) => {
+  if (!videoId) {
+    return null
+  }
+
   const src = `https://www.youtube.com/embed/${videoId}`
 
   return (
@@ -35,5 +43,7 @@ const Attachment = ({ type, ...rest }) => {
       return <div>Attachment no supported</div>
   }
 }
+
+export { ImageAttachment, LinkAttachment }
 
 export default Attachment

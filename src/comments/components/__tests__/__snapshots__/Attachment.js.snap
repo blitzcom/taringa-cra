@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attachment renders default 1`] = `
+<div>
+  Attachment no supported
+</div>
+`;
+
+exports[`Attachment renders image attachment 1`] = `
+<ImageAttachment
+  url="https://placehold.it/300"
+/>
+`;
+
+exports[`Attachment renders link attachment 1`] = `
+<LinkAttachment
+  videoId="foobar"
+/>
+`;
+
+exports[`Image Attachment renders default 1`] = `""`;
+
+exports[`Image Attachment renders image 1`] = `
+<img
+  alt="https://placehold.it/300"
+  className="img-fluid"
+  src="https://placehold.it/300"
+/>
+`;
+
+exports[`Link Attachment renders default 1`] = `""`;
+
+exports[`Link Attachment renders video 1`] = `
+<div
+  className="Attachment-iframe-wrapper"
+>
+  <iframe
+    allow="autoplay; encrypted-media"
+    allowFullScreen={true}
+    className="Attachment-iframe"
+    frameBorder="0"
+    height="720"
+    src="https://www.youtube.com/embed/foobar"
+    title="https://www.youtube.com/embed/foobar"
+    width="1280"
+  />
+</div>
+`;
