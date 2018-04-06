@@ -92,3 +92,17 @@ export const repliesFetchControl = (state = {}, action) => {
       return state
   }
 }
+
+export const commentAttachmentEntities = (state = {}, action) => {
+  switch (action.type) {
+    case types.CLEAR:
+      return {}
+    case types.FETCH_SUCCESS:
+      if (action.entities && action.entities.commentAttachment) {
+        return _.merge({}, state, action.entities.commentAttachment)
+      }
+    /* falls through */
+    default:
+      return state
+  }
+}
