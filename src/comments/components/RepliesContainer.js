@@ -7,7 +7,7 @@ import Replies from './Replies'
 import { fetchRepliesTrigger } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
-  return state.control.repliesFetch[ownProps.id]
+  return state.control.repliesFetch[ownProps.id] || {}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
