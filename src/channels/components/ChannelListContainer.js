@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 
-import infiniteScroll from '../../HOC/FilterableInfiniteScroll'
+import infiniteScroll from '../../HOC/InfiniteScroll'
 import withError from '../../HOC/withError'
 import withLoader from '../../HOC/withLoader'
 import ChannelList from './ChannelList'
@@ -22,9 +22,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
+const getStatus = props => props.status
+const getHasMoreContent = props => props.count !== 0
+const getWillReload = (props, prevProps) => props.filter !== prevProps.filter
+const getShowLoader = ({ status, ...rest }) =>
+  status === 'fetching' || (status === 'success' && getHasMoreContent(rest))
+
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  infiniteScroll(),
-  withLoader('mb-4', 'fa-2x'),
+  infiniteScroll(getStatus, getHasMoreContent, getWillReload),
+  withLoader(getShowLoader, 'mb-4', 'fa-2x'),
   withError()
 )(ChannelList)

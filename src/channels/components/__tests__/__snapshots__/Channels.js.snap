@@ -34,7 +34,7 @@ exports[`Channels renders 1`] = `
   <div
     className="col-12 col-lg-8"
   >
-    <Connect(FilterableInfiniteScroll)
+    <Connect(InfiniteScroll)
       filter="hot"
       url="/c/list/hot"
     />
