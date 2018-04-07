@@ -70,6 +70,7 @@ class Summary extends PureComponent {
       shares,
       thumbnail,
       title,
+      type,
       upvotes,
     } = this.props
 
@@ -89,6 +90,12 @@ class Summary extends PureComponent {
         />
 
         <div className="StoryRight">
+          {type === 'link' && (
+            <p className="text-secondary small mb-0">
+              <i className="fa fa-retweet mr-1" />
+              {owner} compartió
+            </p>
+          )}
           <StoryTitle>{title}</StoryTitle>
 
           <div className="StoryMeta">

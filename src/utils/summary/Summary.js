@@ -9,10 +9,10 @@ class Summary {
       'keywords',
       'listViewSafe',
       'nsfw',
+      'shared',
       'state',
       'summary',
       'tags',
-      'type',
     ]
   }
 
@@ -76,11 +76,12 @@ class Summary {
 
   build() {
     return {
+      excerpt: this.validateExcerpt(),
       icon: this.getIcon(),
       preview: this.getPreview(),
       thumbnail: this.scaleThumbnail(),
       title: this.getTitle(),
-      excerpt: this.validateExcerpt(),
+      type: this.summary.tags[0],
     }
   }
 }

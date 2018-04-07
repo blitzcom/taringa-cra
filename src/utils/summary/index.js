@@ -2,6 +2,7 @@ import Summary from './Summary'
 
 import Article from './Article'
 import Image from './Image'
+import Link from './Link'
 import Text from './Text'
 
 class Normalizer {
@@ -9,6 +10,7 @@ class Normalizer {
     this.strategies = {
       article: Article,
       image: Image,
+      link: Link,
       text: Text,
     }
   }
