@@ -33,7 +33,7 @@ describe('Load comments saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.story.comments, id, {}))
 
-      return { id, items: [{ id: 2 }], before: 3 }
+      return { id, items: [{ id: 2, body: '' }], before: 3 }
     })
 
     it('puts fetch success action', result => {
@@ -41,7 +41,7 @@ describe('Load comments saga', () => {
         put({
           type: 'comments/FETCH_SUCCESS',
           entities: {
-            comments: { 2: { id: 2 } },
+            comments: { 2: { id: 2, body: '' } },
             commentRoot: { [id]: { id, items: [2], before: 3 } },
           },
           id: id,
@@ -77,7 +77,7 @@ describe('Load comments saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.story.comments, id, { after: 'a' }))
 
-      return { id, items: [{ id: 2 }], before: 3 }
+      return { id, items: [{ id: 2, body: '' }], before: 3 }
     })
 
     it('puts fetch success action', result => {
@@ -85,7 +85,7 @@ describe('Load comments saga', () => {
         put({
           type: 'comments/FETCH_SUCCESS',
           entities: {
-            comments: { 2: { id: 2 } },
+            comments: { 2: { id: 2, body: '' } },
             commentRoot: { [id]: { id, items: [2], before: 3 } },
           },
           id: id,
@@ -158,7 +158,7 @@ describe('Fetch replies saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.comment.byId, id, {}))
 
-      return { id, replies: [], before: 3 }
+      return { id, replies: [], before: 3, body: '' }
     })
 
     it('puts fetch success action', result => {
@@ -166,7 +166,7 @@ describe('Fetch replies saga', () => {
         put({
           type: 'comments/FETCH_REPLIES_SUCCESS',
           entities: {
-            comments: { [id]: { before: 3, id, replies: id } },
+            comments: { [id]: { before: 3, id, replies: id, body: '' } },
             replyRoots: { [id]: { status: 'success' } },
           },
           id: id,
@@ -202,7 +202,7 @@ describe('Fetch replies saga', () => {
     it('calls api', result => {
       expect(result).toEqual(call(Taringa.comment.byId, id, { after: 'a' }))
 
-      return { id, replies: [], before: 3 }
+      return { id, replies: [], before: 3, body: '' }
     })
 
     it('puts fetch success action', result => {
@@ -210,7 +210,7 @@ describe('Fetch replies saga', () => {
         put({
           type: 'comments/FETCH_REPLIES_SUCCESS',
           entities: {
-            comments: { [id]: { before: 3, id, replies: id } },
+            comments: { [id]: { before: 3, id, replies: id, body: '' } },
             replyRoots: { [id]: { status: 'success' } },
           },
           id: id,

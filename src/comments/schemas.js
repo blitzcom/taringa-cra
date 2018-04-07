@@ -1,6 +1,12 @@
 import _ from 'lodash'
 import { schema, normalize } from 'normalizr'
 
+const customTags = [
+  text =>
+    text.replace(/<hashtag tag="(.+?)" \/>/g, '<a href="/hashtags/$1">#$1</a>'),
+  text => text.replace(/<mention user="(.+?)" \/>/g, '<a href="/u/$1">@$1</a>'),
+]
+
 const getYouTubeId = url => {
   return url.match(/watch\?v=(.+?)$/)[1]
 }
@@ -20,7 +26,15 @@ const processAttachment = entity => {
   return _.assign({}, entity)
 }
 
-const processStrategy = entity => _.omit(entity, ['classic', 'state'])
+const processStrategy = entity => {
+  const body = _.reduce(
+    customTags,
+    (text, tag) => (tag ? tag(text) : text),
+    entity.body
+  )
+
+  return _.assign(_.omit(entity, ['classic', 'state']), { body })
+}
 
 const attachment = new schema.Entity(
   'commentAttachment',

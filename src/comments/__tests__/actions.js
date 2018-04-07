@@ -59,6 +59,7 @@ describe('Replies actions', () => {
     const result = {
       after: 'a',
       before: 'b',
+      body: '',
       id: 'foo',
       replies: [],
     }
@@ -70,6 +71,7 @@ describe('Replies actions', () => {
           foo: {
             after: 'a',
             before: 'b',
+            body: '',
             id: 'foo',
             replies: 'foo',
           },
