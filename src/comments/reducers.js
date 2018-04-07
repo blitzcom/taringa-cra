@@ -80,14 +80,14 @@ export const repliesFetchControl = (state = {}, action) => {
       return _.assign({}, state, {
         [action.id]: replyFetchControl(state[action.id], action),
       })
+    case types.CLEAR:
+      return {}
     case types.FETCH_SUCCESS:
       if (action.entities && action.entities.replyRoots) {
         return _.merge({}, state, action.entities.replyRoots)
       }
 
-      return state
-    case types.CLEAR:
-      return {}
+    /* falls through */
     default:
       return state
   }

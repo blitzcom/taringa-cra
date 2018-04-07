@@ -1,4 +1,9 @@
-import { commentsEntities, commentsFetchControl } from '../reducers'
+import {
+  commentAttachmentEntities,
+  commentsEntities,
+  commentsFetchControl,
+  repliesFetchControl,
+} from '../reducers'
 
 import * as types from '../types'
 
@@ -191,6 +196,166 @@ describe('Comments fetch control reducer', () => {
     expect(commentsFetchControl(state, action)).toEqual({
       1: { error: '', items: [], status: 'success', totalCount: 0 },
       2: { error: '', items: [], status: 'success' },
+    })
+  })
+})
+
+describe('Replies Fetch Control', () => {
+  it('exists', () => {
+    expect(repliesFetchControl).toBeDefined()
+  })
+
+  it('returns initial state', () => {
+    expect(repliesFetchControl(undefined, {})).toEqual({})
+  })
+
+  it('handles FETCH_REPLIES_REQUEST', () => {
+    const action = {
+      type: types.FETCH_REPLIES_REQUEST,
+      id: 'foo',
+    }
+
+    const state = {
+      foo: {
+        error: 'foo',
+        status: 'success',
+      },
+    }
+
+    expect(repliesFetchControl(state, action)).toEqual({
+      foo: {
+        error: '',
+        status: 'fetching',
+      },
+    })
+  })
+
+  it('handles FETCH_REPLIES_SUCCESS', () => {
+    const action = {
+      type: types.FETCH_REPLIES_SUCCESS,
+      entities: {
+        replyRoots: {
+          foo: {
+            after: 'a',
+            items: [5, 6, 7, 8],
+          },
+        },
+      },
+      id: 'foo',
+      result: 'foo',
+    }
+
+    const state = {
+      foo: {
+        items: [1, 2, 3, 4],
+        error: '',
+        status: 'fetching',
+      },
+    }
+
+    expect(repliesFetchControl(state, action)).toEqual({
+      foo: {
+        after: 'a',
+        error: '',
+        items: [1, 2, 3, 4, 5, 6, 7, 8],
+        status: 'success',
+      },
+    })
+  })
+
+  it('handles FETCH_REPLIES_FAILURE', () => {
+    const action = {
+      type: types.FETCH_REPLIES_FAILURE,
+      id: 'foo',
+      message: 'Network Error',
+    }
+
+    const state = {
+      foo: {
+        error: '',
+        status: 'fetching',
+      },
+    }
+
+    expect(repliesFetchControl(state, action)).toEqual({
+      foo: {
+        error: 'Network Error',
+        status: 'failure',
+      },
+    })
+  })
+
+  it('handles FETCH_SUCCESS', () => {
+    const action = {
+      type: types.FETCH_SUCCESS,
+      entities: {
+        replyRoots: {
+          foo: { id: 'foo' },
+          bar: { id: 'bar' },
+        },
+      },
+    }
+
+    const state = {}
+
+    expect(repliesFetchControl(state, action)).toEqual({
+      foo: { id: 'foo' },
+      bar: { id: 'bar' },
+    })
+  })
+
+  it('handles CLEAR', () => {
+    const action = {
+      type: types.CLEAR,
+    }
+
+    const state = {
+      foo: { id: 'foo' },
+      bar: { id: 'bar' },
+    }
+
+    expect(repliesFetchControl(state, action)).toEqual({})
+  })
+})
+
+describe('Comment Attachment Entities', () => {
+  it('exists', () => {
+    expect(commentAttachmentEntities).toBeDefined()
+  })
+
+  it('returns initial state', () => {
+    expect(commentAttachmentEntities(undefined, {})).toEqual({})
+  })
+
+  it('handles CLEAR', () => {
+    const action = {
+      type: types.CLEAR,
+    }
+
+    const state = {
+      foo: { id: 'foo' },
+      bar: { id: 'bar' },
+    }
+
+    expect(commentAttachmentEntities(state, action)).toEqual({})
+  })
+
+  it('handles FETCH_SUCCESS', () => {
+    const action = {
+      type: types.FETCH_SUCCESS,
+      entities: {
+        commentAttachment: {
+          foo: { id: 'foo' },
+          bar: { id: 'bar' },
+        },
+      },
+    }
+
+    const state = {}
+
+    expect(commentAttachmentEntities(state, action)).toEqual({
+      foo: { id: 'foo' },
+      bar: { id: 'bar' },
     })
   })
 })

@@ -39,3 +39,57 @@ describe('Comments actions', () => {
     })
   })
 })
+
+describe('Replies actions', () => {
+  it('creates an action to trigger fetching replies', () => {
+    expect(actions.fetchRepliesTrigger('foo')).toEqual({
+      type: types.FETCH_REPLIES_TRIGGER,
+      id: 'foo',
+    })
+  })
+
+  it('creates an action to start fetching replies', () => {
+    expect(actions.fetchRepliesRequest('foo')).toEqual({
+      type: types.FETCH_REPLIES_REQUEST,
+      id: 'foo',
+    })
+  })
+
+  it('creates an action to stop fetching replies with success', () => {
+    const result = {
+      after: 'a',
+      before: 'b',
+      id: 'foo',
+      replies: [],
+    }
+
+    expect(actions.fetchRepliesSuccess('foo', result)).toEqual({
+      type: types.FETCH_REPLIES_SUCCESS,
+      entities: {
+        comments: {
+          foo: {
+            after: 'a',
+            before: 'b',
+            id: 'foo',
+            replies: 'foo',
+          },
+        },
+        replyRoots: {
+          foo: {
+            status: 'success',
+          },
+        },
+      },
+      id: 'foo',
+      result: 'foo',
+    })
+  })
+
+  it('creates an action to stop fetching replies with failure', () => {
+    expect(actions.fetchRepliesFailure('foo', 'Network Error')).toEqual({
+      type: types.FETCH_REPLIES_FAILURE,
+      id: 'foo',
+      message: 'Network Error',
+    })
+  })
+})
