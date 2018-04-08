@@ -8,9 +8,9 @@ import withSearch from './withSearch'
 
 export const ChannelsTab = ({ items }) => {
   return (
-    <div className="card-body row">
+    <div className="card-body row py-0">
       {items.map(id => (
-        <div className="col-12 col-md-6 mb-4" key={id}>
+        <div className="col-12 col-md-6 mt-4" key={id}>
           <ChannelCard id={id} />
         </div>
       ))}

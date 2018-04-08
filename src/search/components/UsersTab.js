@@ -8,7 +8,7 @@ import withSearch from './withSearch'
 
 const UsersTab = ({ items }) => {
   return (
-    <div className="card-body row">
+    <div className="card-body row py-0">
       {items.map(id => <User key={id} id={id} />)}
     </div>
   )

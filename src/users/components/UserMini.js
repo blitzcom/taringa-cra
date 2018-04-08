@@ -9,7 +9,7 @@ export const UserMini = props => {
   const fullname = `${props.firstname} ${props.lastname}`
 
   return (
-    <div className="col-12 col-md-6 mb-4">
+    <div className="col-12 col-md-6 mt-4">
       <div className="card">
         <div className="card-body p-2 d-flex">
           <LazyLoad height={68} offset={100} debounce once>
