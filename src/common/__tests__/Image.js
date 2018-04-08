@@ -14,8 +14,52 @@ describe('Image', () => {
   })
 
   it('renders img', () => {
+    const props = {
+      url: 'https://placehold.it/1000x720',
+      height: 720,
+      width: 1000,
+    }
+
+    const wrapper = shallow(<Image {...props} />)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders centered img', () => {
+    const props = {
+      url: 'https://placehold.it/1000x720',
+      height: 720,
+      width: 1000,
+    }
+
+    const wrapper = shallow(<Image center {...props} />)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders img with rounded borders', () => {
+    const props = {
+      url: 'https://placehold.it/1000x720',
+      height: 720,
+      width: 1000,
+    }
+
+    const wrapper = shallow(<Image center rounded {...props} />)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders custom img', () => {
+    const props = {
+      url: 'https://placehold.it/1000x720',
+      height: 720,
+      width: 1000,
+    }
+
     const wrapper = shallow(
-      <Image url="https://placehold.it/1000x720" height={720} width={1000} />
+      <Image {...props}>
+        <div>foobar</div>
+      </Image>
     )
 
     expect(wrapper).toMatchSnapshot()

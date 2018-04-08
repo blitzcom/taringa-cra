@@ -1,11 +1,12 @@
 import React from 'react'
 
 import './StoryPreview.css'
+import Image from '../../common/Image'
 
-const StoryPreview = ({ url }) => {
+const StoryPreview = props => {
   return (
     <div className="StoryPreview">
-      <img src={url} alt={url} className="img-fluid" />
+      <Image {...props} center />
     </div>
   )
 }
