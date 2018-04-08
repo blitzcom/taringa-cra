@@ -2,7 +2,7 @@
 
 exports[`UserMini renders default 1`] = `
 <div
-  className="col-12 col-md-6 mb-4"
+  className="col-12 col-md-6 mt-4"
 >
   <div
     className="card"

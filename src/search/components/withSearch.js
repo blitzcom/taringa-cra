@@ -34,7 +34,7 @@ const withSearch = () => BaseComponent => {
 
       const slateClass = classNames('card-body text-center', {
         'Tab-slate': !hasResults,
-        'p-2': hasResults,
+        'py-3': hasResults,
       })
 
       return (
