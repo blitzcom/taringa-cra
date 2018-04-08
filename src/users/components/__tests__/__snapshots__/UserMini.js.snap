@@ -11,6 +11,7 @@ exports[`UserMini renders default 1`] = `
       className="card-body p-2 d-flex"
     >
       <LazyLoad
+        debounce={true}
         height={68}
         offset={100}
         once={true}

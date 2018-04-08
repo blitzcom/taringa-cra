@@ -12,7 +12,7 @@ export const UserMini = props => {
     <div className="col-12 col-md-6 mb-4">
       <div className="card">
         <div className="card-body p-2 d-flex">
-          <LazyLoad height={68} offset={100} once>
+          <LazyLoad height={68} offset={100} debounce once>
             <img
               src={props.avatar}
               className="rounded mr-3 border"
