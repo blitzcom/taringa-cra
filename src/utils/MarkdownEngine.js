@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import queryString from 'query-string'
-import YouTube from 'react-youtube'
+import LazyLoad from 'react-lazyload'
 
 import LazyLoadImage from '../common/LazyLoadImage'
 
@@ -44,11 +44,28 @@ class MarkdownEngine {
     }
 
     const id = this.getVideoId(entity.url)
+    const src = `https://www.youtube.com/embed/${id}`
 
     return (
-      <div className="text-center" key={i}>
-        <YouTube key={i} videoId={id} />
-      </div>
+      <LazyLoad
+        debounce
+        key={i}
+        once
+        placeholder={<div className="Attachment-iframe-wrapper" />}
+      >
+        <div className="Attachment-iframe-wrapper">
+          <iframe
+            allow="autoplay; encrypted-media"
+            className="Attachment-iframe"
+            allowFullScreen
+            frameBorder="0"
+            height="720"
+            src={src}
+            title={src}
+            width="1280"
+          />
+        </div>
+      </LazyLoad>
     )
   }
 
@@ -63,6 +80,10 @@ class MarkdownEngine {
       case 'link':
         return this.mapLinkEntity(entity, i)
       default:
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Unknown entity: %s', entity.type)
+        }
+
         return null
     }
   }
