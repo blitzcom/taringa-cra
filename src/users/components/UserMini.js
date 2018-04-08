@@ -5,6 +5,17 @@ import LazyLoad from 'react-lazyload'
 
 import Stat from '../../common/Stat'
 
+const avatarStyle = {
+  img: {
+    height: 68,
+    maxHeight: 68,
+    maxWidth: 68,
+    minHeight: 68,
+    minWidth: 68,
+    width: 68,
+  },
+}
+
 export const UserMini = props => {
   const fullname = `${props.firstname} ${props.lastname}`
 
@@ -12,21 +23,15 @@ export const UserMini = props => {
     <div className="col-12 col-md-6 mb-4">
       <div className="card">
         <div className="card-body p-2 d-flex">
-          <LazyLoad height={68} offset={100} debounce once>
-            <img
-              src={props.avatar}
-              className="rounded mr-3 border"
-              alt={props.username}
-              style={{
-                height: 68,
-                maxHeight: 68,
-                maxWidth: 68,
-                minHeight: 68,
-                minWidth: 68,
-                width: 68,
-              }}
-            />
-          </LazyLoad>
+          <div className="rounded mr-3 border" style={avatarStyle.img}>
+            <LazyLoad height="auto" offset={100} debounce once>
+              <img
+                alt={props.username}
+                className="img-fluid"
+                src={props.avatar}
+              />
+            </LazyLoad>
+          </div>
 
           <div style={{ overflow: 'hidden' }}>
             <h6
