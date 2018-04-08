@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown'
 import queryString from 'query-string'
 import YouTube from 'react-youtube'
 
+import LazyLoadImage from '../common/LazyLoadImage'
+
 class MarkdownEngine {
   constructor() {
     this.mapEntities = this.mapEntities.bind(this)
@@ -55,15 +57,7 @@ class MarkdownEngine {
       case 'markdown':
         return <ReactMarkdown key={i} source={this.preRender(entity.body)} />
       case 'image':
-        return (
-          <img
-            alt={entity.url}
-            height={entity.height}
-            key={i}
-            src={entity.url}
-            width={entity.width}
-          />
-        )
+        return <LazyLoadImage {...entity} key={i} />
       case 'html':
         return <div key={i} dangerouslySetInnerHTML={{ __html: entity.body }} />
       case 'link':
