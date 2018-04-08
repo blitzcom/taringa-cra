@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyLoadImage renders default 1`] = `
+<Image
+  height={1}
+  url="#IMAGE_URL"
+  width={1}
+>
+  <LazyLoad
+    debounce={true}
+    offset={0}
+    once={true}
+    overflow={false}
+    placeholder={
+      <div
+        className="LazyLoad-placeholder"
+      />
+    }
+    resize={false}
+    scroll={true}
+    unmountIfInvisible={false}
+  >
+    <img
+      alt="#IMAGE_URL"
+      className="Image-source rounded"
+      src="#IMAGE_URL"
+    />
+  </LazyLoad>
+</Image>
+`;

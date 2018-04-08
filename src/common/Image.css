@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+.Image-wrapper-center {
+  margin: 0 auto !important;
+}
+
 .Image-placeholder {
   background: #f0f0f0;
   max-width: 100%;
@@ -12,17 +16,8 @@
 }
 
 .Image-source {
-  border-radius: 0.5rem;
   left: 0;
   max-width: 100%;
   position: absolute;
   top: 0;
-}
-
-.LazyLoad-placeholder {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }

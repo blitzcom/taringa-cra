@@ -1,6 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image renders default 1`] = `""`;
+exports[`Image renders centered img 1`] = `
+<div
+  className="Image-wrapper Image-wrapper-center"
+  style={
+    Object {
+      "maxWidth": 1000,
+    }
+  }
+>
+  <div
+    className="Image-placeholder"
+    style={
+      Object {
+        "paddingTop": "72%",
+      }
+    }
+  >
+    <img
+      alt="https://placehold.it/1000x720"
+      className="Image-source"
+      src="https://placehold.it/1000x720"
+    />
+  </div>
+</div>
+`;
+
+exports[`Image renders custom img 1`] = `
+<div
+  className="Image-wrapper"
+  style={
+    Object {
+      "maxWidth": 1000,
+    }
+  }
+>
+  <div
+    className="Image-placeholder"
+    style={
+      Object {
+        "paddingTop": "72%",
+      }
+    }
+  >
+    <div>
+      foobar
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image renders default 1`] = `
+<div
+  className="Image-wrapper"
+  style={
+    Object {
+      "maxWidth": 1,
+    }
+  }
+>
+  <div
+    className="Image-placeholder"
+    style={
+      Object {
+        "paddingTop": "100%",
+      }
+    }
+  >
+    <img
+      alt="#IMAGE_URL"
+      className="Image-source"
+      src="#IMAGE_URL"
+    />
+  </div>
+</div>
+`;
 
 exports[`Image renders img 1`] = `
 <div
@@ -19,26 +93,37 @@ exports[`Image renders img 1`] = `
       }
     }
   >
-    <LazyLoad
-      debounce={true}
-      offset={0}
-      once={true}
-      overflow={false}
-      placeholder={
-        <div
-          className="LazyLoad-placeholder"
-        />
+    <img
+      alt="https://placehold.it/1000x720"
+      className="Image-source"
+      src="https://placehold.it/1000x720"
+    />
+  </div>
+</div>
+`;
+
+exports[`Image renders img with rounded borders 1`] = `
+<div
+  className="Image-wrapper Image-wrapper-center"
+  style={
+    Object {
+      "maxWidth": 1000,
+    }
+  }
+>
+  <div
+    className="Image-placeholder"
+    style={
+      Object {
+        "paddingTop": "72%",
       }
-      resize={false}
-      scroll={true}
-      unmountIfInvisible={false}
-    >
-      <img
-        alt="https://placehold.it/1000x720"
-        className="Image-source"
-        src="https://placehold.it/1000x720"
-      />
-    </LazyLoad>
+    }
+  >
+    <img
+      alt="https://placehold.it/1000x720"
+      className="Image-source rounded"
+      src="https://placehold.it/1000x720"
+    />
   </div>
 </div>
 `;

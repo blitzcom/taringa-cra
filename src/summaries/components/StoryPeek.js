@@ -1,13 +1,13 @@
 import React from 'react'
 
 import './StoryPeek.css'
-import Image from '../../common/Image'
+import LazyLoadImage from '../../common/LazyLoadImage'
 
 const StoryPeek = ({ excerpt, ...rest }) => {
   return (
     <div className="StoryPeek">
       {excerpt && <p>{excerpt}</p>}
-      <Image {...rest} />
+      <LazyLoadImage {...rest} />
     </div>
   )
 }
