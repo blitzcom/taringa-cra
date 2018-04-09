@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryTitle renders 1`] = `
+<p
+  className="StoryTitle"
+  title="foobar"
+>
+  foobar
+</p>
+`;
