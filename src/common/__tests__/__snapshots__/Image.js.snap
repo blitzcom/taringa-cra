@@ -1,31 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image renders centered img 1`] = `
-<div
-  className="Image-wrapper Image-wrapper-center"
-  style={
-    Object {
-      "maxWidth": 1000,
-    }
-  }
->
-  <div
-    className="Image-placeholder"
-    style={
-      Object {
-        "paddingTop": "72%",
-      }
-    }
-  >
-    <img
-      alt="https://placehold.it/1000x720"
-      className="Image-source"
-      src="https://placehold.it/1000x720"
-    />
-  </div>
-</div>
-`;
-
 exports[`Image renders custom img 1`] = `
 <div
   className="Image-wrapper"
@@ -96,32 +70,6 @@ exports[`Image renders img 1`] = `
     <img
       alt="https://placehold.it/1000x720"
       className="Image-source"
-      src="https://placehold.it/1000x720"
-    />
-  </div>
-</div>
-`;
-
-exports[`Image renders img with rounded borders 1`] = `
-<div
-  className="Image-wrapper Image-wrapper-center"
-  style={
-    Object {
-      "maxWidth": 1000,
-    }
-  }
->
-  <div
-    className="Image-placeholder"
-    style={
-      Object {
-        "paddingTop": "72%",
-      }
-    }
-  >
-    <img
-      alt="https://placehold.it/1000x720"
-      className="Image-source rounded"
       src="https://placehold.it/1000x720"
     />
   </div>

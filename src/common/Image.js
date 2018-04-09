@@ -1,19 +1,10 @@
 import React from 'react'
-import classNames from 'classnames'
 
 import './Image.css'
 
-const Image = ({ center, children, height, rounded, url, width }) => {
-  const wrapperClasses = classNames('Image-wrapper', {
-    'Image-wrapper-center': center,
-  })
-
-  const imgClasses = classNames('Image-source', {
-    rounded: rounded,
-  })
-
+const Image = ({ children, height, url, width }) => {
   return (
-    <div className={wrapperClasses} style={{ maxWidth: width }}>
+    <div className="Image-wrapper" style={{ maxWidth: width }}>
       <div
         className="Image-placeholder"
         style={{ paddingTop: `${height / width * 100}%` }}
@@ -21,7 +12,7 @@ const Image = ({ center, children, height, rounded, url, width }) => {
         {children ? (
           children
         ) : (
-          <img src={url} alt={url} className={imgClasses} />
+          <img src={url} alt={url} className="Image-source" />
         )}
       </div>
     </div>
