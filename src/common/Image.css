@@ -1,12 +1,8 @@
 .Image-wrapper {
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  border: 1px solid #f0f0f0;
   margin: 0 auto 0 0;
   padding: 0;
-}
-
-.Image-wrapper-center {
-  margin: 0 auto !important;
 }
 
 .Image-placeholder {
@@ -20,4 +16,10 @@
   max-width: 100%;
   position: absolute;
   top: 0;
+}
+
+.StoryPreview .Image-wrapper {
+  border-radius: 0;
+  border: none;
+  margin: 0 auto !important;
 }
