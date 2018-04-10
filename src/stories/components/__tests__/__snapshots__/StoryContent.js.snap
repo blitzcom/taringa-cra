@@ -2,23 +2,38 @@
 
 exports[`Story Content renders 1`] = `
 <div
-  className="StoryContent-ph card"
+  className="card Story-body"
 >
   <div
-    className="StoryContent-animated-background"
+    className="card-body"
   >
-    <div
-      className="StoryContent-title-gap ph"
-    />
-    <div
-      className="StoryContent-subtitle-gap ph"
-    />
-    <div
-      className="StoryContent-content-gap ph"
-    />
-    <div
-      className="StoryContent-meta-extra ph"
-    />
+    <h4
+      className="card-title "
+    >
+      #TITLE
+    </h4>
+    #CONTENT
+  </div>
+  <div
+    className="card-footer bg-light"
+  >
+    <Action
+      className="mr-4"
+      icon="fa fa-arrow-up"
+    >
+      0
+    </Action>
+    <Action
+      className="mr-4"
+      icon="fa fa-arrow-down"
+    >
+      0
+    </Action>
+    <Action
+      icon="far fa-comment"
+    >
+      0
+    </Action>
   </div>
 </div>
 `;

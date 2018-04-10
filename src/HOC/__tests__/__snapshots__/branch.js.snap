@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`branch renders BaseComponent if none are truthy 1`] = `
+<BaseComponent
+  foo="baz"
+/>
+`;
+
+exports[`branch renders base componente when has no args 1`] = `
+<BaseComponent
+  foo="foo"
+/>
+`;
+
+exports[`branch renders the first truthy branch (first) 1`] = `
+<renderComponent(HighComponent)
+  foo="foo"
+/>
+`;
+
+exports[`branch renders the first truthy branch (second) 1`] = `
+<renderComponent(LowComponent)
+  foo="bar"
+/>
+`;
