@@ -3,23 +3,7 @@ import React from 'react'
 import './StoryContent.css'
 import Action from '../../common/Action'
 
-const StoryContent = ({
-  control: { status },
-  story: { comments, content, downvotes, title, upvotes },
-}) => {
-  if (status === 'fetching') {
-    return (
-      <div className="StoryContent-ph card">
-        <div className="StoryContent-animated-background">
-          <div className="StoryContent-title-gap ph" />
-          <div className="StoryContent-subtitle-gap ph" />
-          <div className="StoryContent-content-gap ph" />
-          <div className="StoryContent-meta-extra ph" />
-        </div>
-      </div>
-    )
-  }
-
+const StoryContent = ({ comments, content, downvotes, title, upvotes }) => {
   return (
     <div className="card Story-body">
       <div className="card-body">
@@ -42,8 +26,31 @@ const StoryContent = ({
 }
 
 StoryContent.defaultProps = {
-  control: { status: 'fetching' },
-  story: { comments: [], content: null, downvotes: 0, title: '', upvotes: 0 },
+  comments: 0,
+  content: '#CONTENT',
+  downvotes: 0,
+  title: '#TITLE',
+  upvotes: 0,
+}
+
+StoryContent.Loader = () => {
+  return (
+    <div className="card Story-body">
+      <div className="card-body py-5 my-5 text-center">
+        <i className="fa fa-spinner fa-spin fa-2x" />
+      </div>
+    </div>
+  )
+}
+
+StoryContent.Failure = () => {
+  return (
+    <div className="card Story-body">
+      <div className="card-body text-center text-danger">
+        ¡Ratas! Algo salío mal. Intenta recargar la página.
+      </div>
+    </div>
+  )
 }
 
 export default StoryContent
