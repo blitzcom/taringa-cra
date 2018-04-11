@@ -28,6 +28,11 @@ export default compose(
     componentDidMount() {
       this.props.fetch()
     },
+    componentDidUpdate(prevProps) {
+      if (this.props.username !== prevProps.username) {
+        this.props.fetch()
+      }
+    },
   }),
   branch(
     [({ status }) => status === 'fetching', renderComponent(Loader)],
