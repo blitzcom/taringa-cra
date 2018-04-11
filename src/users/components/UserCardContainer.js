@@ -1,31 +1,19 @@
-import React, { Component } from 'react'
+import _ from 'lodash'
 import { connect } from 'react-redux'
+import { compose, lifecycle, pure, renderComponent } from 'recompose'
 
+import branch from '../../HOC/branch'
+import Loader from '../../common/Loader'
+import Failure from '../../common/Failure'
 import UserCard from './UserCard'
-import { userSelector, userControlSelector } from '../selectors'
 import { fetchTrigger } from '../actions'
 
-class UserCardContainer extends Component {
-  componentDidMount() {
-    this.props.fetch()
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.username !== prevProps.username) {
-      this.props.fetch()
-    }
-  }
-
-  render() {
-    return <UserCard {...this.props} />
-  }
-}
-
 const mapStateToProps = (state, ownProps) => {
-  return {
-    control: userControlSelector(state, ownProps),
-    user: userSelector(state, ownProps),
-  }
+  return _.assign(
+    {},
+    state.control.usersFetch[ownProps.username] || { status: 'fetching' },
+    state.entities.users[ownProps.username] || {}
+  )
 }
 
 const mapDispatchToProps = (dispatch, { username }) => {
@@ -34,4 +22,16 @@ const mapDispatchToProps = (dispatch, { username }) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserCardContainer)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  lifecycle({
+    componentDidMount() {
+      this.props.fetch()
+    },
+  }),
+  branch(
+    [({ status }) => status === 'fetching', renderComponent(Loader)],
+    [({ status }) => status === 'failure', renderComponent(Failure)]
+  ),
+  pure
+)(UserCard)
