@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom'
 
 import CardDecorator from '../../common/CardDecorator'
 
-export const UserCard = ({ control, user }) => {
+const UserCard = ({
+  avatar,
+  firstname,
+  lastname,
+  message,
+  status,
+  username,
+}) => {
   return (
-    <CardDecorator
-      avatar={user.avatar}
-      placeholder={control.status === 'fetching'}
-    >
+    <CardDecorator avatar={avatar} placeholder={status === 'fetching'}>
       <div className="card-body">
         <h5 className="card-title">
-          {user.firstname} {user.lastname}
+          {firstname} {lastname}
         </h5>
 
-        <Link to={`/u/${user.username}`}>
-          <h6 className="card-subtitle">@{user.username}</h6>
+        <Link to={`/u/${username}`}>
+          <h6 className="card-subtitle">@{username}</h6>
         </Link>
 
-        <p className="card-text mt-3 mb-4">{user.message}</p>
+        <p className="card-text mt-3 mb-4">{message}</p>
 
         <button className="btn btn-primary btn-block font-weight-bold mb-3">
           SEGUIR
@@ -34,14 +38,12 @@ export const UserCard = ({ control, user }) => {
 }
 
 UserCard.defaultProps = {
-  control: { status: 'fetching' },
-  user: {
-    avatar: 'avatar',
-    firstname: 'firstname',
-    lastname: 'lastname',
-    username: 'usernmae',
-    message: 'message',
-  },
+  avatar: '#AVATAR',
+  firstname: '#FIRSTNAME',
+  lastname: '#LASTNAME',
+  message: '#MESSAGE',
+  status: 'success',
+  username: '#USERNAME',
 }
 
 export default UserCard

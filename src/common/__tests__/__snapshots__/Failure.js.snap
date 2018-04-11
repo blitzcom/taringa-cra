@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Failure renders 1`] = `
+<div
+  className="text-center text-danger"
+>
+  <p>
+    ¡Ratas! Algo salío mal. Intenta recargar la página
+  </p>
+</div>
+`;
