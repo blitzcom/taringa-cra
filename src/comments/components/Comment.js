@@ -1,18 +1,19 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import Replies from './RepliesContainer'
-import Commentable from './Commentable'
+import Commentable from './CommentableContainer'
 
-class Comment extends PureComponent {
-  render() {
-    const { replies } = this.props
-
-    return (
-      <Commentable {...this.props}>
-        {replies && <Replies id={replies} />}
-      </Commentable>
-    )
-  }
+const Comment = ({ id }) => {
+  return (
+    <div>
+      <Commentable id={id} />
+      {id && (
+        <div className="Comment-replies">
+          <Replies id={id} />
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default Comment

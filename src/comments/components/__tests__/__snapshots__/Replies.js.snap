@@ -4,11 +4,11 @@ exports[`Replies renders default 1`] = `Array []`;
 
 exports[`Replies renders with items 1`] = `
 Array [
-  <Connect(Reply)
+  <Connect(pure(Commentable))
     id="foo"
     key="foo"
 />,
-  <Connect(Reply)
+  <Connect(pure(Commentable))
     id="bar"
     key="bar"
 />,
