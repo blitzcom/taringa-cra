@@ -2,3 +2,8 @@
   background: transparent;
   border-color: transparent;
 }
+
+.Comment-replies {
+  margin-left: calc(40px + 1rem);
+  margin-bottom: 1rem;
+}

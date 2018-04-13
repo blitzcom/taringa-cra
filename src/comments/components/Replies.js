@@ -2,10 +2,10 @@ import React from 'react'
 import { compose } from 'recompose'
 
 import withLoadMore from '../../HOC/withLoadMore'
-import Reply from './ReplyContainer'
+import Commentable from './CommentableContainer'
 
 export const Replies = ({ items }) => {
-  return items.map(i => <Reply key={i} id={i} />)
+  return items.map(i => <Commentable key={i} id={i} />)
 }
 
 Replies.defaultProps = {

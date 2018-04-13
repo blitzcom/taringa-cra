@@ -1,18 +1,12 @@
 import React from 'react'
 
 import './Comments.css'
-import Comment from './CommentContainer'
+import Comment from './Comment'
 
 const Comments = ({ items }) => {
-  if (items.length > 0) {
-    return (
-      <div className="Comments">
-        {items.map(i => <Comment key={i} id={i} />)}
-      </div>
-    )
-  }
-
-  return null
+  return (
+    <div className="Comments">{items.map(i => <Comment key={i} id={i} />)}</div>
+  )
 }
 
 Comments.defaultProps = {

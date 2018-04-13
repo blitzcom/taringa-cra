@@ -1,6 +1,5 @@
 .Commentable {
   display: flex;
-  margin-bottom: 1rem;
 }
 
 .Commentable .btn-light {

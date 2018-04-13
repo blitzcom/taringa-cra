@@ -21,7 +21,7 @@ describe('Comment', () => {
   })
 
   it('renders with replies', () => {
-    const wrapper = shallow(<Comment comment={{ replies: 'foo' }} />)
+    const wrapper = shallow(<Comment id="foo" />)
 
     expect(wrapper).toMatchSnapshot()
   })

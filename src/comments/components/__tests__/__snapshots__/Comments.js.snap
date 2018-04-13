@@ -1,12 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comments renders default 1`] = `""`;
+exports[`Comments renders default 1`] = `
+<div
+  className="Comments"
+/>
+`;
 
 exports[`Comments renders listing one 1`] = `
 <div
   className="Comments"
 >
-  <Connect(Comment)
+  <Comment
     id="foo"
     key="foo"
   />
@@ -17,11 +21,11 @@ exports[`Comments renders listing two 1`] = `
 <div
   className="Comments"
 >
-  <Connect(Comment)
+  <Comment
     id="foo"
     key="foo"
   />
-  <Connect(Comment)
+  <Comment
     id="bar"
     key="bar"
   />
